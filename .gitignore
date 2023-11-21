@@ -1,0 +1,56 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/BILLSYSTEM.CLIENT/dist
+/BILLSYSTEM.CLIENT/tmp
+/BILLSYSTEM.CLIENT/out-tsc
+/BILLSYSTEM.CLIENT/bazel-out
+BILLSYSTEM.API/IntegratedDigitalAPI/wwwroot/DatabaseBackup/
+BILLSYSTEM.API/IntegratedDigitalAPI/wwwroot/DatabaseBackup/DB_CUSTOMER-2023-11-20.bak
+
+/BILLSYSTEM.API/IntegratedDigitalAPI/wwwroot/DatabaseBackup/
+/BILLSYSTEM.API/IntegratedDigitalAPI/wwwroot/DatabaseBackup/DB_CUSTOMER-2023-11-20.bak
+
+# Node
+BILLSYSTEM.CLIENT/node_modules
+BILLSYSTEM.CLIENT/npm-debug.log
+BILLSYSTEM.CLIENT/yarn-error.log
+
+# IDEs and editors
+/BILLSYSTEM.CLIENT/.idea/
+/BILLSYSTEM.CLIENT/.project
+/BILLSYSTEM.CLIENT.classpath
+/BILLSYSTEM.CLIENT/.c9/
+/BILLSYSTEM.CLIENT/*.launch
+/BILLSYSTEM.CLIENT/.settings/
+/BILLSYSTEM.CLIENT/*.sublime-workspace
+
+# Visual Studio Code
+/BILLSYSTEM.CLIENT/.vscode/*
+/BILLSYSTEM.CLIENT/!.vscode/settings.json
+/BILLSYSTEM.CLIENT/!.vscode/tasks.json
+/BILLSYSTEM.CLIENT/!.vscode/launch.json
+/BILLSYSTEM.CLIENT/!.vscode/extensions.json
+/BILLSYSTEM.CLIENT/.history/*
+
+# Miscellaneous
+/BILLSYSTEM.CLIENT/.angular/cache
+/BILLSYSTEM.CLIENT/.sass-cache/
+/BILLSYSTEM.CLIENT/connect.lock
+/BILLSYSTEM.CLIENT/coverage
+/BILLSYSTEM.CLIENT/libpeerconnection.log
+/BILLSYSTEM.CLIENT/testem.log
+/BILLSYSTEM.CLIENT/typings
+
+# System files
+/BILLSYSTEM.CLIENT/.DS_Store
+/BILLSYSTEM.CLIENT/Thumbs.db
+
+#API
+/BILLSYSTEM.API/IntegratedDigitalAPI/.vs/
+/BILLSYSTEM.API/IntegratedDigitalAPI/Infrustructure/bin
+/BILLSYSTEM.API/IntegratedDigitalAPI/Infrustructure/obj
+/BILLSYSTEM.API/IntegratedDigitalAPI/IntegratedDigitalAPI/bin
+/BILLSYSTEM.API/IntegratedDigitalAPI/IntegratedDigitalAPI/obj
+/BILLSYSTEM.API/IntegratedDigitalAPI/IntegratedImplementation/bin
+/BILLSYSTEM.API/IntegratedDigitalAPI/IntegratedImplementation/obj
