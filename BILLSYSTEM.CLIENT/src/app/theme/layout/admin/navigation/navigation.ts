@@ -98,42 +98,42 @@ const NavigationItems = [
             id: 'data',
             title: 'Home',
             type: 'item',       
-            url: '/system-control/home',           
+            url: '/customer-service/home',           
             breadcrumbs: false
           },
           {
-            id: 'data',
-            title: 'Setups',
+            id: 'setup',
+            title: 'Setup',
             type: 'item',       
-            url: '/system-control/data',           
+            url: '/customer-service/setup',           
             breadcrumbs: false
           },
           
           {
-            id: 'data',
+            id: 'customer',
             title: 'Customers',
             type: 'item',
            
-            url: '/system-control/maintain',
+            url:'/customer-service/customer' ,
          
             breadcrumbs: false
           },
           
           {
-            id: 'setup',
-            title: 'Services',
+            id: 'report',
+            title: 'Reports',
             type: 'item',       
-            url: '/system-control/setup',        
+            url: '/customer-service/report',        
+            breadcrumbs: false
+          },
+          {
+            id: 'bill-report',
+            title: 'Bill Report',
+            type: 'item',       
+            url: '/customer-service/bill-report',        
             breadcrumbs: false
           },
           
-          {
-            id: 'setting',
-            title: 'Reports',
-            type: 'item',         
-            url: '/system-control/setting',     
-            breadcrumbs: false
-          }
         ]
       },
       {
