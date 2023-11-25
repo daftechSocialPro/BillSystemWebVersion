@@ -1,4 +1,5 @@
-﻿using IntegratedInfrustructure.Model.HRM;
+﻿using IntegratedInfrustructure.Model.CSS;
+using IntegratedInfrustructure.Model.HRM;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace IntegratedInfrustructure.Data
         : base(options)
         {
         }
+
+        public DbSet<Customer> Customers { get; set; } 
 
 
 

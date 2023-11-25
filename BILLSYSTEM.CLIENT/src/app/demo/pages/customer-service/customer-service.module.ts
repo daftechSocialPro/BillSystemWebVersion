@@ -6,15 +6,21 @@ import { CssSetupComponent } from './css-setup/css-setup.component';
 import { CssCustomerComponent } from './css-customer/css-customer.component';
 import { CssReportComponent } from './css-report/css-report.component';
 import { CssBillReportComponent } from './css-bill-report/css-bill-report.component';
+import { AddCssCustomerComponent } from './css-customer/add-css-customer/add-css-customer.component';
+import { FormsModule } from '@angular/forms';
+import { CssImportComponent } from './css-customer/css-import/css-import.component';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 @NgModule({
   declarations: [    
-    CssHomeComponent, CssSetupComponent, CssCustomerComponent, CssReportComponent, CssBillReportComponent
+    CssHomeComponent, CssSetupComponent, CssCustomerComponent, CssReportComponent, CssBillReportComponent, AddCssCustomerComponent, CssImportComponent, 
   ],
   imports: [
     CommonModule,
-    CustomerServiceRoutingModule
+    FormsModule,
+    CustomerServiceRoutingModule,
+    PaginatorModule,
     
   ]
 })

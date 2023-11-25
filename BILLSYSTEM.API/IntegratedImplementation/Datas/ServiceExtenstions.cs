@@ -1,9 +1,11 @@
 ﻿using Implementation.Interfaces.Authentication;
 using Implementation.Services.Authentication;
 using IntegratedImplementation.Interfaces.Configuration;
+using IntegratedImplementation.Interfaces.CustomerService;
 using IntegratedImplementation.Interfaces.HRM;
 using IntegratedImplementation.Interfaces.SystemControl;
 using IntegratedImplementation.Services.Configuration;
+using IntegratedImplementation.Services.CustomerService;
 using IntegratedImplementation.Services.HRM;
 using IntegratedImplementation.Services.SystemControl;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,10 +48,15 @@ namespace IntegratedImplementation.Datas
 
             //services.AddScoped<IVillageService, VillageService>();
             //services.AddScoped<IMeterOriginService, MeterOriginService>();
-          
+
 
 
             #endregion
+
+            #region Customer-Service
+            services.AddScoped<ICustomerService, CustomerService>();
+            #endregion
+
 
             return services;
         }

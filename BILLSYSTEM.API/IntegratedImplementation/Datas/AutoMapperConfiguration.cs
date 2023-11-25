@@ -15,6 +15,8 @@ using IntegratedInfrustructure.Model.SCS;
 using IntegratedImplementation.DTOS.SystemControl;
 using IntegratedInfrustructure.Model.SRC;
 using IntegratedImplementation.Interfaces.SystemControl;
+using IntegratedInfrustructure.Model.CSS;
+using IntegratedImplementation.DTOS.CustomerService;
 
 namespace IntegratedImplementation.Datas
 {
@@ -52,7 +54,25 @@ namespace IntegratedImplementation.Datas
             CreateMap<FiscalMonth, FiscalMonthDto>();
             CreateMap<PenalityRate, PenalityRateDto>();
             CreateMap<AccountPeriod, AccountPeriodDto>();
-           
+
+
+            #region cusomer-service
+
+            CreateMap<Customer, CustomerGetDto>()
+
+               .ForMember(a => a.ContractNo, e => e.MapFrom(mfg => mfg.ContractNo))
+               .ForMember(a => a.customerName, e => e.MapFrom(mfg => mfg.customerName))
+               .ForMember(a => a.regMonthIndex, e => e.MapFrom(mfg => mfg.regMonthIndex))
+               .ForMember(a => a.regFiscalYear, e => e.MapFrom(mfg => mfg.regFiscalYear))
+               .ForMember(a => a.custCategoryCode, e => e.MapFrom(mfg => mfg.custCategoryCode))
+               .ForMember(a => a.MeterSizeCode, e => e.MapFrom(mfg => mfg.MeterSizeCode))
+               .ForMember(a => a.meterno, e => e.MapFrom(mfg => mfg.meterno));
+
+              
+
+
+            #endregion
+
 
 
 

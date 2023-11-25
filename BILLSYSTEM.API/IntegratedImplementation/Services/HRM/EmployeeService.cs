@@ -115,7 +115,8 @@ namespace IntegratedImplementation.Services.HRM
 
         public async Task<List<EmployeeGetDto>> GetEmployees()
         {
-            var employeeList = await _dbContext.Employees.AsNoTracking()
+            var employeeList = 
+                await _dbContext.Employees.AsNoTracking()
                                     .ProjectTo<EmployeeGetDto>(_mapper.ConfigurationProvider)
                                     .ToListAsync();
             return employeeList;
