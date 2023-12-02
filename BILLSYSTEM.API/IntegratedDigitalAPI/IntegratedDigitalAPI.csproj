@@ -34,6 +34,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\DatabaseBackup\" />
     <Folder Include="wwwroot\BillTemplates\" />
+    <Folder Include="wwwroot\MobileUsers\" />
     <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 

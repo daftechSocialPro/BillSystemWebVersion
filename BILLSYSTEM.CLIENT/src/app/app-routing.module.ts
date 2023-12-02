@@ -44,6 +44,10 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/system-control/system-control.module').then((m) => m.SystemControlModule)
 
 
+      },
+      {
+        path: 'dwm',
+        loadChildren: () => import('./demo/pages/dwm/dwm.module').then((m) => m.DwmModule)
       },    
       {
         path: 'customer-service',

@@ -69,6 +69,7 @@ namespace IntegratedImplementation.DTOS.CustomerService
 
         public int? regFiscalYear { get; set; }
         public int? regMonthIndex { get; set; }
+        public string custId { get; set; }  
         public string customerName { get; set; }
         public string ContractNo { get; set; }
         public string custCategoryCode { get; set; }

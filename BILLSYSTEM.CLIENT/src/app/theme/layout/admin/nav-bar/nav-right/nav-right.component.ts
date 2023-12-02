@@ -16,7 +16,7 @@ export class NavRightComponent implements OnInit {
   ngOnInit(): void {
 
     this.currentUser = this.userService.getCurrentUser()
-    console.log("uuuuuuuuuuuuuuuuuuuuuuuuuuu",this.currentUser)
+   
     
   }
 

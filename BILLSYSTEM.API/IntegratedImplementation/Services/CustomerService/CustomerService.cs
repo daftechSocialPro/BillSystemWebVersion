@@ -47,6 +47,7 @@ namespace IntegratedImplementation.Services.CustomerService
                             regMonthIndex = cus.regMonthIndex,
                             ContractNo = cus.ContractNo,
                             customerName = cus.customerName,
+                            custId = cus.custId,
                             custCategoryCode = customerCategory.custCategoryName,                            
                             MeterSizeCode = meterSizeCode.meterSizeName,
                             meterno =cus.meterno

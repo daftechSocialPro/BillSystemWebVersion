@@ -110,4 +110,6 @@ export class AddEmployeeComponent implements OnInit {
 
     this.activeModal.close()
   }
+
+  
 }

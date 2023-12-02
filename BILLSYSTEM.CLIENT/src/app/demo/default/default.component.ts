@@ -28,6 +28,7 @@ export type ChartOptions = {
   grid: ApexGrid;
   tooltip: ApexTooltip;
   stroke: ApexStroke;
+  labels:any
 };
 
 @Component({
@@ -54,12 +55,13 @@ export default class DefaultComponent {
   ngOnInit(): void {
 
     this.getAccountPeriod()
-    this.getMonths()
+    
   }
   getAccountPeriod(){
     this.controlService.getAccountPeriod().subscribe({
       next:(res)=>{
         this.accountPeriod=res
+        this.getMonths()
       }
     })
   }

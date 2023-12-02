@@ -1,6 +1,11 @@
 ﻿using Implementation.Interfaces.Authentication;
 using Implementation.Services.Authentication;
 using IntegratedImplementation.Interfaces.Configuration;
+using IntegratedImplementation.Interfaces.DWM;
+using IntegratedImplementation.Interfaces.HRM;
+using IntegratedImplementation.Interfaces.SystemControl;
+using IntegratedImplementation.Services.Configuration;
+using IntegratedImplementation.Services.DWM;
 using IntegratedImplementation.Interfaces.CustomerService;
 using IntegratedImplementation.Interfaces.HRM;
 using IntegratedImplementation.Interfaces.SystemControl;
@@ -50,6 +55,19 @@ namespace IntegratedImplementation.Datas
             //services.AddScoped<IMeterOriginService, MeterOriginService>();
 
 
+
+
+            #endregion
+
+
+            #region dwm
+
+            services.AddScoped<IMobileUsersService, MobileUsersService>();
+            services.AddScoped<IMobileAppReadingService, MobileAppReadingService>();
+            services.AddScoped<IQRCodeGenerateService, QRCodeGenerateService>();
+            services.AddScoped<IDWMDashboardService, DWMDashboardService>();
+            services.AddScoped<ICustomerCollectedService, CustomerCollectedService>();
+            services.AddScoped<IDWMReportService, DWMReportService>();
 
             #endregion
 

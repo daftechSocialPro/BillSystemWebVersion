@@ -15,6 +15,8 @@ using IntegratedInfrustructure.Model.SCS;
 using IntegratedImplementation.DTOS.SystemControl;
 using IntegratedInfrustructure.Model.SRC;
 using IntegratedImplementation.Interfaces.SystemControl;
+using IntegratedInfrustructure.Model.DWM;
+using IntegratedImplementation.DTOS.DWM;
 using IntegratedInfrustructure.Model.CSS;
 using IntegratedImplementation.DTOS.CustomerService;
 
@@ -54,6 +56,18 @@ namespace IntegratedImplementation.Datas
             CreateMap<FiscalMonth, FiscalMonthDto>();
             CreateMap<PenalityRate, PenalityRateDto>();
             CreateMap<AccountPeriod, AccountPeriodDto>();
+
+            #region DWM
+            CreateMap<MobileUsers, MobileUsersDto>();
+            CreateMap<MobileAppReading, MobileAppReadingDto>();
+            CreateMap<BillToMobileView, MobileAppReading>()
+            .ForMember(a => a.PrevReading, e => e.MapFrom(mfg => mfg.Previous))
+            .ForMember(a => a.AvgReading, e => e.MapFrom(mfg => mfg.avgReading))
+            .ForMember(a => a.OrdinaryNo, e => e.MapFrom(mfg => mfg.OrdinaryNo.ToString()))
+            ;
+            
+            #endregion
+
 
 
             #region cusomer-service
