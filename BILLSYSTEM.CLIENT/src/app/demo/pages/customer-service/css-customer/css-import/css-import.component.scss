@@ -10,13 +10,19 @@
 .displaycontent{
     display: flex;
     justify-content: center;
-    gap: 80px;
-    align-items: center;
+    // gap: 80px;
+    // align-items: center;
 }
 .checckbox{
-    max-width: 800px;
+    max-width: 1000px;
 display: flex;
-justify-content: center;
+justify-content: space-between;
+align-items: center;
+gap: 60px;
+}
+.formcheck{
+    display: flex;
+justify-content: space-between;
 align-items: center;
 gap: 60px;
 }

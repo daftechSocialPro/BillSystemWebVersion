@@ -3,7 +3,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 import { ScsDataService } from 'src/app/services/system-control/scs-data.service';
 import { IPenalityRateDto } from 'src/models/system-control/IPenalityRateDto';
-import { AddMeterRateComponent } from '../../../scs-maintain/scs-rate/meter-rate/add-meter-rate/add-meter-rate.component';
 import { AddPenalityRateComponent } from './add-penality-rate/add-penality-rate.component';
 
 @Component({
@@ -13,13 +12,13 @@ import { AddPenalityRateComponent } from './add-penality-rate/add-penality-rate.
 })
 export class PenlityRateComponent implements OnInit {
 
-  MeterRates:IPenalityRateDto[]
+  PenalityRates:IPenalityRateDto[]
   first: number = 0;
   rows: number = 5;
-  paginationMeterRate:IPenalityRateDto[];
+  paginationPenalityRate:IPenalityRateDto[];
   ngOnInit(): void {
 
-    this.getMeterRates()
+    this.getPenalityRates()
     
   }
 
@@ -30,29 +29,29 @@ export class PenlityRateComponent implements OnInit {
     private controlService:ScsDataService){}
 
 
-  getMeterRates(){
+  getPenalityRates(){
 
     this.controlService.getPenalityRates().subscribe({
       next:(res)=>{
         console.log(res)
-        this.MeterRates = res 
-        this.paginatedMeterRate()
+        this.PenalityRates = res 
+        this.paginatedPenalityRate()
       }
     })
   }
 
-  addMeterRate(){
+  addPenalityRate(){
 
 
     let modalRef = this.modalService.open(AddPenalityRateComponent,  {size:'lg',backdrop:'static'})
 
     modalRef.result.then(()=>{
-      this.getMeterRates()
+      this.getPenalityRates()
     })
 
   }
 
-  removeMeterRate(PenalityRateId:number) {
+  removePenalityRate(PenalityRateId:number) {
 
     console.log(PenalityRateId)
     this.confirmationService.confirm({
@@ -65,7 +64,7 @@ export class PenlityRateComponent implements OnInit {
 
             if (res.success) {
               this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: res.message });
-              this.getMeterRates()
+              this.getPenalityRates()
             }
             else {
               this.messageService.add({ severity: 'error', summary: 'Rejected', detail: res.message });
@@ -95,25 +94,25 @@ export class PenlityRateComponent implements OnInit {
   }
 
   
-  updateMeterRate(PenalityRateId:number){
+  updatePenalityRate(PenalityRateId:number){
 
 
-    let modalRef = this.modalService.open(AddMeterRateComponent,  {size:'lg',backdrop:'static'})
+    let modalRef = this.modalService.open(AddPenalityRateComponent,  {size:'lg',backdrop:'static'})
 
     modalRef.componentInstance.recordNo=PenalityRateId
 
     modalRef.result.then(()=>{
-      this.getMeterRates()
+      this.getPenalityRates()
     })  }
 
 
     onPageChange(event: any ) {
       this.first = event.first;
       this.rows = event.rows;
-      this.paginatedMeterRate();
+      this.paginatedPenalityRate();
     }
-    paginatedMeterRate() {
-      this.paginationMeterRate= this.MeterRates.slice(this.first, this.first + this.rows);
+    paginatedPenalityRate() {
+      this.paginationPenalityRate= this.PenalityRates.slice(this.first, this.first + this.rows);
     }
   
 
