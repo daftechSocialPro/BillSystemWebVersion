@@ -32,6 +32,9 @@ import { UserRoleComponent } from './demo/pages/users/user-role/user-role.compon
 import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { DatePipe } from '@angular/common';
+
 
 // import { ConsTariffComponent } from './cons-tariff/cons-tariff.component'
 @NgModule({
@@ -54,12 +57,21 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     UpdateEmployeeComponent, 
     AddUserComponent, 
     UserRoleComponent, 
-    AutoCompleteComponent,   
+    AutoCompleteComponent,    
      
   
 
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, HttpClientModule, ToastModule, DropdownModule,ConfirmDialogModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    SharedModule, 
+    BrowserAnimationsModule, 
+    HttpClientModule, 
+    ToastModule, 
+    DropdownModule,
+    ConfirmDialogModule,
+    NgApexchartsModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -68,7 +80,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     },
     MessageService,
     NavigationItem,
-    ConfirmationService
+    ConfirmationService,
+    DatePipe
   
   ],
   bootstrap: [AppComponent]

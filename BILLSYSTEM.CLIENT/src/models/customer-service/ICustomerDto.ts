@@ -4,7 +4,7 @@ export interface ICustomerDto {
     userID: string
     fiscalYear: number
     monthIndex: number
-    custID: number
+    custId: string
     regFiscalYear?: number
     regMonthIndex?: number
     customerName: string
@@ -56,4 +56,5 @@ export interface ICustomerDto {
     modifyBy: string
     modifyDate: Date
     dataSynched: string
+    selected ?:boolean
 }

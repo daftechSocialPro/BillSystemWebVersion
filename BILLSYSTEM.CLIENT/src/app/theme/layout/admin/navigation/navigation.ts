@@ -138,100 +138,63 @@ const NavigationItems = [
       },
       {
         id: 'Authentication',
-        title: 'Bill Produce',
+        title: 'DWM',
         type: 'collapse',
         icon: 'ti ti-report',
         children: [
           {
-            id: 'data',
+            id: 'home1',
             title: 'Home',
             type: 'item',       
-            url: '/system-control/home',           
+            url: '/dwm/home',           
             breadcrumbs: false
           },
           {
-            id: 'data',
-            title: 'Data',
+            id: 'mobile-user',
+            title: 'Mobile Users Mgmt',
             type: 'item',       
-            url: '/system-control/data',           
+            url: '/dwm/mobile-users-mgmt',           
+            breadcrumbs: false
+          },
+
+          
+          {
+            id: 'qr-code',
+            title: 'Generate QR Code',
+            type: 'item',       
+            url: '/dwm/qr-code',        
             breadcrumbs: false
           },
           
           {
-            id: 'data',
-            title: 'Maintain',
+            id: 'reading-sheet',
+            title: 'Reading Sheet',
+            type: 'item',       
+            url: '/dwm/reading-sheet',        
+            breadcrumbs: false
+          },
+          
+          {
+            id: 'reader-tracking',
+            title: 'Reader Tracking',
             type: 'item',
            
-            url: '/system-control/maintain',
+            url: '/dwm/reader-tracking',
          
             breadcrumbs: false
           },
           
-          {
-            id: 'setup',
-            title: 'Setup',
-            type: 'item',       
-            url: '/system-control/setup',        
-            breadcrumbs: false
-          },
           
           {
-            id: 'setting',
-            title: 'Setting',
+            id: 'reports',
+            title: 'Reports ',
             type: 'item',         
-            url: '/system-control/setting',     
+            url: '/dwm/report',     
             breadcrumbs: false
           }
         ]
       },
-      {
-        id: 'Authentication',
-        title: 'Online Bill Print',
-        type: 'collapse',
-        icon: 'ti ti-book',
-        children: [
-          {
-            id: 'data',
-            title: 'Home',
-            type: 'item',       
-            url: '/system-control/home',           
-            breadcrumbs: false
-          },
-          {
-            id: 'data',
-            title: 'Data',
-            type: 'item',       
-            url: '/system-control/data',           
-            breadcrumbs: false
-          },
-          
-          {
-            id: 'data',
-            title: 'Maintain',
-            type: 'item',
-           
-            url: '/system-control/maintain',
-         
-            breadcrumbs: false
-          },
-          
-          {
-            id: 'setup',
-            title: 'Setup',
-            type: 'item',       
-            url: '/system-control/setup',        
-            breadcrumbs: false
-          },
-          
-          {
-            id: 'setting',
-            title: 'Setting',
-            type: 'item',         
-            url: '/system-control/setting',     
-            breadcrumbs: false
-          }
-        ]
-      },
+    
     ]
   },
   

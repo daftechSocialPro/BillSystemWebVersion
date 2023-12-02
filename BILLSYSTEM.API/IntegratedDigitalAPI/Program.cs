@@ -113,8 +113,9 @@ app.UseDeveloperExceptionPage();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
+  
     app.UseSwagger();
-    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Integrated Digital Platforms"); c.InjectStylesheet("/swagger-ui/SwaggerDark.css"); });
+    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Integrated Digital Platforms"); c.InjectStylesheet("/swagger-ui/SwaggerDark.css");c.DisplayRequestDuration(); });
 
 }
 app.UseHttpsRedirection();

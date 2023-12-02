@@ -268,3 +268,10 @@ $background-color_1: var(--bs-body-color);
 	color: #8155d2!important;	
 	font-size: 15px;
 }
+
+.leaflet-popup  .leaflet-zoom-animated{
+	min-width: 550px!important;
+}
+.leaflet-popup-content-wrapper{
+	min-width: 550px!important;
+}
