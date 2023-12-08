@@ -265,6 +265,88 @@
                 </div>
 
             </div>
+            <hr />
+            <h4>Reader Info.</h4>
+            <hr />
+            <!-- location -->
+            <div class="row form-input ">
+                <div class="col-md-4 mb-3 ">
+                    <select class="form-select" id="ReaderName" formControlName="ReaderName">
+                        <option value="">Reader Name</option>
+                        <option value="kebele1"> Nahom</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3 ">
+                    <select class="form-select" id="PaymentPlace" formControlName="paymentPlace">
+                        <option value="">Payment Place</option>
+                        <option value="kebele1">Ketena 1</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3 ">
+                    <select class="form-select" id="PaymentDuration">
+                        <option value="">Paymnet Duration</option>
+                        <option value="kebele1">Ketena 1</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Attitude"
+                        formControlName="meterAltitude">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Longitude"
+                        formControlName="meterLongitude">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="MeterModel">
+                            <!-- <option value="">Village</option> -->
+                            <option *ngFor="let item of meterClass" [value]="item.inputValues">
+                                {{item.inputValues}}</option>
+                        </select>
+                        <label for="floatingInput">Meter Class</label>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="MeterModel">
+                            <!-- <option value="">Village</option> -->
+                            <option *ngFor="let item of waterSource" [value]="item.inputValues">
+                                {{item.inputValues}}</option>
+                        </select>
+                        <label for="floatingInput">Water Source</label>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Start Reading"
+                        formControlName="meterStartReading">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Swerage Paid"
+                        formControlName="sdPaid">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Online Sales Group"
+                        formControlName="onlineGroup">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Bill Sales Group"
+                        formControlName="billSalesGroup">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Payment Mode"
+                        formControlName="paymentMode">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Bank Name"
+                        formControlName="bankCode">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Account Number"
+                        formControlName="accountNo">
+                </div>
+            </div>
 
         </div>
 

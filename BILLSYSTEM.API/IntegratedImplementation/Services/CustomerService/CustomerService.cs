@@ -26,6 +26,8 @@ namespace IntegratedImplementation.Services.CustomerService
         private readonly DBGeneralContext _dbGeneralContext;
 
         private readonly IMapper _mapper;
+        private object _dbContext;
+
         public CustomerService(DBCustomerContext dbCustomerContext, DBGeneralContext dbGeneralContext
            , IMapper mapper)
         {
@@ -59,11 +61,8 @@ namespace IntegratedImplementation.Services.CustomerService
                       }).ToList();
 
 
-
-
-
             return customerResults;
-            ;
+;
         }
 
 

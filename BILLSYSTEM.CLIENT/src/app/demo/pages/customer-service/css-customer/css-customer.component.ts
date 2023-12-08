@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddCssCustomerComponent } from './add-css-customer/add-css-customer.component';
 import { CssImportComponent } from './css-import/css-import.component';
-import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 import { CssCustomerService } from 'src/app/services/customer-service/css-customer.service';
 import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
+import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 
 @Component({
   selector: 'app-css-customer',
@@ -13,17 +13,17 @@ import { DetailCustomerComponent } from './detail-customer/detail-customer.compo
   styleUrls: ['./css-customer.component.scss']
 })
 export class CssCustomerComponent implements OnInit  {
-  Customer:ICustomerDto[]
+  Customer:ICustomerGetDto[]
 
   displaySelectOption: boolean = false;
   selectedOption: string = '';
   
-  filterdInterface:ICustomerDto[]=[]
+  filterdInterface:ICustomerGetDto[]=[]
   totlRecords:number =0
   searchText: string = '';
   first: number = 0;
   rows: number = 5;
-  paginationCustomer:ICustomerDto[]=[];
+  paginationCustomer:ICustomerGetDto[]=[];
 
   constructor(private modalService : NgbModal,
     
@@ -90,7 +90,7 @@ export class CssCustomerComponent implements OnInit  {
     })
 
   }
-  onPageChange(event: any,gInterface?:ICustomerDto[] ) {
+  onPageChange(event: any,gInterface?:ICustomerGetDto[] ) {
     this.first = event.first;
     this.rows = event.rows;
     if(gInterface){
@@ -99,7 +99,7 @@ export class CssCustomerComponent implements OnInit  {
     this.paginatedCustomer(this.Customer);
     }
   }
-  paginatedCustomer(ginterfces:ICustomerDto[]) {
+  paginatedCustomer(ginterfces:ICustomerGetDto[]) {
     this.totlRecords =ginterfces.length
     this.paginationCustomer= ginterfces.slice(this.first, this.first + this.rows);
   }

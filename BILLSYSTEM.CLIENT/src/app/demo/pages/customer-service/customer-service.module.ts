@@ -23,7 +23,8 @@ import { DetailCustomerComponent } from './css-customer/detail-customer/detail-c
     ReactiveFormsModule,
     CustomerServiceRoutingModule,
     PaginatorModule,
-    
+    ReactiveFormsModule,
+
   ]
 })
 export class CustomerServiceModule { }

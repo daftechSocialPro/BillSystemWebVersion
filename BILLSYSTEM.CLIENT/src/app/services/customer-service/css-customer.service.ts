@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { UserService } from '../user.service';
 import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
 import { ResponseMessage } from 'src/models/ResponseMessage.Model';
+import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,17 @@ export class CssCustomerService {
 
   //customer
   getCustomer() {
-    return this.http.get<ICustomerDto[]>(this.baseUrl + "/Customer/GetCustomeres")
+    return this.http.get<ICustomerGetDto[]>(this.baseUrl + "/Customer/GetCustomeres")
+  }
+  getCustomerForUpdate(contractNo: string) {
+    return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)
+  }
+
+
+  addCustomer(addcustomer: ICustomerDto) {
+
+    return this.http.post<ResponseMessage>(this.baseUrl + "/Customer/AddCustomer", addcustomer)
+    // /api/Customer/AddCustomer
   }
   getSingleCustomer(contractNo:string) {
     return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetSingleCustomer?contractNo=${contractNo}`)

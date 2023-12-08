@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MessageService } from 'primeng/api';
@@ -6,7 +6,7 @@ import { CssCustomerService } from 'src/app/services/customer-service/css-custom
 import { DWMService } from 'src/app/services/dwm/dwm.service';
 import { ScsDataService } from 'src/app/services/system-control/scs-data.service';
 import { ScsMaintainService } from 'src/app/services/system-control/scs-maintain.service';
-import { ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
+import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
 import { IMobileUsersDto } from 'src/models/dwm/IMobileUsersDto';
 import { IAccountPeriodDto } from 'src/models/system-control/IAccountPeriod';
 import { IBillEmpDutiesDto } from 'src/models/system-control/IBillEmpDutiesDto';
@@ -42,6 +42,21 @@ export class AddCssCustomerComponent implements OnInit {
 
   months: IFiscalMonthDto[]
 
+  @Input() contractNo: string
+  Customer: ICustomerDto
+  CustomerForm!: FormGroup;
+ 
+  ketena: IKetenaDto[]
+  kebele: IKebelesDto[]
+  village: IGeneralSettingDto[]
+  billCycle: IGeneralSettingDto[]
+  meterSize: IMeterSizeDto[]
+  meterType: IGeneralSettingDto[]
+  meterDigit: IGeneralSettingDto[]
+  countryOrgin: IGeneralSettingDto[]
+  meterModel: IGeneralSettingDto[]
+  meterClass:IGeneralSettingDto[]
+  waterSource: IGeneralSettingDto[]
   constructor(
     private activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
