@@ -1,4 +1,5 @@
-﻿using IntegratedImplementation.DTOS.CustomerService;
+﻿using Implementation.Helper;
+using IntegratedImplementation.DTOS.CustomerService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,12 @@ namespace IntegratedImplementation.Interfaces.CustomerService
     {
 
         public Task<List<CustomerGetDto>> GetCustomers();
+
+        public Task <CustomerGetDto> GetSingleCustomer(string contractNo);
+
+        public Task<ResponseMessage> AddCustomer(CustomerPostDto customerPost);
+
+
+        public Task<ResponseMessage> DeleteCustomer (string contractNo);
     }
 }

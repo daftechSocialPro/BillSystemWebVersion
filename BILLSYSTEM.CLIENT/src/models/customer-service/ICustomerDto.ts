@@ -1,7 +1,7 @@
 
-export interface ICustomerDto {
 
-    recordno: number
+export interface ICustomerDto {
+    yyyrecordno: number
     userID: string
     fiscalYear: number
     monthIndex: number
@@ -9,53 +9,75 @@ export interface ICustomerDto {
     regFiscalYear?: number
     regMonthIndex?: number
     customerName: string
-    Ketena: string
-    Kebele: string
-    HouseNo: string
-    Village: string
-    Telephone: string
-    Mobile: string
-    BookNo: string
-    AccountNo: string
+    ketena: string
+    kebele: string
+    houseNo: string
+    village: string
+    telephone: string
+    mobile: string
+    bookNo: string
+    accountNo: string
     contractNo: string
-    OrdinaryNo?: number
+    ordinaryNo?: number
     custCategoryCode: string
     meterno: string
     meterSizeCode: string
-    MeterType: string
-    MeterDigit: number
-    MeterCountryOrigin: string
-    MeterModel: string
-    InstallationDate?: Date
-    MeterStartReading: number
-    MeterAltitude?: number
-    MeterLongitude?: number
+    meterType: string
+    meterDigit: number
+    meterCountryOrigin: string
+    meterModel: string
+    installationDate?: Date
+    meterStartReading: number
+    meterAltitude?: number
+    meterLongitude?: number
     sdPaid: string
-    MeterClass: string
-    WaterSource: string
-    MeterStatus: string
-    RegDate: Date
-    ReaderName: string
-    PaymentPlace: string
-    PaymentDuration: string
-    PaymentMode: string
-    BillSalesGroup: string
-    OnlineGroup: string
-    BankCode: string
-    BankAccount: string
-    TrasnferBY: string
-    BillOfficerId: string
-    TransferMI?: number
-    TransferDT: string
-    Field01: string
-    Field02: string
-    Field03: number
-    Field04?: number
+    meterClass: string
+    waterSource: string
+    meterStatus: string
+    regDate: Date
+    readerName: string
+    paymentPlace: string
+    paymentDuration: string
+    paymentMode: string
+    billSalesGroup: string
+    onlineGroup: string
+    bankCode: string
+    bankAccount: string
+    transferBy: string
+    billOfficerId: string
+    transferMI?: number
+    transferDT: string
+    field01: string
+    field02: string
+    field03: number
+    field04?: number
     enterBy: string
     enterDate?: Date
     modifyBy: string
     modifyDate: Date
-    DataSynched: string
+    dataSynched: string
+    selected?: boolean
+    } 
 
-    selected ?:boolean
+export interface ICustomerPostDto{
+    fullName: string;
+    phoneNumber: string;
+    ketena: string;
+    kebele: string;
+    readerName:string
+    village: string;
+    mapNumber: string;
+    houseNumber: string;
+    billCycle: string;
+    customerCategory: string;
+    contractNo: string;
+    ordinaryNo: string;
+    meterNo: string;
+    meterSize: string;
+    installationDate: Date;
+    updateInitial: string;
+    startReading: number;
+    sweragePaid : string ;
+    monthIndex : number
+    fiscalYear : number 
 }

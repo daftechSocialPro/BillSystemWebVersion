@@ -1,4 +1,6 @@
-﻿using IntegratedImplementation.DTOS.CustomerService;
+﻿using Implementation.Helper;
+using IntegratedImplementation.DTOS.CustomerService;
+using IntegratedImplementation.DTOS.DWM;
 using IntegratedImplementation.DTOS.SystemControl;
 using IntegratedImplementation.Interfaces.CustomerService;
 using IntegratedImplementation.Interfaces.SystemControl;
@@ -26,6 +28,28 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
         public async Task<IActionResult> GetCustomeres()
         {
             return Ok(await _customerService.GetCustomers());
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> CreateBasicData(CustomerPostDto customerPost)
+        {
+            return Ok(await _customerService.AddCustomer(customerPost));
+        }
+
+
+        [HttpGet]
+        [ProducesResponseType(typeof(CustomerGetDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetSingleCustomer(string contractNo)
+        {
+            return Ok(await _customerService.GetSingleCustomer(contractNo) );
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> DeleteCustomer(string contractNo)
+        {
+            return Ok(await _customerService.DeleteCustomer(contractNo));
         }
     }
 }

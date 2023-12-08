@@ -41,9 +41,9 @@ export class ReadingLogComponent implements OnInit {
 
     this.dwmService.getReadingLog(this.selectedMonth, this.year).subscribe({
 
-      next:(res)=>{
-        this.readingLogs =res 
-        this.paginatedReadingLogs = res 
+      next: (res) => {
+        this.readingLogs = res
+        this.paginateReadingLogs()
       }
 
     })
@@ -53,11 +53,11 @@ export class ReadingLogComponent implements OnInit {
   onPageChange(event: any) {
     this.first = event.first;
     this.rows = event.rows;
-    this.paginateCustomerCategories();
+    this.paginateReadingLogs();
   }
 
 
-  paginateCustomerCategories() {
+  paginateReadingLogs() {
     this.paginatedReadingLogs = this.readingLogs.slice(this.first, this.first + this.rows);
   }
 

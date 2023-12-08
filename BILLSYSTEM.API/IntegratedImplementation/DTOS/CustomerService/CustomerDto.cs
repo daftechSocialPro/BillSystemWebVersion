@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,8 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public DateTime modifyDate { get; set; }
         public string Remarks { get; set; }
         public string DataSynched { get; set; }
+
+        
     }
 
     public record CustomerGetDto
@@ -69,11 +72,38 @@ namespace IntegratedImplementation.DTOS.CustomerService
 
         public int? regFiscalYear { get; set; }
         public int? regMonthIndex { get; set; }
-        public string custId { get; set; }  
+        public string custId { get; set; }
         public string customerName { get; set; }
         public string ContractNo { get; set; }
         public string custCategoryCode { get; set; }
         public string meterno { get; set; }
         public string MeterSizeCode { get; set; }
+    }
+
+    public record CustomerPostDto
+    {
+       
+        public string FullName { get; set; }     
+        public string PhoneNumber { get; set; }
+        public string Ketena { get; set; }            
+        public string Kebele { get; set; }      
+        public string Village { get; set; }   
+        public string ReaderName { get; set; }
+        public string MapNumber { get; set; }     
+        public string HouseNumber { get; set; }     
+        public string BillCycle { get; set; }
+        public string CustomerCategory { get; set; }      
+        public string ContractNo { get; set; }
+        public int? OrdinaryNo { get; set; }       
+        public string MeterNo { get; set; }
+        public string MeterSize { get; set; }      
+        public DateTime InstallationDate { get; set; }       
+        public bool? UpdateInitial { get; set; }      
+        public int StartReading { get; set; }
+
+        public string SweragePaid { get; set; }
+
+        public int MonthIndex { get; set; }
+        public int FiscalYear { get; set; }
     }
 }

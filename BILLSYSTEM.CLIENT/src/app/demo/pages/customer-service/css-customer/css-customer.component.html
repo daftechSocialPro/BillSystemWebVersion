@@ -17,38 +17,35 @@
     </div>
 </div>
 <div class=" card mail-content tab-content">
-    <div class="card-body p4">
+    <div class="card-body">
 
-        <div class="container pb-4">
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-outline-warning btn-sm larger-text" (click)="cssImport()">Import
-                <i class="pi pi-file-excel"></i> 
-              </button>
+        <div class="container ">
+            <div class="col-lg-12 text-end">
+                <button class="btn btn-outline-success  " (click)="addcustomer()">Register Customer
+
+                </button> | <button class="btn btn-outline-success " (click)="addcustomer()">Batch Records
+    
+                </button> |
+                <button class="btn btn-outline-success " (click)="cssImport()">Import
+                    <i class="pi pi-file-excel"></i>
+                </button>
             </div>
-          
-          </div>
-        <div class="col-lg-12 text-end p-2">
-            <div class="col-lg-3 text-end p-2">
+
+        </div>
+        <div class="col-lg-12 text-end">
+            <div class="col-lg-3 text-end">
                 <div class="input-group">
-                  <input type="text" class="form-control focus-green" [(ngModel)]="searchText" (input)="filterInterfaces()" placeholder="Search name ..." />
-                  <span class="input-group-text">
-                    <i class="pi pi-search"></i>
-                  </span>
+                    <input type="text" class="form-control focus-green" [(ngModel)]="searchText"
+                        (input)="filterInterfaces()" placeholder="Search name ..." />
+                    <span class="input-group-text">
+                        <i class="pi pi-search"></i>
+                    </span>
                 </div>
-              </div>
-            <div class="btn-group ">
-                <button type="button" class=" btn btn-sm btn-outline-success dropdown-toggle " data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" style="font-size: 15px;"> <i class="pi pi-plus me-1"
-                        style="font-size: 12px;"></i>
-                    Select to Add <i class="pi pi-angle-down" style="font-size: 15px; text-align: center;"></i></button>
-                <ul class="dropdown-menu bg-add shadow " style="background-color: #F5F5FF">
-                    <li><a class="dropdown-item pointer" (click)="addcustomer()">Register Customer</a></li>
-                    <li><a class="dropdown-item pointer" (click)="addcustomer()">Batch Record</a></li>
-                </ul>
             </div>
+           
         </div>
 
-        <table class="custom-table ">
+        <table class="custom-table mt-4 ">
 
             <thead>
                 <tr>
@@ -62,7 +59,7 @@
 
                 </tr>
             </thead>
-            <tbody  *ngIf="paginationCustomer.length > 0; else noResults">
+            <tbody *ngIf="paginationCustomer.length > 0; else noResults">
                 <tr *ngFor="let item of paginationCustomer;let i = index">
 
                     <td>{{item.contractNo}}</td>
@@ -78,13 +75,15 @@
                             <button type="button" class=" btn btn-outline-warning btn-sm  dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 style="font-size: 15px; font-weight: bold;">
-                                Select action <i class="pi pi-angle-down"
-                                    style="font-size: 15px; text-align: center;"></i> </button>
+                                ... <i class="pi pi-angle-down" style="font-size: 15px; text-align: center;"></i>
+                            </button>
                             <ul class="dropdown-menu  shadow" style="background-color: #E6E6FA;">
-                                <li><a class="dropdown-item pointer" href="#">Details</a></li>
-                                <li><a class="dropdown-item pointer" href="#">Update</a></li>
+                                <li><a class="dropdown-item pointer" (click)="goToDetails(item.contractNo)">Details</a>
+                                </li>
+
                                 <li><a class="dropdown-item pointer" href="#">Change Action</a></li>
-                                <li><a class="dropdown-item pointer" href="#">Delete</a></li>
+                                <li><a class="dropdown-item pointer"
+                                        (click)="deleteCustomer(item.contractNo)">Delete</a></li>
                             </ul>
                         </div>
                     </td>
