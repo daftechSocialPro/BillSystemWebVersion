@@ -6,6 +6,7 @@ import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/a
 import { CssCustomerService } from 'src/app/services/customer-service/css-customer.service';
 // import { ICustomerGetGetDto } from 'src/models/customer-service/ICustomerGetGetDto';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
+import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 
 @Component({
   selector: 'app-css-customer',
@@ -14,6 +15,7 @@ import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 })
 export class CssCustomerComponent implements OnInit  {
   Customer:ICustomerGetDto[]
+  customer:ICustomerDto[]
 
   displaySelectOption: boolean = false;
   selectedOption: string = '';
@@ -67,7 +69,11 @@ export class CssCustomerComponent implements OnInit  {
     })
   }
 
+  updateCustomer(customer:ICustomerDto){
 
+  }
+
+  
   showSelectOption() {
     this.displaySelectOption = true;
   }
@@ -78,8 +84,8 @@ export class CssCustomerComponent implements OnInit  {
     } else {
     }
   }
-
-
+  
+  
   cssImport(){
     let modalRef = this.modalService.open(CssImportComponent,  {size:'lg',backdrop:'static',  })
 

@@ -8,5 +8,4 @@ export interface ICustomerGetDto {
     meterno:string
     meterSizeCode:string
 
-
 }

@@ -17,16 +17,23 @@ export class CssCustomerService {
 
   //customer
   getCustomer() {
-    return this.http.get<ICustomerGetDto[]>(this.baseUrl + "/Customer/GetCustomeres")
+    return this.http.get<ICustomerDto[]>(this.baseUrl + "/Customer/GetCustomeres")
   }
   getCustomerForUpdate(contractNo: string) {
     return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)
   }
-
+updateCustomer(updateCustomer:ICustomerDto){
+  return this.http.put<ResponseMessage>(this.baseUrl+'/Customer/UpdateCustomer', updateCustomer)
+  
+}
 
   addCustomer(addcustomer: ICustomerDto) {
 
     return this.http.post<ResponseMessage>(this.baseUrl + "/Customer/AddCustomer", addcustomer)
     // /api/Customer/AddCustomer
+  }
+  deleteMetersizeRent(customerId: number) {
+    return this.http.delete<ResponseMessage>(this.baseUrl + `/Customer/DeleteCustomer?CustomerId=${customerId}`)
+    // /api/Customer/DeleteCustomer
   }
 }

@@ -34,7 +34,7 @@ namespace IntegratedDigitalAPI.Controllers.DWM
 
         [HttpGet]
         [ProducesResponseType(typeof(DWMReadingAccuracyReportDto), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetReadingAccuracyReportDto(int monthIndex, int year)
+        public async Task<IActionResult> GetReadingAccuracyReport(int monthIndex, int year)
         {
             return Ok(await _dwmReportService.GetReadingAccuracyReport(year, monthIndex));
         }

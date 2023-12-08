@@ -20,6 +20,8 @@ import { IMeterSizeDto } from 'src/models/system-control/IMeterSizeDto';
 export class AddCssCustomerComponent implements OnInit {
 
   @Input() contractNo: string
+  showSection1: boolean = false;
+  showSection2: boolean = true;
   Customer: ICustomerDto
   CustomerForm!: FormGroup;
   customerCategories: ICustomerCategoryDto[]
@@ -77,6 +79,7 @@ export class AddCssCustomerComponent implements OnInit {
       paymentMode: ['', Validators.required],
 
     })
+    
     if (this.contractNo) {
       this.controlService.getCustomerForUpdate(this.contractNo).subscribe({
         next: (res) => {
@@ -94,7 +97,7 @@ export class AddCssCustomerComponent implements OnInit {
           this.CustomerForm.controls['contractNo'].setValue(this.Customer.contractNo)
           this.CustomerForm.controls['ordinaryNo'].setValue(this.Customer.ordinaryNo)
           this.CustomerForm.controls['cutomerCategoryCode'].setValue(this.Customer.custCategoryCode)
-          this.CustomerForm.controls['meterNo'].setValue(this.Customer.meterno)
+          this.CustomerForm.controls['meterno'].setValue(this.Customer.meterno)
           this.CustomerForm.controls['meterSizeCode'].setValue(this.Customer.meterSizeCode)
           this.CustomerForm.controls['meterType'].setValue(this.Customer.meterType)
           this.CustomerForm.controls['meterDigit'].setValue(this.Customer.meterDigit)
@@ -134,6 +137,15 @@ export class AddCssCustomerComponent implements OnInit {
     this.getWaterSource()
     this.getMeterClass()
 
+  }
+  toggleSection(section: string) {
+    if (section === 'section1') {
+      this.showSection1 = true;
+      this.showSection2 = false;
+    } else if (section === 'section2') {
+      this.showSection1 = false;
+      this.showSection2 = true;
+    }
   }
   getCustomerCategories() {
     this.controlServicedata.getCustomerCategory().subscribe({
@@ -260,7 +272,7 @@ export class AddCssCustomerComponent implements OnInit {
         userID: '',
         fiscalYear: 0,
         monthIndex: 0,
-        custID: 0,
+        custId: '',
         materSource: '',
         regDate: undefined,
         readerName: '',
@@ -276,24 +288,26 @@ export class AddCssCustomerComponent implements OnInit {
         modifyDate: undefined,
         dataSynched: ''
       }
-      this.controlService.addCustomer(addcustomer).subscribe({
-        next: (res) => {
 
-          if (res.success) {
-            this.messageService.add({ severity: 'success', summary: 'Successfull', detail: res.message });
+      console.log(addcustomer)
+      // this.controlService.addCustomer(addcustomer).subscribe({
+      //   next: (res) => {
 
-            this.closeModal()
+      //     if (res.success) {
+      //       this.messageService.add({ severity: 'success', summary: 'Successfull', detail: res.message });
 
-          } else {
-            this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: res.message });
+      //       this.closeModal()
 
-          }
+      //     } else {
+      //       this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: res.message });
 
-        }, error: (err) => {
-          this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: err.message });
-          console.log(err)
-        }
-      })
+      //     }
+
+      //   }, error: (err) => {
+      //     this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: err.message });
+      //     console.log(err)
+      //   }
+      // })
 
 
     }  else {
@@ -301,6 +315,10 @@ export class AddCssCustomerComponent implements OnInit {
 
     }
     
+  }
+
+  update(){
+
   }
 
 

@@ -54,5 +54,32 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
                 return BadRequest();
             }
         }
+        [HttpPut]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateCustomer(CustomerDto updateCustomer)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _customerService.UpdateCustomer(updateCustomer));
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> DeleteCustomer(int CustomerId)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _customerService.DeleteCustomer(CustomerId));
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }
