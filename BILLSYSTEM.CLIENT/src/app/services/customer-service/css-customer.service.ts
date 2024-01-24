@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../user.service';
-import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
-import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
+import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
 import { ResponseMessage } from 'src/models/ResponseMessage.Model';
+import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class CssCustomerService {
   getCustomerForUpdate(contractNo: string) {
     return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)
   }
-updateCustomer(updateCustomer:ICustomerDto){
+updateCustomer(updateCustomer:ICustomerDto){ 
   return this.http.put<ResponseMessage>(this.baseUrl+'/Customer/UpdateCustomer', updateCustomer)
   
 }
@@ -32,8 +32,17 @@ updateCustomer(updateCustomer:ICustomerDto){
     return this.http.post<ResponseMessage>(this.baseUrl + "/Customer/AddCustomer", addcustomer)
     // /api/Customer/AddCustomer
   }
-  deleteMetersizeRent(customerId: number) {
-    return this.http.delete<ResponseMessage>(this.baseUrl + `/Customer/DeleteCustomer?CustomerId=${customerId}`)
-    // /api/Customer/DeleteCustomer
+  getSingleCustomer(contractNo:string) {
+    return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetSingleCustomer?contractNo=${contractNo}`)
   }
+
+  deleteCustomer(contractNo:string){
+    return this.http.delete<ResponseMessage>(this.baseUrl + `/Customer/DeleteCustomer?contractNo=${contractNo}`)
+ 
+  }
+
+  createCustomer (customerPost :ICustomerPostDto){
+    return this.http.post<ResponseMessage>(this.baseUrl+"/Customer/CreateBasicData",customerPost)
+  }
+
 }

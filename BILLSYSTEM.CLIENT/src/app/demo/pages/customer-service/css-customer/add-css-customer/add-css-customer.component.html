@@ -1,372 +1,277 @@
-<div class="modal-content p-4">
-
-    <div class="modal-header">
-        <h4 class="modal-title  text-center">{{Customer?"Update":"Create"}} Register </h4>
+<div class="modal-content bg-white">
+    <div class="modal-header ">
+        <h4 class="modal-title  text-center"> Register Basic Data </h4>
         <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal"
             aria-label="Close"></button>
     </div>
-    <!-- <div class="card"> -->
-    <!-- <div class="card-body"> -->
-    <form [formGroup]="CustomerForm" (ngSubmit)="Customer?update():submit()">
-        <hr />
-        <h4>Customer Info.</h4>
-        <hr />
-        <div class="col">
-            <div class="row form-input ">
-                <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="nameInput" formControlName="customerName"
-                        placeholder="Full Name">
-                </div>
 
-                <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control form-floating" id="nameInput" formControlName="mobile"
-                        placeholder="Phone Number">
-                </div>
-                <div class="col-md-4  ">
-                    <div class="form-floating">
-                        <select class="form-select" id="floatingInput" formControlName="ketena">
-                            <!-- <option value="">Ketena</option> -->
-                            <option *ngFor="let item of ketena" [value]="item.ketenaName">
-                                {{item.ketenaName}}</option>
-                        </select><label for="floatingInput">Ketena</label>
-                    </div>
+    <form [formGroup]="customerForm" (ngSubmit)="submit()" style="background-color: #eceff1;">
+        <div class=" px-4 py-3">
 
-                </div>
-                <div class="col-md-4">
-                    <div class="form-floating">
-                        <select class="form-select" id="kebeleSelect" formControlName="kebele">
-                            <!-- <option value=""> kebele</option> -->
-                            <option *ngFor="let item of kebele" [value]="item.kebeleCode">
-                                {{item.kebeleCode}}</option>
-                        </select>
-                        <label for="floatingInput">Kebele</label>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="form-floating"> <select class="form-select" id="kebeleSelect" formControlName="village">
-                            <!-- <option value="">Village</option> -->
-                            <option *ngFor="let item of village" [value]="item.inputValues">
-                                {{item.inputValues}}</option>
-                        </select>
-                        <label for="floatingInput">Village</label>
-                    </div>
-
-                </div>
-                <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control form-floating" id="nameInput" formControlName="mobile"
-                        placeholder="Phone Number">
-                </div>
-            </div>
-            <hr />
-            <h4>Water Meter Info.</h4>
-            <hr />
-
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="form-floating">
-                        <select class="form-select" id="billCycle" formControlName="bookNo">
-                            <!-- <option value="">Village</option> -->
-                            <option *ngFor="let item of billCycle" [value]="item.inputValues">
-                                {{item.inputValues}}</option>
-                        </select>
-                        <label for="floatingInput">Bill Cycle</label>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="form-floating">
-                        <select class="form-select" id="Customer Ctagory" formControlName="custCategoryCode">
-                            <option *ngFor="let item of customerCategories" [value]="item.custCategoryCode">
-                                {{item.custCategoryName}}</option>
-                        </select>
-                        <label for="floatingInput">Customer Category</label>
-                    </div>
-
-                </div>
-                <!-- <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="accountNo" placeholder="Account Number"
-                            formControlName="accountNo">
-                    </div> -->
-                <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="meterSizeInput" placeholder="Contract No."
-                        formControlName="contractNo">
-                </div>
-                <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="meterSizeInput" placeholder="Ordinary No."
-                        formControlName="ordinaryNo">
-                </div>
-                <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="meterSizeInput" placeholder="Water Meter No."
-                        formControlName="meterno">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <div class="form-floating">
-                        <select class="form-select" id="MeterSize" formControlName="meterSizeCode">
-                            <!-- <option value="">Village</option> -->
-                            <option *ngFor="let item of meterSize" [value]="item.meterSizeName">
-                                {{item.meterSizeName}}</option>
-                        </select>
-                        <label for="floatingInput">Meter Size</label>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <input type="date" class="form-control" id="meterSizeInput" placeholder="Installation Date"
-                        formControlName="installationDate">
-                </div>
-                <!-- <div class="col-md-4 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="MeterType" formControlName="meterType">
-                                <option value="">Village</option>
-                                <option *ngFor="let item of meterType" [value]="item.inputValues">
-                                    {{item.inputValues}}</option>
-                            </select>
-                            <label for="floatingInput">Meter Type</label>
-                        </div>
-                    </div> -->
-                <!-- <div class="col-md-4 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="" formControlName="meterDigit">
-                                <option value="">Village</option>
-                                <option *ngFor="let item of meterDigit" [value]="item.inputValues">
-                                    {{item.inputValues}}</option>
-                            </select>
-                            <label for="floatingInput">Meter Digit</label>
-                        </div>
-                    </div> -->
-                <!-- <div class="col-md-4 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="MeterModel" formControlName="meterModel">
-                                <option value="">Village</option>
-                                <option *ngFor="let item of meterModel" [value]="item.inputValues">
-                                    {{item.inputValues}}</option>
-                            </select>
-                            <label for="floatingInput">Meter Model</label>
-                        </div>
-                    </div> -->
-                <!-- <div class="col-md-4 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="MeterModel" formControlName="meterCountryOrigin">
-                                <option value="">Village</option>
-                                <option *ngFor="let item of countryOrgin" [value]="item.inputValues">
-                                    {{item.inputValues}}</option>
-                            </select>
-                            <label for="floatingInput">Country Origin</label>
-                        </div>
-
-                    </div> -->
-               
-
-            </div>
-            <!-- <div class="">
+            <div class="col">
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="BillCycle" placeholder="Bill Cycle">
-                    </div>
-                    <div class="col-md-4 mb-3"> -->
-                        <!-- <select class="form-select" id="Customer Ctagory">
-                                <option value="">customer Category</option>
-                                <option value="kebele1">Kebele 1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="meterSizeInput" placeholder="Account Number">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="meterSizeInput" placeholder="Contract No.">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="meterSizeInput" placeholder="Ordinary No.">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="meterSizeInput" placeholder="Water Meter No.">
-                        </div> -->
-                        <!-- <div class="col-md-4 mb-3"> 
-                            <select class="form-select" id="MeterSize">
-                                <option value="">Meter Size</option>
-                                <option value="kebele1">Kebele 1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="form-select" id="MeterType">
-                                <option value="">Meter Type</option>
-                                <option value="kebele1">Type1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="form-select" id="CustomerCtagory">
-                                <option value="">Meter Digit</option>
-                                <option value="kebele1">Japan</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="form-select" id="MeterModel">
-                                <option value="">customer Category</option>
-                                <option value="kebele1">Kebele 1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="form-select" id="MeterModel">
-                                <option value="">Meter Model</option>
-                                <option value="kebele1">Kebele 1</option>
-                            </select>
-                        </div> -->
-                        <!-- <div class="col-md-4 mb-3">
-                            <input type="date" class="form-control" id="meterSizeInput" placeholder="Installation Date">
-                        </div> 
+                    <div class="col-6">
+                        <h4>Customer Info.</h4>
+                        <hr />
+                        <div class="row form-input ">
 
-                    </div>-->
-                    <div class="container" style="max-width: 500px;">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="billCheckbox"
-                                        (change)="toggleSection('section1')" [checked]="showSection1">
-                                    <label class="form-check-label" for="billCheckbox">Bill</label>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput"
+                                        formControlName="fullName" />
+                                    <label for="floatingInput">Full Name</label>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="locationCheckbox"
-                                        (change)="toggleSection('section2')" [checked]="showSection2">
-                                    <label class="form-check-label" for="locationCheckbox">Location and Others</label>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput"
+                                        formControlName="phoneNumber" />
+                                    <label for="floatingInput">Phone Number</label>
                                 </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-control" formControlName="ketena" (change)="onKetenachange()">
+                                        <option value="">Select Ketena</option>
+
+                                        <option *ngFor="let item of ketenas" [value]="item.ketenaCode">
+                                            {{item.ketenaName}}</option>
+                                    </select>
+                                    <label for="floatingInput">Ketena</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-control" formControlName="kebele" (change)="onKebeleChange()">
+                                        <option value="">Select kebele</option>
+
+                                        <option *ngFor="let item of getFilteredKebeles()" >
+                                            {{item.kebeleName}}</option>
+                                    </select>
+
+                                    <label for="floatingInput">kebele</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-control" formControlName="village">
+                                        <option value="">Select Village</option>
+                                        <option *ngFor="let item of villages" [value]="item.inputValues">
+                                            {{item.inputValues}}</option>
+                                    </select>
+
+                                    <label for="floatingInput">Village</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput"
+                                        formControlName="mapNumber" />
+                                    <label for="floatingInput">Map Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput"
+                                        formControlName="houseNumber" />
+                                    <label for="floatingInput">House Number</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                   
+                    <div class="col-6">
+
+                        <h4>Meter Bill Info.</h4>
+                        <hr />
+                        <div class="row form-input ">
+
+
+                            <div class="col-md-12 mb-2">
+
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="locationCheckbox"
+                                            formControlName="updateInitial">
+                                        <label class="form-check-label" for="locationCheckbox">Update Initial</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="floatingInput"
+                                        formControlName="startReading" />
+                                    <label for="floatingInput">Start Reading.</label>
+                                </div>
+                            </div>
+
+                          
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-control" formControlName="readerName">
+
+
+
+                                        <option value="">Select Readers</option>
+                                        <option *ngFor="let item of readers" [value]="item.userName">
+                                           {{item.userName}} | {{item.fullName}}</option>
+                                    </select>
+                                    <label for="floatingInput">Reader Group</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-control" formControlName="sweragePaid">
+
+
+
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                    <label for="floatingInput">Swerage Paid </label>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-control" formControlName="monhtIndex">
+                                        <option value="">Select Month</option>
+                                        <option *ngFor="let item of months" [value]="item.monthIndex">{{item.monthnamelocal}}</option>
+                                        
+                                    </select>
+                                    <label for="floatingInput"> Register Month</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="floatingInput"
+                                        formControlName="fiscalYear" />
+                                    <label for="floatingInput">Register Year</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <hr />
+
+                        <h4>Water Meter Info.</h4>
+                        <hr />
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+
+                                <select class="form-control" formControlName="billCycle">
+
+
+
+                                    <option value="">Select Bill Cycle</option>
+                                    <option *ngFor="let item of billCycles" [value]="item.inputValues">
+                                        {{item.inputValues}}</option>
+                                </select>
+
+                                <label for="floatingInput">Bill Cycle</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+
+                                <select class="form-control" formControlName="customerCategory">
+
+
+
+                                    <option value="">Select Category</option>
+                                    <option *ngFor="let item of customerCategories" [value]="item.custCategoryCode">
+                                        {{item.custCategoryName}}</option>
+
+                                </select>
+
+                                <label for="floatingInput">Customer Category</label>
                             </div>
                         </div>
 
-                    </div>
-                    <hr />
-                    <!-- when Bill checkbox cheched this will display -->
-                    <h4>Reader Info.</h4>
-                    <hr/>
-                    <!-- <hr />
-                    <div class="row form-input " *ngIf="showSection1">
-                        <div class="col-md-4 mb-3 ">
-                            <select class="form-select" id="ReaderName">
-                                <option value="">Reader Name</option>
-                                <option value="kebele1">Ketena 1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3 ">
-                            <select class="form-select" id="PaymentPlace">
-                                <option value="">Payment Place</option>
-                                <option value="kebele1">Ketena 1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3 ">
-                            <select class="form-select" id="PaymentDuration">
-                                <option value="">Paymnet Duration</option>
-                                <option value="kebele1">Ketena 1</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="nameInput" placeholder="Attitude">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="nameInput" placeholder="Longitude">
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput"
+                                    formControlName="contractNo" />
+                                <label for="floatingInput">Contract No.</label>
+                            </div>
                         </div>
 
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="nameInput" placeholder="Meter Class">
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="floatingInput"
+                                    formControlName="ordinaryNo" />
+                                <label for="floatingInput">Ordinary No.</label>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="nameInput" placeholder="Water Source">
+
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" formControlName="meterNo" />
+                                <label for="floatingInput">Water Meter No.</label>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="nameInput" placeholder="Deposit">
+
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+
+                                <select class="form-control" formControlName="meterSize">
+
+
+
+                                    <option value="">Select Meter Size</option>
+                                    <option *ngFor="let item of meterSizes" [value]="item.meterSizeCode">
+                                        {{item.meterSizeName}}</option>
+                                </select>
+                                <label for="floatingInput">Meter Size</label>
+                            </div>
                         </div>
-                    </div> -->
 
-                </div>
-
-                <!-- when location and Others checkebox checked this will display -->
-
-
-                <!-- location -->
-                <div class="row form-input " *ngIf="showSection2">
-                    <!-- <div class="col-md-4 mb-3 ">
-                        <select class="form-select" id="ReaderName" formControlName="meterStartReading">
-                            <option value="">Reader Name</option>
-                            <option value="kebele1"> Nahom</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3 ">
-                        <select class="form-select" id="PaymentPlace" formControlName="paymentPlace">
-                            <option value="">Payment Place</option>
-                            <option value="kebele1">Ketena 1</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3 ">
-                        <select class="form-select" id="PaymentDuration">
-                            <option value="">Paymnet Duration</option>
-                            <option value="kebele1">Ketena 1</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Attitude"
-                            formControlName="meterAltitude">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Longitude"
-                            formControlName="meterLongitude">
-                    </div> -->
-
-                    <!-- <div class="col-md-4 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="MeterModel">
-                                <option value="">Village</option>
-                                <option *ngFor="let item of meterClass" [value]="item.inputValues">
-                                    {{item.inputValues}}</option>
-                            </select>
-                            <label for="floatingInput">Meter Class</label>
+                        <div class="col-md-3">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="floatingInput"
+                                    formControlName="installationDate" />
+                                <label for="floatingInput">Installation Date.</label>
+                            </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="col-md-4 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="MeterModel">
-                                <option value="">Village</option>
-                                <option *ngFor="let item of waterSource" [value]="item.inputValues">
-                                    {{item.inputValues}}</option>
-                            </select>
-                            <label for="floatingInput">Water Source</label>
-                        </div>
-                    </div> -->
 
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Start Reading"
-                            formControlName="meterStartReading">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Swerage Paid"
-                            formControlName="sdPaid">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Online Sales Group"
-                            formControlName="onlineGroup">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Bill Sales Group"
-                            formControlName="billSalesGroup">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Deposit"
-                            formControlName="paymentMode">
-                    </div>
-                    
-                    <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="nameInput" placeholder="Reader Group"
-                            formControlName="accountNo">
+
+
+
                     </div>
                 </div>
 
-            
-            <div class="modal-footer"> <button type="button" class="btn btn-outline-secondary"
-                    (click)="closeModal()">Close</button> <button type="button" type="submit"
-                    [disabled]="!CustomerForm.valid"
-                    class="btn btn-outline-success">{{Customer?"Update":"Create"}}</button>
-            </div>
-        <!-- </div> -->
-            <!-- <button type="submit" class="btn btn-color">Submit</button> -->
+
+        </div>
+
+        <div class="modal-footer bg-white">
+            <button type="submit" [disabled]="!customerForm.valid" class="btn btn-outline-success">Save Basic
+                Data</button>
+        </div>
+        </div>
     </form>
-    <!-- </div> -->
-    <!-- </div> -->
 </div>

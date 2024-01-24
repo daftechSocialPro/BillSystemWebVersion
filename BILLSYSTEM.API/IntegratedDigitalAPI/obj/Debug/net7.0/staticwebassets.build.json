@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CqakbHuPtYsWhl6z555F8usmUDLX/HKmnoTV8ZMDqSE=",
+  "Hash": "i8avO0rfOtA7tW3tMW5VUXjOJ/uGH070dLXPFHynx54=",
   "Source": "IntegratedDigitalAPI",
   "BasePath": "_content/IntegratedDigitalAPI",
   "Mode": "Default",
@@ -2618,6 +2618,23 @@
       "OriginalItemSpec": "wwwroot\\MobileUsers\\1047.png"
     },
     {
+      "Identity": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1047.svg",
+      "SourceId": "IntegratedDigitalAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\",
+      "BasePath": "_content/IntegratedDigitalAPI",
+      "RelativePath": "MobileUsers/1047.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\MobileUsers\\1047.svg"
+    },
+    {
       "Identity": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1048.jpg",
       "SourceId": "IntegratedDigitalAPI",
       "SourceType": "Discovered",
@@ -2650,6 +2667,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\MobileUsers\\1048.png"
+    },
+    {
+      "Identity": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1048.svg",
+      "SourceId": "IntegratedDigitalAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\",
+      "BasePath": "_content/IntegratedDigitalAPI",
+      "RelativePath": "MobileUsers/1048.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\MobileUsers\\1048.svg"
     },
     {
       "Identity": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1051.png",

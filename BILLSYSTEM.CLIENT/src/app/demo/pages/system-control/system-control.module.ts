@@ -112,6 +112,7 @@ import { CurrentMeterRateComponent } from './scs-setup/setting/current-meter-rat
 import { CurrentMeterTariffComponent } from './scs-setup/setting/current-meter-tariff/current-meter-tariff.component';
 import { BillTemplatesComponent } from './scs-setup/bill-templates/bill-templates.component';
 import { BillOptionsComponent } from './scs-setup/setting/bill-options/bill-options.component';
+import { ScsDetailPermissionComponent } from './scs-maintain/scs-users/add-users/scs-detail-permission/scs-detail-permission.component';
 @NgModule({
 
 
@@ -214,7 +215,8 @@ import { BillOptionsComponent } from './scs-setup/setting/bill-options/bill-opti
     CurrentMeterRateComponent,
     CurrentMeterTariffComponent,
     BillTemplatesComponent,
-    BillOptionsComponent
+    BillOptionsComponent,
+    ScsDetailPermissionComponent,
 
 
   ],

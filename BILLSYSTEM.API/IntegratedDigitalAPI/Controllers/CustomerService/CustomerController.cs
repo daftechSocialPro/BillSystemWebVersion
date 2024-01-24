@@ -1,5 +1,6 @@
 ﻿using Implementation.Helper;
 using IntegratedImplementation.DTOS.CustomerService;
+using IntegratedImplementation.DTOS.DWM;
 using IntegratedImplementation.DTOS.SystemControl;
 using IntegratedImplementation.Interfaces.CustomerService;
 using IntegratedImplementation.Interfaces.SystemControl;
@@ -32,27 +33,26 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             return Ok(await _customerService.GetCustomers());
         }
 
-
-        [HttpGet]
-        [ProducesResponseType(typeof(Customer), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetCustomerForUpdate(int ContractNo)
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> CreateBasicData(CustomerPostDto customerPost)
         {
-            return Ok(await _customerService.GetCustomerForUpdate(ContractNo));
+            return Ok(await _customerService.AddCustomer(customerPost));
         }
 
 
-        [HttpPost]
-        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> AddCustomer(CustomerDto Customer)
+        [HttpGet]
+        [ProducesResponseType(typeof(CustomerGetDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetSingleCustomer(string contractNo)
         {
-            if (ModelState.IsValid)
-            {
-                return Ok(await _customerService.AddCustomer(Customer));
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return Ok(await _customerService.GetSingleCustomer(contractNo) );
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> DeleteCustomer(string contractNo)
+        {
+            return Ok(await _customerService.DeleteCustomer(contractNo));
         }
         [HttpPut]
         [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
@@ -68,18 +68,6 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             }
         }
 
-        [HttpDelete]
-        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> DeleteCustomer(int CustomerId)
-        {
-            if (ModelState.IsValid)
-            {
-                return Ok(await _customerService.DeleteCustomer(CustomerId));
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
+
     }
 }

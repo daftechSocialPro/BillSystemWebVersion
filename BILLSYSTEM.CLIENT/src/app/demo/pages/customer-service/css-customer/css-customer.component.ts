@@ -4,7 +4,7 @@ import { AddCssCustomerComponent } from './add-css-customer/add-css-customer.com
 import { CssImportComponent } from './css-import/css-import.component';
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 import { CssCustomerService } from 'src/app/services/customer-service/css-customer.service';
-// import { ICustomerGetGetDto } from 'src/models/customer-service/ICustomerGetGetDto';
+import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 
@@ -28,9 +28,10 @@ export class CssCustomerComponent implements OnInit  {
   paginationCustomer:ICustomerGetDto[]=[];
 
   constructor(private modalService : NgbModal,
+    
     private confirmationService: ConfirmationService,
     private messageService : MessageService,
-    private controlService:CssCustomerService) {}
+    private customerService:CssCustomerService) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.getCustomers()
@@ -53,7 +54,7 @@ export class CssCustomerComponent implements OnInit  {
 
   getCustomers(){
 
-    this.controlService.getCustomer().subscribe({
+    this.customerService.getCustomer().subscribe({
       next:(res)=>{
         this.Customer = res 
         this.paginatedCustomer(this.Customer)
@@ -63,9 +64,11 @@ export class CssCustomerComponent implements OnInit  {
 
   addcustomer(){
 
-    let modalRef = this.modalService.open(AddCssCustomerComponent,  {size:'lg',backdrop:'static', windowClass: 'custom-modal-width'})
+    let modalRef = this.modalService.open(AddCssCustomerComponent,  {backdrop:'static', windowClass: 'custom-modal-width'})
 
     modalRef.result.then(()=>{
+
+      this.getCustomers()
     })
   }
 
@@ -107,5 +110,54 @@ export class CssCustomerComponent implements OnInit  {
     this.paginationCustomer= ginterfces.slice(this.first, this.first + this.rows);
   }
 
+
+  goToDetails(contractNo:string){
+
+    let modalRef = this.modalService.open(DetailCustomerComponent,  {backdrop:'static', windowClass: 'custom-modal-width'})
+    modalRef.componentInstance.contractNo=contractNo
+    modalRef.result.then(()=>{
+
+      this.getCustomers()
+    })
+  }
+
+  deleteCustomer(contractNo:string){
+    this.confirmationService.confirm({
+      message: 'Are You sure you want to delete this Customer?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+      
+        this.customerService.deleteCustomer(contractNo).subscribe({
+          next: (res) => {
+
+            if (res.success) {
+              this.messageService.add({ severity: 'success', summary: 'Successfull', detail: res.message });
+              this.getCustomers()
+            }
+            else {
+              this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: res.message });
+
+            }
+
+          }, error: (err) => {
+            this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: err });
+          }
+        })
+
+      },
+      reject: (type: ConfirmEventType) => {
+        switch (type) {
+          case ConfirmEventType.REJECT:
+            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+            break;
+          case ConfirmEventType.CANCEL:
+            this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
+            break;
+        }
+      },
+      key: 'positionDialog'
+    });
+  }
 
 }
