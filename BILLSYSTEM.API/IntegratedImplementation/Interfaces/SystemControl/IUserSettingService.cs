@@ -28,5 +28,10 @@ namespace IntegratedImplementation.Interfaces.SystemControl
 
         Task<List<UserPermission>> GetUserPermissions(string userId);
 
+
+        Task<ResponseMessage> UpdateUserPermission(List<UserPermission> userPermissions);
+
+
+
     }
 }

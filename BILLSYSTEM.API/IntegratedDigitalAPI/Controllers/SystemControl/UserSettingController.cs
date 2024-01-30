@@ -110,5 +110,19 @@ namespace IntegratedDigitalAPI.Controllers.SystemControl
         }
 
 
+        [HttpPut]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateUserPermission(List<UserPermission> userPermissions)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _userSettingService.UpdateUserPermission(userPermissions));
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }

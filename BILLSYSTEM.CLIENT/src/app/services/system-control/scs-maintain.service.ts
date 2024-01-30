@@ -18,7 +18,7 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
     getBillSection() {
         return this.http.get<IBillSectionDto[]>(this.baseUrl + "/BillSection/GetBillSection")
       }
-      
+
       addBillOfficer(addBillSection: IBillSectionDto) {
 
         return this.http.post<ResponseMessage>(this.baseUrl + "/BillSection/AddBillSection", addBillSection)
@@ -41,7 +41,7 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
 
       addBillEmpDuties(addBillEmpDuties: IBillEmpDutiesDto) {
 
-       
+
         return this.http.post<ResponseMessage>(this.baseUrl + "/BillEmpDuties/AddBillEmpDuties", addBillEmpDuties)
       }
 
@@ -86,7 +86,7 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
 
 
 
-      
+
       updateUserService(updateUsers: IuserSettingPostDto) {
 
         return this.http.put<ResponseMessage>(this.baseUrl + "/UserSetting/UpdateSystemUser", updateUsers)
@@ -95,7 +95,7 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
       deleteSystemUsers (userId : number ){
 
         return this.http.delete<ResponseMessage>(this.baseUrl + `/UserSetting/DeleteSystemUser?userId=${userId}`)
-        
+
       }
 
 
@@ -113,11 +113,15 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
       }
 
 
+      updateUserPermissions(userPermissions:IUserPermissionDto[]){
 
-      
+        return this.http.put<ResponseMessage>(this.baseUrl+`/UserSetting/UpdateUserPermission`,userPermissions)
+      }
 
-      
 
-      
 
-  }  
+
+
+
+
+  }
