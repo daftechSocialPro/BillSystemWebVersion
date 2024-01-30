@@ -1,10 +1,10 @@
 <div class="modal-content bg-white">
   <div class="modal-header">
-    <h4 class="modal-title text-center"> Add Users Basic Permission </h4>
+    <h4 class="modal-title text-center"> {{userSetting?'Update':'Add'}} Users Basic Permission </h4>
     <button type="button" class="btn-close btn-danger" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
 
-  <form style="background-color: #eceff1">
+  <form [formGroup]="userSettingForm" (ngSubmit)="userSetting?update():submit()" style="background-color: #eceff1">
     <div class="px-4 py-3">
       <div class="col">
         <div class="row">
@@ -14,39 +14,58 @@
           <div class="row form-input">
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" formControlName="recordno" id="floatingInput" />
+                <input type="text" class="form-control" formControlName="userName" id="floatingInput" />
                 <label for="floatingInput">User Name</label>
               </div>
             </div>
+            <!-- <div class="col-md-4">
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" formControlName="userId" id="floatingInput" />
+                <label for="floatingInput">User Id</label>
+              </div>
+            </div> -->
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" formControlName="phoneNumber" />
+                <input type="password" class="form-control" id="floatingInput" formControlName="password" />
                 <label for="floatingInput">New Password</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" formControlName="phoneNumber" />
+                <input type="password" class="form-control" id="floatingInput" formControlName="confirmPassword" />
                 <label for="floatingInput">Re-Enter Password</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" formControlName="phoneNumber" />
+            
+                <select *ngIf="!userSetting" class="form-control"  formControlName="empId" id="floatingInput">
+                  <option *ngFor="let item of emps" [value]="item.empId">{{item.empId}} | {{item.name}}</option>
+                
+                </select>
+                <input type="text" *ngIf="userSetting" readonly class="form-control" id="floatingInput" formControlName="empId" />
+               
                 <label for="floatingInput">Emloyee ID</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" formControlName="phoneNumber" />
+                <select class="form-control" formControlName="userLevel" id="floatingInput">
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="USER">USER</option>
+                </select>
                 <label for="floatingInput">User Level</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" formControlName="phoneNumber" />
+                <select class="form-control" formControlName="userStatus" id="floatingInput">
+                  <option value="ACTIVE">ACTIVE</option>
+                  <option value="INACTIVE">INACTIVE</option>
+                </select>
                 <label for="floatingInput">Status</label>
               </div>
+            </div>
             </div>
           </div>
           <hr />
@@ -55,75 +74,89 @@
           <div class="row form-input">
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                <select class="form-control" formControlName="sysetmAdmin" id="floatingInput">
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
                 </select>
                 <label for="floatingInput">System Admin</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                <select class="form-control" formControlName="customerService" id="floatingInput">
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
                 </select>
                 <label for="floatingInput">Customer Service</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                <select class="form-control" formControlName="billProduce" id="floatingInput">
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
                 </select>
                 <label for="floatingInput">Bill Produce</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                <select class="form-control" formControlName="online" id="floatingInput">
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
                 </select>
                 <label for="floatingInput">Online Software</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-floating mb-3">
-                <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                <select class="form-control" formControlName="technicalService" id="floatingInput">
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
                 </select>
                 <label for="floatingInput">Technical Service</label>
               </div>
             </div>
             <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                  <select class="form-control" formControlName="stockControl" id="floatingInput">
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
                   </select>
                   <label for="floatingInput">Stock Control</label>
                 </div>
               </div>
+              <div class="col-md-4">
+                <div class="form-floating mb-3">
+                  <select class="form-control" formControlName="hrm" id="floatingInput">
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                  </select>
+                  <label for="floatingInput">HRM</label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" formControlName="allowKetena" />
+                  <label for="floatingInput">Allow Ketena</label>
+                </div>
+              </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating mb-3">
-              <select class="form-control" formControlName="custCategoryCode" id="floatingInput">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-              <label for="floatingInput">HRM</label>
-            </div>
-          </div>
+         
           <!-- </div> -->
         </div>
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-outline-success" (click)="addDetailPermision()">
+          <button type="submit" [disabled]="!userSettingForm.valid" 
+          
+          [class]="userSetting?'btn btn-success':  'btn btn-outline-success'" 
+          >
+            <i *ngIf="!userSetting" class="pi pi-plus me-1" style="font-size: 12px;"></i>
+            <i *ngIf="userSetting" class="pi pi-pencil me-1" style="font-size: 12px;"></i>
+            
+            Save Update</button>&nbsp;&nbsp;
+            <button *ngIf="userSetting" type="button" class="btn btn-outline-primary" (click)="addDetailPermision()">
                 <i class="pi pi-plus me-1" style="font-size: 12px;"></i>Detail Permission</button>
         </div>
       </div>
-    </div></form
-  ></div
->
+  </form>
+</div>

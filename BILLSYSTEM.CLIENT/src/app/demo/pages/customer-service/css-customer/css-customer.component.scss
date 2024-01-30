@@ -14,10 +14,10 @@ padding:5px;}
     // font-size: 1.2rem;
     color: white;
     background-color: rgba(128, 128, 128, 0.927);
-   
+
 }
 .bg-add{
-    background-color: rgba(255, 255, 255, 0.82);  
+    background-color: rgba(255, 255, 255, 0.82);
 }
 .pointer{
     cursor: pointer;
@@ -34,5 +34,6 @@ padding:5px;}
   .larger-text {
     font-size: 16px; /* Adjust the font size as needed */
   }
-
-  
+.change-modal-size{
+  width: 1000px;
+}

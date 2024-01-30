@@ -7,76 +7,75 @@ import { CssCustomerService } from 'src/app/services/customer-service/css-custom
 import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
+import { CssChangeActionComponent } from './css-change-action/css-change-action.component';
 
 @Component({
   selector: 'app-css-customer',
   templateUrl: './css-customer.component.html',
   styleUrls: ['./css-customer.component.scss']
 })
-export class CssCustomerComponent implements OnInit  {
-  Customer:ICustomerGetDto[]
-  customer:ICustomerDto[]
+export class CssCustomerComponent implements OnInit {
+  Customer: ICustomerGetDto[];
+  customer: ICustomerDto[];
 
   displaySelectOption: boolean = false;
   selectedOption: string = '';
-  
-  filterdInterface:ICustomerGetDto[]=[]
-  totlRecords:number =0
+
+  filterdInterface: ICustomerGetDto[] = [];
+  totlRecords: number = 0;
   searchText: string = '';
   first: number = 0;
   rows: number = 5;
-  paginationCustomer:ICustomerGetDto[]=[];
+  paginationCustomer: ICustomerGetDto[] = [];
 
-  constructor(private modalService : NgbModal,
-    
+  constructor(
+    private modalService: NgbModal,
+
     private confirmationService: ConfirmationService,
-    private messageService : MessageService,
-    private customerService:CssCustomerService) {}
+    private messageService: MessageService,
+    private customerService: CssCustomerService
+  ) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.getCustomers()
-
+    this.getCustomers();
   }
-  
-  
+
   filterInterfaces() {
     if (this.searchText.trim() === '') {
       this.filterdInterface = this.Customer;
     } else {
-      this.filterdInterface = this.Customer.filter((item) =>
-        item.customerName.toLowerCase().includes(this.searchText.toLowerCase())
-      );
+      this.filterdInterface = this.Customer.filter((item) => item.customerName.toLowerCase().includes(this.searchText.toLowerCase()));
     }
-    this.first=0;
-    this.onPageChange({first:this.first,rows:this.rows},this.filterdInterface)
+    this.first = 0;
+    this.onPageChange({ first: this.first, rows: this.rows }, this.filterdInterface);
   }
-  
 
-  getCustomers(){
-
+  getCustomers() {
     this.customerService.getCustomer().subscribe({
-      next:(res)=>{
-        this.Customer = res 
-        this.paginatedCustomer(this.Customer)
-       }
-    })
+      next: (res) => {
+        this.Customer = res;
+        this.paginatedCustomer(this.Customer);
+      }
+    });
   }
 
-  addcustomer(){
-
-    let modalRef = this.modalService.open(AddCssCustomerComponent,  {backdrop:'static', windowClass: 'custom-modal-width'})
-
-    modalRef.result.then(()=>{
-
-      this.getCustomers()
-    })
+  addcustomer() {
+    let modalRef = this.modalService.open(AddCssCustomerComponent, { backdrop: 'static', windowClass: 'custom-modal-width' });
+    modalRef.result.then(() => {
+      this.getCustomers();
+    });
+  }
+  changeAction() {
+    let modalRef = this.modalService.open(CssChangeActionComponent, { backdrop: 'static', size: 'lg' });
+    modalRef.result.then(() => {
+      // this.getCustomers()
+    });
   }
 
-  updateCustomer(customer:ICustomerDto){
+  updateCustomer(customer: ICustomerDto) {
 
   }
 
-  
   showSelectOption() {
     this.displaySelectOption = true;
   }
@@ -87,64 +86,52 @@ export class CssCustomerComponent implements OnInit  {
     } else {
     }
   }
-  
-  
-  cssImport(){
-    let modalRef = this.modalService.open(CssImportComponent,  {size:'lg',backdrop:'static',  })
 
-    modalRef.result.then(()=>{
-    })
-
+  cssImport() {
+    let modalRef = this.modalService.open(CssImportComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.result.then(() => {});
   }
-  onPageChange(event: any,gInterface?:ICustomerGetDto[] ) {
+  onPageChange(event: any, gInterface?: ICustomerGetDto[]) {
     this.first = event.first;
     this.rows = event.rows;
-    if(gInterface){
-      this.paginatedCustomer(gInterface)
-    }else{
-    this.paginatedCustomer(this.Customer);
+    if (gInterface) {
+      this.paginatedCustomer(gInterface);
+    } else {
+      this.paginatedCustomer(this.Customer);
     }
   }
-  paginatedCustomer(ginterfces:ICustomerGetDto[]) {
-    this.totlRecords =ginterfces.length
-    this.paginationCustomer= ginterfces.slice(this.first, this.first + this.rows);
+  paginatedCustomer(ginterfces: ICustomerGetDto[]) {
+    this.totlRecords = ginterfces.length;
+    this.paginationCustomer = ginterfces.slice(this.first, this.first + this.rows);
   }
 
-
-  goToDetails(contractNo:string){
-
-    let modalRef = this.modalService.open(DetailCustomerComponent,  {backdrop:'static', windowClass: 'custom-modal-width'})
-    modalRef.componentInstance.contractNo=contractNo
-    modalRef.result.then(()=>{
-
-      this.getCustomers()
-    })
+  goToDetails(contractNo: string) {
+    let modalRef = this.modalService.open(DetailCustomerComponent, { backdrop: 'static', windowClass: 'custom-modal-width' });
+    modalRef.componentInstance.contractNo = contractNo;
+    modalRef.result.then(() => {
+      this.getCustomers();
+    });
   }
 
-  deleteCustomer(contractNo:string){
+  deleteCustomer(contractNo: string) {
     this.confirmationService.confirm({
       message: 'Are You sure you want to delete this Customer?',
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
-      
         this.customerService.deleteCustomer(contractNo).subscribe({
           next: (res) => {
-
             if (res.success) {
               this.messageService.add({ severity: 'success', summary: 'Successfull', detail: res.message });
-              this.getCustomers()
-            }
-            else {
+              this.getCustomers();
+            } else {
               this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: res.message });
-
             }
-
-          }, error: (err) => {
+          },
+          error: (err) => {
             this.messageService.add({ severity: 'error', summary: 'Something went Wrong', detail: err });
           }
-        })
-
+        });
       },
       reject: (type: ConfirmEventType) => {
         switch (type) {
@@ -159,5 +146,4 @@ export class CssCustomerComponent implements OnInit  {
       key: 'positionDialog'
     });
   }
-
 }

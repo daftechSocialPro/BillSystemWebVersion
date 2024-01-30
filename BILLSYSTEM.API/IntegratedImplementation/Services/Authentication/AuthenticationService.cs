@@ -197,8 +197,7 @@ namespace Implementation.Services.Authentication
             plainText = plainText.TrimEnd('\0');
             return plainText;
         }
-
-
+       
         //public async Task<ResponseMessage> AddUser(AddUSerDto addUSer)
         //{
         //        return new ResponseMessage { Success = true, Message = "Succesfully Added User", Data = applicationUser.UserName };

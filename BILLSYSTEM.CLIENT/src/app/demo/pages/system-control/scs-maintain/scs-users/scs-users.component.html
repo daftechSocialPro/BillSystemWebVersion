@@ -2,7 +2,8 @@
     <div class="col-md-6">
 
         <div class="col-4">
-            <input type="text" class="form-control" placeholder="Search..."  />
+            <input type="text" class="form-control" placeholder="Search..."  [(ngModel)]="searchText"
+            (input)="filterInterfaces()" />
         </div>
     </div>
 
@@ -16,9 +17,9 @@
 
     <table class="custom-table">
         <thead>
-            <tr>
+            <tr >
                 
-                <th>User Name</th>
+                <th>user </th>
                 <th>Emp ID</th>
                 <th>User Level</th>
                 <th>User Status</th>
@@ -32,23 +33,23 @@
 
             </tr>
         </thead>
-        <tbody>
-            <tr >
-                <td>Sma</td>
-                <td>item</td>
-                <td>mbd</td>
-                <td>mk</td>
-                <td>kk</td>
-                <td>op</td>
-                <td>op</td>
-                <td>op</td>
-                <td>kl</td>
-                <td>op</td>
+        <tbody *ngIf="paginationInterfce.length > 0; else noResults">
+            <tr *ngFor="let user of paginationInterfce">
+                <td>{{user.userName}}</td>
+                <td>{{user.empId}}</td>
+                <td>{{user.userLevel}}</td>
+                <td>{{user.userStatus}}</td>
+                <td>{{user.sysetmAdmin}}</td>
+                <td>{{user.customerService}}</td>
+                <td>{{user.billProduce}}</td>
+                <td>{{user.technicalService}}</td>
+                <td>{{user.stockControl}}</td>
+                <td>{{user.hrm}}</td>
                 <td *ngIf="!isFromDashboard && !isFromUser">
-                    <button type="button"
+                    <button type="button" (click)="updateUserSetting(user)"
                         class="btn btn-outline-warning btn-sm"><i class="ti ti-pencil"></i></button>
                     |
-                    <button type="button"
+                    <button type="button" (click)="removeBillOfficer(user.userId)"
                         class="btn btn-outline-danger btn-sm"><i class="ti ti-trash"></i></button>
 
 
@@ -57,11 +58,16 @@
             </tr>
 
         </tbody>
+        <ng-template #noResults>
+            <tr>
+              <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+            </tr>
+          </ng-template>
     </table>
-    <!-- <div class="card flex justify-content-center">
+    <div class="card flex justify-content-center">
         <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="totlRecords"
             [rowsPerPageOptions]="[5, 10, 15]"></p-paginator>
-    </div> -->
+    </div>
 </div>
 
 <!-- </div> -->

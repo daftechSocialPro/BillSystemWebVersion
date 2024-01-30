@@ -49,6 +49,7 @@ namespace IntegratedImplementation.Datas
 
             services.AddScoped<IDataBaseBackUpService, DatabaseBackUpService>();
             services.AddScoped<IBillTemplateService, BillTemplateService>();
+            services.AddScoped<IUserSettingService, UserSettingService>();
 
 
             //services.AddScoped<IVillageService, VillageService>();

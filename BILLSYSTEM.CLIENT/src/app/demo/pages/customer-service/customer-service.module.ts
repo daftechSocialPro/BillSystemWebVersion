@@ -11,11 +11,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CssImportComponent } from './css-customer/css-import/css-import.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { DetailCustomerComponent } from './css-customer/detail-customer/detail-customer.component';
-
+import { CssChangeActionComponent } from './css-customer/css-change-action/css-change-action.component';
 
 @NgModule({
-  declarations: [    
-    CssHomeComponent, CssSetupComponent, CssCustomerComponent, CssReportComponent, CssBillReportComponent, AddCssCustomerComponent, CssImportComponent,DetailCustomerComponent  
+  declarations: [
+    CssHomeComponent, CssSetupComponent, CssCustomerComponent, CssReportComponent, CssBillReportComponent, AddCssCustomerComponent, CssImportComponent,DetailCustomerComponent, CssChangeActionComponent,
   ],
   imports: [
     CommonModule,

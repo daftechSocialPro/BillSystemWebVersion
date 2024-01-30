@@ -1,0 +1,97 @@
+<div class="modal-content bg-white">
+  <div class="card p-10">
+    <div class="modal-header">
+      <h4 class="modal-title text-center"> Change Action </h4>
+      <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"> </button>
+    </div>
+    <div style="background-color: #eceff1;">
+    <div class="container">
+      <div class="col-lg-15 text-center p-4">
+        <button class="btn btn-outline-primary mx-5 ">Reconnect</button>
+        <button class="btn btn-outline-warning mx-5 ">Disconnect</button>
+        <button class="btn btn-outline-danger mx-5 ">Terminate</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg-4">
+          <div class=" mb-3">
+            <input type="text" class="form-control form-control-lg" formControlName="Name" id="floatingInput" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-lg" formControlName="Contract No." id="floatingInput"/>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-lg" formControlName="Meter Size" id="floatingInput"  />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-lg" formControlName="Meter No." id="floatingInput"  />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-lg" formControlName="Kebele" id="floatingInput" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-lg" formControlName="Customer Category" id="floatingInput" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <select formControlName="ketena" class="form-select form-control-lg" id="floatingSelect">
+              <option value="">Select Reason</option>
+              <option></option>
+            </select>
+            <label for="floatingSelect">Reason</label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <input type="Date" class="form-control form-control-lg" formControlName="Transaction Date" id="floatingInput" />
+            <label for="floatingInput7">Transaction Date</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <table class="custom-table mt-4 mx-auto col-lg-4 mb-3 p-10">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Action Date</th>
+            <th>Type of Action</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="paginationCustomer.length > 0; else noResults">
+          <tr *ngFor="let item of paginationCustomer; let i = index">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+        <ng-template #noResults>
+          <tr>
+            <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+          </tr>
+        </ng-template>
+        </table>
+    </div>
+  </div>
+</div>
+</div>

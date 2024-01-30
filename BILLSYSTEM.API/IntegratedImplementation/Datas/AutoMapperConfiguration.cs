@@ -19,6 +19,7 @@ using IntegratedInfrustructure.Model.DWM;
 using IntegratedImplementation.DTOS.DWM;
 using IntegratedInfrustructure.Model.CSS;
 using IntegratedImplementation.DTOS.CustomerService;
+using IntegratedInfrustructure.Model.Authentication;
 
 namespace IntegratedImplementation.Datas
 {
@@ -56,6 +57,8 @@ namespace IntegratedImplementation.Datas
             CreateMap<FiscalMonth, FiscalMonthDto>();
             CreateMap<PenalityRate, PenalityRateDto>();
             CreateMap<AccountPeriod, AccountPeriodDto>();
+
+            CreateMap<User, UserServiceDto>();
 
             #region DWM
             CreateMap<MobileUsers, MobileUsersDto>();

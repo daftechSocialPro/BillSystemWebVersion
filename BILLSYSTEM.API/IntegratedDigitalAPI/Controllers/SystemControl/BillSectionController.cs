@@ -2,6 +2,7 @@
 using IntegratedImplementation.DTOS.HRM;
 using IntegratedImplementation.DTOS.SystemControl;
 using IntegratedImplementation.Interfaces.SystemControl;
+using IntegratedInfrustructure.Model.SCS;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -61,5 +62,15 @@ namespace IntegratedDigitalAPI.Controllers.SytemControl
         {
             return Ok(await _BillSectionService.GetBillOfficerHavingNoDuty());
         }
+
+
+        [HttpGet]
+        [ProducesResponseType(typeof(DetailPermission), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetAllDetailPermission()
+        {
+            return Ok(await _BillSectionService.GetDetailPermissions());
+        }
+
+
     }
 }
