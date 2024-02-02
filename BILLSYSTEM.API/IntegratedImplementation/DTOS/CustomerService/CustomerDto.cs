@@ -107,5 +107,7 @@ namespace IntegratedImplementation.DTOS.CustomerService
 
         public int MonthIndex { get; set; }
         public int FiscalYear { get; set; }
+
+        public string Reason { get; set; }
     }
 }

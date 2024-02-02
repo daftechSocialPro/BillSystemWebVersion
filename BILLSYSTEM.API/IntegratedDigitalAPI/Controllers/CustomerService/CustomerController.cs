@@ -68,6 +68,14 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             }
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(CustomerGetDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetContractNumber(string kebele, string ketena)
+        {
+            return Ok(await _customerService.GetContractNumber(kebele,ketena));
+        }
+
+
 
     }
 }

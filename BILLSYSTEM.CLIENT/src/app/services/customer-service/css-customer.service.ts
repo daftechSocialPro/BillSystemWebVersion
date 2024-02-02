@@ -22,9 +22,9 @@ export class CssCustomerService {
   getCustomerForUpdate(contractNo: string) {
     return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)
   }
-updateCustomer(updateCustomer:ICustomerDto){ 
+updateCustomer(updateCustomer:ICustomerDto){
   return this.http.put<ResponseMessage>(this.baseUrl+'/Customer/UpdateCustomer', updateCustomer)
-  
+
 }
 
   addCustomer(addcustomer: ICustomerDto) {
@@ -38,11 +38,17 @@ updateCustomer(updateCustomer:ICustomerDto){
 
   deleteCustomer(contractNo:string){
     return this.http.delete<ResponseMessage>(this.baseUrl + `/Customer/DeleteCustomer?contractNo=${contractNo}`)
- 
+
   }
 
   createCustomer (customerPost :ICustomerPostDto){
     return this.http.post<ResponseMessage>(this.baseUrl+"/Customer/CreateBasicData",customerPost)
+  }
+
+  getContractNumber (kebele:string,ketena:string){
+
+    return this.http.get<number>(this.baseUrl+`/Customer/GetContractNumber?kebele=${kebele}&ketena=${ketena}`)
+
   }
 
 }

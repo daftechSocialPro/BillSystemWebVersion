@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput"
+                                    <input type="text" class="form-control" id=""
                                         formControlName="phoneNumber" />
                                     <label for="floatingInput">Phone Number</label>
                                 </div>
@@ -248,7 +248,16 @@
                                     <label for="floatingInput">Water Meter No.</label>
                                 </div>
                             </div>
-
+                            <div class="col-md-3">
+                              <div class="form-floating mb-3">
+                                  <select class="form-control" formControlName="Reason">
+                                      <option value="">Select Reason</option>
+                                      <option *ngFor="let item of reasons" [value]="item.inputValues">
+                                          {{item.inputValues}}</option>
+                                  </select>
+                                  <label for="floatingInput">Reason for Meter Change</label>
+                              </div>
+                          </div>
 
 
                             <div class="col-md-3">
@@ -308,9 +317,9 @@
 
                             <div class="col-md-3">
                                 <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingInput"
+                                    <input type="date" class="form-control" id="1"
                                         formControlName="installationDate" />
-                                    <label for="floatingInput">Installation Date.</label>
+                                    <label for="1">Installation Date.</label>
                                 </div>
                             </div>
                         </div>

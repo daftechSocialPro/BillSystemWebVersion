@@ -20,5 +20,9 @@ namespace IntegratedImplementation.Interfaces.CustomerService
 
 
         public Task<ResponseMessage> DeleteCustomer (string contractNo);
+
+
+        public Task<int> GetContractNumber(string kebele, string ketena);
+
     }
 }

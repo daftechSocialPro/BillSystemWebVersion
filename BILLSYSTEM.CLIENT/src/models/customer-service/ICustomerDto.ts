@@ -1,8 +1,8 @@
 
 
 export interface ICustomerDto {
-    
-    
+
+
     fiscalYear: number
     monthIndex: number
     custId: string
@@ -14,6 +14,7 @@ export interface ICustomerDto {
     houseNo: string
     village: string
     telephone: string
+    reason:string
     // mobile: string
     bookNo: string
     accountNo: string
@@ -62,7 +63,7 @@ export interface ICustomerDto {
     // remarks:string
     // dataSynched: string
      selected?: boolean
-    } 
+    }
 
 export interface ICustomerPostDto{
     fullName: string;
@@ -84,6 +85,6 @@ export interface ICustomerPostDto{
     startReading: number;
     sweragePaid : string ;
     monthIndex : number
-    fiscalYear : number 
+    fiscalYear : number
     billOfficerId:number
 }

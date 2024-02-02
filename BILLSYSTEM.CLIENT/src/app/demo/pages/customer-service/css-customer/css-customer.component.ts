@@ -36,7 +36,6 @@ export class CssCustomerComponent implements OnInit {
     private customerService: CssCustomerService
   ) {}
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
     this.getCustomers();
   }
 
@@ -44,7 +43,11 @@ export class CssCustomerComponent implements OnInit {
     if (this.searchText.trim() === '') {
       this.filterdInterface = this.Customer;
     } else {
-      this.filterdInterface = this.Customer.filter((item) => item.customerName.toLowerCase().includes(this.searchText.toLowerCase()));
+      this.filterdInterface = this.Customer.filter(
+        (item) =>
+          item.customerName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+          item.contractNo.toLowerCase().includes(this.searchText.toLowerCase())
+      );
     }
     this.first = 0;
     this.onPageChange({ first: this.first, rows: this.rows }, this.filterdInterface);
@@ -72,9 +75,7 @@ export class CssCustomerComponent implements OnInit {
     });
   }
 
-  updateCustomer(customer: ICustomerDto) {
-
-  }
+  updateCustomer(customer: ICustomerDto) {}
 
   showSelectOption() {
     this.displaySelectOption = true;

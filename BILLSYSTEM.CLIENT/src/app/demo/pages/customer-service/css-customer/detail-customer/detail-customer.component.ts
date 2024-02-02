@@ -27,6 +27,7 @@ export class DetailCustomerComponent implements OnInit {
   @Input() contractNo: string
   maxOrdinaryNo: number;
   customer: ICustomerDto
+  reasons:IGeneralSettingDto[]
   Customer: ICustomerDto[]
   customerForm!: FormGroup;
   billOfficer: IBillSectionDto[]
@@ -72,6 +73,7 @@ export class DetailCustomerComponent implements OnInit {
       ordinaryNo: [''],
       installationDate: [''],
       updateInitial: [false],
+      reason:[''],
       startReading: [''],
       sweragePaid: [''],
       monhtIndex: [''],
@@ -83,7 +85,7 @@ export class DetailCustomerComponent implements OnInit {
       countryOrgin:[''],
       meterType:[''],
       paymentMode:['',]
-      
+
 
     })
   }
@@ -104,6 +106,7 @@ export class DetailCustomerComponent implements OnInit {
     this.getMobileUsers()
     this.getBillDuties()
     this.getBillOfficers()
+    this.getReasons()
     this.getMonths()
     this.getmeterType()
     this.getCountryOrgin()
@@ -111,7 +114,7 @@ export class DetailCustomerComponent implements OnInit {
     this.getmeterDigit()
     this.fetchCustomers();
 
-    if (this.Customer && this.Customer.length > 0) {
+    if (this.customer && this.Customer.length > 0) {
       const lastCustomer = this.Customer[this.Customer.length - 1];
       if (lastCustomer && lastCustomer.ordinaryNo){
       this.customerForm.controls['ordinaryNo'].setValue(lastCustomer.ordinaryNo);
@@ -159,20 +162,20 @@ export class DetailCustomerComponent implements OnInit {
 
 
 
-  getSingleCustomer() {
+  getSingleCustomer():void {
 
     this.customerService.getSingleCustomer(this.contractNo).subscribe({
       next: (res) => {
         console.log("cust",res)
         this.customer = res
         this.customerForm.controls['fullName'].setValue(this.customer.customerName)
+        this.customerForm.controls['phoneNumber'].setValue(this.customer.telephone)
         this.customerForm.controls['fiscalYear'].setValue(this.customer.regFiscalYear)
         this.customerForm.controls['monhtIndex'].setValue(this.customer.regMonthIndex)
-        this.customerForm.controls['customerCategories'].setValue(this.customer.custCategoryCode)
+        this.customerForm.controls['customerCategory'].setValue(this.customer.custCategoryCode)
         this.customerForm.controls['contractNo'].setValue(this.customer.contractNo)
         this.customerForm.controls['meterSize'].setValue(this.customer.meterSizeCode)
         this.customerForm.controls['readerName'].setValue(this.customer.readerName)
-        this.customerForm.controls['phoneNumber'].setValue(this.customer.telephone)
         this.customerForm.controls['village'].setValue(this.customer.village)
         this.customerForm.controls['billCycle'].setValue(this.customer.billCycle)
         this.customerForm.controls['ketena'].setValue(this.customer.ketena)
@@ -182,7 +185,7 @@ export class DetailCustomerComponent implements OnInit {
         this.customerForm.controls['houseNumber'].setValue(this.customer.houseNo)
         this.customerForm.controls['mapNumber'].setValue(this.customer.mapNumber)
         this.customerForm.controls['meterNo'].setValue(this.customer.meterno)
-        this.customerForm.controls['startReading'].setValue(this.customer.meterStartReading)
+        this.customerForm.controls['sweragePaid'].setValue(this.customer.sdPaid)
 
       }
     })
@@ -220,7 +223,13 @@ export class DetailCustomerComponent implements OnInit {
       }
     })
   }
-
+getReasons(){
+  this .controlService.getGeneralSetting("METERCHANGEREASON").subscribe({
+    next: (res) => {
+      this.reasons = res
+    }
+  })
+}
   getVillages() {
 
     this.controlService.getGeneralSetting("Village").subscribe({
@@ -267,7 +276,7 @@ export class DetailCustomerComponent implements OnInit {
       next: (res) => { this.meterType = res }
     })
   }
-  
+
 getCountryOrgin(){
   this.controlService.getGeneralSetting("COUNTRYORIGIN").subscribe({
     next: (res) => { this.countryOrgin = res }
@@ -345,22 +354,7 @@ getCountryOrgin(){
       readerName: this.customerForm.value.readerName,
       bankAccount: this.customerForm.value.bankAccount,
       billOfficerId: this.customerForm.value.billOfficerId,
-      // paymentPlace: this.customerForm.value.paymentPlace,
-      // paymentDuration: this.customerForm.value.paymentDuration,
-      // billSalesGroup: this.customerForm.value.billSalesGroup,
-      // onlineGroup: this.customerForm.value.onlineGroup,
-      // bankCode: this.customerForm.value.bankCode,
-      // transferBy: this.customerForm.value.transferBy,
-      // transferDT: this.customerForm.value.transferDT,
-      // field01: this.customerForm.value.field01,
-      // field02: this.customerForm.value.field02,
-      // field03: this.customerForm.value.field03,
-      // enterBy: this.customerForm.value.enterBy,
-      // modifyBy: this.customerForm.value.modifyBy,
-      // modifyDate: this.customerForm.value.modifyDate,
-      // dataSynched: this.customerForm.value.dataSynched,
-      // transferFy: '',
-      // remarks: ''
+      reason: this.customerForm.value.reason,
     }
     console.log("customer post", customerPost)
     this.customerService.updateCustomer(customerPost).subscribe({
