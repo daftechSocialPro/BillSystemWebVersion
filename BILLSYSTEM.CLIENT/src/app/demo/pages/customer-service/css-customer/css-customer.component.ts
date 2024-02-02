@@ -68,10 +68,11 @@ export class CssCustomerComponent implements OnInit {
       this.getCustomers();
     });
   }
-  changeAction() {
+  changeAction(customer:ICustomerGetDto) {
     let modalRef = this.modalService.open(CssChangeActionComponent, { backdrop: 'static', size: 'lg' });
+    modalRef.componentInstance.customer = customer;
     modalRef.result.then(() => {
-      // this.getCustomers()
+      this.getCustomers()
     });
   }
 

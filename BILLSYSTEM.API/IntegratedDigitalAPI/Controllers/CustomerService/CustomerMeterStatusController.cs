@@ -9,21 +9,21 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ChangeActionController : ControllerBase
+    public class CustomerMeterStatusController : ControllerBase
     {
-        private readonly IChangeActionService _changeActionService;
+        private readonly ICustomerMeterStatusService _changeActionService;
 
 
-        public ChangeActionController(IChangeActionService changeActionService)
+        public CustomerMeterStatusController(ICustomerMeterStatusService changeActionService)
         {
             _changeActionService = changeActionService;
 
         }
         [HttpGet]
-        [ProducesResponseType(typeof(ChangeActionGetDto), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetCustomerStatus()
+        [ProducesResponseType(typeof(CustomerMeterStatusGetDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetCustomerMeterStatus(string custId )
         {
-            return Ok(await _changeActionService.GetCustomerStatus());
+            return Ok(await _changeActionService.GetCustomerStatus(custId));
         }
     }
 }

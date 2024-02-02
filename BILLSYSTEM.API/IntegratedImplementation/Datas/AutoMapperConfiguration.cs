@@ -90,16 +90,7 @@ namespace IntegratedImplementation.Datas
                .ForMember(a => a.meterno, e => e.MapFrom(mfg => mfg.meterno));
 
            ;
-            CreateMap<ChangeAction, ChangeActionGetDto>()
-                .ForMember(a => a.Kebele, e => e.MapFrom(mfg => mfg.Kebele))
-               .ForMember(a => a.customerName, e => e.MapFrom(mfg => mfg.customerName))
-               .ForMember(a => a.custCategoryCode, e => e.MapFrom(mfg => mfg.custCategoryCode))
-               .ForMember(a => a.MeterSizeCode, e => e.MapFrom(mfg => mfg.MeterSizeCode))
-               .ForMember(a => a.meterno, e => e.MapFrom(mfg => mfg.meterno))
-               .ForMember(a => a.OrdinaryNo, e => e.MapFrom(mfg => mfg.OrdinaryNo))
-               .ForMember(a => a.ContractNo, e => e.MapFrom(mfg => mfg.ContractNo));
-
-            ;
+        
            
             #endregion
 

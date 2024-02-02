@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace IntegratedImplementation.Interfaces.CustomerService
 {
-    public interface IChangeActionService
+    public interface ICustomerMeterStatusService
     {
-        public Task<List<ChangeActionGetDto>> GetCustomerStatus();
+        public Task<List<CustomerMeterStatusGetDto>> GetCustomerStatus(string CustId);
+
+
 
     }
 }

@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
 import { ResponseMessage } from 'src/models/ResponseMessage.Model';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
+import { ICustomerMeterStatusGetDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,11 @@ updateCustomer(updateCustomer:ICustomerDto){
   getContractNumber (kebele:string,ketena:string){
 
     return this.http.get<number>(this.baseUrl+`/Customer/GetContractNumber?kebele=${kebele}&ketena=${ketena}`)
+
+  }
+  getCustomerMeterStatus (custId:string){
+
+    return this.http.get<ICustomerMeterStatusGetDto[]>(`${this.baseUrl}/CustomerMeterStatus/GetCustomerMeterStatus?custId=${custId}`)
 
   }
 

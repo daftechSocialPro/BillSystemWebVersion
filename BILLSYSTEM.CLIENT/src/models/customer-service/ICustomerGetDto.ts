@@ -7,5 +7,7 @@ export interface ICustomerGetDto {
     custCategoryCode:string
     meterno:string
     meterSizeCode:string
+    custId?:string
+
 
 }

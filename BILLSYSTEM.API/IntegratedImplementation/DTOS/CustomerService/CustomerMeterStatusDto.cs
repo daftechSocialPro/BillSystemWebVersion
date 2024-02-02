@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace IntegratedImplementation.DTOS.CustomerService
 {
-    public class ChangeActionGetDto
+    public class CustomerMeterStatusGetDto
     {
-        public int customerName { get; set; }
-        public int? Kebele { get; set; }
-        public int meterno { get; set; }
-        public string? MeterSizeCode { get; set; }
-        public string? custCategoryCode { get; set; }
-        public string? ContractNo { get; set; }
-        public string? OrdinaryNo { get; set; }
+
+
+        public int FiscalYear { get; set; }
+        public int monthIndex { get; set; }
+
+        public string? typeOfAction { get;set; }
+        public string? reason { get; set; }
+
+        public DateTime? enterDate { get; set; }
+    
 
     }
-    public class ChangeActionpostDto
+    public class CustomerMeterStatuspostDto
     {
         public string? reason { get; set;}
         public string? enterBy { get; set; }
