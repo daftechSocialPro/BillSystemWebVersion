@@ -10,7 +10,6 @@ namespace IntegratedImplementation.Interfaces.CustomerService
 {
     public interface ICustomerService
     {
-
         public Task<List<CustomerGetDto>> GetCustomers();
 
         public Task <CustomerGetDto> GetSingleCustomer(string contractNo);

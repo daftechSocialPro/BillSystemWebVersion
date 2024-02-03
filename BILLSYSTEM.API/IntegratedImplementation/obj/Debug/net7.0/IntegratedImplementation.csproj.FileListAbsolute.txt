@@ -13,3 +13,4 @@ C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYST
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Debug\net7.0\refint\IntegratedImplementation.dll
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Debug\net7.0\IntegratedImplementation.pdb
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Debug\net7.0\ref\IntegratedImplementation.dll
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Debug\net7.0\IntegratedImplementation.sourcelink.json

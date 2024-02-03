@@ -68,6 +68,7 @@ namespace IntegratedImplementation.Datas
             services.AddScoped<IDWMDashboardService, DWMDashboardService>();
             services.AddScoped<ICustomerCollectedService, CustomerCollectedService>();
             services.AddScoped<IDWMReportService, DWMReportService>();
+            services.AddScoped<IDWMMobileService, DWMMobileService>();
 
             #endregion
 

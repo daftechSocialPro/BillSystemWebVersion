@@ -17,7 +17,7 @@ export class CssCustomerService {
 
   //customer
   getCustomer() {
-    return this.http.get<ICustomerGetDto[]>(this.baseUrl + "/Customer/GetCustomeres")
+    return this.http.get<ICustomerDto[]>(this.baseUrl + "/Customer/GetCustomeres")
   }
   getCustomerForUpdate(contractNo: string) {
     return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)

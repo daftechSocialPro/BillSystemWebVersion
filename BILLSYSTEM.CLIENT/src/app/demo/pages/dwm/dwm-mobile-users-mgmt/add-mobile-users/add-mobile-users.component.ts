@@ -154,7 +154,7 @@ export class AddMobileUsersComponent implements OnInit {
   getImage2() {
     
 
-    if (this.imagePath != null) {
+    if (this.imagePath != null||this.imagePath!="") {
       return this.imagePath
     }
     if ( this.mobileUser&&  this.mobileUser.imagePath != "") {
