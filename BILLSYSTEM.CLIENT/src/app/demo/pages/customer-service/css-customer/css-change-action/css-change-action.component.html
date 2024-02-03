@@ -7,65 +7,82 @@
 
     <div class="container">
 
-      <div class="row">
+      <div class="row mt-2">
         <div class="col-lg-4">
-          <div class="mb-3 p-10">
+          <div class="form-floating mb-3">
+
             <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.customerName" id="floatingInput" />
+
+
+          <label for="floatingSelect">Customer Name</label>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="mb-3">
+          <div class="form-floating mb-3">
+
             <input type="text" class="form-control form-control" readonly [value]="customer&&customer.contractNo" id="floatingInput" />
-          </div>
+
+          <label for="floatingSelect">Contract No</label>
+</div>
         </div>
         <div class="col-lg-4">
-          <div class="mb-3">
+          <div class="form-floating mb-3">
+
             <input type="text" class="form-control form-control" readonly [value]="customer&&customer.custCategoryCode" id="floatingInput"/>
+            <label for="floatingSelect">Customer Categor Code</label>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="mb-3">
-            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.meterSizeCode" id="floatingInput" />
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="mb-3">
-            <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.meterno" id="floatingInput" />
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="mb-3">
-            <input type="text" class="form-control form-control" readonly [value]="customer&&customer" id="floatingInput" />
-          </div>
-        </div>
-      </div>
-      <form [formGroup]="meterStatusForm" >
       <div class="row">
         <div class="col-lg-4">
           <div class="form-floating mb-3">
-            <select formControlName="meterStatus" class="form-select form-control" id="floatingSelect">
+
+            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.meterSizeCode" id="floatingInput" />
+
+            <label for="floatingSelect">Meter Size Code</label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.meterno" id="floatingInput" />
+            <label for="floatingSelect">Meter No</label>
+          </div>
+        </div>
+        <!-- <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer&&customer" id="floatingInput" />
+          </div>
+        </div> -->
+      </div>
+      <form [formGroup]="meterStatusForm" (ngSubmit)="UpdateMeterStatus()" >
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <select formControlName="meterStatus" class="form-select form-control" #meterSta (change)="getReasons(meterSta.value)" id="floatingSelect">
               <option value="">Select Meter Status</option>
               <option *ngFor="let item of meterStatus">{{item}}</option>
             </select>
             <label for="floatingSelect">Meter Status</label>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <div class="form-floating mb-3">
             <select formControlName="reason" class="form-select form-control" id="floatingSelect">
               <option value="">Select Reason</option>
-              <option></option>
+              <option *ngFor="let item of SCReasons" [value]="item.inputValues"> {{item.inputValues}}</option>
             </select>
             <label for="floatingSelect">Reason</label>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <div class="form-floating mb-3">
             <input type="Date" class="form-control form-control-lg" formControlName="entryDate" id="floatingInput" />
             <label for="floatingInput7">Transaction Date</label>
           </div>
+        </div>
+
+        <div class="col-lg-2">
+          <button type="submit" [disabled]="!meterStatusForm.valid" class="btn btn-outline-success">Change Status</button>
         </div>
       </div>
     </form>

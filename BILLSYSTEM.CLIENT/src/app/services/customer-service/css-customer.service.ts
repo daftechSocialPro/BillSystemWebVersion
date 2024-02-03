@@ -5,7 +5,7 @@ import { UserService } from '../user.service';
 import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
 import { ResponseMessage } from 'src/models/ResponseMessage.Model';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
-import { ICustomerMeterStatusGetDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
+import { ICustomerMeterStatusGetDto, ICustomerMeterStatusPostDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +56,8 @@ updateCustomer(updateCustomer:ICustomerDto){
     return this.http.get<ICustomerMeterStatusGetDto[]>(`${this.baseUrl}/CustomerMeterStatus/GetCustomerMeterStatus?custId=${custId}`)
 
   }
+updateCustomerMeterStatus(meterStatus:ICustomerMeterStatusPostDto){
 
+  return this.http.post<ResponseMessage>(`${this.baseUrl}/CustomerMeterStatus/ChangeCustomerStatus`,meterStatus)
+}
 }

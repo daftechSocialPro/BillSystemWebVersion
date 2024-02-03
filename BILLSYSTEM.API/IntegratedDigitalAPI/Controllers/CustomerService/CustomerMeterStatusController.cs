@@ -1,4 +1,5 @@
-﻿using IntegratedImplementation.DTOS.CustomerService;
+﻿using Implementation.Helper;
+using IntegratedImplementation.DTOS.CustomerService;
 using IntegratedImplementation.Interfaces.CustomerService;
 using IntegratedImplementation.Services.CustomerService;
 using Microsoft.AspNetCore.Http;
@@ -24,6 +25,22 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
         public async Task<IActionResult> GetCustomerMeterStatus(string custId )
         {
             return Ok(await _changeActionService.GetCustomerStatus(custId));
+        }
+
+    
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> ChangeCustomerStatus(CustomerMeterStatusPostDto meterStatus)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _changeActionService.ChangeCustomerStatus(meterStatus));
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }
