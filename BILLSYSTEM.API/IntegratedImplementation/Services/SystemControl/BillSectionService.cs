@@ -99,5 +99,16 @@ namespace IntegratedImplementation.Services.SystemControl
 
             return billOfficer;
         }
+
+        public async Task<List<DetailPermission>> GetDetailPermissions()
+        {
+
+            var result = await _dbContext.DetailPermissions.ToListAsync();
+
+            return result;
+
+
+
+        }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dXxozA6i1w2zQfy/cBg3gv8Tb+4/rJIfsYeDH+8usv8jjTQoDhN92/8aLS8XPOaOhJF9FoDYWYBB/fa5DwjlDA==",
+  "dgSpecHash": "JJUyNYzK0TmkEQ04ac7Xi99DocUTyDsYRcR33crQM7YZbm9XXkKr9p2wl2wy03/CoIud9KD+M1mOBpY6dgMoFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+  "projectFilePath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Job\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Job\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

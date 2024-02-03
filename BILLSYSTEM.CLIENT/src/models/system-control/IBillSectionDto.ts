@@ -5,3 +5,13 @@ export interface IBillSectionDto {
     position:string
 
 }
+
+
+export interface IDetailPermissionDto {
+    recId: string;
+    appModule?: string;
+    appTabs?: string;
+    buttonName?: string;
+    buttonCaption?: string;
+    selected:boolean
+  }

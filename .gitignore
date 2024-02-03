@@ -48,6 +48,7 @@ BILLSYSTEM.CLIENT/yarn-error.log
 
 #API
 /BILLSYSTEM.API/IntegratedDigitalAPI/.vs/
+/BILLSYSTEM.API/IntegratedDigitalAPI/.appsettings.json
 /BILLSYSTEM.API/IntegratedDigitalAPI/Infrustructure/bin
 /BILLSYSTEM.API/IntegratedDigitalAPI/Infrustructure/obj
 /BILLSYSTEM.API/IntegratedDigitalAPI/IntegratedDigitalAPI/bin

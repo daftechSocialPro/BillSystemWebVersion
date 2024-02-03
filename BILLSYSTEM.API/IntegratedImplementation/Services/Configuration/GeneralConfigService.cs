@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -76,5 +77,46 @@ namespace IntegratedImplementation.Services.Configuration
 
             return "";
         }
+
+        public string Encrypt(string plainText)
+        {
+            byte[] initVectorBytes = Encoding.ASCII.GetBytes("@1B2c3D4e5F6g7H8");
+            byte[] saltValueBytes = Encoding.ASCII.GetBytes("s@1tValue");
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+
+            PasswordDeriveBytes password = new PasswordDeriveBytes(
+                "*&Daftech*Pas5pr@se",
+                saltValueBytes,
+                "SHA1",
+                10);
+
+            byte[] keyBytes = password.GetBytes(256 / 8);
+
+            RijndaelManaged symmetricKey = new RijndaelManaged
+            {
+                Mode = CipherMode.CBC
+            };
+
+            ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes);
+
+            byte[] cipherTextBytes;
+
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                {
+                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+                    cryptoStream.FlushFinalBlock();
+                    cipherTextBytes = memoryStream.ToArray();
+                    cryptoStream.Close();
+                }
+                memoryStream.Close();
+            }
+
+            string cipherText = Convert.ToBase64String(cipherTextBytes);
+            return cipherText;
+        }
+
+
     }
 }

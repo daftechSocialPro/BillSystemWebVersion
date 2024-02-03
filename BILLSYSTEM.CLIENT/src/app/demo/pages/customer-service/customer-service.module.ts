@@ -10,22 +10,18 @@ import { AddCssCustomerComponent } from './css-customer/add-css-customer/add-css
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CssImportComponent } from './css-customer/css-import/css-import.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { DetailCustomerComponent } from './css-customer/detail-customer/detail-customer.component';
+import { CssBatchRecordsComponent } from './css-customer/css-batch-records/css-batch-records.component';
 
 
 @NgModule({
-  declarations: [
-    CssHomeComponent,
-    CssSetupComponent,
-    CssCustomerComponent,
-    CssReportComponent,
-    CssBillReportComponent,
-    AddCssCustomerComponent,
-    CssImportComponent,
-   
+  declarations: [    
+    CssHomeComponent, CssSetupComponent, CssCustomerComponent, CssReportComponent, CssBillReportComponent, AddCssCustomerComponent, CssImportComponent,DetailCustomerComponent, CssBatchRecordsComponent  
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     CustomerServiceRoutingModule,
     PaginatorModule,
     ReactiveFormsModule,

@@ -1,6 +1,7 @@
 ﻿using Implementation.Helper;
 using IntegratedImplementation.DTOS.Configuration;
 using IntegratedImplementation.DTOS.SystemControl;
+using IntegratedInfrustructure.Model.SCS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace IntegratedImplementation.Interfaces.SystemControl
         Task<ResponseMessage> AddBillSection(BillSectionDto addBillSection);
         Task<ResponseMessage> DeleteBillSection(string empID);
         Task<List<BillSectionDto>> GetBillOfficerHavingNoDuty();
+        Task<List<DetailPermission>> GetDetailPermissions();
 
     }
 }

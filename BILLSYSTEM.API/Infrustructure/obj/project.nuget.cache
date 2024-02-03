@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JW7eIbHtDLL6OGM5VBfoBD3dwXv3ZucAgxZ9sj9amnMCNDIIU8dUMGtOrnZjetIk2GkGv9WfnlPW35eYwFxQ9A==",
+  "dgSpecHash": "SYcXQZxHG9bnE46O++eshF4C5eYhr1CrWfWYbP/pBYNFZPfBh5F5EEKEWsiEsGXrvxauSPYSgJwhhDd8gDnlfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
+  "projectFilePath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Job\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Job\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

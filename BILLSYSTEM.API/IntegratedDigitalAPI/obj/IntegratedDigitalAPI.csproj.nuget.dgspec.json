@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj": {}
+    "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
+    "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
+        "projectUniqueName": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
         "projectName": "IntegratedInfrustructure",
-        "projectPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
+        "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
         "packagesPath": "C:\\Users\\Job\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\obj\\",
+        "outputPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Job\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj": {
+    "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
         "projectName": "IntegratedDigitalAPI",
-        "projectPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+        "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
         "packagesPath": "C:\\Users\\Job\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\obj\\",
+        "outputPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Job\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -109,11 +109,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
-                "projectPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
+              "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
+                "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
               },
-              "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
-                "projectPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj"
+              "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
+                "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj"
               }
             }
           }
@@ -210,14 +210,14 @@
         }
       }
     },
-    "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
+    "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+        "projectUniqueName": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
         "projectName": "IntegratedImplementation",
-        "projectPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+        "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
         "packagesPath": "C:\\Users\\Job\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\obj\\",
+        "outputPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Job\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -234,8 +234,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
-                "projectPath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
+              "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
+                "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
               }
             }
           }

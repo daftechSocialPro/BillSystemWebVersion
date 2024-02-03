@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wzgcrRGg8yT4AS1dOnmAcMlVioOr9+0kUI6J1CzsWrZmj+dhW32xjGVvZ3kVkqgrywCdL/hQLz2QFozxoBiH1Q==",
+  "dgSpecHash": "XpMscXpVD6TFqlIVABiP45dDrshk76cSCnVlfwRrGPRgECyySF9uCcHFhRJi/ZFFSUeEBJ3HnGH74Cag/pxxLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Job\\Desktop\\Desktop\\My Files\\Projects\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+  "projectFilePath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Job\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Job\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

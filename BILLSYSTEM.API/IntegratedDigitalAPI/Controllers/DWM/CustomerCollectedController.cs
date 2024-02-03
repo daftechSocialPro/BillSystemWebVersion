@@ -29,6 +29,7 @@ namespace IntegratedDigitalAPI.Controllers.DWM
         {
             return Ok(await _customerCollectedService.GetBillMobileDataByEntryDate(entryDate,userName));
         }
+      
 
     }
 }

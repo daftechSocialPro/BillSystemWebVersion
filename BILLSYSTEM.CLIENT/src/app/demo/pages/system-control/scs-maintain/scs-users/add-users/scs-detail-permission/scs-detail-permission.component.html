@@ -1,0 +1,67 @@
+<div class="modal-content bg-white ">
+  <div class="modal-header">
+    <h4 class="modal-title text-center"> Add Detail Permissions for {{user.userName}} ({{user.empId}}) </h4>
+    <button type="button" class="btn-close btn-danger" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal"
+      aria-label="Close"></button>
+  </div>
+  <div class="p-4" style="background-color: #eceff1">
+    <div class="row">
+
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <select class="form-control" id="floatingInput" #appmodule (change)="getAppModulesTabs(appmodule.value)">
+          <option value="all">ALL</option>
+          <option *ngFor="let item of appModules">{{item.name}}</option>
+
+        </select>
+        <label for="floatingInput">CHOOSE THE MODULES</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <select class="form-control" id="floatingInput" #tabsModule (change)="onAppModuleTabsChanged(tabsModule.value)">
+          <option value="all">ALL</option>
+          <option *ngFor="let item of appTabModules">{{item.name}}</option>
+
+        </select>
+        <label for="floatingInput">CHOOSE APP TABS</label>
+      </div>
+    </div>
+  </div>
+    <div style="
+  margin-bottom: 20px;
+        height: 480px;
+        overflow-y: scroll;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: white;">
+    <table class="custom-table"  *ngIf="userPermissions">
+      <thead>
+        <tr>
+          <th>App Modules</th>
+          <th>Tabs</th>
+          <th>Button Caption</th>
+          <th>
+            <input type="checkbox" [(ngModel)]="selected" (change)="toggleSelectAll()">
+             <label for="selectAll">Select All</label>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let permission of filterdPermissions">
+          <td>{{ permission.appModule }}</td>
+          <td>{{ permission.appTabs }}</td>
+          <td>{{ permission.buttonCaption }}</td>
+          <td>
+            <input type="checkbox" [(ngModel)]="permission.selected" [checked]="isPermissionSelected(permission.recId)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-outline-success">Save</button>
+    </div>
+  </div>
+</div>
