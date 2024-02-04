@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace IntegratedInfrustructure.Model.SCS
 {
 
-    [Table("odb_zUserPermission")]
+    [Table("odb_zUserPermission")] 
     public class UserPermission
     {
 

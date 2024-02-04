@@ -9,6 +9,7 @@ using IntegratedInfrustructure.Data;
 using IntegratedInfrustructure.Model.Authentication;
 using IntegratedInfrustructure.Model.SCS;
 using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Ocsp;
 using System;
@@ -240,9 +241,122 @@ namespace IntegratedImplementation.Services.SystemControl
 
             return permissions;
         }
+
+        public async Task<ResponseMessage> UpdateUserPermission(List<UserPermission> userPermissions)
+        {
+            
+            try
+            {
+                if (userPermissions != null)
+                {
+                    var userId = userPermissions[0].UserId;
+                    var permissions = await _generalContext.UserPermissions.Where(x => x.UserId == userId).ToListAsync();
+
+
+                    var permissionsToRemove = permissions.Except(userPermissions, new UserPermissionEqualityComparer());
+                    var permissionsToAdd = userPermissions.Except(permissions, new UserPermissionEqualityComparer());
+
+                    if (permissionsToRemove != null)
+                    {
+
+                        foreach (var permission in permissionsToRemove)
+                        {
+                            await RemoveUserPermission(permission);
+                        }
+                    }
+
+                       
+
+                    foreach (var permission in permissionsToAdd)
+                    {
+
+                        permission.UserId = userId;
+                        await AddUserPermission(permission);
+
+                    }
+                    return new ResponseMessage
+                    {
+
+                        Success = true,
+                        Message = "Userpermission Updated Successfully !!!"
+
+                    };
+
+
+                }
+                else
+                {
+                    return new ResponseMessage
+                    {
+
+                        Success = false,
+                        Message = "Userpermission is empty !!!"
+
+                    };
+                }
+            }
+            catch(Exception ex)
+            {
+                return new ResponseMessage
+                {
+
+                    Success = false,
+                    Message = ex.Message
+
+                };
+            }
+        
+        }
+
+        public async Task AddUserPermission(UserPermission userPermission)
+        {
+            string insertQuery = "INSERT INTO odb_zUserPermission (UserId, ButtonId) VALUES (@userId, @buttonId)";
+
+            await _generalContext.Database.ExecuteSqlRawAsync(insertQuery,
+                new SqlParameter("@userId", userPermission.UserId),
+                new SqlParameter("@buttonId", userPermission.ButtonId));
+        }
+        public async Task RemoveUserPermission(UserPermission userPermission)
+        {
+           
+                string deleteQuery = $"DELETE FROM odb_zUserPermission WHERE UserId = @userId AND ButtonId = @buttonId";
+
+                await _generalContext.Database.ExecuteSqlRawAsync(deleteQuery,
+                    new SqlParameter("@userId", userPermission.UserId),
+                    new SqlParameter("@buttonId", userPermission.ButtonId));
+            
+           
+            
+        }
     }
 
 
+
+
+    public class UserPermissionEqualityComparer : IEqualityComparer<UserPermission>
+    {
+        public bool Equals(UserPermission x, UserPermission y)
+        {
+            if (ReferenceEquals(x, y))
+                return true;
+
+            if (ReferenceEquals(x, null) || ReferenceEquals(y, null))
+                return false;
+
+            return x.ButtonId == y.ButtonId && x.UserId == y.UserId;
+        }
+
+        public int GetHashCode(UserPermission obj)
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + obj.ButtonId.GetHashCode();
+                hash = hash * 23 + obj.UserId.GetHashCode();
+                return hash;
+            }
+        }
+    }
 
 
 

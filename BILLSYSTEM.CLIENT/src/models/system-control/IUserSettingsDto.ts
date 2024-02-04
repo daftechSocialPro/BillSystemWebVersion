@@ -41,6 +41,6 @@ export interface IUserSettingsDto {
   export interface IUserPermissionDto{
     buttonId:string
     userId:string
-    selected:boolean
+    selected?:boolean
 
   }

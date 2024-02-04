@@ -55,6 +55,9 @@ export class AddCssCustomerComponent implements OnInit {
   meterModel: IGeneralSettingDto[]
   meterClass: IGeneralSettingDto[]
   waterSource: IGeneralSettingDto[]
+
+
+
   constructor(
     private activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
@@ -66,19 +69,19 @@ export class AddCssCustomerComponent implements OnInit {
     private messageService: MessageService
   ) {
     this.customerForm = this.formBuilder.group({
-      // fullName: ['', Validators.required],
-      // customerCategory: ['', Validators.required],
-      // readerName: ['', Validators.required],
-      // meterNo: ['', Validators.required],
-      // meterSize: ['', Validators.required],
-      // contractNo: ['', Validators.required],
-      // phoneNumber: [''],
-      // ketena: ['', Validators.required],
-      // kebele: ['', Validators.required],
-      // village: [''],
+      fullName: ['', Validators.required],
+      customerCategory: ['', Validators.required],
+      readerName: ['', Validators.required],
+      meterNo: ['', Validators.required],
+      meterSize: ['', Validators.required],
+      contractNo: ['', Validators.required],
+      phoneNumber: [''],
+      ketena: ['', Validators.required],
+      kebele: ['', Validators.required],
+      village: [''],
       mapNumber: [''],
       houseNumber: [''],
-      billCycle: [''],    
+      billCycle: [''],
       ordinaryNo: [''],
       installationDate: [''],
       updateInitial: [false],
@@ -105,14 +108,13 @@ export class AddCssCustomerComponent implements OnInit {
     this.getBillDuties()
     this.getMonths()
     this.fetchCustomers();
-  
     if (this.Customer && this.Customer.length > 0) {
       const lastCustomer = this.Customer[this.Customer.length - 1];
       this.customerForm.get('ordinaryNo').setValue(lastCustomer.ordinaryNo);
     }
 }
 
-   
+
     fetchCustomers(){
       this.customerService.getCustomer().subscribe({
         next: (customers: ICustomerDto[]) => {
@@ -129,10 +131,24 @@ export class AddCssCustomerComponent implements OnInit {
 
     }
 
-    onKebeleChange(){
-      
+  onKebeleChange(ketena:string,kebele:string) {
+
+    this.customerService.getContractNumber(kebele,ketena).subscribe({
+
+    next:(res)=>{
+      console.log(res)
+
+      this.customerForm.get('contractNo').setValue(res.toString());
+
+
+    },error:(err)=>{
+      this.customerForm.get('contractNo').setValue('');
     }
-    
+    })
+
+
+    }
+
 
      calculateMaxOrdinaryNo(): number {
         return this.Customer.length > 0 ? Math.max(...this.Customer.map(customer => customer.ordinaryNo)) : 0;
@@ -151,6 +167,8 @@ export class AddCssCustomerComponent implements OnInit {
 
       getFilteredKebeles(){
         const selectedKetenaCode = this.customerForm.get('ketena').value;
+
+
         return this.kebeles.filter(item => item.ketenaCode === selectedKetenaCode);
 
       }
@@ -165,7 +183,6 @@ export class AddCssCustomerComponent implements OnInit {
       // onKetenachanges() {
       //   const selectedKetenaCode = this.customerForm.get('ketena').value;
       //   const selectedKebeleCode = this.customerForm.get('kebele').value;
-      
       //   this.fetchCustomersByKetenaAndKebele(selectedKetenaCode, selectedKebeleCode);
       // }
 
@@ -183,7 +200,7 @@ export class AddCssCustomerComponent implements OnInit {
       //     }
       //   });
       // }
-      
+
 
 
       getMonths(){
@@ -317,7 +334,6 @@ export class AddCssCustomerComponent implements OnInit {
 
           }
         })
-      alert(customerPost)
 
       }
     }

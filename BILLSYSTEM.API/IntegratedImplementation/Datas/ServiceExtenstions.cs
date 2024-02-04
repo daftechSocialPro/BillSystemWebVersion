@@ -74,6 +74,7 @@ namespace IntegratedImplementation.Datas
 
             #region Customer-Service
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ICustomerMeterStatusService, CustomerMeterStatusService>();
             #endregion
 
 

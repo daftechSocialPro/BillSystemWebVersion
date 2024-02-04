@@ -26,7 +26,7 @@ export class ScsDetailPermissionComponent implements OnInit{
 
   ngOnInit(): void {
     this.getDetailPermission()
-   this.getAppModules()
+    this.getAppModules()
    this.getUserPermission()
   //  this.toggleSelectAll()
   //  this.getExistingUserPermissions();
@@ -34,6 +34,7 @@ export class ScsDetailPermissionComponent implements OnInit{
   }
   constructor(
     private modalService : NgbModal,
+    private messageService:MessageService,
     private activeModal: NgbActiveModal,
     private maintainService:ScsMaintainService) { }
 
@@ -43,6 +44,8 @@ export class ScsDetailPermissionComponent implements OnInit{
       this.maintainService.getDetailPermmission().subscribe({
         next:(res)=>{
 
+
+          console.log("detail permission",res)
           this.detailPermissions = res
           this.filterdPermissions= res
 
@@ -77,11 +80,11 @@ else {
 
   onAppModuleTabsChanged(tabs: string) {
 
-    if (tabs == 'all') { 
-      this.filterdPermissions = this.detailPermissions
+    if (tabs == 'all') {
+
     }
     else {
-      this.filterdPermissions = this.detailPermissions.filter(x => x.appTabs == tabs)
+      this.filterdPermissions = this.filterdPermissions.filter(x => x.appTabs == tabs)
     }
     }
 
@@ -89,6 +92,8 @@ else {
       this.maintainService.getUserPermissions(this.user.userId).subscribe({
         next: (res) => {
           this.userPermissions = res
+
+          console.log("user Permssins",this.userPermissions)
 
 
 
@@ -107,10 +112,55 @@ else {
 
     toggleSelectAll() {
       // this.selected = !this.selected;
-      this.filterdPermissions.forEach(permission => (permission.selected = this.selected));
+      // this.filterdPermissions.forEach(permission => (permission.selected = this.selected));
+    }
+
+
+
+    togglePermission(recId:string ,permissionId: string, value: any): void {
+      if (value.checked) {
+
+
+        var permission : IUserPermissionDto={
+
+          userId:recId,
+          buttonId:permissionId
+        }
+
+
+        // Add the permission to userPermissions
+        this.userPermissions.push(permission);
+
+        console.log(this.userPermissions)
+      } else {
+        // Remove the permission from userPermissions
+        this.userPermissions = this.userPermissions.filter(
+          (permission) => permission.buttonId !== permissionId
+        );
+
+        console.log(this.userPermissions)
+      }
     }
 
   closeModal(){
     this.activeModal.close()
+  }
+
+  updatePermissions(){
+
+    this.maintainService.updateUserPermissions(this.userPermissions).subscribe({
+      next:(res)=>{
+        if(res.success){
+        this.messageService.add({severity:'success',summary:'User Permission',detail:res.message})
+        }
+        else {
+          this.messageService.add({severity:'error',summary:'Something went wrong!!!',detail:res.message})
+
+        }
+      },error:(err)=>{
+        this.messageService.add({severity:'error',summary:'User Permission',detail:err.message})
+
+      }
+    })
   }
 }

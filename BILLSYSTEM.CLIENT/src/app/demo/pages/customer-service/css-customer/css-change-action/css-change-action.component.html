@@ -1,0 +1,101 @@
+<div class="modal-content bg-white">
+  <div class="modal-header">
+    <h4 class="modal-title text-center"> Change Action </h4>
+    <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"> </button>
+  </div>
+  <div style="background-color: #eceff1">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="mb-3 p-10">
+            <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.customerName" id="floatingInput" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.contractNo" id="floatingInput" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.custCategoryCode" id="floatingInput"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.meterSizeCode" id="floatingInput" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.meterno" id="floatingInput" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer&&customer" id="floatingInput" />
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="meterStatusForm" >
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <select formControlName="meterStatus" class="form-select form-control" id="floatingSelect">
+              <option value="">Select Meter Status</option>
+              <option *ngFor="let item of meterStatus">{{item}}</option>
+            </select>
+            <label for="floatingSelect">Meter Status</label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <select formControlName="reason" class="form-select form-control" id="floatingSelect">
+              <option value="">Select Reason</option>
+              <option></option>
+            </select>
+            <label for="floatingSelect">Reason</label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-floating mb-3">
+            <input type="Date" class="form-control form-control-lg" formControlName="entryDate" id="floatingInput" />
+            <label for="floatingInput7">Transaction Date</label>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+      <div class="mx-3 mail-content tab-content">
+        <table class="custom-table mt-3 mx-auto">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Month</th>
+              <th>Action Date</th>
+              <th>Type of Action</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of customerMeterStatusHistory" >
+              <td>{{item.fiscalYear}}</td>
+              <td>{{item.monthIndex}}</td>
+              <td>{{item.enterDate|date:"dd MMM yyyy"}}</td>
+              <td>{{item.typeOfAction}}</td>
+              <td>{{item.reason}}</td>
+            </tr>
+          </tbody>
+          <ng-template #noResults>
+            <tr>
+              <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+            </tr>
+          </ng-template>
+        </table>
+      </div>
+  </div>
+  </div>

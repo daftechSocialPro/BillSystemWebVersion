@@ -26,8 +26,8 @@ namespace IntegratedInfrustructure.Model.CSS
         public string AccountNo { get; set; }
         public string ContractNo { get; set; }
         public int? OrdinaryNo { get; set; }
-        public string BillCycle { get; set; }
-       public string MapNumber { get; set; }
+       // public string BillCycle { get; set; }
+       //public string MapNumber { get; set; }
         public string custCategoryCode { get; set; }
         public string meterno { get; set; }
         public string MeterSizeCode { get; set; }
@@ -65,8 +65,9 @@ namespace IntegratedInfrustructure.Model.CSS
         public string enterBy { get; set; }
         public DateTime? enterDate { get; set; }
         public string modifyBy { get; set; }
-        public DateTime modifyDate { get; set; }
+        public DateTime? modifyDate { get; set; }
         public string Remarks { get; set; }
+        public string? Reason { get; set; }
 
         public string DataSynched { get; set; }
     }

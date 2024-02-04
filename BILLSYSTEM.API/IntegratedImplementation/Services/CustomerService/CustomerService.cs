@@ -85,16 +85,27 @@ namespace IntegratedImplementation.Services.CustomerService
         {
             try
             {
+                var customerLast = await _dbCustomerContext.Customers.
+           Select(x => x.custID).ToListAsync();
+                List<long> contactNumbers = new List<long>();
+                foreach (var c in customerLast)
+                {
+                    if (c != null)
+                        contactNumbers.Add(long.Parse(c));
+                }
+                var contactNumber = contactNumbers.Max() + 1;
 
+                var InstallationDate = customerPost.InstallationDate;
+                InstallationDate = InstallationDate.AddTicks(-InstallationDate.Ticks % TimeSpan.TicksPerSecond);
                 Customer customers = new Customer()
                 {
-                    custID  = "100000029223",
+                    custID = contactNumber.ToString(),
                     customerName = customerPost.FullName,
                     Telephone = customerPost.PhoneNumber,
                     Ketena = customerPost.Ketena,
                     Kebele = customerPost.Kebele,
-                    Village = customerPost.Village,                  
-                    MeterStartReading= customerPost.StartReading,                   
+                    Village = customerPost.Village,
+                    MeterStartReading = customerPost.StartReading,
                     // map number 
                     // bill officer
                     HouseNo = customerPost.HouseNumber,
@@ -105,14 +116,16 @@ namespace IntegratedImplementation.Services.CustomerService
                     OrdinaryNo = customerPost.OrdinaryNo,
                     meterno = customerPost.MeterNo,
                     MeterSizeCode = customerPost.MeterSize,
-                    InstallationDate = customerPost.InstallationDate,
-                    regMonthIndex =customerPost.MonthIndex,
-                    regFiscalYear =customerPost.FiscalYear
+                    InstallationDate = InstallationDate,
+                    regMonthIndex = customerPost.MonthIndex,
+                    regFiscalYear = customerPost.FiscalYear,
+                    enterDate = InstallationDate,
+                    Reason = customerPost.Reason
 
                 };
 
-       
-        
+
+            
 
 
                 await _dbCustomerContext.Customers.AddAsync(customers);
@@ -212,7 +225,7 @@ namespace IntegratedImplementation.Services.CustomerService
                     currentcustomer.ContractNo = updateCustomer.ContractNo;
                     currentcustomer.ReaderName = updateCustomer.readerName;
                     currentcustomer.OrdinaryNo = updateCustomer.OrdinaryNo;
-                    currentcustomer.BillCycle = updateCustomer.BillCycle;
+                   // currentcustomer.BillCycle = updateCustomer.BillCycle;
                     currentcustomer.custCategoryCode = updateCustomer.custCategoryCode;
                     currentcustomer.meterno = updateCustomer.meterno;
                     currentcustomer.MeterSizeCode = updateCustomer.MeterSizeCode;
@@ -252,10 +265,30 @@ namespace IntegratedImplementation.Services.CustomerService
             }
 
         }
+        public async Task<int> GetContractNumber(string kebele, string ketena)
+        {
+            
+            var customerLast = await _dbCustomerContext.Customers
+                .Where(x => x.Kebele == kebele && x.Ketena == ketena).Select(x => x.ContractNo).ToListAsync();
+            List<int> contactNumbers = new List<int>();
+            foreach(var c in customerLast)
+            {
+                contactNumbers.Add(Int32.Parse(c));
+            }
+            var contactNumber = contactNumbers.Max() + 1;
 
+            return contactNumber;
+        }
 
+        //    public  async  Task<int> GetContractNumber(string kebele, string ketena)
+        //    {
+        //        var customerLast = _dbCustomerContext.Customers
+        //    .Where(x => x.Kebele == kebele && x.Ketena == ketena && int.TryParse(x.ContractNo, out  ContractNo))
+        //    .Max(x => int.Parse(x.ContractNo));
+        //        var contractNo= customerLast + 1;
 
-
-
+        //        return contractNo;
+        //    }
+        //
+        }
     }
-}
