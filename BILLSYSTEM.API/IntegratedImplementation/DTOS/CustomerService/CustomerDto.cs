@@ -80,6 +80,11 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public string custCategoryCode { get; set; }
         public string meterno { get; set; }
         public string MeterSizeCode { get; set; }
+
+        public string Kebele { get;set; }
+
+        public string Ketena { get; set; }
+        public string ReaderName { get; set; }
     }
 
     public record CustomerPostDto

@@ -63,7 +63,7 @@ export class CssCustomerComponent implements OnInit {
   }
 
   addcustomer() {
-    let modalRef = this.modalService.open(AddCssCustomerComponent, { backdrop: 'static', windowClass: 'custom-modal-width' });
+    let modalRef = this.modalService.open(DetailCustomerComponent, { backdrop: 'static', windowClass: 'custom-modal-width' });
     modalRef.result.then(() => {
       this.getCustomers();
     });

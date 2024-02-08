@@ -63,6 +63,7 @@ export interface ICustomerDto {
     // remarks:string
     // dataSynched: string
      selected?: boolean
+
     }
 
 export interface ICustomerPostDto{

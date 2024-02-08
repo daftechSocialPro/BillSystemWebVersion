@@ -186,9 +186,13 @@ namespace IntegratedImplementation.Services.CustomerService
                           ContractNo = cus.ContractNo,
                           customerName = cus.customerName,
                           custId = cus.custId,
-                          custCategoryCode = CustomerCategory.custCategoryName,
-                          MeterSizeCode = meterSizeCode.meterSizeName,
-                          meterno = cus.meterno
+                          custCategoryCode = CustomerCategory.custCategoryCode,
+                          MeterSizeCode = meterSizeCode.meterSizeCode,
+                          meterno = cus.meterno,
+                          Kebele = cus.Kebele,
+                          Ketena = cus.Ketena,
+                          ReaderName = cus.ReaderName
+                         
 
                       }).FirstOrDefault();
 

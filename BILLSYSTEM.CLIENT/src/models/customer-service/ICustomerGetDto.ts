@@ -9,5 +9,8 @@ export interface ICustomerGetDto {
     meterSizeCode:string
     custId?:string
 
+    ketena?:string
+    kebele?:string
+
 
 }

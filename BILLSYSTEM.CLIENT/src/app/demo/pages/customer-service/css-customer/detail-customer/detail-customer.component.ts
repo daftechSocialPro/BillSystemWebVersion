@@ -57,10 +57,10 @@ export class DetailCustomerComponent implements OnInit {
   ) {
     this.customerForm = this.formBuilder.group({
       fullName: ['', Validators.required],
-      meterNo: ['', Validators.required],
+      meterNo: [''],
       meterSize: ['', Validators.required],
-      customerCategories: ['', Validators.required],
-      contractNo: ['', Validators.required],
+      customerCategory: ['', Validators.required],
+      contractNo: [''],
       ketena: ['', Validators.required],
       kebele: ['', Validators.required],
       readerName: ['', Validators.required],
@@ -115,13 +115,12 @@ export class DetailCustomerComponent implements OnInit {
       }
     }
   }
-
   fetchCustomers() {
     this.customerService.getCustomer().subscribe({
       next: (customers: ICustomerDto[]) => {
         this.Customer = customers;
+
         this.maxOrdinaryNo = this.calculateMaxOrdinaryNo();
-        //  console.log('maxOrdinaryNo:', this.maxOrdinaryNo);
         this.customerForm.controls['ordinaryNo'].setValue(this.Customer.length + 1);
       },
       error: (err) => {
@@ -129,16 +128,17 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   calculateMaxOrdinaryNo(): number {
     return this.Customer.length > 0 ? Math.max(...this.Customer.map((customer) => customer.ordinaryNo)) : 0;
   }
-
   onKetenachange() {
     const selectedKetenaCode = this.customerForm.get('ketena').value;
     const filteredKebeles = this.kebeles.filter((item) => item.ketenaCode === selectedKetenaCode);
-    this.customerForm.controls['kebele'].setValue('');
-    this.customerForm.controls['kebele'].setValue(filteredKebeles[0].kebeleCode);
+    this.kebeles = filteredKebeles;
+    this.customerForm.get('kebele').setValue(this.customer.kebele);
+  }
+  getValue(value: string) {
+    return Number(value);
   }
 
   getFilteredKebeles() {
@@ -162,17 +162,17 @@ export class DetailCustomerComponent implements OnInit {
         this.customerForm.get('village').setValue(this.customer.village);
         this.customerForm.get('billCycle').setValue(this.customer.billCycle);
         this.customerForm.get('ketena').setValue(this.customer.ketena);
-        this.customerForm.get('kebele').setValue(this.customer.kebele);
         this.customerForm.get('installationDate').setValue(this.customer.installationDate);
         this.customerForm.get('ordinaryNo').setValue(this.customer.ordinaryNo);
         this.customerForm.get('houseNumber').setValue(this.customer.houseNo);
         this.customerForm.get('mapNumber').setValue(this.customer.mapNumber);
         this.customerForm.get('meterNo').setValue(this.customer.meterno);
         this.customerForm.get('sweragePaid').setValue(this.customer.sdPaid);
+
+        this.onKetenachange();
       }
     });
   }
-
   getBillOfficers() {
     this.maintainService.getBillSection().subscribe({
       next: (res) => {
@@ -194,7 +194,6 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   getKebeles() {
     this.controlService.getKebeles().subscribe({
       next: (res) => {
@@ -216,7 +215,6 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   getBillCycles() {
     this.controlService.getGeneralSetting('BOOK NUMBER').subscribe({
       next: (res) => {
@@ -245,7 +243,6 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   getmeterType() {
     this.controlService.getGeneralSetting('METERTYPE').subscribe({
       next: (res) => {
@@ -253,7 +250,6 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   getCountryOrgin() {
     this.controlService.getGeneralSetting('COUNTRYORIGIN').subscribe({
       next: (res) => {
@@ -268,7 +264,6 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   getMobileUsers() {
     this.dwmService.getMobileUsers().subscribe({
       next: (res) => {
@@ -276,7 +271,6 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   getBillDuties() {
     this.maintainService.getBillEmpDuties().subscribe({
       next: (res) => {
@@ -284,11 +278,9 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-
   closeModal() {
     this.activeModal.close();
   }
-
   submit() {
     if (this.customerForm.valid) {
       const formData = this.customerForm.value;
