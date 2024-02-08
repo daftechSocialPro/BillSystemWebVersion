@@ -5,3 +5,14 @@ export interface ICustomerMeterStatusGetDto {
   reason?: string;
   enterDate?: Date;
 }
+
+
+export interface ICustomerMeterStatusPostDto {
+
+  fiscalYear: number;
+  monthIndex: number;
+  typeOfAction: string;
+  reason: string;
+  disDate: Date;
+  custId : string
+}

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Implementation.Helper;
 using IntegratedImplementation.DTOS.CustomerService;
 using IntegratedImplementation.Interfaces.CustomerService;
 using IntegratedInfrustructure.Data;
@@ -29,6 +30,47 @@ namespace IntegratedImplementation.Services.CustomerService
             _dbCustomerContext = dbCustomerContext;
             _dbGeneralContext = dbGeneralContext;
             _mapper = mapper;
+        }
+
+        public async Task<ResponseMessage> ChangeCustomerStatus(CustomerMeterStatusPostDto customerStatus)
+        {
+            try
+            {
+                var meterStatus = new CustomerMeterStatus()
+                {
+                    custID = customerStatus.CustId,
+                    recordno = Guid.NewGuid(),
+                    enterDate = DateTime.Now,
+                    disDate = customerStatus.DisDate.ToString(),
+                    reason = customerStatus.Reason,
+                    monthIndex = customerStatus.MonthIndex,
+                    FiscalYear = customerStatus.FiscalYear,
+                    typeOfAction = customerStatus.TypeOfAction
+
+
+                };
+
+                await _dbCustomerContext.AddAsync(meterStatus);
+                await _dbGeneralContext.SaveChangesAsync();
+
+                return new ResponseMessage()
+                {
+                    Success=true,
+                    Message=""
+                    
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseMessage
+                {
+                    Success = false,
+                    Message = ""
+
+                };
+
+            }
         }
 
         public async Task<List<CustomerMeterStatusGetDto>> GetCustomerStatus(string CustId)

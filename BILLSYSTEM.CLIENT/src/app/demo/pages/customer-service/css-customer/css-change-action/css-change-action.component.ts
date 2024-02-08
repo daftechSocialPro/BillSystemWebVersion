@@ -6,9 +6,14 @@ import { CssCustomerService } from 'src/app/services/customer-service/css-custom
 import { DWMService } from 'src/app/services/dwm/dwm.service';
 import { ScsDataService } from 'src/app/services/system-control/scs-data.service';
 import { ScsMaintainService } from 'src/app/services/system-control/scs-maintain.service';
+import { ScsSetupService } from 'src/app/services/system-control/scs-setup.service';
+import { UserService } from 'src/app/services/user.service';
+import { UserView } from 'src/models/auth/userDto';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
-import { ICustomerMeterStatusGetDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
+import { ICustomerMeterStatusGetDto, ICustomerMeterStatusPostDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
+import { IAccountPeriodDto } from 'src/models/system-control/IAccountPeriod';
+import { IFiscalMonthDto } from 'src/models/system-control/IFiscalMonthDto';
 import { IGeneralSettingDto } from 'src/models/system-control/IGeneralSettingDto';
 
 @Component({
@@ -33,6 +38,10 @@ export class CssChangeActionComponent implements OnInit {
 
   meterStatusForm: FormGroup;
 
+  userview: UserView
+
+  currentMonthYear : IAccountPeriodDto
+
   constructor(
     private activeModal: NgbActiveModal,
 
@@ -40,11 +49,16 @@ export class CssChangeActionComponent implements OnInit {
 
     private customerService: CssCustomerService,
     private controlService:ScsDataService,
-    private messageService: MessageService
+    private setUpService : ScsSetupService,
+    private messageService: MessageService,
+    private userService : UserService
   ) {}
 
   ngOnInit(): void {
     console.log(this.customer);
+
+    this.userview= this.userService.getCurrentUser()
+    this.getCurrentFicalMonth()
     if (this.customer) {
       this.getCustMeterHis();
       this.meterStatusForm = this.formBuilder.group({
@@ -55,39 +69,41 @@ export class CssChangeActionComponent implements OnInit {
     }
   }
 
+  getCurrentFicalMonth(){
+    this.setUpService.getAccountPeriod().subscribe({
+
+      next: (res) => {
+        this.currentMonthYear = res;
+      }
+    })
+  }
   getCustMeterHis() {
     this.customerService.getCustomerMeterStatus(this.customer.custId).subscribe({
       next: (res) => {
         this.customerMeterStatusHistory = res;
 
-        if (res) {
+        if (res[0]) {
           if (res[0].typeOfAction == 'RECONNECT') {
             this.meterStatus = [];
-            this.meterStatus.push('DISCONNECT');
-            this.meterStatus.push('TERMINATE');
+            this.meterStatus.push('DISCONNETREASON');
+            this.meterStatus.push('METERTERMINATEREASON');
           }
           if (res[0].typeOfAction == 'TERMINATE') {
             this.meterStatus = [];
           }
           if (res[0].typeOfAction == 'DISCONNECT') {
             this.meterStatus = [];
-            this.meterStatus.push('RECONNECT');
-            this.meterStatus.push('TERMINATE');
+            this.meterStatus.push('RECONNECTREASON');
+            this.meterStatus.push('METERTERMINATEREASON');
           }
         } else {
-          this.meterStatus.push('DISCONNECT');
-          this.meterStatus.push('TERMINATE');
+          this.meterStatus.push('DISCONNETREASON');
+          this.meterStatus.push('METERTERMINATEREASON');
         }
       }
     });
   }
-getSCReasons(reason:string){
-        this.controlService.getGeneralSetting(reason).subscribe({
-      next:(res)=>{
-        this.SCReasons = res
-      }
-    })
-  }
+
   onReasonchange() {
     throw new Error('Method not implemented.');
   }
@@ -101,4 +117,42 @@ getSCReasons(reason:string){
   closeModal() {
     this.activeModal.close();
   }
+  getReasons(value:string){
+
+
+
+      this.controlService.getGeneralSetting(value).subscribe({
+        next:(res)=>{
+          this.SCReasons = res
+        }
+      })
+
+  }
+  UpdateMeterStatus(){
+    if (this.meterStatusForm.valid) {
+
+
+      var meterStatusPostDto:ICustomerMeterStatusPostDto ={
+
+        fiscalYear : this.currentMonthYear.fiscalYear,
+        monthIndex : this.currentMonthYear.monthIndex,
+        custId : this.customer.custId,
+        disDate:this.meterStatusForm.value.entryDate,
+        reason: this.meterStatusForm.value.reason,
+        typeOfAction : this.meterStatusForm.value.meterStatus,
+      }
+
+      this.customerService.updateCustomerMeterStatus(meterStatusPostDto).subscribe({
+        next:((res)=>{
+          this.messageService.add({ severity:'success', summary: 'Success', detail: 'Meter Status Updated Successfully' });
+          this.closeModal();
+        })
+      })
+
+
+
+
+
+  }}
+
 }

@@ -23,29 +23,28 @@ import { IMeterSizeDto } from 'src/models/system-control/IMeterSizeDto';
   styleUrls: ['./detail-customer.component.scss']
 })
 export class DetailCustomerComponent implements OnInit {
-
-  @Input() contractNo: string
+  @Input() contractNo: string;
   maxOrdinaryNo: number;
-  customer: ICustomerDto
-  reasons:IGeneralSettingDto[]
-  Customer: ICustomerDto[]
+  customer: ICustomerDto;
+  reasons: IGeneralSettingDto[];
+  Customer: ICustomerDto[];
   customerForm!: FormGroup;
-  billOfficer: IBillSectionDto[]
-  ketenas: IKetenaDto[]
-  kebeles: IKebelesDto[]
-  villages: IGeneralSettingDto[]
-  billDuties: IBillEmpDutiesDto[]
-  onlineSalesGroups: any
-  readers: IMobileUsersDto[]
-  swerages: any
-  billCycles: IGeneralSettingDto[]
-  customerCategories: ICustomerCategoryDto[]
-  meterSizes: IMeterSizeDto[]
-  meterDigit: IGeneralSettingDto[]
-  meterType:IGeneralSettingDto[]
-  meterModel:IGeneralSettingDto[]
-  months: IFiscalMonthDto[]
-  countryOrgin:IGeneralSettingDto[]
+  billOfficer: IBillSectionDto[];
+  ketenas: IKetenaDto[];
+  kebeles: IKebelesDto[];
+  villages: IGeneralSettingDto[];
+  billDuties: IBillEmpDutiesDto[];
+  onlineSalesGroups: any;
+  readers: IMobileUsersDto[];
+  swerages: any;
+  billCycles: IGeneralSettingDto[];
+  customerCategories: ICustomerCategoryDto[];
+  meterSizes: IMeterSizeDto[];
+  meterDigit: IGeneralSettingDto[];
+  meterType: IGeneralSettingDto[];
+  meterModel: IGeneralSettingDto[];
+  months: IFiscalMonthDto[];
+  countryOrgin: IGeneralSettingDto[];
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -60,8 +59,8 @@ export class DetailCustomerComponent implements OnInit {
       fullName: ['', Validators.required],
       meterNo: ['', Validators.required],
       meterSize: ['', Validators.required],
-      customerCategories: ['',Validators.required],
-      contractNo: ['',Validators.required],
+      customerCategories: ['', Validators.required],
+      contractNo: ['', Validators.required],
       ketena: ['', Validators.required],
       kebele: ['', Validators.required],
       readerName: ['', Validators.required],
@@ -73,52 +72,48 @@ export class DetailCustomerComponent implements OnInit {
       ordinaryNo: [''],
       installationDate: [''],
       updateInitial: [false],
-      reason:[''],
+      reason: [''],
       startReading: [''],
       sweragePaid: [''],
       monhtIndex: [''],
       fiscalYear: [''],
-      billOfficerId:[''],
-      accountNo:[''],
-      meterDigit:[''],
-      meterModel:[''],
-      countryOrgin:[''],
-      meterType:[''],
-      paymentMode:['',]
-
-    })
+      billOfficerId: [''],
+      accountNo: [''],
+      meterDigit: [''],
+      meterModel: [''],
+      countryOrgin: [''],
+      meterType: [''],
+      paymentMode: ['']
+    });
   }
 
-
-
-
-
   ngOnInit(): void {
-
-    this.getSingleCustomer()
-    this.getKebeles()
-    this.getKetenas()
-    this.getVillages()
-    this.getBillCycles()
-    this.getCustomerCategoriess()
-    this.getMeterSizes()
-    this.getMobileUsers()
-    this.getBillDuties()
-    this.getBillOfficers()
-    this.getReasons()
-    this.getMonths()
-    this.getmeterType()
-    this.getCountryOrgin()
-    this.getmetermodel()
-    this.getmeterDigit()
+    this.getSingleCustomer();
+    this.getKebeles();
+    this.getKetenas();
+    this.getVillages();
+    this.getBillCycles();
+    this.getCustomerCategoriess();
+    this.getMeterSizes();
+    this.getMobileUsers();
+    this.getBillDuties();
+    this.getBillOfficers();
+    this.getReasons();
+    this.getMonths();
+    this.getmeterType();
+    this.getCountryOrgin();
+    this.getmetermodel();
+    this.getmeterDigit();
     this.fetchCustomers();
 
     if (this.customer && this.Customer.length > 0) {
       const lastCustomer = this.Customer[this.Customer.length - 1];
-      if (lastCustomer && lastCustomer.ordinaryNo){
-      this.customerForm.controls['ordinaryNo'].setValue(lastCustomer.ordinaryNo);
-    } else{ console.log('no objects');}
-  }
+      if (lastCustomer && lastCustomer.ordinaryNo) {
+        this.customerForm.controls['ordinaryNo'].setValue(lastCustomer.ordinaryNo);
+      } else {
+        console.log('no objects');
+      }
+    }
   }
 
   fetchCustomers() {
@@ -128,195 +123,177 @@ export class DetailCustomerComponent implements OnInit {
         this.maxOrdinaryNo = this.calculateMaxOrdinaryNo();
         //  console.log('maxOrdinaryNo:', this.maxOrdinaryNo);
         this.customerForm.controls['ordinaryNo'].setValue(this.Customer.length + 1);
-
       },
       error: (err) => {
         console.error('Error fetching customers:', err);
       }
     });
-
   }
-
 
   calculateMaxOrdinaryNo(): number {
-    return this.Customer.length > 0 ? Math.max(...this.Customer.map(customer => customer.ordinaryNo)) : 0;
+    return this.Customer.length > 0 ? Math.max(...this.Customer.map((customer) => customer.ordinaryNo)) : 0;
   }
-
-
 
   onKetenachange() {
     const selectedKetenaCode = this.customerForm.get('ketena').value;
-    const filteredKebeles = this.kebeles.filter(item => item.ketenaCode === selectedKetenaCode);
+    const filteredKebeles = this.kebeles.filter((item) => item.ketenaCode === selectedKetenaCode);
     this.customerForm.controls['kebele'].setValue('');
-    this.customerForm.controls['kebele'].setValue(filteredKebeles[0].kebeleCode)
-
-
+    this.customerForm.controls['kebele'].setValue(filteredKebeles[0].kebeleCode);
   }
 
   getFilteredKebeles() {
     const selectedKetenaCode = this.customerForm.get('ketena').value;
-    return this.kebeles&& this.kebeles.filter(item => item.ketenaCode === selectedKetenaCode);
-
+    return this.kebeles && this.kebeles.filter((item) => item.ketenaCode === selectedKetenaCode);
   }
 
-
-
-  getSingleCustomer():void {
-
+  getSingleCustomer(): void {
     this.customerService.getSingleCustomer(this.contractNo).subscribe({
       next: (res) => {
-        console.log("cust",res)
-        this.customer = res
-        this.customerForm.controls['fullName'].setValue(this.customer.customerName)
-        this.customerForm.controls['phoneNumber'].setValue(this.customer.telephone)
-        this.customerForm.controls['fiscalYear'].setValue(this.customer.regFiscalYear)
-        this.customerForm.controls['monhtIndex'].setValue(this.customer.regMonthIndex)
-        this.customerForm.controls['customerCategory'].setValue(this.customer.custCategoryCode)
-        this.customerForm.controls['contractNo'].setValue(this.customer.contractNo)
-        this.customerForm.controls['meterSize'].setValue(this.customer.meterSizeCode)
-        this.customerForm.controls['readerName'].setValue(this.customer.readerName)
-        this.customerForm.controls['village'].setValue(this.customer.village)
-        this.customerForm.controls['billCycle'].setValue(this.customer.billCycle)
-        this.customerForm.controls['ketena'].setValue(this.customer.ketena)
-        this.customerForm.controls['kebele'].setValue(this.customer.kebele)
-        this.customerForm.controls['installationDate'].setValue(this.customer.installationDate)
-        this.customerForm.controls['ordinaryNo'].setValue(this.customer.ordinaryNo)
-        this.customerForm.controls['houseNumber'].setValue(this.customer.houseNo)
-        this.customerForm.controls['mapNumber'].setValue(this.customer.mapNumber)
-        this.customerForm.controls['meterNo'].setValue(this.customer.meterno)
-        this.customerForm.controls['sweragePaid'].setValue(this.customer.sdPaid)
-
+        console.log('cust', res);
+        this.customer = res;
+        this.customerForm.get('fullName').setValue(this.customer.customerName);
+        this.customerForm.get('phoneNumber').setValue(this.customer.telephone);
+        this.customerForm.get('fiscalYear').setValue(this.customer.regFiscalYear);
+        this.customerForm.get('monhtIndex').setValue(this.customer.regMonthIndex);
+        this.customerForm.get('customerCategory').setValue(this.customer.custCategoryCode);
+        this.customerForm.get('contractNo').setValue(this.customer.contractNo);
+        this.customerForm.get('meterSize').setValue(this.customer.meterSizeCode);
+        this.customerForm.get('readerName').setValue(this.customer.readerName);
+        this.customerForm.get('village').setValue(this.customer.village);
+        this.customerForm.get('billCycle').setValue(this.customer.billCycle);
+        this.customerForm.get('ketena').setValue(this.customer.ketena);
+        this.customerForm.get('kebele').setValue(this.customer.kebele);
+        this.customerForm.get('installationDate').setValue(this.customer.installationDate);
+        this.customerForm.get('ordinaryNo').setValue(this.customer.ordinaryNo);
+        this.customerForm.get('houseNumber').setValue(this.customer.houseNo);
+        this.customerForm.get('mapNumber').setValue(this.customer.mapNumber);
+        this.customerForm.get('meterNo').setValue(this.customer.meterno);
+        this.customerForm.get('sweragePaid').setValue(this.customer.sdPaid);
       }
-    })
-
+    });
   }
-
 
   getBillOfficers() {
     this.maintainService.getBillSection().subscribe({
       next: (res) => {
-        this.billOfficer = res
+        this.billOfficer = res;
       }
-
-    })
+    });
   }
   getMonths() {
     this.controlService.getFiscalMonth().subscribe({
       next: (res) => {
-        this.months = res
+        this.months = res;
       }
-    })
+    });
   }
   getKetenas() {
     this.controlService.getKetena().subscribe({
       next: (res) => {
-        this.ketenas = res
+        this.ketenas = res;
       }
-    })
+    });
   }
 
   getKebeles() {
     this.controlService.getKebeles().subscribe({
       next: (res) => {
-        this.kebeles = res
+        this.kebeles = res;
       }
-    })
+    });
   }
-getReasons(){
-  this .controlService.getGeneralSetting("METERCHANGEREASON").subscribe({
-    next: (res) => {
-      this.reasons = res
-    }
-  })
-}
-  getVillages() {
-
-    this.controlService.getGeneralSetting("Village").subscribe({
+  getReasons() {
+    this.controlService.getGeneralSetting('METERCHANGEREASON').subscribe({
       next: (res) => {
-        this.villages = res
+        this.reasons = res;
       }
-    })
+    });
+  }
+  getVillages() {
+    this.controlService.getGeneralSetting('Village').subscribe({
+      next: (res) => {
+        this.villages = res;
+      }
+    });
   }
 
   getBillCycles() {
-
-    this.controlService.getGeneralSetting("BOOK NUMBER").subscribe({
+    this.controlService.getGeneralSetting('BOOK NUMBER').subscribe({
       next: (res) => {
-        this.billCycles = res
+        this.billCycles = res;
       }
-    })
+    });
   }
   getCustomerCategoriess() {
-
     this.controlService.getCustomerCategory().subscribe({
       next: (res) => {
-        this.customerCategories = res
-
+        this.customerCategories = res;
       }
-    })
+    });
   }
   getMeterSizes() {
-
     this.controlService.getMeterSize().subscribe({
       next: (res) => {
-        this.meterSizes = res
-
+        this.meterSizes = res;
       }
-    })
+    });
   }
   getmeterDigit() {
-    this.controlService.getGeneralSetting("METERDIGIT").subscribe({
-      next: (res) => { this.meterDigit = res }
-    })
+    this.controlService.getGeneralSetting('METERDIGIT').subscribe({
+      next: (res) => {
+        this.meterDigit = res;
+      }
+    });
   }
 
-  getmeterType(){
-    this.controlService.getGeneralSetting("METERTYPE").subscribe({
-      next: (res) => { this.meterType = res }
-    })
+  getmeterType() {
+    this.controlService.getGeneralSetting('METERTYPE').subscribe({
+      next: (res) => {
+        this.meterType = res;
+      }
+    });
   }
-getCountryOrgin(){
-  this.controlService.getGeneralSetting("COUNTRYORIGIN").subscribe({
-    next: (res) => { this.countryOrgin = res }
-  })
-}
-  getmetermodel(){
-    this.controlService.getGeneralSetting("METERMODEL").subscribe({
-      next: (res) => { this.meterModel = res }
-    })
+
+  getCountryOrgin() {
+    this.controlService.getGeneralSetting('COUNTRYORIGIN').subscribe({
+      next: (res) => {
+        this.countryOrgin = res;
+      }
+    });
+  }
+  getmetermodel() {
+    this.controlService.getGeneralSetting('METERMODEL').subscribe({
+      next: (res) => {
+        this.meterModel = res;
+      }
+    });
   }
 
   getMobileUsers() {
-
     this.dwmService.getMobileUsers().subscribe({
       next: (res) => {
-        this.readers = res
-
+        this.readers = res;
       }
-    })
-
+    });
   }
 
   getBillDuties() {
-
     this.maintainService.getBillEmpDuties().subscribe({
       next: (res) => {
-        this.billDuties = res
+        this.billDuties = res;
       }
-    })
-
+    });
   }
 
   closeModal() {
-
-    this.activeModal.close()
-
+    this.activeModal.close();
   }
 
   submit() {
     if (this.customerForm.valid) {
       const formData = this.customerForm.value;
-      console.log(formData);}
+      console.log(formData);
+    }
     var customerPost: ICustomerDto = {
       customerName: this.customerForm.value.fullName,
       // yyyrecordno: this.customerForm.value.yyyrecordno,
@@ -352,29 +329,22 @@ getCountryOrgin(){
       readerName: this.customerForm.value.readerName,
       bankAccount: this.customerForm.value.bankAccount,
       billOfficerId: this.customerForm.value.billOfficerId,
-      reason: this.customerForm.value.reason,
-    }
-    console.log("customer post", customerPost)
+      reason: this.customerForm.value.reason
+    };
+    console.log('customer post', customerPost);
     this.customerService.updateCustomer(customerPost).subscribe({
       next: (res) => {
         if (res.success) {
-
-          this.messageService.add({ severity: 'success', summary: 'Successfully Added !!!', detail: res.message })
-          this.closeModal()
-
+          this.messageService.add({ severity: 'success', summary: 'Successfully Added !!!', detail: res.message });
+          this.closeModal();
+        } else {
+          this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: res.message });
         }
-        else {
-          this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: res.message })
-
-        }
-
-      }, error: (err) => {
-
-        console.error('error', err)
-        this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: err })
-
+      },
+      error: (err) => {
+        console.error('error', err);
+        this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: err });
       }
-    })
-
+    });
   }
 }

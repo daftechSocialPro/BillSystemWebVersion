@@ -9,11 +9,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { MeterConfigComponent } from './scs-data/meter/meter-config.component';
 import { AddMeterSizeComponent } from './scs-data/meter/meter-size/add-meter-size/add-meter-size.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddCustomerCategoryComponent } from './scs-data/customer-category/add-customer-category/add-customer-category.component';
-import { CustomerCategoryComponent } from './scs-data/customer-category/customer-category.component';
 
 
-import { PaginatorModule } from 'primeng/paginator';
+import { Paginator, PaginatorModule } from 'primeng/paginator';
 import { VillageComponent } from './scs-data/meter/village/village.component';
 import { AddVillageComponent } from './scs-data/meter/village/add-village/add-village.component';
 import { BillCycleComponent } from './scs-data/meter/bill-cycle/bill-cycle.component';
@@ -114,6 +112,10 @@ import { BillTemplatesComponent } from './scs-setup/bill-templates/bill-template
 import { BillOptionsComponent } from './scs-setup/setting/bill-options/bill-options.component';
 import { ScsDetailPermissionComponent } from './scs-maintain/scs-users/add-users/scs-detail-permission/scs-detail-permission.component';
 import { AddUsersComponent } from './scs-maintain/scs-users/add-users/add-users.component';
+import { CustomerConfigComponent } from './scs-data/customer-config/customer-config.component';
+import { AddCustomerCategoryComponent } from './scs-data/customer-config/customer-category/add-customer-category/add-customer-category.component';
+import { CustomerCategoryComponent } from './scs-data/customer-config/customer-category/customer-category.component';
+import { CostomerSubCategoryComponent } from './scs-data/customer-config/costomer-sub-category/costomer-sub-category.component';
 @NgModule({
 
 
@@ -128,8 +130,6 @@ import { AddUsersComponent } from './scs-maintain/scs-users/add-users/add-users.
     ScsDataComponent,
     MeterConfigComponent,
     AddMeterSizeComponent,
-    AddCustomerCategoryComponent,
-    CustomerCategoryComponent,
     VillageComponent,
     AddVillageComponent,
     BillCycleComponent,
@@ -218,7 +218,13 @@ import { AddUsersComponent } from './scs-maintain/scs-users/add-users/add-users.
     BillTemplatesComponent,
     BillOptionsComponent,
     ScsDetailPermissionComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    CustomerConfigComponent,
+    CustomerCategoryComponent,
+    AddCustomerCategoryComponent,
+    CostomerSubCategoryComponent,
+    
+   
 
 
   ],
