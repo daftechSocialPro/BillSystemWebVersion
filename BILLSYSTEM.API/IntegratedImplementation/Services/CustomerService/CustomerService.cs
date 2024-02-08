@@ -191,7 +191,8 @@ namespace IntegratedImplementation.Services.CustomerService
                           meterno = cus.meterno,
                           Kebele = cus.Kebele,
                           Ketena = cus.Ketena,
-                          ReaderName = cus.ReaderName
+                          ReaderName = cus.ReaderName,
+                          sdPaid = cus.sdPaid,
                          
 
                       }).FirstOrDefault();

@@ -87,21 +87,11 @@
 
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <select class="form-control"  formControlName="readerName">
-                    <option value="">Select Readers</option>
-                    <option *ngFor="let item of readers" [value]="item.userName"> {{ item.userName }} | {{ item.fullName }}</option>
-                  </select>
-                  <label for="floatingInput">Reader Name</label>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-floating mb-3">
                   <select class="form-control"  formControlName="billOfficerId">
-                    <option value="">Select Bill Officer</option>
+                    <option value="">Select Reader Name</option>
                     <option *ngFor="let item of billOfficer" [value]="item.empID"> {{ item.empID }} | {{ item.name }}</option>
                   </select>
-                  <label for="floatingInput">BIll Officer</label>
+                  <label for="floatingInput">Reader Name</label>
                 </div>
               </div>
 

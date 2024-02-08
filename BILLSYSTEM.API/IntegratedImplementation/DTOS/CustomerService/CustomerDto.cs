@@ -85,6 +85,8 @@ namespace IntegratedImplementation.DTOS.CustomerService
 
         public string Ketena { get; set; }
         public string ReaderName { get; set; }
+        public string sdPaid { get; set; }
+
     }
 
     public record CustomerPostDto

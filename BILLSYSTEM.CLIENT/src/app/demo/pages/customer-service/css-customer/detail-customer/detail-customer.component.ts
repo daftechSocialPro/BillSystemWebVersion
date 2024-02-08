@@ -63,6 +63,7 @@ export class DetailCustomerComponent implements OnInit {
       contractNo: [''],
       ketena: ['', Validators.required],
       kebele: ['', Validators.required],
+      billOfficer: [''],
       readerName: ['', Validators.required],
       phoneNumber: [''],
       mapNumber: [''],
@@ -158,7 +159,7 @@ export class DetailCustomerComponent implements OnInit {
         this.customerForm.get('customerCategory').setValue(this.customer.custCategoryCode);
         this.customerForm.get('contractNo').setValue(this.customer.contractNo);
         this.customerForm.get('meterSize').setValue(this.customer.meterSizeCode);
-        this.customerForm.get('readerName').setValue(this.customer.readerName);
+        this.customerForm.get('billOfficer').setValue(this.customer.readerName);
         this.customerForm.get('village').setValue(this.customer.village);
         this.customerForm.get('billCycle').setValue(this.customer.billCycle);
         this.customerForm.get('ketena').setValue(this.customer.ketena);
