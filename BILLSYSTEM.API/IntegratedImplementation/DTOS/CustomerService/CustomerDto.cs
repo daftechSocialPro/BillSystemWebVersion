@@ -117,4 +117,17 @@ namespace IntegratedImplementation.DTOS.CustomerService
 
         public string Reason { get; set; }
     }
+
+    //public record CustomerGetForBatchReccordDto
+    //{
+    //     public string FullName { get; set; }     
+    //    public string PhoneNumber { get; set; }
+    //    public string Ketena { get; set; }            
+    //    public string Kebele { get; set; }      
+    //    public string Village { get; set; }   
+    //    public string ReaderName { get; set; }
+    //    public string MapNumber { get; set; }     
+    //    public string HouseNumber { get; set; }
+
+    //}
 }

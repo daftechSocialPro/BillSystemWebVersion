@@ -38,6 +38,7 @@
         
         </table>
         <div class="card flex justify-content-center">
+            
             <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="CustomerCategories&&CustomerCategories.length" [rowsPerPageOptions]="[5, 10, 15]"></p-paginator>
         </div>
 

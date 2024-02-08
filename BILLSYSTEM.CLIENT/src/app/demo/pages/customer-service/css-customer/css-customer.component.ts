@@ -8,6 +8,7 @@ import { DetailCustomerComponent } from './detail-customer/detail-customer.compo
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { CssChangeActionComponent } from './css-change-action/css-change-action.component';
+import { CssBatchRecordsComponent } from './css-batch-records/css-batch-records.component';
 
 @Component({
   selector: 'app-css-customer',
@@ -74,6 +75,14 @@ export class CssCustomerComponent implements OnInit {
     modalRef.result.then(() => {
       this.getCustomers()
     });
+  }
+  addBatchRecords(){
+    let modalRef = this.modalService.open(CssBatchRecordsComponent,  {backdrop:'static', size:'lg'})
+
+    modalRef.result.then(()=>{
+
+      this.getCustomers()
+    })
   }
 
   updateCustomer(customer: ICustomerDto) {}

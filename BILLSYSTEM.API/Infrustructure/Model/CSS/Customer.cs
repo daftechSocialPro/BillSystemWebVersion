@@ -69,7 +69,7 @@ namespace IntegratedInfrustructure.Model.CSS
         public string Remarks { get; set; }
         public string? Reason { get; set; }
 
-        //public string DataSynched { get; set; }
+        public string DataSynched { get; set; }
     }
 
 }

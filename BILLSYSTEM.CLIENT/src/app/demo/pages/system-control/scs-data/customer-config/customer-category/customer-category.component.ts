@@ -4,6 +4,7 @@ import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/a
 import { ScsDataService } from 'src/app/services/system-control/scs-data.service';
 import { ICustomerCategoryDto } from 'src/models/system-control/ICustomerCategoryDto';
 import { AddCustomerCategoryComponent } from './add-customer-category/add-customer-category.component';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-customer-category',

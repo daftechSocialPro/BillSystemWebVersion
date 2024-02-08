@@ -100,7 +100,6 @@ export class AddCssCustomerComponent implements OnInit {
     this.getBillDuties();
     this.getMonths();
     this.fetchCustomers();
-
     if (this.Customer && this.Customer.length > 0) {
       const lastCustomer = this.Customer[this.Customer.length - 1];
       this.customerForm.get('ordinaryNo').setValue(lastCustomer.ordinaryNo);
@@ -251,28 +250,43 @@ export class AddCssCustomerComponent implements OnInit {
   }
 
   submit() {
-    var customerPost: ICustomerPostDto = {
-      fullName: this.customerForm.value.fullName,
-      phoneNumber: this.customerForm.value.phoneNumber,
+    var customerPost: ICustomerDto = {
+      customerName: this.customerForm.value.fullName,
+      telephone: this.customerForm.value.phoneNumber,
       ketena: this.customerForm.value.ketena,
       kebele: this.customerForm.value.kebele,
       readerName: this.customerForm.value.readerName,
       village: this.customerForm.value.village,
       mapNumber: this.customerForm.value.mapNumber,
-      houseNumber: this.customerForm.value.houseNumber,
+      houseNo: this.customerForm.value.houseNumber,
       billCycle: this.customerForm.value.billCycle,
-      customerCategory: this.customerForm.value.customerCategory,
+      custCategoryCode: this.customerForm.value.customerCategory,
       contractNo: this.customerForm.value.contractNo,
       ordinaryNo: this.customerForm.value.ordinaryNo,
-      meterNo: this.customerForm.value.meterNo,
-      meterSize: this.customerForm.value.meterSize,
+      meterno: this.customerForm.value.meterNo,
+      meterSizeCode: this.customerForm.value.meterSize,
+      meterType: this.customerForm.value.meterType,
       installationDate: this.customerForm.value.installationDate,
-      updateInitial: this.customerForm.value.updateInitial,
-      startReading: this.customerForm.value.startReading,
-      sweragePaid: this.customerForm.value.sweragePaid,
+      // upd: this.customerForm.value.updateInitial,
+      // sta: this.customerForm.value.startReading,
+      sdPaid: this.customerForm.value.sweragePaid,
       monthIndex: this.customerForm.value.monhtIndex,
       fiscalYear: this.customerForm.value.fiscalYear,
-      billOfficerId: this.customerForm.value.billOfficerId
+      billOfficerId: this.customerForm.value.billOfficerId,
+      custId: this.customerForm.value.custId,
+      reason: this.customerForm.value.reason,
+      bookNo: this.customerForm.value.bookNo,
+      accountNo: this.customerForm.value.accountNo,
+      meterDigit: this.customerForm.value.meterDigit,
+      meterCountryOrigin: this.customerForm.value.meterCountryOrigin,
+      meterModel: this.customerForm.value.meterModel,
+      meterStartReading:this.customerForm.value.meterStartReading,
+      meterClass: this.customerForm.value.meterClass,
+      waterSource: this.customerForm.value.waterSource,
+      meterStatus: this.customerForm.value.meterStatus,
+      regDate: this.customerForm.value.regDate,
+      paymentMode: this.customerForm.value.paymentMode,
+      bankAccount: this.customerForm.value.bankAccount, 
     };
     console.log('customer post', customerPost);
     this.customerService.createCustomer(customerPost).subscribe({
