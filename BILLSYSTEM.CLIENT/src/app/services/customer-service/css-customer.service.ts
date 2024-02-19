@@ -23,7 +23,7 @@ export class CssCustomerService {
   getCustomerForUpdate(contractNo: string) {
     return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)
   }
-updateCustomer(updateCustomer:ICustomerDto){ 
+  updateCustomer(updateCustomer:ICustomerDto){
   return this.http.put<ResponseMessage>(this.baseUrl+'/Customer/UpdateCustomer', updateCustomer)
 
 }
@@ -42,8 +42,8 @@ updateCustomer(updateCustomer:ICustomerDto){
 
   }
 
-  createCustomer (customerPost :ICustomerDto){
-    return this.http.post<ResponseMessage>(this.baseUrl+"/Customer/CreateBasicData",customerPost)
+  createCustomer (customerData :ICustomerDto){
+    return this.http.post<ResponseMessage>(this.baseUrl+"/Customer/CreateBasicData",customerData)
   }
 
   getContractNumber (kebele:string,ketena:string){

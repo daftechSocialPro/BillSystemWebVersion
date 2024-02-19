@@ -17,7 +17,7 @@ export class CssBatchRecordsComponent implements OnInit {
   rows: number = 5;
   selectedProperty:string
 // property:any[]=[]
-  
+
   paginationCustomerValues: {
     bankAccount: string,
     bookNo: string,
@@ -28,7 +28,7 @@ export class CssBatchRecordsComponent implements OnInit {
     village: string,
     watersource: string
   }[] = [];
-  
+
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
@@ -56,12 +56,12 @@ export class CssBatchRecordsComponent implements OnInit {
         }))
         // this.property=this.paginationCustomerValues
         this.paginatedCustomer(this.Customer);
-        
+
       }
     });
   }
- 
-  
+
+
 
   filter() {}
   onPageChange(event: any, gInterface?: ICustomerDto[]) {

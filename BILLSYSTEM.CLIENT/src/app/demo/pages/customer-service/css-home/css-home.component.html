@@ -1,93 +1,99 @@
 <div class="row">
-    <div class="col-xl-4 col-md-6">
-      <div class="card bg-secondary-dark dashnum-card text-white overflow-hidden">
-        <span class="round small"></span>
-        <span class="round big"></span>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <span class="text-white d-block fs-1 fw-bold my-2">{{accountPeriod&&accountPeriod.fiscalYear}} </span>
-              <p class="mb-0 opacity-50 text-left">Fiscal Year</p>
-  
-            </div>
-            <div class="col-auto">
-              <div class="avtar">
-                <i class="text-white ti ti-calendar"></i>
-              </div>
-            </div>
-  
+  <div class="col-xl-4 col-md-6">
+    <div class="card bg-secondary-dark dashnum-card text-white overflow-hidden">
+      <span class="round small"></span>
+      <span class="round big"></span>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="text-white d-block fs-1 fw-bold my-2">{{ accountPeriod && accountPeriod.fiscalYear }} </span>
+            <p class="mb-0 opacity-50 text-left">Fiscal Year</p>
           </div>
-  
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-4 col-md-6">
-      <div class="card bg-primary-dark dashnum-card text-white overflow-hidden">
-        <span class="round small"></span>
-        <span class="round big"></span>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <div class="avtar">
-                <i class="text-white ti ti-calendar"></i>
-              </div>
+          <div class="col-auto">
+            <div class="avtar">
+              <i class="text-white ti ti-calendar"></i>
             </div>
-            <div class="col-auto">
-              <span class="text-white d-block fs-1 fw-bold my-2">{{monthName}} </span>
-              <p class="mb-0 opacity-50 text-end">Fiscal Month</p>
-            </div>
-  
-          </div>
-  
-        </div>
-      </div>
-    </div>
-  
-  
-  
-    <div class="col-xl-4 col-md-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="row mb- align-items-center">
-            <div class="col">
-              <h4 class="text-center text-muted">
-                Office Name & Address
-              </h4>
-            </div>
-            <div class="col-auto">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item px-0">
-                  <div class="row align-items-start">
-      
-                    <div class="col-auto">
-                      <h5 class="mb-0">
-                        DAFTech Computer Engineering
-                      </h5>
-      
-                    </div>
-                  </div>
-                </li>
-                <li class="list-group-item px-0">
-                  <div class="row align-items-start">
-      
-                    <div class="col-auto">
-                      <h5 class="mb-0 opacity-50">
-                        Urael, Casanchiz Addis Ababa
-                      </h5>
-      
-                    </div>
-                  </div>
-                </li>
-              </ul> </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-12 ">
-  
+  <div class="col-xl-4 col-md-6">
+    <div class="card bg-primary-dark dashnum-card text-white overflow-hidden">
+      <span class="round small"></span>
+      <span class="round big"></span>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class="avtar">
+              <i class="text-white ti ti-calendar"></i>
+            </div>
+          </div>
+          <div class="col-auto">
+            <span class="text-white d-block fs-1 fw-bold my-2">{{ monthName }} </span>
+            <p class="mb-0 opacity-50 text-end">Fiscal Month</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  
-  
 
+  <div class="col-xl-4 col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row mb- align-items-center">
+          <div class="col">
+            <h4 class="text-center text-muted"> Office Name & Address </h4>
+          </div>
+          <div class="col-auto">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item px-0">
+                <div class="row align-items-start">
+                  <div class="col-auto">
+                    <h5 class="mb-0"> DAFTech Computer Engineering </h5>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item px-0">
+                <div class="row align-items-start">
+                  <div class="col-auto">
+                    <h5 class="mb-0 opacity-50"> Urael, Casanchiz Addis Ababa </h5>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="tab-pane fade show active" id="list-mail-16" role="tabpanel">
+
+      <div class="mail-content mx-3 table-responsive tab-content card table-card p-2">
+        <div><h3>Customer Category Vs Status</h3></div>
+  <table class="custom-table ">
+    <thead >
+      <tr>
+        <th>Customer Category</th>
+        <th># of Active</th>
+        <th># of Disconnected</th>
+        <th># of Terminated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customerCategoriess">
+        <td>{{ item.custCategoryName }}</td>
+        <td>{{ getNumberOfCustomersByCategory('custCategoryCode', 'RECONNECT') }}</td>
+        <td>{{ getNumberOfCustomersByCategory('custCategoryCode', 'DISCONNECT') }}</td>
+        <td>{{ getNumberOfCustomersByCategory('custCategoryCode', 'TERMINATE') }}</td>
+      </tr>
+    </tbody>
+    <ng-template #noResults>
+      <tr>
+        <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+      </tr>
+    </ng-template>
+  </table>
+</div>
+  </div>

@@ -12,3 +12,18 @@ C:\Users\Job\Downloads\Telegram Desktop\BillSystemWebVersion\BillSystemWebVersio
 C:\Users\Job\Downloads\Telegram Desktop\BillSystemWebVersion\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.pdb
 C:\Users\Job\Downloads\Telegram Desktop\BillSystemWebVersion\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.genruntimeconfig.cache
 C:\Users\Job\Downloads\Telegram Desktop\BillSystemWebVersion\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\ref\IntegratedInfrustructure.dll
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.deps.json
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.runtimeconfig.json
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.AssemblyReference.cache
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfoInputs.cache
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfo.cs
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.CoreCompileInputs.cache
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.sourcelink.json
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\refint\IntegratedInfrustructure.dll
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.genruntimeconfig.cache
+C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\ref\IntegratedInfrustructure.dll

@@ -100,6 +100,7 @@ export class AddCssCustomerComponent implements OnInit {
     this.getBillDuties();
     this.getMonths();
     this.fetchCustomers();
+
     if (this.Customer && this.Customer.length > 0) {
       const lastCustomer = this.Customer[this.Customer.length - 1];
       this.customerForm.get('ordinaryNo').setValue(lastCustomer.ordinaryNo);
@@ -286,7 +287,8 @@ export class AddCssCustomerComponent implements OnInit {
       meterStatus: this.customerForm.value.meterStatus,
       regDate: this.customerForm.value.regDate,
       paymentMode: this.customerForm.value.paymentMode,
-      bankAccount: this.customerForm.value.bankAccount, 
+      paymentPlace: this.customerForm.value.paymentPlace,
+      bankAccount: this.customerForm.value.bankAccount,
     };
     console.log('customer post', customerPost);
     this.customerService.createCustomer(customerPost).subscribe({

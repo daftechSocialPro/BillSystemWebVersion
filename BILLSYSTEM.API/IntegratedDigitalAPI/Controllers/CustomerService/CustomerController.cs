@@ -35,7 +35,7 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
 
         [HttpPost]
         [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> CreateBasicData(CustomerPostDto customerPost)
+        public async Task<IActionResult> CreateBasicData(CustomerDto customerPost)
         {
             return Ok(await _customerService.AddCustomer(customerPost));
         }
@@ -54,19 +54,19 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
         {
             return Ok(await _customerService.DeleteCustomer(contractNo));
         }
-        [HttpPut]
-        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> UpdateCustomer(CustomerDto updateCustomer)
-        {
-            if (ModelState.IsValid)
-            {
-                return Ok(await _customerService.UpdateCustomer(updateCustomer));
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
+        //[HttpPut]
+        //[ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        //public async Task<IActionResult> UpdateCustomer(CustomerDto updateCustomer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        return Ok(await _customerService.UpdateCustomer(updateCustomer));
+        //    }
+        //    else
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
 
         [HttpGet]
         [ProducesResponseType(typeof(CustomerGetDto), (int)HttpStatusCode.OK)]

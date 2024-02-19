@@ -223,8 +223,8 @@ import { CostomerSubCategoryComponent } from './scs-data/customer-config/costome
     CustomerCategoryComponent,
     AddCustomerCategoryComponent,
     CostomerSubCategoryComponent,
-    
-   
+
+
 
 
   ],

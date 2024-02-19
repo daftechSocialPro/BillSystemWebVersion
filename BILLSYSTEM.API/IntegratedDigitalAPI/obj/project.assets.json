@@ -11592,19 +11592,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Job\\.nuget\\packages\\": {}
+    "C:\\Users\\danuh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+      "projectUniqueName": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
       "projectName": "IntegratedDigitalAPI",
-      "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
-      "packagesPath": "C:\\Users\\Job\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\obj\\",
+      "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+      "packagesPath": "C:\\Users\\danuh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Job\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\danuh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11612,17 +11617,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
-              "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
+            "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
+              "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
             },
-            "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
-              "projectPath": "C:\\Users\\Job\\Downloads\\Telegram Desktop\\BillSystemWebVersion\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj"
+            "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
+              "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj"
             }
           }
         }
@@ -11715,11 +11721,21 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNetCore.Components' 7.0.9 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3fx3-85r4-8j3w",
+      "libraryId": "Microsoft.AspNetCore.Components",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

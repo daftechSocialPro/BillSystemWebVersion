@@ -13,6 +13,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { DetailCustomerComponent } from './css-customer/detail-customer/detail-customer.component';
 import { CssChangeActionComponent } from './css-customer/css-change-action/css-change-action.component';
 import { CssBatchRecordsComponent } from './css-customer/css-batch-records/css-batch-records.component';
+import { CssTransferCustomerComponent } from './css-customer/transfer-customer/transfer-customer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CssBatchRecordsComponent } from './css-customer/css-batch-records/css-b
     CssBatchRecordsComponent,
     CssImportComponent,
     DetailCustomerComponent,
-    CssChangeActionComponent
+    CssChangeActionComponent,
+    CssTransferCustomerComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, CustomerServiceRoutingModule, PaginatorModule, ReactiveFormsModule]
 })

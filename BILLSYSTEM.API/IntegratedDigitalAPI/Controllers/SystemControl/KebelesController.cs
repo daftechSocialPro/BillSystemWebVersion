@@ -29,8 +29,13 @@ namespace IntegratedDigitalAPI.Controllers.SytemControl
             return Ok(await _KebelesService.GetKebeles());
         }
 
-       
 
+        [HttpGet]
+        [ProducesResponseType(typeof(Kebeles), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetKetenasKebeles(string ketenaCode)
+        {
+            return Ok(await _KebelesService.GetKetenaKebeles(ketenaCode));
+        }
 
 
         [HttpPost]

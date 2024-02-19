@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = IntegratedInfrustructure
-build_property.ProjectDir = C:\Users\Job\Downloads\Telegram Desktop\BillSystemWebVersion\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\
+build_property.ProjectDir = C:\Users\danuh\OneDrive\Desktop\DAF-Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

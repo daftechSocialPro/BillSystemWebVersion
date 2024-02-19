@@ -8,9 +8,14 @@ export interface ICustomerGetDto {
     meterno:string
     meterSizeCode:string
     custId?:string
-
-    ketena?:string
-    kebele?:string
+    meterStartReading?:number
+    // transferBy?:string
+    // transferDT?:string
+    // ketena:string
+    // kebele:string
+    // sdPaid: string;
+    // houseNo: string;
+    // village: string;
 
 
 }

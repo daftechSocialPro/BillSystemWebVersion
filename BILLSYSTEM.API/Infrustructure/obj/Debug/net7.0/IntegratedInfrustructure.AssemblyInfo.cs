@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IntegratedInfrustructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d5f17d4216dd4621a6cc84f8e3f88ef468c9781")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
->>>>>>> 3c9c5306c4ec7ceae4b699c6d97fa25c7725c807
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ef34149fa1df839255fb96904b5b634c8da473d")]
 [assembly: System.Reflection.AssemblyProductAttribute("IntegratedInfrustructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IntegratedInfrustructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

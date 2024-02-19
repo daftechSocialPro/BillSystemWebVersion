@@ -9,6 +9,7 @@ import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { CssChangeActionComponent } from './css-change-action/css-change-action.component';
 import { CssBatchRecordsComponent } from './css-batch-records/css-batch-records.component';
+import { CssTransferCustomerComponent } from './transfer-customer/transfer-customer.component';
 
 @Component({
   selector: 'app-css-customer',
@@ -76,16 +77,27 @@ export class CssCustomerComponent implements OnInit {
       this.getCustomers()
     });
   }
+  transferCustomer() {
+    let modalRef = this.modalService.open(CssTransferCustomerComponent, { backdrop: 'static', size: 'lg' });
+    // modalRef.componentInstance.customer = customer;
+    modalRef.result.then(() => {
+      this.getCustomers()
+    });
+  }
   addBatchRecords(){
     let modalRef = this.modalService.open(CssBatchRecordsComponent,  {backdrop:'static', size:'lg'})
-
     modalRef.result.then(()=>{
-
       this.getCustomers()
     })
   }
 
-  updateCustomer(customer: ICustomerDto) {}
+  updateCustomer(customer: ICustomerDto) {
+    let modalRef = this.modalService.open(DetailCustomerComponent, { backdrop: 'static', windowClass: 'custom-modal-width' });
+    modalRef.result.then(() => {
+      this.getCustomers();
+      console.log(customer)
+    });
+  }
 
   showSelectOption() {
     this.displaySelectOption = true;
