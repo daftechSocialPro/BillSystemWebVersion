@@ -10,6 +10,7 @@ import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { CssChangeActionComponent } from './css-change-action/css-change-action.component';
 import { CssBatchRecordsComponent } from './css-batch-records/css-batch-records.component';
 import { CssTransferCustomerComponent } from './transfer-customer/transfer-customer.component';
+import { CssChangeMeterComponent } from './css-change-meter/css-change-meter.component';
 
 @Component({
   selector: 'app-css-customer',
@@ -77,6 +78,14 @@ export class CssCustomerComponent implements OnInit {
       this.getCustomers()
     });
   }
+  changeMeter(customer:ICustomerGetDto) {
+    let modalRef = this.modalService.open(CssChangeMeterComponent, { backdrop: 'static', windowClass: 'custom-modal-width' });
+    modalRef.componentInstance.customer = customer;
+    modalRef.result.then(() => {
+      this.getCustomers()
+    });
+  }
+
   transferCustomer() {
     let modalRef = this.modalService.open(CssTransferCustomerComponent, { backdrop: 'static', size: 'lg' });
     // modalRef.componentInstance.customer = customer;

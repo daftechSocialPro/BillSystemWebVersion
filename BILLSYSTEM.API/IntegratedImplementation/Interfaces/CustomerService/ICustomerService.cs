@@ -16,7 +16,7 @@ namespace IntegratedImplementation.Interfaces.CustomerService
         public Task <CustomerGetDto> GetSingleCustomer(string contractNo);
 
         public Task<ResponseMessage> AddCustomer(CustomerDto customerPost);
-        //public Task<ResponseMessage> UpdateCustomer(CustomerDto updateCustomer);
+        public Task<ResponseMessage> UpdateCustomer(CustomerDto updateCustomer);
 
 
         public Task<ResponseMessage> DeleteCustomer (string contractNo);

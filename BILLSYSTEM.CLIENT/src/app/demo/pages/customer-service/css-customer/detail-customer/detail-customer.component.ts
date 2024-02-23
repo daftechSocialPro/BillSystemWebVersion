@@ -48,14 +48,14 @@ export class DetailCustomerComponent implements OnInit {
   months: IFiscalMonthDto[];
   countryOrgin: IGeneralSettingDto[];
 
-  accountPeriod : IAccountPeriodDto
+  accountPeriod: IAccountPeriodDto;
 
   constructor(
     private activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
     private controlService: ScsDataService,
     private dwmService: DWMService,
-    private setupService :ScsSetupService,
+    private setupService: ScsSetupService,
     private maintainService: ScsMaintainService,
     private customerService: CssCustomerService,
     private messageService: MessageService
@@ -102,7 +102,6 @@ export class DetailCustomerComponent implements OnInit {
     this.getMobileUsers();
     this.getBillDuties();
     this.getBillOfficers();
-    this.getReasons();
     this.getMonths();
     this.getmeterType();
     this.getCountryOrgin();
@@ -110,15 +109,12 @@ export class DetailCustomerComponent implements OnInit {
     this.getmeterDigit();
     this.getAccountPeriod();
 
-
-    if(!this.contractNo){
+    if (!this.contractNo) {
       this.fetchCustomers();
     }
-    if(this.contractNo){
-
+    if (this.contractNo) {
       this.getSingleCustomer();
     }
-
 
     if (this.customer && this.Customer.length > 0) {
       const lastCustomer = this.Customer[this.Customer.length - 1];
@@ -130,54 +126,57 @@ export class DetailCustomerComponent implements OnInit {
     }
   }
 
-
-  getAccountPeriod(){
+  getAccountPeriod() {
     this.setupService.getAccountPeriod().subscribe({
-      next:(res)=>{
-        this.accountPeriod=res
+      next: (res) => {
+        this.accountPeriod = res;
 
-        this.customerForm.controls['monhtIndex'].setValue(res.monthIndex)
-        this.customerForm.controls['fiscalYear'].setValue(res.fiscalYear)
+        this.customerForm.controls['monhtIndex'].setValue(res.monthIndex);
+        this.customerForm.controls['fiscalYear'].setValue(res.fiscalYear);
       }
-    })
+    });
   }
 
   getSingleCustomer() {
-
-      this.customerService.getSingleCustomer(this.contractNo).subscribe({
-        next: (customer: ICustomerDto) => {
-          this.customer = customer;
-          this.getKebelesForEdit(this.customer.ketena)
-          console.log("this.customer",this.customer)
-          if (this.customer) {
-            this.customerForm.get('fullName').setValue(this.customer.customerName);
-            this.customerForm.get('phoneNumber').setValue(this.customer.telephone);
-            this.customerForm.get('fiscalYear').setValue(this.customer.regFiscalYear);
-            this.customerForm.get('monhtIndex').setValue(this.customer.regMonthIndex);
-            this.customerForm.get('customerCategory').setValue(this.customer.custCategoryCode);
-            this.customerForm.get('contractNo').setValue(this.customer.contractNo);
-            this.customerForm.get('meterSize').setValue(this.customer.meterSizeCode);
-            this.customerForm.get('billOfficerId').setValue(this.customer.readerName);
-            this.customerForm.get('village').setValue(this.customer.village);
-            this.customerForm.get('billCycle').setValue(this.customer.billCycle);
-            this.customerForm.get('ketena').setValue(this.customer.ketena);
-            this.customerForm.get('kebele').setValue(this.customer.kebele);
-            this.customerForm.get('installationDate').setValue(this.customer.installationDate);
-            this.customerForm.get('ordinaryNo').setValue(this.customer.ordinaryNo);
-            this.customerForm.get('houseNumber').setValue(this.customer.houseNo);
-            this.customerForm.get('mapNumber').setValue(this.customer.mapNumber);
-            this.customerForm.get('meterNo').setValue(this.customer.meterno);
-            this.customerForm.get('sweragePaid').setValue(this.customer.sdPaid);
-
-
-          }
-          console.log('info', this.customer);
-        },
-        error: (err) => {
-          console.error('Error updating customer:', err);
+    this.customerService.getSingleCustomer(this.contractNo).subscribe({
+      next: (customer: ICustomerDto) => {
+        this.customer = customer;
+        this.getKebelesForEdit(this.customer.ketena);
+        console.log('this.customer', this.customer);
+        if (this.customer) {
+          this.customerForm.get('fullName').setValue(this.customer.customerName);
+          this.customerForm.get('phoneNumber').setValue(this.customer.telephone);
+          this.customerForm.get('fiscalYear').setValue(this.customer.regFiscalYear);
+          this.customerForm.get('monhtIndex').setValue(this.customer.regMonthIndex);
+          this.customerForm.get('customerCategory').setValue(this.customer.custCategoryCode);
+          this.customerForm.get('contractNo').setValue(this.customer.contractNo);
+          this.customerForm.get('meterSize').setValue(this.customer.meterSizeCode);
+          this.customerForm.get('billOfficerId').setValue(this.customer.readerName);
+          this.customerForm.get('village').setValue(this.customer.village);
+          this.customerForm.get('billCycle').setValue(this.customer.billCycle);
+          this.customerForm.get('ketena').setValue(this.customer.ketena);
+          this.customerForm.get('kebele').setValue(this.customer.kebele);
+          this.customerForm.get('installationDate').setValue(this.customer.installationDate?this.customer.installationDate.toString().split('T')[0]:'');
+          this.customerForm.get('ordinaryNo').setValue(this.customer.ordinaryNo);
+          this.customerForm.get('houseNumber').setValue(this.customer.houseNo);
+          this.customerForm.get('mapNumber').setValue(this.customer.mapNumber);
+          this.customerForm.get('meterNo').setValue(this.customer.meterno);
+          this.customerForm.get('sweragePaid').setValue(this.customer.sdPaid);
+          this.customerForm.get('paymentMode').setValue(this.customer.paymentMode);
+          this.customerForm.get('accountNo').setValue(this.customer.accountNo);
+          this.customerForm.get('meterDigit').setValue(this.customer.meterDigit);
+          this.customerForm.get('meterType').setValue(this.customer.meterType);
+          this.customerForm.get('countryOrgin').setValue(this.customer.meterCountryOrigin);
+          this.customerForm.get('meterModel').setValue(this.customer.meterModel);
+          this.customerForm.get('countryOrgin').setValue(this.customer.meterCountryOrigin);
+          this.customerForm.get('startReading').setValue(this.customer.meterStartReading);
         }
-      });
-
+        console.log('info', this.customer);
+      },
+      error: (err) => {
+        console.error('Error updating customer:', err);
+      }
+    });
   }
 
   fetchCustomers() {
@@ -222,7 +221,7 @@ export class DetailCustomerComponent implements OnInit {
       }
     });
   }
-  getKebelesForEdit(ketenaCode: string){
+  getKebelesForEdit(ketenaCode: string) {
     this.controlService.getKetenaKebeles(ketenaCode).subscribe({
       next: (res) => {
         console.log(res);
@@ -255,13 +254,6 @@ export class DetailCustomerComponent implements OnInit {
     this.controlService.getKetena().subscribe({
       next: (res) => {
         this.ketenas = res;
-      }
-    });
-  }
-  getReasons() {
-    this.controlService.getGeneralSetting('METERCHANGEREASON').subscribe({
-      next: (res) => {
-        this.reasons = res;
       }
     });
   }
@@ -344,26 +336,21 @@ export class DetailCustomerComponent implements OnInit {
           regFiscalYear: this.customerForm.value.fiscalYear,
           regMonthIndex: this.customerForm.value.monhtIndex,
           customerName: this.customerForm.value.fullName,
-
-
-paymentMode:this.customerForm.value.paymentMode,
-mapNumber:this.customerForm.value.mapNumber,
-billCycle : this.customerForm.value.billCycle,
-accountNo : this.customerForm.value.accountNo,
-meterDigit:this.customerForm.value.meterDigit,
-meterType : this.customerForm.value.meterType,
-meterCountryOrigin : this.customerForm.value.countryOrgin,
-meterModel : this.customerForm.value.meterModel,
-
-
-
+          paymentMode: this.customerForm.value.paymentMode,
+          mapNumber: this.customerForm.value.mapNumber,
+          billCycle: this.customerForm.value.billCycle,
+          accountNo: this.customerForm.value.accountNo,
+          meterDigit: this.customerForm.value.meterDigit,
+          meterType: this.customerForm.value.meterType,
+          meterCountryOrigin: this.customerForm.value.countryOrgin,
+          meterModel: this.customerForm.value.meterModel,
           ketena: this.customerForm.value.ketena,
           kebele: this.customerForm.value.kebele,
           houseNo: this.customerForm.value.houseNumber,
           village: this.customerForm.value.village,
           telephone: this.customerForm.value.phoneNumber,
           contractNo: this.customerForm.value.contractNo,
-          readerName: this.customerForm.value.readerName,
+          readerName: this.customerForm.value.billOfficerId,
           ordinaryNo: this.customerForm.value.ordinaryNo,
           custCategoryCode: this.customerForm.value.customerCategory,
           meterno: this.customerForm.value.meterno,
@@ -372,8 +359,6 @@ meterModel : this.customerForm.value.meterModel,
           meterStartReading: this.customerForm.value.startReading,
           sdPaid: this.customerForm.value.sweragePaid
         };
-
-        console.log('customerData2', customerData);
         this.customerService.updateCustomer(customerData).subscribe({
           next: (res) => {
             if (res.success) {
@@ -407,14 +392,14 @@ meterModel : this.customerForm.value.meterModel,
           installationDate: this.customerForm.value.installationDate,
           meterStartReading: this.customerForm.value.startReading,
           sdPaid: this.customerForm.value.sweragePaid,
-          paymentMode:this.customerForm.value.paymentMode,
-mapNumber:this.customerForm.value.mapNumber,
-billCycle : this.customerForm.value.billCycle,
-accountNo : this.customerForm.value.accountNo,
-meterDigit:this.customerForm.value.meterDigit,
-meterType : this.customerForm.value.meterType,
-meterCountryOrigin : this.customerForm.value.countryOrgin,
-meterModel : this.customerForm.value.meterModel,
+          paymentMode: this.customerForm.value.paymentMode,
+          mapNumber: this.customerForm.value.mapNumber,
+          billCycle: this.customerForm.value.billCycle,
+          accountNo: this.customerForm.value.accountNo,
+          meterDigit: this.customerForm.value.meterDigit,
+          meterType: this.customerForm.value.meterType,
+          meterCountryOrigin: this.customerForm.value.countryOrgin,
+          meterModel: this.customerForm.value.meterModel
         };
         console.log('customerData', customerData);
         this.customerService.createCustomer(customerData).subscribe({

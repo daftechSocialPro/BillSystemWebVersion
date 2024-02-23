@@ -27,7 +27,7 @@ export class CssChangeActionComponent implements OnInit {
   customerMeterStatusHistory: ICustomerMeterStatusGetDto[];
 
   Customer: ICustomerGetDto[];
-  SCReasons:IGeneralSettingDto[]
+  SCReasons: IGeneralSettingDto[];
   meterStatus: string[] = [];
 
   totalRecords: number = 0;
@@ -38,9 +38,9 @@ export class CssChangeActionComponent implements OnInit {
 
   meterStatusForm: FormGroup;
 
-  userview: UserView
+  userview: UserView;
 
-  currentMonthYear : IAccountPeriodDto
+  currentMonthYear: IAccountPeriodDto;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -48,34 +48,33 @@ export class CssChangeActionComponent implements OnInit {
     private formBuilder: FormBuilder,
 
     private customerService: CssCustomerService,
-    private controlService:ScsDataService,
-    private setUpService : ScsSetupService,
+    private controlService: ScsDataService,
+    private setUpService: ScsSetupService,
     private messageService: MessageService,
-    private userService : UserService
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     console.log(this.customer);
 
-    this.userview= this.userService.getCurrentUser()
-    this.getCurrentFicalMonth()
+    this.userview = this.userService.getCurrentUser();
+    this.getCurrentFicalMonth();
     if (this.customer) {
       this.getCustMeterHis();
       this.meterStatusForm = this.formBuilder.group({
-        meterStatus:['', Validators.required],
+        meterStatus: ['', Validators.required],
         reason: ['', Validators.required],
         entryDate: ['', Validators.required]
       });
     }
   }
 
-  getCurrentFicalMonth(){
+  getCurrentFicalMonth() {
     this.setUpService.getAccountPeriod().subscribe({
-
       next: (res) => {
         this.currentMonthYear = res;
       }
-    })
+    });
   }
   getCustMeterHis() {
     this.customerService.getCustomerMeterStatus(this.customer.custId).subscribe({
@@ -108,7 +107,6 @@ export class CssChangeActionComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-
   paginatedCustomer(ginterfces: ICustomerGetDto[]) {
     this.totalRecords = ginterfces.length;
     this.paginationCustomer = ginterfces.slice(this.first, this.first + this.rows);
@@ -117,42 +115,30 @@ export class CssChangeActionComponent implements OnInit {
   closeModal() {
     this.activeModal.close();
   }
-  getReasons(value:string){
-
-
-
-      this.controlService.getGeneralSetting(value).subscribe({
-        next:(res)=>{
-          this.SCReasons = res
-        }
-      })
-
-  }
-  UpdateMeterStatus(){
-    if (this.meterStatusForm.valid) {
-
-
-      var meterStatusPostDto:ICustomerMeterStatusPostDto ={
-
-        fiscalYear : this.currentMonthYear.fiscalYear,
-        monthIndex : this.currentMonthYear.monthIndex,
-        custId : this.customer.custId,
-        disDate:this.meterStatusForm.value.entryDate,
-        reason: this.meterStatusForm.value.reason,
-        typeOfAction : this.meterStatusForm.value.meterStatus,
+  getReasons(value: string) {
+    this.controlService.getGeneralSetting(value).subscribe({
+      next: (res) => {
+        this.SCReasons = res;
       }
+    });
+  }
+  UpdateMeterStatus() {
+    if (this.meterStatusForm.valid) {
+      var meterStatusPostDto: ICustomerMeterStatusPostDto = {
+        fiscalYear: this.currentMonthYear.fiscalYear,
+        monthIndex: this.currentMonthYear.monthIndex,
+        custId: this.customer.custId,
+        disDate: this.meterStatusForm.value.entryDate,
+        reason: this.meterStatusForm.value.reason,
+        typeOfAction: this.meterStatusForm.value.meterStatus
+      };
 
       this.customerService.updateCustomerMeterStatus(meterStatusPostDto).subscribe({
-        next:((res)=>{
-          this.messageService.add({ severity:'success', summary: 'Success', detail: 'Meter Status Updated Successfully' });
+        next: (res) => {
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Meter Status Updated Successfully' });
           this.closeModal();
-        })
-      })
-
-
-
-
-
-  }}
-
+        }
+      });
+    }
+  }
 }

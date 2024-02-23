@@ -14,6 +14,7 @@ import { DetailCustomerComponent } from './css-customer/detail-customer/detail-c
 import { CssChangeActionComponent } from './css-customer/css-change-action/css-change-action.component';
 import { CssBatchRecordsComponent } from './css-customer/css-batch-records/css-batch-records.component';
 import { CssTransferCustomerComponent } from './css-customer/transfer-customer/transfer-customer.component';
+import { CssChangeMeterComponent } from './css-customer/css-change-meter/css-change-meter.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CssTransferCustomerComponent } from './css-customer/transfer-customer/t
     DetailCustomerComponent,
     CssChangeActionComponent,
     CssTransferCustomerComponent,
+    CssChangeMeterComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, CustomerServiceRoutingModule, PaginatorModule, ReactiveFormsModule]
 })

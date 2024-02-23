@@ -50,6 +50,7 @@ namespace IntegratedImplementation.Datas
             services.AddScoped<IDataBaseBackUpService, DatabaseBackUpService>();
             services.AddScoped<IBillTemplateService, BillTemplateService>();
             services.AddScoped<IUserSettingService, UserSettingService>();
+            services.AddScoped<IBankService, BankService>();
 
 
             //services.AddScoped<IVillageService, VillageService>();

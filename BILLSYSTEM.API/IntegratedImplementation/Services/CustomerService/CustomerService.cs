@@ -76,6 +76,10 @@ namespace IntegratedImplementation.Services.CustomerService
 
 
 
+                         
+
+
+
 
 
                       }).ToList();
@@ -196,6 +200,7 @@ namespace IntegratedImplementation.Services.CustomerService
                 await _dbCustomerContext.Customers.Where(x=>x.ContractNo==contractNo).AsNoTracking()
                                     .ProjectTo<CustomerGetDto>(_mapper.ConfigurationProvider)
                                     .ToListAsync();
+
             var customerResults =
                      (from cus in customers
                       join CustomerCategory in _dbGeneralContext.CustomerCategories on cus.custCategoryCode equals CustomerCategory.custCategoryCode
@@ -215,7 +220,21 @@ namespace IntegratedImplementation.Services.CustomerService
                           Ketena = cus.Ketena,
                           ReaderName = cus.ReaderName,
                           sdPaid = cus.sdPaid,
-                         
+                          Telephone = cus.Telephone,
+                          Village = cus.Village,
+                          MeterStartReading = cus.MeterStartReading,
+                          HouseNo = cus.HouseNo,
+                          OrdinaryNo = cus.OrdinaryNo,
+                          InstallationDate = cus.InstallationDate,
+                          PaymentMode = cus.PaymentMode,
+                          //MapNumber = customerPost.MapNumber,
+                          //BillCycle= customerPost.BillCycle,
+                          AccountNo = cus.AccountNo,
+                          MeterDigit = cus.MeterDigit,
+                          MeterType = cus.MeterType,
+                          MeterCountryOrigin = cus.MeterCountryOrigin,
+                          MeterModel = cus.MeterModel,
+
 
                       }).FirstOrDefault();
 
@@ -227,71 +246,71 @@ namespace IntegratedImplementation.Services.CustomerService
             ;
 
         }
-        //public async Task<ResponseMessage> UpdateCustomer(CustomerDto updateCustomer)
-        //{
-        //    try
-        //    {
-        //        var currentcustomer = await _dbCustomerContext.Customers.FirstOrDefaultAsync(x => x.ContractNo.Equals(updateCustomer.ContractNo));
+        public async Task<ResponseMessage> UpdateCustomer(CustomerDto updateCustomer)
+        {
+            try
+            {
+                var currentcustomer = await _dbCustomerContext.Customers.FirstOrDefaultAsync(x => x.ContractNo.Equals(updateCustomer.ContractNo));
 
-        //        if (currentcustomer != null)
-        //        {
-
-
-        //            currentcustomer.custID = updateCustomer.custID;
-        //            currentcustomer.regFiscalYear = updateCustomer.regFiscalYear;
-        //            currentcustomer.regMonthIndex = updateCustomer.regMonthIndex;
-        //            currentcustomer.customerName = updateCustomer.customerName;
-        //            currentcustomer.Ketena = updateCustomer.Ketena;
-        //            currentcustomer.Kebele = updateCustomer.Kebele;
-        //            currentcustomer.HouseNo = updateCustomer.HouseNo;
-        //            currentcustomer.Village = updateCustomer.Village;
-        //            currentcustomer.Telephone = updateCustomer.Telephone;
-        //            currentcustomer.Mobile = updateCustomer.Mobile;
-        //            currentcustomer.BookNo = updateCustomer.BookNo;
-        //            currentcustomer.AccountNo = updateCustomer.AccountNo;
-        //            currentcustomer.ContractNo = updateCustomer.ContractNo;
-        //            currentcustomer.ReaderName = updateCustomer.readerName;
-        //            currentcustomer.OrdinaryNo = updateCustomer.OrdinaryNo;
-        //           // currentcustomer.BillCycle = updateCustomer.BillCycle;
-        //            currentcustomer.custCategoryCode = updateCustomer.custCategoryCode;
-        //            currentcustomer.meterno = updateCustomer.meterno;
-        //            currentcustomer.MeterSizeCode = updateCustomer.MeterSizeCode;
-        //            currentcustomer.MeterDigit = updateCustomer.MeterDigit;
-        //            currentcustomer.MeterType = updateCustomer.MeterType;
-        //            currentcustomer.MeterModel = updateCustomer.MeterModel;
-        //            currentcustomer.MeterCountryOrigin = updateCustomer.MeterCountryOrigin;
-        //            currentcustomer.InstallationDate = updateCustomer.InstallationDate;
-        //            currentcustomer.MeterStartReading = updateCustomer.MeterStartReading;
-        //            currentcustomer.sdPaid = updateCustomer.sdPaid;
-        //            currentcustomer.MeterClass = updateCustomer.MeterClass;
-        //            currentcustomer.WaterSource = updateCustomer.WaterSource;
-        //            currentcustomer.MeterStatus = updateCustomer.MeterStatus;
-        //            currentcustomer.RegDate = updateCustomer.RegDate;
-        //            currentcustomer.PaymentMode = updateCustomer.PaymentMode;
-        //            currentcustomer.BankAccount = updateCustomer.BankAccount;
-        //            currentcustomer.BillOfficerId = updateCustomer.BillOfficerId;
-                   
-
-        //            //currentcustomer.custCategoryName = updatecustomer.custCategoryName;
+                if (currentcustomer != null)
+                {
 
 
-        //await _dbCustomerContext.SaveChangesAsync();
-        //            return new ResponseMessage { Message = "Successfully Updated", Success = true };
-        //        }
-        //        return new ResponseMessage { Success = false, Message = "Unable To Find Customer " };
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new ResponseMessage
-        //        {
+                    //currentcustomer.custID = updateCustomer.custID;
+                    currentcustomer.regFiscalYear = updateCustomer.regFiscalYear;
+                    currentcustomer.regMonthIndex = updateCustomer.regMonthIndex;
+                    currentcustomer.customerName = updateCustomer.customerName;
+                    currentcustomer.Ketena = updateCustomer.Ketena;
+                    currentcustomer.Kebele = updateCustomer.Kebele;
+                    currentcustomer.HouseNo = updateCustomer.HouseNo;
+                    currentcustomer.Village = updateCustomer.Village;
+                    currentcustomer.Telephone = updateCustomer.Telephone;
+                    //currentcustomer.Mobile = updateCustomer.Mobile;
+                    //currentcustomer.BookNo = updateCustomer.BookNo;
+                    currentcustomer.AccountNo = updateCustomer.AccountNo;
+                    currentcustomer.ContractNo = updateCustomer.ContractNo;
+                    currentcustomer.ReaderName = updateCustomer.readerName;
+                    currentcustomer.OrdinaryNo = updateCustomer.OrdinaryNo;
+                    // currentcustomer.BillCycle = updateCustomer.BillCycle;
+                    currentcustomer.custCategoryCode = updateCustomer.custCategoryCode;
+                    currentcustomer.meterno = updateCustomer.meterno;
+                    currentcustomer.MeterSizeCode = updateCustomer.MeterSizeCode;
+                    currentcustomer.MeterDigit = updateCustomer.MeterDigit;
+                    currentcustomer.MeterType = updateCustomer.MeterType;
+                    currentcustomer.MeterModel = updateCustomer.MeterModel;
+                    currentcustomer.MeterCountryOrigin = updateCustomer.MeterCountryOrigin;
+                    currentcustomer.InstallationDate = updateCustomer.InstallationDate;
+                    currentcustomer.MeterStartReading = updateCustomer.MeterStartReading;
+                    currentcustomer.sdPaid = updateCustomer.sdPaid;
+                    currentcustomer.MeterClass = updateCustomer.MeterClass;
+                    //currentcustomer.WaterSource = updateCustomer.WaterSource;
+                    //currentcustomer.MeterStatus = updateCustomer.MeterStatus;
+                    //currentcustomer.RegDate = updateCustomer.RegDate;
+                    currentcustomer.PaymentMode = updateCustomer.PaymentMode;
+                    //currentcustomer.BankAccount = updateCustomer.BankAccount;
+                    //currentcustomer.BillOfficerId = updateCustomer.BillOfficerId;
 
-        //            Message = "Cannot insert duplicate key for Input Field contract NO ",
-        //            Success = false
-        //        };
 
-        //    }
+                    //currentcustomer.custCategoryName = updatecustomer.custCategoryName;
 
-        //}
+
+                    await _dbCustomerContext.SaveChangesAsync();
+                    return new ResponseMessage { Message = "Successfully Updated", Success = true };
+                }
+                return new ResponseMessage { Success = false, Message = "Unable To Find Customer " };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseMessage
+                {
+
+                    Message = "Cannot insert duplicate key for Input Field contract NO ",
+                    Success = false
+                };
+
+            }
+
+        }
         public async Task<int> GetContractNumber(string kebele, string ketena)
         {
             

@@ -4,6 +4,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { CssCustomerService } from 'src/app/services/customer-service/css-customer.service';
 import { ScsDataService } from 'src/app/services/system-control/scs-data.service';
 import { ScsMaintainService } from 'src/app/services/system-control/scs-maintain.service';
+import { SelectList } from 'src/models/ResponseMessage.Model';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { IBillSectionDto } from 'src/models/system-control/IBillSectionDto';
@@ -21,7 +22,7 @@ export class CssTransferCustomerComponent implements OnInit {
   filter: ICustomerGetDto[] = [];
   ketenas: IKetenaDto[];
   kebeles: IKebelesDto[];
-  billOfficer: IBillSectionDto[];
+  billOfficer: SelectList[];
   totalRecords: number = 0;
   searchText: string = '';
   first: number = 0;
@@ -42,6 +43,7 @@ export class CssTransferCustomerComponent implements OnInit {
     // this.getCustomerForTransfer();
     this.getKetenas();
     this.getCustomers();
+    this.getBillOfficers()
   }
 
   getCustomers() {
@@ -74,7 +76,7 @@ export class CssTransferCustomerComponent implements OnInit {
     });
   }
   getBillOfficers() {
-    this.maintainService.getBillSection().subscribe({
+    this.maintainService.getBillOffciersForTransfer().subscribe({
       next: (res) => {
         this.billOfficer = res;
       }

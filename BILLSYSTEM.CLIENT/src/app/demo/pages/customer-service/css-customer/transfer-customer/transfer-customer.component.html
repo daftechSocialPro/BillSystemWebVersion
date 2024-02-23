@@ -7,7 +7,7 @@
     <div class="row mx-auto p-2" style="margin-bottom: -25px">
       <div class="col-md-4 p-1">
         <div class="form-floating mb-3">
-          <select class="form-control" formControlName="ketena" #ketena (change)="onKetenachange($event)">
+          <select class="form-control"  #ketena (change)="onKetenachange($event)">
             <option value="">Select Ketena</option>
             <option *ngFor="let item of ketenas" [value]="item.ketenaCode"> {{ item.ketenaName }}</option>
           </select>
@@ -27,13 +27,14 @@
       </div>
       <div class="col-md-4 p-1">
         <div class="form-floating mb-1">
-          <select class="form-control" id="floatingInput">
+          <select class="form-control" id="floatingInput" #biloff>
             <option value="">Select billOfficer</option>
-            <option *ngFor="let item of billOfficer" [value]="item.empID">{{ item.empID }} | {{ item.name }}</option>
+            <option *ngFor="let item of billOfficer" [value]="item.empId"> {{ item.name }}</option>
           </select>
           <label for="floatingInput">Transfer To</label>
         </div>
       </div>
+
     </div>
 
     <div>
@@ -86,7 +87,7 @@
               <td>{{ item.kebele }} </td>
               <td>{{ item.custCategoryCode }}</td>
               <td>{{ item.meterStartReading }}</td>
-              <td>{{ item.transferBy }}</td>
+              <td>{{ biloff.value }}</td>
               <td>{{ item.transferDT }}</td>
             </tr>
           </tbody>

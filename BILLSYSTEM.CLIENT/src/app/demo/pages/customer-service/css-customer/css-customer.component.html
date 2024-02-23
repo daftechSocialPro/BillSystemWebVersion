@@ -78,8 +78,9 @@
                 ... <i class="pi pi-angle-down" style="font-size: 15px; text-align: center"></i>
               </button>
               <ul class="dropdown-menu shadow" style="background-color: #e6e6fa">
-                <li><a class="dropdown-item pointer" (click)="goToDetails(item.contractNo)">Update</a> </li>
+                <li><a class="dropdown-item pointer" (click)="goToDetails(item.contractNo)">Detail/Update</a> </li>
                 <li><a class="dropdown-item pointer" (click)="changeAction(item)">Change Action</a></li>
+                <li><a class= "dropdown-item pointer" (click)="changeMeter(item)">Change Meter</a></li>
                 <li><a class="dropdown-item pointer" (click)="deleteCustomer(item.contractNo)">Delete</a></li>
               </ul>
             </div>

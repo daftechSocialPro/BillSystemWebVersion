@@ -117,6 +117,14 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
       }
 
 
+      getBanks(){
+        return this.http.get<SelectList[]> (this.baseUrl+"/Bank/GetBanks")
+      }
+
+
+      getBillOffciersForTransfer(){
+        return this.http.get<SelectList[]> (this.baseUrl+"/BillSection/GetBillOfficersForTransfer")
+      }
 
 
 

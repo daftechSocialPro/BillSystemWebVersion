@@ -4,31 +4,31 @@
     <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"> </button>
   </div>
   <div style="background-color: #eceff1">
-
     <div class="container">
-
       <div class="row mt-2">
         <div class="col-lg-4">
           <div class="form-floating mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer && customer.customerName" id="floatingInput" />
 
-            <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.customerName" id="floatingInput" />
-
-
-          <label for="floatingSelect">Customer Name</label>
+            <label for="floatingSelect">Customer Name</label>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-floating mb-3">
+            <input type="text" class="form-control form-control" readonly [value]="customer && customer.contractNo" id="floatingInput" />
 
-            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.contractNo" id="floatingInput" />
-
-          <label for="floatingSelect">Contract No</label>
-</div>
+            <label for="floatingSelect">Contract No</label>
+          </div>
         </div>
         <div class="col-lg-4">
           <div class="form-floating mb-3">
-
-            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.custCategoryCode" id="floatingInput"/>
+            <input
+              type="text"
+              class="form-control form-control"
+              readonly
+              [value]="customer && customer.custCategoryCode"
+              id="floatingInput"
+            />
             <label for="floatingSelect">Customer Categor Code</label>
           </div>
         </div>
@@ -36,15 +36,14 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="form-floating mb-3">
-
-            <input type="text" class="form-control form-control" readonly [value]="customer&&customer.meterSizeCode" id="floatingInput" />
+            <input type="text" class="form-control form-control" readonly [value]="customer && customer.meterSizeCode" id="floatingInput" />
 
             <label for="floatingSelect">Meter Size Code</label>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control form-control"  readonly [value]="customer&&customer.meterno" id="floatingInput" />
+            <input type="text" class="form-control form-control" readonly [value]="customer && customer.meterno" id="floatingInput" />
             <label for="floatingSelect">Meter No</label>
           </div>
         </div>
@@ -54,65 +53,71 @@
           </div>
         </div> -->
       </div>
-      <form [formGroup]="meterStatusForm" (ngSubmit)="UpdateMeterStatus()" >
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="form-floating mb-3">
-            <select formControlName="meterStatus" class="form-select form-control" #meterSta (change)="getReasons(meterSta.value)" id="floatingSelect">
-              <option value="">Select Meter Status</option>
-              <option *ngFor="let item of meterStatus">{{item}}</option>
-            </select>
-            <label for="floatingSelect">Meter Status</label>
+      <form [formGroup]="meterStatusForm" (ngSubmit)="UpdateMeterStatus()">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-floating mb-3">
+              <select
+                formControlName="meterStatus"
+                class="form-select form-control"
+                #meterSta
+                (change)="getReasons(meterSta.value)"
+                id="floatingSelect"
+              >
+                <option value="">Select Meter Status</option>
+                <option *ngFor="let item of meterStatus">{{ item }}</option>
+              </select>
+              <label for="floatingSelect">Meter Status</label>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="form-floating mb-3">
-            <select formControlName="reason" class="form-select form-control" id="floatingSelect">
-              <option value="">Select Reason</option>
-              <option *ngFor="let item of SCReasons" [value]="item.inputValues"> {{item.inputValues}}</option>
-            </select>
-            <label for="floatingSelect">Reason</label>
+          <div class="col-lg-3">
+            <div class="form-floating mb-3">
+              <select formControlName="reason" class="form-select form-control" id="floatingSelect">
+                <option value="">Select Reason</option>
+                <option *ngFor="let item of SCReasons" [value]="item.inputValues"> {{ item.inputValues }}</option>
+              </select>
+              <label for="floatingSelect">Reason</label>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="form-floating mb-3">
-            <input type="Date" class="form-control form-control-lg" formControlName="entryDate" id="floatingInput" />
-            <label for="floatingInput7">Transaction Date</label>
+          <div class="col-lg-3">
+            <div class="form-floating mb-3">
+              <input type="Date" class="form-control form-control-lg" formControlName="entryDate" id="floatingInput" />
+              <label for="floatingInput7">Transaction Date</label>
+            </div>
           </div>
-        </div>
 
-        <div class="col-lg-2">
-          <button type="submit" [disabled]="!meterStatusForm.valid" class="btn btn-outline-success">Change Status</button>
+          <div class="col-lg-2">
+            <button type="submit" [disabled]="!meterStatusForm.valid" class="btn btn-outline-success">Change Status</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
     </div>
-      <div class="mx-3 mail-content tab-content">
-        <table class="custom-table mt-3 mx-auto">
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Month</th>
-              <th>Action Date</th>
-              <th>Type of Action</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of customerMeterStatusHistory" >
-              <td>{{item.fiscalYear}}</td>
-              <td>{{item.monthIndex}}</td>
-              <td>{{item.enterDate|date:"dd MMM yyyy"}}</td>
-              <td>{{item.typeOfAction}}</td>
-              <td>{{item.reason}}</td>
-            </tr>
-          </tbody>
-          <ng-template #noResults>
-            <tr>
-              <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
-            </tr>
-          </ng-template>
-        </table>
-      </div>
+    <div class="mx-3 mail-content tab-content">
+      <table class="custom-table mt-3 mx-auto">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Action Date</th>
+            <th>Type of Action</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of customerMeterStatusHistory">
+            <td>{{ item.fiscalYear }}</td>
+            <td>{{ item.monthIndex }}</td>
+            <td>{{ item.enterDate | date: 'dd MMM yyyy' }}</td>
+            <td>{{ item.typeOfAction }}</td>
+            <td>{{ item.reason }}</td>
+          </tr>
+        </tbody>
+        <ng-template #noResults>
+          <tr>
+            <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+          </tr>
+        </ng-template>
+      </table>
+    </div>
   </div>
-  </div>
+</div>

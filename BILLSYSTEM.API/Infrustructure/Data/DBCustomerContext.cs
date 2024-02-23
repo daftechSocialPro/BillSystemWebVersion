@@ -19,7 +19,8 @@ namespace IntegratedInfrustructure.Data
         }
 
         public DbSet<Customer> Customers { get; set; } 
-        public DbSet<CustomerMeterStatus> CustomerMeterStatus { get; set; }        
+        public DbSet<CustomerMeterStatus> CustomerMeterStatus { get; set; }    
+        public DbSet<CustomerMeterChange> CustomerMeterChange { get; set; }
 
 
         public DbSet<MobileUsers> MobileUsers { get; set; }

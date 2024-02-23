@@ -110,5 +110,22 @@ namespace IntegratedImplementation.Services.SystemControl
 
 
         }
+
+        public async Task<List<SelectListDto>> GetBillOfficersToTransfer()
+        {
+
+            var result = await (from be in _dbContext.BillEmpDuties.Where(x=>x.duties== "Bill Officer") 
+                          join bs in _dbContext.BillSections on be.empID equals bs.empID 
+                          select new  SelectListDto {
+                              EmpId = bs.empID,
+                              Name = $"{bs.empID} | {bs.name} ",
+
+            }
+                          
+                          
+                          ).ToListAsync();
+
+            return result;
+        }
     }
 }
