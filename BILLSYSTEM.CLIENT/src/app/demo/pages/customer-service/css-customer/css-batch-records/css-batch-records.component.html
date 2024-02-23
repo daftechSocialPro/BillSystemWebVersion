@@ -21,9 +21,15 @@
         <div class="form-floating mb-1">
           <select class="form-control" id="floatingInput" >
             <option value="notselected"></option>
-            <option *ngFor="let item of batchValues" [ngValue]="item.empId">
-              {{ item.name }}
+            <option *ngFor="let batchItem of batchValues" [ngValue]="batchItem.id">
+              {{ batchItem.name }}
+              <ng-container *ngFor="let meterItem of MeterClasses">
+                {{ meterItem.inputCategory }} - {{ meterItem.inputValues }}
+              </ng-container>
             </option>
+            <!-- <option *ngFor="let item of MeterClasses" [ngValue]="item.inputCategory">
+              {{ item.inputValues }}
+            </option> -->
           </select>
           <label for="floatingInput">Select Batch Values</label>
         </div>

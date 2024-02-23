@@ -36,6 +36,13 @@ namespace IntegratedDigitalAPI.Controllers.SytemControl
         {
             return Ok(await _BillSectionService.GetBillOfficersToTransfer());
         }
+        [HttpGet]
+        [ProducesResponseType(typeof(BillSectionDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetBillOfficers()
+        {
+            return Ok(await _BillSectionService.GetBillOfficers());
+        }
+        
 
 
         [HttpPost]

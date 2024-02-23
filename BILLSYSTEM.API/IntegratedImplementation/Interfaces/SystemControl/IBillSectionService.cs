@@ -19,6 +19,7 @@ namespace IntegratedImplementation.Interfaces.SystemControl
         Task<List<DetailPermission>> GetDetailPermissions();
 
         Task<List<SelectListDto>> GetBillOfficersToTransfer();
+        Task<List<SelectListDto>> GetBillOfficers();
 
     }
 }

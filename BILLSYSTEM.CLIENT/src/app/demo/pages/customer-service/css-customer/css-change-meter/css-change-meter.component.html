@@ -4,85 +4,90 @@
     <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"> </button>
   </div>
   <div style="background-color: #eceff1">
-    <div class="px-4 py-3">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row px-4 py-3">
-              <h4>Customer Info.</h4>
-              <hr />
-              <div class="col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control form-control-custom"
-                    readonly
-                    [value]="customer && customer.customerName"
-                    id="floatingInput"
-                  />
-                  <label for="floatingSelect">Customer Name</label>
+    <form [formGroup]="changeMeterForm" (ngSubmit)="UpdateMeter()">
+      <div class="px-4 py-3">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row px-4 py-3">
+                <h4>Customer Info.</h4>
+                <hr />
+                <div class="col-md-5">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      readonly
+                      [value]="customer && customer.customerName"
+                      id="floatingInput"
+                    />
+                    <label for="floatingSelect">Customer Name</label>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      readonly
+                      [value]="customer && customer.contractNo"
+                      id="floatingInput"
+                    />
+                    <label for="floatingSelect">Contract No</label>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      readonly
+                      [value]="customer && customer.custCategoryCode"
+                      id="floatingInput"
+                    />
+                    <label for="floatingSelect">Customer Category</label>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      readonly
+                      [value]="customer && customer.meterSizeCode"
+                      id="floatingInput"
+                    />
+                    <label for="floatingSelect">Meter Size Code</label>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      readonly
+                      [value]="customer && customer.meterno"
+                      id="floatingInput"
+                    />
+                    <label for="floatingSelect">Meter No</label>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control form-control-custom"
-                    readonly
-                    [value]="customer && customer.contractNo"
-                    id="floatingInput"
-                  />
-                  <label for="floatingSelect">Contract No</label>
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control form-control-custom"
-                    readonly
-                    [value]="customer && customer.custCategoryCode"
-                    id="floatingInput"
-                  />
-                  <label for="floatingSelect">Customer Category</label>
-                </div>
-              </div>
-
-              <div class="col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control form-control-custom"
-                    readonly
-                    [value]="customer && customer.meterSizeCode"
-                    id="floatingInput"
-                  />
-                  <label for="floatingSelect">Meter Size Code</label>
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control form-control-custom" readonly [value]="customer && customer.meterno" id="floatingInput" />
-                  <label for="floatingSelect">Meter No</label>
-                </div>
             </div>
-          </div>
-        </div>
-          <div class="col-md-6">
-            <form [formGroup]="changeMeterForm" (ngSubmit)="UpdateMeter()">
+            <div class="col-md-6">
               <div class="px-4 py-3">
                 <h4>New Meter Information</h4>
                 <hr />
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingInput" formControlName="meterNo" />
+                      <input type="text" class="form-control" id="floatingInput" formControlName="curMeterNo" />
                       <label for="floatingInput">Water Meter No.</label>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <select class="form-control">
+                      <select class="form-control" formControlName="reason">
                         <option value="">Select Reason</option>
                         <option *ngFor="let item of MCReasons" [value]="item.inputValues"> {{ item.inputValues }}</option>
                       </select>
@@ -91,7 +96,7 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <select class="form-control" formControlName="meterSize">
+                      <select class="form-control" formControlName="curMeterSizeCode">
                         <option value="">Select Meter Size</option>
                         <option *ngFor="let item of meterSizes" [value]="item.meterSizeCode"> {{ item.meterSizeName }}</option>
                       </select>
@@ -100,7 +105,7 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <select class="form-control" formControlName="meterDigit">
+                      <select class="form-control" formControlName="curMeterDigit">
                         <option value="">Select Meter Digit</option>
                         <option *ngFor="let item of meterDigits" [value]="item.inputValues"> {{ item.inputValues }}</option>
                       </select>
@@ -109,7 +114,7 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <select class="form-control" formControlName="meterType">
+                      <select class="form-control" formControlName="curMeterType">
                         <option value="">Select Meter Type</option>
                         <option *ngFor="let item of meterType" [value]="item.inputValues"> {{ item.inputValues }}</option>
                       </select>
@@ -118,16 +123,16 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <select class="form-control" formControlName="countryOrgin">
+                      <select class="form-control" formControlName="curMeterOrigin">
                         <option value="">Select Country Origin</option>
-                        <option *ngFor="let item of countryOrgin" [value]="item.inputValues"> {{ item.inputValues }}</option>
+                        <option *ngFor="let item of countryOrigin" [value]="item.inputValues"> {{ item.inputValues }}</option>
                       </select>
                       <label for="floatingInput">Country Origin</label>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <select class="form-control" formControlName="meterModel">
+                      <select class="form-control" formControlName="curMeterModel">
                         <option value="">Select Meter Model</option>
                         <option *ngFor="let item of meterModel" [value]="item.inputValues"> {{ item.inputValues }}</option>
                       </select>
@@ -136,43 +141,64 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating mb-3">
-                      <input type="date" class="form-control" id="1" formControlName="installationDate" />
+                      <input type="text" class="form-control" id="floatingInput" formControlName="curStartreading" />
+                      <label for="floatingInput">Current Reading</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                      <input type="date" class="form-control" id="1" formControlName="curInstallationDate" />
                       <label for="1">Installation Date.</label>
                     </div>
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
+            <div class="px-4 py-3">
+              <h4>Current Meter</h4>
+              <hr class="short-hr" />
+              <div class="row d-flex justify-content-between align-content-center">
+                <div class="col-md-4">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" formControlName="unpaidCons" />
+                    <label for="floatingInput">Unpaid Cons.</label>
+                  </div>
+                </div>
+                <div class="col-md-auto d-flex align-items-end">
+                  <button type="submit" [disabled]="!changeMeterForm.valid" class="btn btn-outline-success">Save Change</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="mx-3 mail-content tab-content">
+          <table class="custom-table mt-3 mx-auto">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Action Date</th>
+                <th>Type of Action</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of customerMeterChangeHistory">
+                <td>{{ item.fiscalYear }}</td>
+                <td>{{ item.monthIndex }}</td>
+                <td>{{ item.enterDate | date: 'dd MMM yyyy' }}</td>
+                <td>Meter Change</td>
+                <td>{{ item.reason }}</td>
+              </tr>
+            </tbody>
+            <ng-template #noResults>
+              <tr>
+                <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+              </tr>
+            </ng-template>
+          </table>
+        </div>
       </div>
-      <div class="mx-3 mail-content tab-content">
-        <table class="custom-table mt-3 mx-auto">
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Month</th>
-              <th>Action Date</th>
-              <th>Type of Action</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of customerMeterChangeHistory">
-              <td>{{ item.fiscalYear }}</td>
-              <td>{{ item.monthIndex }}</td>
-              <td>{{ item.enterDate | date: 'dd MMM yyyy' }}</td>
-              <td>{{ item.typeOfAction }}</td>
-              <td>{{ item.reason }}</td>
-            </tr>
-          </tbody>
-          <ng-template #noResults>
-            <tr>
-              <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
-            </tr>
-          </ng-template>
-        </table>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

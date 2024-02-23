@@ -94,7 +94,7 @@ export class CssCustomerComponent implements OnInit {
     });
   }
   addBatchRecords(){
-    let modalRef = this.modalService.open(CssBatchRecordsComponent,  {backdrop:'static', size:'lg'})
+    let modalRef = this.modalService.open(CssBatchRecordsComponent,  {backdrop: 'static', windowClass: 'custom-modal-width ' })
     modalRef.result.then(()=>{
       this.getCustomers()
     })

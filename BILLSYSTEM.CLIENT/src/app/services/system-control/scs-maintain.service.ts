@@ -125,6 +125,9 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
       getBillOffciersForTransfer(){
         return this.http.get<SelectList[]> (this.baseUrl+"/BillSection/GetBillOfficersForTransfer")
       }
+      getBillOffciers(){
+        return this.http.get<SelectList[]> (this.baseUrl+"/BillSection/GetBillOfficers")
+      }
 
 
 

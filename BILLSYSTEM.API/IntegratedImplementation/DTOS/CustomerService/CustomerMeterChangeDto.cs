@@ -26,7 +26,9 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public string? curMeterModel { get; set; }
         public DateTime? curInstallationDate { get; set; }
         public int? curStartReading { get; set; }
-        public int? cnpaidCons { get; set; }
+        public int? unpaidCons { get; set; }
         public string? reason { get; set; }
+
+        public string ? custID { get; set; }
     }
 }
