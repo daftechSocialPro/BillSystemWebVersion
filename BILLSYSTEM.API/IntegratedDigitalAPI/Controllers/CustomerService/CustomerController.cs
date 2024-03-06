@@ -54,5 +54,28 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
         {
             return Ok(await _customerService.DeleteCustomer(contractNo));
         }
+        [HttpPut]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateCustomer(CustomerDto updateCustomer)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _customerService.UpdateCustomer(updateCustomer));
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(CustomerGetDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetContractNumber(string kebele, string ketena)
+        {
+            return Ok(await _customerService.GetContractNumber(kebele,ketena));
+        }
+
+
+
     }
 }

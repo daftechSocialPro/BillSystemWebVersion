@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" [readOnly]="CustomerCategory" formControlName="recordno" id="floatingInput" />
+                            <input type="number" class="form-control" [readOnly]="CustomerCategory"  formControlName="recordno" id="floatingInput" />
                             <label for="floatingInput">Record Number</label>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
 
             <div class="modal-footer"> <button type="button" class="btn btn-outline-secondary"
                 (click)="closeModal()">Close</button> <button type="button" type="submit"
-                [disabled]="!CustomerCategoryForm.valid"   
+                [disabled]="!CustomerCategoryForm.valid"
                 class="btn btn-outline-success">{{CustomerCategory?"Update":"Create"}}</button></div>
             </form>
     </div>

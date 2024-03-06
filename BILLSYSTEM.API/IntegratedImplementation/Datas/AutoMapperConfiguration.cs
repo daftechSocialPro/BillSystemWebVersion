@@ -19,6 +19,9 @@ using IntegratedInfrustructure.Model.DWM;
 using IntegratedImplementation.DTOS.DWM;
 using IntegratedInfrustructure.Model.CSS;
 using IntegratedImplementation.DTOS.CustomerService;
+using IntegratedInfrustructure.Model.Authentication;
+using System.Diagnostics.Contracts;
+using System.Diagnostics.Metrics;
 
 namespace IntegratedImplementation.Datas
 {
@@ -35,6 +38,7 @@ namespace IntegratedImplementation.Datas
             //    .ForMember(a => a.EmploymentPosition, e => e.MapFrom(mfg => mfg.EmploymentPosition.ToString()))
             //    .ForMember(a => a.EmploymentStatus, e => e.MapFrom(mfg => mfg.EmploymentStatus.ToString()));
 
+            //comment 
             CreateMap<EmployeeList, SelectListDto>()
                .ForMember(a => a.EmpId, e => e.MapFrom(mfg => mfg.EmpID))
                .ForMember(a => a.Name, e => e.MapFrom(mfg => $"{mfg.FirstName} {mfg.MiddleName} {mfg.LastName}"));
@@ -57,6 +61,8 @@ namespace IntegratedImplementation.Datas
             CreateMap<PenalityRate, PenalityRateDto>();
             CreateMap<AccountPeriod, AccountPeriodDto>();
 
+            CreateMap<User, UserServiceDto>();
+
             #region DWM
             CreateMap<MobileUsers, MobileUsersDto>();
             CreateMap<MobileAppReading, MobileAppReadingDto>();
@@ -65,7 +71,7 @@ namespace IntegratedImplementation.Datas
             .ForMember(a => a.AvgReading, e => e.MapFrom(mfg => mfg.avgReading))
             .ForMember(a => a.OrdinaryNo, e => e.MapFrom(mfg => mfg.OrdinaryNo.ToString()))
             ;
-            
+
             #endregion
 
 
@@ -73,6 +79,7 @@ namespace IntegratedImplementation.Datas
             #region cusomer-service
 
             CreateMap<Customer, CustomerGetDto>()
+            
 
                .ForMember(a => a.ContractNo, e => e.MapFrom(mfg => mfg.ContractNo))
                .ForMember(a => a.customerName, e => e.MapFrom(mfg => mfg.customerName))
@@ -82,9 +89,9 @@ namespace IntegratedImplementation.Datas
                .ForMember(a => a.MeterSizeCode, e => e.MapFrom(mfg => mfg.MeterSizeCode))
                .ForMember(a => a.meterno, e => e.MapFrom(mfg => mfg.meterno));
 
-              
-
-
+           ;
+        
+           
             #endregion
 
 

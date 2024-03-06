@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wYw0UClsDidROzegSXQgitTDNPDxj42rcznzBiXtnfU=",
+  "Hash": "Wb1l/jlgVrY4S6a9nD+qP7yB6ctqX10p+C1Mv8sPwmA=",
   "Source": "IntegratedDigitalAPI",
   "BasePath": "_content/IntegratedDigitalAPI",
   "Mode": "Default",
@@ -2905,6 +2905,25 @@
       "OriginalItemSpec": "wwwroot\\Files\\Tasks\\yonas teka\\file-example_PDF_1MB-2023-09-26 17.23.26-TaskwithFile.pdf"
     },
     {
+      "Identity": "C:\\Users\\Hp\\Desktop\\Kirubel Files\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1047.jpg",
+      "SourceId": "IntegratedDigitalAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\Kirubel Files\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\",
+      "BasePath": "_content/IntegratedDigitalAPI",
+      "RelativePath": "MobileUsers/1047.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\MobileUsers\\1047.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Hp\\Desktop\\Kirubel Files\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1047.png",
       "SourceId": "IntegratedDigitalAPI",
       "SourceType": "Discovered",
@@ -2941,6 +2960,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\MobileUsers\\1047.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\Kirubel Files\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1048.jpg",
+      "SourceId": "IntegratedDigitalAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\Kirubel Files\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\",
+      "BasePath": "_content/IntegratedDigitalAPI",
+      "RelativePath": "MobileUsers/1048.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\MobileUsers\\1048.jpg"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\Kirubel Files\\DAFTech Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\wwwroot\\MobileUsers\\1048.png",

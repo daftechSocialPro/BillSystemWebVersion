@@ -49,6 +49,7 @@ namespace IntegratedImplementation.Datas
 
             services.AddScoped<IDataBaseBackUpService, DatabaseBackUpService>();
             services.AddScoped<IBillTemplateService, BillTemplateService>();
+            services.AddScoped<IUserSettingService, UserSettingService>();
 
 
             //services.AddScoped<IVillageService, VillageService>();
@@ -74,6 +75,7 @@ namespace IntegratedImplementation.Datas
 
             #region Customer-Service
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ICustomerMeterStatusService, CustomerMeterStatusService>();
             #endregion
 
 

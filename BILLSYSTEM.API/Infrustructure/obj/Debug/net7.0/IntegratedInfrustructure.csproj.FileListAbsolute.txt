@@ -7,9 +7,9 @@ C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYST
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfoInputs.cache
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfo.cs
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.sourcelink.json
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.dll
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\refint\IntegratedInfrustructure.dll
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.pdb
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.genruntimeconfig.cache
 C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\ref\IntegratedInfrustructure.dll
-C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.sourcelink.json

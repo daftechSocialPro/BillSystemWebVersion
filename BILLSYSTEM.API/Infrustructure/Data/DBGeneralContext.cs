@@ -67,8 +67,15 @@ namespace IntegratedInfrustructure.Data
         public DbSet<FiscalMonth> FiscalMonths { get; set; }      
      
         public DbSet<PenalityRate> PenalityRates { get; set; }     
-        public DbSet<AccountPeriod> AccountPeriods { get; set; }     
+        public DbSet<AccountPeriod> AccountPeriods { get; set; }    
         
+
+        public DbSet<DetailPermission> DetailPermissions { get; set; }
+
+
+        public DbSet<UserPermission> UserPermissions { get; set; }  
+
+     
 
 
         #endregion
@@ -80,6 +87,8 @@ namespace IntegratedInfrustructure.Data
             modelBuilder.Entity<GeneralCodes>()
                .HasIndex(b => b.GeneralCodeType).IsUnique();
 
+            modelBuilder.Entity<UserPermission>()
+               .HasNoKey();
 
             modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
             {

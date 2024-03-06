@@ -20,9 +20,12 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public string Village { get; set; }
         public string Telephone { get; set; }
         public string Mobile { get; set; }
+        public string MapNumber { get; set; }
         public string BookNo { get; set; }
         public string AccountNo { get; set; }
         public string ContractNo { get; set; }
+        public string readerName { get; set; }
+        public string BillCycle { get; set; }
         public int OrdinaryNo { get; set; }
         public string custCategoryCode { get; set; }
         public string meterno { get; set; }
@@ -40,7 +43,6 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public string WaterSource { get; set; }
         public string MeterStatus { get; set; }
         public string RegDate { get; set; }
-        public string ReaderName { get; set; }
         public string PaymentPlace { get; set; }
         public string PaymentDuration { get; set; }
         public string PaymentMode { get; set; }
@@ -51,7 +53,7 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public string TrasnferBY { get; set; }
         public string BillOfficerId { get; set; }
         public int TransferFY { get; set; }
-        public int TransferMI { get; set; }
+        public int? TransferMI { get; set; }
         public string TransferDT { get; set; }
         public string Field01 { get; set; }
         public string Field02 { get; set; }
@@ -105,5 +107,7 @@ namespace IntegratedImplementation.DTOS.CustomerService
 
         public int MonthIndex { get; set; }
         public int FiscalYear { get; set; }
+
+     
     }
 }

@@ -16,6 +16,6 @@ namespace IntegratedInfrustructure.Model.SRC
         [Key]
         public int recordno { get; set; }
         public string custCategoryCode { get; set; }
-        public string custCategoryName { get; set; }
+        public string? custCategoryName { get; set; }
     }
 }

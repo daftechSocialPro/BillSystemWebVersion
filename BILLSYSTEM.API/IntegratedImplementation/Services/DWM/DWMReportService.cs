@@ -28,6 +28,16 @@ namespace IntegratedImplementation.Services.DWM
 
         public async Task<IQueryable<DWMReadingLogReportDto>> GetReadingLogReport(int monthIndex, int fiscalYear)
         {
+            if (monthIndex == 12) {
+                monthIndex = 1;
+
+            }
+            else
+            {
+                monthIndex += 1;
+            }
+
+
             var query = from billMobileData in _customerContext.BillMobileData
                         join dwmUser in _customerContext.MobileUsers on billMobileData.readingBY equals dwmUser.userName
                         where billMobileData.monthIndex == monthIndex && billMobileData.fiscalYear == fiscalYear
@@ -53,6 +63,15 @@ namespace IntegratedImplementation.Services.DWM
 
         public async Task<List<DWMPendingLogReportDto>> GetPendingLogReport(int fiscalYear, int monthIndex)
         {
+            if (monthIndex == 12)
+            {
+                monthIndex = 1;
+
+            }
+            else
+            {
+                monthIndex += 1;
+            }
             var result = await (from customers in _customerContext.Customers
                                 join dwmUser in _customerContext.MobileUsers on customers.ReaderName equals dwmUser.userName
                                 where customers.MeterStatus == "Active" &&
@@ -76,6 +95,15 @@ namespace IntegratedImplementation.Services.DWM
 
         public async Task<List<DWMReadingAccuracyReportDto>> GetReadingAccuracyReport(int fiscalYear, int monthIndex)
         {
+            if (monthIndex == 12)
+            {
+                monthIndex = 1;
+
+            }
+            else
+            {
+                monthIndex += 1;
+            }
             var result = await (from dwmUsers in _customerContext.MobileUsers
                                 join customers in _customerContext.BillMobileData on dwmUsers.userName equals customers.readingBY
                                 where customers.readingBY == dwmUsers.userName && customers.fiscalYear == fiscalYear && customers.monthIndex == monthIndex
@@ -99,6 +127,15 @@ namespace IntegratedImplementation.Services.DWM
 
         public async Task<List<DWMReadingEfficencyReportDto>> GetReadingEfficencyReport(int fiscalYear, int monthIndex)
         {
+            if (monthIndex == 12)
+            {
+                monthIndex = 1;
+
+            }
+            else
+            {
+                monthIndex += 1;
+            }
             var query = from user in _customerContext.MobileUsers
                         join data in _customerContext.BillMobileData on user.userName equals data.readingBY into gj
                         from subData in gj.DefaultIfEmpty()
@@ -119,6 +156,15 @@ namespace IntegratedImplementation.Services.DWM
 
         public async Task<List<DWMReadingConsumptionReportDto>> GetReadingConsumptionReport(int fiscalYear, int monthIndex)
         {
+            if (monthIndex == 12)
+            {
+                monthIndex = 1;
+
+            }
+            else
+            {
+                monthIndex += 1;
+            }
             var results = _customerContext.MobileUsers
   .Select(u => new DWMReadingConsumptionReportDto
   {

@@ -12,7 +12,7 @@ namespace IntegratedInfrustructure.Model.CSS
     public class Customer
     {
         [Key]
-        public string custID { get; set; }
+        public string? custID { get; set; }
         public int? regFiscalYear { get; set; }
         public int? regMonthIndex { get; set; }
         public string? customerName { get; set; }
@@ -26,6 +26,8 @@ namespace IntegratedInfrustructure.Model.CSS
         public string? AccountNo { get; set; }
         public string? ContractNo { get; set; }
         public int? OrdinaryNo { get; set; }
+       // public string BillCycle { get; set; }
+       //public string MapNumber { get; set; }
         public string? custCategoryCode { get; set; }
         public string? meterno { get; set; }
         public string? MeterSizeCode { get; set; }
@@ -33,6 +35,7 @@ namespace IntegratedInfrustructure.Model.CSS
         public int? MeterDigit { get; set; }
         public string? MeterCountryOrigin { get; set; }
         public string? MeterModel { get; set; }
+       
         public DateTime? InstallationDate { get; set; }
         public int? MeterStartReading { get; set; }
         public double? MeterAltitude { get; set; }
@@ -59,11 +62,12 @@ namespace IntegratedInfrustructure.Model.CSS
         public string? Field02 { get; set; }
         public double? Field03 { get; set; }
         public double? Field04 { get; set; }
-        public string enterBy { get; set; }
+        public string? enterBy { get; set; }
         public DateTime? enterDate { get; set; }
         public string? modifyBy { get; set; }
         public DateTime? modifyDate { get; set; }
         public string? Remarks { get; set; }
+        //public string? Reason { get; set; }
 
         //public string DataSynched { get; set; }
     }

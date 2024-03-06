@@ -9,6 +9,7 @@ import { ScsMaintainService } from 'src/app/services/system-control/scs-maintain
 import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICustomerDto';
 import { IMobileUsersDto } from 'src/models/dwm/IMobileUsersDto';
 import { IBillEmpDutiesDto } from 'src/models/system-control/IBillEmpDutiesDto';
+import { IBillSectionDto } from 'src/models/system-control/IBillSectionDto';
 import { ICustomerCategoryDto } from 'src/models/system-control/ICustomerCategoryDto';
 import { IFiscalMonthDto } from 'src/models/system-control/IFiscalMonthDto';
 import { IGeneralSettingDto } from 'src/models/system-control/IGeneralSettingDto';
@@ -22,26 +23,28 @@ import { IMeterSizeDto } from 'src/models/system-control/IMeterSizeDto';
   styleUrls: ['./detail-customer.component.scss']
 })
 export class DetailCustomerComponent implements OnInit {
-
-  @Input() contractNo:string
-  customer:ICustomerDto
+  @Input() contractNo: string;
+  maxOrdinaryNo: number;
+  customer: ICustomerDto;
+  reasons: IGeneralSettingDto[];
+  Customer: ICustomerDto[];
   customerForm!: FormGroup;
-
-  ketenas: IKetenaDto[]
-  kebeles: IKebelesDto[]
-  villages: IGeneralSettingDto[]
-
-  billDuties: IBillEmpDutiesDto[]
-  onlineSalesGroups: any
-
-  readers: IMobileUsersDto[]
-  swerages: any
-
-  billCycles: IGeneralSettingDto[]
-  customerCategories: ICustomerCategoryDto[]
-  meterSizes: IMeterSizeDto[]
-
-  months: IFiscalMonthDto[]
+  billOfficer: IBillSectionDto[];
+  ketenas: IKetenaDto[];
+  kebeles: IKebelesDto[];
+  villages: IGeneralSettingDto[];
+  billDuties: IBillEmpDutiesDto[];
+  onlineSalesGroups: any;
+  readers: IMobileUsersDto[];
+  swerages: any;
+  billCycles: IGeneralSettingDto[];
+  customerCategories: ICustomerCategoryDto[];
+  meterSizes: IMeterSizeDto[];
+  meterDigit: IGeneralSettingDto[];
+  meterType: IGeneralSettingDto[];
+  meterModel: IGeneralSettingDto[];
+  months: IFiscalMonthDto[];
+  countryOrgin: IGeneralSettingDto[];
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -54,191 +57,294 @@ export class DetailCustomerComponent implements OnInit {
   ) {
     this.customerForm = this.formBuilder.group({
       fullName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      ketena: ['', Validators.required],
-      readerName: ['', Validators.required],
-      kebele: ['', Validators.required],
-      village: ['', Validators.required],
-      mapNumber: ['', Validators.required],
-      houseNumber: ['', Validators.required],
-      billCycle: ['', Validators.required],
-      customerCategory: ['', Validators.required],
-      contractNo: ['', Validators.required],
-      ordinaryNo: ['', Validators.required],
       meterNo: ['', Validators.required],
       meterSize: ['', Validators.required],
-      installationDate: ['', Validators.required],
-      updateInitial: [false, Validators.required],
-      startReading: ['', Validators.required],
-      sweragePaid: ['', Validators.required],
-      monhtIndex:['',Validators.required],
-      fiscalYear:['',Validators.required]
-    })
+      customerCategories: ['', Validators.required],
+      contractNo: ['', Validators.required],
+      ketena: ['', Validators.required],
+      kebele: ['', Validators.required],
+      readerName: ['', Validators.required],
+      phoneNumber: [''],
+      mapNumber: [''],
+      houseNumber: [''],
+      village: [''],
+      billCycle: [''],
+      ordinaryNo: [''],
+      installationDate: [''],
+      updateInitial: [false],
+      reason: [''],
+      startReading: [''],
+      sweragePaid: [''],
+      monhtIndex: [''],
+      fiscalYear: [''],
+      billOfficerId: [''],
+      accountNo: [''],
+      meterDigit: [''],
+      meterModel: [''],
+      countryOrgin: [''],
+      meterType: [''],
+      paymentMode: ['']
+    });
   }
-
-
-
-
 
   ngOnInit(): void {
+    this.getSingleCustomer();
+    this.getKebeles();
+    this.getKetenas();
+    this.getVillages();
+    this.getBillCycles();
+    this.getCustomerCategoriess();
+    this.getMeterSizes();
+    this.getMobileUsers();
+    this.getBillDuties();
+    this.getBillOfficers();
+    this.getReasons();
+    this.getMonths();
+    this.getmeterType();
+    this.getCountryOrgin();
+    this.getmetermodel();
+    this.getmeterDigit();
+    this.fetchCustomers();
 
-    this.getSingleCustomer()
-    this.getKebeles()
-    this.getKetenas()
-    this.getVillages()
-    this.getBillCycles()
-    this.getCustomerCategoriess()
-    this.getMeterSizes()
-    this.getMobileUsers()
-    this.getBillDuties()
-    this.getMonths()
-
-
+    if (this.customer && this.Customer.length > 0) {
+      const lastCustomer = this.Customer[this.Customer.length - 1];
+      if (lastCustomer && lastCustomer.ordinaryNo) {
+        this.customerForm.controls['ordinaryNo'].setValue(lastCustomer.ordinaryNo);
+      } else {
+        console.log('no objects');
+      }
+    }
   }
 
-getSingleCustomer(){
-
-  this.customerService.getSingleCustomer(this.contractNo).subscribe({
-    next:(res)=>{
-      this.customer =res 
-      this.customerForm.controls['fullName'].setValue(this.customer.customerName)
-      this.customerForm.controls['phoneNumber'].setValue(this.customer.telephone)
-    }
-  })
-
-}
-
-
-
-  getMonths(){
-    this.controlService.getFiscalMonth().subscribe({
-      next:(res)=>{
-        this.months  = res 
+  fetchCustomers() {
+    this.customerService.getCustomer().subscribe({
+      next: (customers: ICustomerDto[]) => {
+        this.Customer = customers;
+        this.maxOrdinaryNo = this.calculateMaxOrdinaryNo();
+        //  console.log('maxOrdinaryNo:', this.maxOrdinaryNo);
+        this.customerForm.controls['ordinaryNo'].setValue(this.Customer.length + 1);
+      },
+      error: (err) => {
+        console.error('Error fetching customers:', err);
       }
-    })
+    });
+  }
+
+  calculateMaxOrdinaryNo(): number {
+    return this.Customer.length > 0 ? Math.max(...this.Customer.map((customer) => customer.ordinaryNo)) : 0;
+  }
+
+  onKetenachange() {
+    const selectedKetenaCode = this.customerForm.get('ketena').value;
+    const filteredKebeles = this.kebeles.filter((item) => item.ketenaCode === selectedKetenaCode);
+    this.customerForm.controls['kebele'].setValue('');
+    this.customerForm.controls['kebele'].setValue(filteredKebeles[0].kebeleCode);
+  }
+
+  getFilteredKebeles() {
+    const selectedKetenaCode = this.customerForm.get('ketena').value;
+    return this.kebeles && this.kebeles.filter((item) => item.ketenaCode === selectedKetenaCode);
+  }
+
+  getSingleCustomer(): void {
+    this.customerService.getSingleCustomer(this.contractNo).subscribe({
+      next: (res) => {
+        console.log('cust', res);
+        this.customer = res;
+        this.customerForm.get('fullName').setValue(this.customer.customerName);
+        this.customerForm.get('phoneNumber').setValue(this.customer.telephone);
+        this.customerForm.get('fiscalYear').setValue(this.customer.regFiscalYear);
+        this.customerForm.get('monhtIndex').setValue(this.customer.regMonthIndex);
+        this.customerForm.get('customerCategory').setValue(this.customer.custCategoryCode);
+        this.customerForm.get('contractNo').setValue(this.customer.contractNo);
+        this.customerForm.get('meterSize').setValue(this.customer.meterSizeCode);
+        this.customerForm.get('readerName').setValue(this.customer.readerName);
+        this.customerForm.get('village').setValue(this.customer.village);
+        this.customerForm.get('billCycle').setValue(this.customer.billCycle);
+        this.customerForm.get('ketena').setValue(this.customer.ketena);
+        this.customerForm.get('kebele').setValue(this.customer.kebele);
+        this.customerForm.get('installationDate').setValue(this.customer.installationDate);
+        this.customerForm.get('ordinaryNo').setValue(this.customer.ordinaryNo);
+        this.customerForm.get('houseNumber').setValue(this.customer.houseNo);
+        this.customerForm.get('mapNumber').setValue(this.customer.mapNumber);
+        this.customerForm.get('meterNo').setValue(this.customer.meterno);
+        this.customerForm.get('sweragePaid').setValue(this.customer.sdPaid);
+      }
+    });
+  }
+
+  getBillOfficers() {
+    this.maintainService.getBillSection().subscribe({
+      next: (res) => {
+        this.billOfficer = res;
+      }
+    });
+  }
+  getMonths() {
+    this.controlService.getFiscalMonth().subscribe({
+      next: (res) => {
+        this.months = res;
+      }
+    });
   }
   getKetenas() {
     this.controlService.getKetena().subscribe({
       next: (res) => {
-        this.ketenas = res
+        this.ketenas = res;
       }
-    })
+    });
   }
 
   getKebeles() {
     this.controlService.getKebeles().subscribe({
       next: (res) => {
-        this.kebeles = res
+        this.kebeles = res;
       }
-    })
+    });
   }
-
-  getVillages() {
-
-    this.controlService.getGeneralSetting("Village").subscribe({
+  getReasons() {
+    this.controlService.getGeneralSetting('METERCHANGEREASON').subscribe({
       next: (res) => {
-        this.villages = res
+        this.reasons = res;
       }
-    })
+    });
+  }
+  getVillages() {
+    this.controlService.getGeneralSetting('Village').subscribe({
+      next: (res) => {
+        this.villages = res;
+      }
+    });
   }
 
   getBillCycles() {
-
-    this.controlService.getGeneralSetting("BOOK NUMBER").subscribe({
+    this.controlService.getGeneralSetting('BOOK NUMBER').subscribe({
       next: (res) => {
-        this.billCycles = res
+        this.billCycles = res;
       }
-    })
+    });
   }
   getCustomerCategoriess() {
-
     this.controlService.getCustomerCategory().subscribe({
       next: (res) => {
-        this.customerCategories = res
-
+        this.customerCategories = res;
       }
-    })
+    });
   }
   getMeterSizes() {
-
     this.controlService.getMeterSize().subscribe({
       next: (res) => {
-        this.meterSizes = res
-
+        this.meterSizes = res;
       }
-    })
+    });
   }
-  getMobileUsers() {
+  getmeterDigit() {
+    this.controlService.getGeneralSetting('METERDIGIT').subscribe({
+      next: (res) => {
+        this.meterDigit = res;
+      }
+    });
+  }
 
+  getmeterType() {
+    this.controlService.getGeneralSetting('METERTYPE').subscribe({
+      next: (res) => {
+        this.meterType = res;
+      }
+    });
+  }
+
+  getCountryOrgin() {
+    this.controlService.getGeneralSetting('COUNTRYORIGIN').subscribe({
+      next: (res) => {
+        this.countryOrgin = res;
+      }
+    });
+  }
+  getmetermodel() {
+    this.controlService.getGeneralSetting('METERMODEL').subscribe({
+      next: (res) => {
+        this.meterModel = res;
+      }
+    });
+  }
+
+  getMobileUsers() {
     this.dwmService.getMobileUsers().subscribe({
       next: (res) => {
-        this.readers = res
-
+        this.readers = res;
       }
-    })
-
+    });
   }
 
   getBillDuties() {
-
     this.maintainService.getBillEmpDuties().subscribe({
       next: (res) => {
-        this.billDuties = res
+        this.billDuties = res;
       }
-    })
-
+    });
   }
 
   closeModal() {
-
-    this.activeModal.close()
-
+    this.activeModal.close();
   }
 
   submit() {
-
-    var customerPost: ICustomerPostDto = {
-      fullName: this.customerForm.value.fullName,
-      phoneNumber: this.customerForm.value.phoneNumber,
+    if (this.customerForm.valid) {
+      const formData = this.customerForm.value;
+      console.log(formData);
+    }
+    var customerPost: ICustomerDto = {
+      customerName: this.customerForm.value.fullName,
+      // yyyrecordno: this.customerForm.value.yyyrecordno,
+      // userID: this.customerForm.value.userID,
+      fiscalYear: this.customerForm.value.fiscalYear,
+      monthIndex: this.customerForm.value.monhtIndex,
+      custId: this.customerForm.value.custId,
       ketena: this.customerForm.value.ketena,
       kebele: this.customerForm.value.kebele,
-      readerName: this.customerForm.value.readerName,
+      houseNo: this.customerForm.value.houseNo,
       village: this.customerForm.value.village,
-      mapNumber: this.customerForm.value.mapNumber,
-      houseNumber: this.customerForm.value.houseNumber,
-      billCycle: this.customerForm.value.billCycle,
-      customerCategory: this.customerForm.value.customerCategory,
+      telephone: this.customerForm.value.telephone,
+      // mobile: this.customerForm.value.mobile,
+      bookNo: this.customerForm.value.bookNo,
+      accountNo: this.customerForm.value.accountNo,
       contractNo: this.customerForm.value.contractNo,
-      ordinaryNo: this.customerForm.value.ordinaryNo,
-      meterNo: this.customerForm.value.meterNo,
-      meterSize: this.customerForm.value.meterSize,
-      installationDate: this.customerForm.value.installationDate,
-      updateInitial: this.customerForm.value.updateInitial,
-      startReading: this.customerForm.value.startReading,
-      sweragePaid: this.customerForm.value.sweragePaid,
-      monthIndex :this.customerForm.value.monhtIndex,
-      fiscalYear:this.customerForm.value.fiscalYear
-    }
-    console.log("customer post", customerPost)
-    this.customerService.createCustomer(customerPost).subscribe({
+      mapNumber: this.customerForm.value.mapNumber,
+      custCategoryCode: this.customerForm.value.custCategoryCode,
+      meterno: this.customerForm.value.meterno,
+      meterSizeCode: this.customerForm.value.meterSizeCode,
+      meterType: this.customerForm.value.meterType,
+      meterDigit: this.customerForm.value.meterDigit,
+      meterCountryOrigin: this.customerForm.value.meterCountryOrigin,
+      meterModel: this.customerForm.value.meterModel,
+      meterStartReading: this.customerForm.value.meterStartReading,
+      sdPaid: this.customerForm.value.sdPaid,
+      billCycle: this.customerForm.value.billCycle,
+      meterClass: this.customerForm.value.meterClass,
+      waterSource: this.customerForm.value.waterSource,
+      meterStatus: this.customerForm.value.meterStatus,
+      regDate: this.customerForm.value.regDate,
+      paymentMode: this.customerForm.value.paymentMode,
+      readerName: this.customerForm.value.readerName,
+      bankAccount: this.customerForm.value.bankAccount,
+      billOfficerId: this.customerForm.value.billOfficerId,
+      reason: this.customerForm.value.reason
+    };
+    console.log('customer post', customerPost);
+    this.customerService.updateCustomer(customerPost).subscribe({
       next: (res) => {
         if (res.success) {
-
-          this.messageService.add({ severity: 'success', summary: 'Successfully Added !!!', detail: res.message })
-          this.closeModal()
-
+          this.messageService.add({ severity: 'success', summary: 'Successfully Added !!!', detail: res.message });
+          this.closeModal();
+        } else {
+          this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: res.message });
         }
-        else {
-          this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: res.message })
-
-
-        }
-
-      }, error: (err) => {
-        this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: err })
-
+      },
+      error: (err) => {
+        console.error('error', err);
+        this.messageService.add({ severity: 'error', summary: 'Something went Wrong !!!', detail: err });
       }
-    })
-
+    });
   }
 }
