@@ -75,6 +75,12 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             return Ok(await _customerService.GetContractNumber(kebele,ketena));
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(CustomerHomeDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetCusotmerHomeData()
+        {
+            return Ok(await _customerService.GetCustomerHomeData());
+        }
 
 
     }
