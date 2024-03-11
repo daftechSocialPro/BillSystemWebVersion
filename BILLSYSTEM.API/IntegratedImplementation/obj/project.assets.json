@@ -10487,23 +10487,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\danuh\\.nuget\\packages\\": {},
+    "C:\\Users\\shalo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+      "projectUniqueName": "C:\\Users\\shalo\\Desktop\\BillSyatem\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
       "projectName": "IntegratedImplementation",
-      "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
-      "packagesPath": "C:\\Users\\danuh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\obj\\",
+      "projectPath": "C:\\Users\\shalo\\Desktop\\BillSyatem\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+      "packagesPath": "C:\\Users\\shalo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shalo\\Desktop\\BillSyatem\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\danuh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shalo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -10519,8 +10519,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
-              "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
+            "C:\\Users\\shalo\\Desktop\\BillSyatem\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
+              "projectPath": "C:\\Users\\shalo\\Desktop\\BillSyatem\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
             }
           }
         }
@@ -10529,6 +10529,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -10588,7 +10593,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   },

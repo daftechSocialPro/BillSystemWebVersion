@@ -1,0 +1,3263 @@
+[
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.AccountPeriodController",
+    "Method": "GetAccountPeriod",
+    "RelativePath": "api/AccountPeriod/GetAccountPeriod",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.AccountPeriodDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.AccountPeriodController",
+    "Method": "UpdateAccountPeriod",
+    "RelativePath": "api/AccountPeriod/UpdateAccountPeriod",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateAccountPeriod",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.AccountPeriodDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERPSystems.Controllers.Authentication.AuthenticationController",
+    "Method": "GetUserList",
+    "RelativePath": "api/Authentication/GetUserList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.DTOS.Authentication.UserListDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ERPSystems.Controllers.Authentication.AuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/Authentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "Implementation.DTOS.Authentication.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.BankController",
+    "Method": "GetBanks",
+    "RelativePath": "api/Bank/GetBanks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.Configuration.SelectListDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillEmpDutiesController",
+    "Method": "AddBillEmpDuties",
+    "RelativePath": "api/BillEmpDuties/AddBillEmpDuties",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addBillEmpDuties",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillEmpDutiesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillEmpDutiesController",
+    "Method": "DeleteBillEmpDuties",
+    "RelativePath": "api/BillEmpDuties/DeleteBillEmpDuties",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recordno",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillEmpDutiesController",
+    "Method": "GetBillDuties",
+    "RelativePath": "api/BillEmpDuties/GetBillDuties",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillEmpDutiesDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillEmpDutiesController",
+    "Method": "GetBillEmpDutyForUpdate",
+    "RelativePath": "api/BillEmpDuties/GetBillEmpDutyForUpdate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recordNo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillEmpDutiesDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillEmpDutiesController",
+    "Method": "UpdateBillEmpDuties",
+    "RelativePath": "api/BillEmpDuties/UpdateBillEmpDuties",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateBillEmpDuties",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillEmpDutiesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "AddBillSection",
+    "RelativePath": "api/BillSection/AddBillSection",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addBillSection",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillSectionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "DeleteBillSection",
+    "RelativePath": "api/BillSection/DeleteBillSection",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "GetAllDetailPermission",
+    "RelativePath": "api/BillSection/GetAllDetailPermission",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.DetailPermission",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "GetBillOfficerHavingNoDuty",
+    "RelativePath": "api/BillSection/GetBillOfficerHavingNoDuty",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillSectionDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "GetBillOfficers",
+    "RelativePath": "api/BillSection/GetBillOfficers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillSectionDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "GetBillOfficersForTransfer",
+    "RelativePath": "api/BillSection/GetBillOfficersForTransfer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillSectionDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillSectionController",
+    "Method": "GetBillSection",
+    "RelativePath": "api/BillSection/GetBillSection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.BillSectionDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.BillTemplatesController",
+    "Method": "GetBillTemplates",
+    "RelativePath": "api/BillTemplates/GetBillTemplates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.IO.File",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.Configuration.ConfigurationController",
+    "Method": "AddProject",
+    "RelativePath": "api/Configuration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.Configuration.ConfigurationController",
+    "Method": "GetPdf",
+    "RelativePath": "api/Configuration/pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionLevelController",
+    "Method": "AddConsumptionLevel",
+    "RelativePath": "api/ConsumptionLevel/AddConsumptionLevel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addConsumptionLevel",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.ConsumptionLevelDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionLevelController",
+    "Method": "DeleteConsumptionLevel",
+    "RelativePath": "api/ConsumptionLevel/DeleteConsumptionLevel",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConsumptionLevelId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionLevelController",
+    "Method": "GetConsumptionLevel",
+    "RelativePath": "api/ConsumptionLevel/GetConsumptionLevel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.ConsumptionLevelDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionLevelController",
+    "Method": "UpdateConsumptionLevel",
+    "RelativePath": "api/ConsumptionLevel/UpdateConsumptionLevel",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateConsumptionLevel",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.ConsumptionLevelDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionTariffController",
+    "Method": "AddConsumptionTariff",
+    "RelativePath": "api/ConsumptionTariff/AddConsumptionTariff",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addMeterSize",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.ConsumptionTariffDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionTariffController",
+    "Method": "DeleteConsumptionTariff",
+    "RelativePath": "api/ConsumptionTariff/DeleteConsumptionTariff",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConsumptionTariffId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionTariffController",
+    "Method": "GetConsumptionTariffForUpdate",
+    "RelativePath": "api/ConsumptionTariff/GetConsumptionTariffForUpdate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recordNo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.ConsumptionTariff",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionTariffController",
+    "Method": "GetConsumptionTariffs",
+    "RelativePath": "api/ConsumptionTariff/GetConsumptionTariffs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.ConsumptionTariff",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.ConsumptionTariffController",
+    "Method": "UpdateConsumptionTariff",
+    "RelativePath": "api/ConsumptionTariff/UpdateConsumptionTariff",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateConsumptionTariff",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.ConsumptionTariffDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerController",
+    "Method": "CreateBasicData",
+    "RelativePath": "api/Customer/CreateBasicData",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerPost",
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerController",
+    "Method": "DeleteCustomer",
+    "RelativePath": "api/Customer/DeleteCustomer",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contractNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerController",
+    "Method": "GetContractNumber",
+    "RelativePath": "api/Customer/GetContractNumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kebele",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ketena",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerController",
+    "Method": "GetCustomeres",
+    "RelativePath": "api/Customer/GetCustomeres",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerController",
+    "Method": "GetSingleCustomer",
+    "RelativePath": "api/Customer/GetSingleCustomer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contractNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerController",
+    "Method": "UpdateCustomer",
+    "RelativePath": "api/Customer/UpdateCustomer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateCustomer",
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.CustomerCategoryController",
+    "Method": "AddCustomerCategory",
+    "RelativePath": "api/CustomerCategory/AddCustomerCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addCustomerCategory",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.CustomerCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.CustomerCategoryController",
+    "Method": "DeleteCustomerCategory",
+    "RelativePath": "api/CustomerCategory/DeleteCustomerCategory",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CustomerCategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.CustomerCategoryController",
+    "Method": "GetCustomerCategory",
+    "RelativePath": "api/CustomerCategory/GetCustomerCategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.CustomerCategoryDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.CustomerCategoryController",
+    "Method": "UpdateCustomerCategory",
+    "RelativePath": "api/CustomerCategory/UpdateCustomerCategory",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateCustomerCategory",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.CustomerCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.CustomerCollectedController",
+    "Method": "GetBillMobileData",
+    "RelativePath": "api/CustomerCollected/GetBillMobileData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contractNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.CustomerCollectedDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.CustomerCollectedController",
+    "Method": "GetBillMobileDataByEntryDate",
+    "RelativePath": "api/CustomerCollected/GetBillMobileDataByEntryDate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entryDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.CustomerCollectedDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerMeterChangeController",
+    "Method": "ChangeMeter",
+    "RelativePath": "api/CustomerMeterChange/ChangeMeter",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meterChange",
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerMeterChangePostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerMeterChangeController",
+    "Method": "GetCustomerMeterChange",
+    "RelativePath": "api/CustomerMeterChange/GetCustomerMeterChange",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "custId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerMeterChangeGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerMeterStatusController",
+    "Method": "ChangeCustomerStatus",
+    "RelativePath": "api/CustomerMeterStatus/ChangeCustomerStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meterStatus",
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerMeterStatusPostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.CustomerService.CustomerMeterStatusController",
+    "Method": "GetCustomerMeterStatus",
+    "RelativePath": "api/CustomerMeterStatus/GetCustomerMeterStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "custId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.CustomerService.CustomerMeterStatusGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.DataBaseBackUpController",
+    "Method": "BackUp",
+    "RelativePath": "api/DataBaseBackUp/BackUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dbName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.DataBaseBackUpController",
+    "Method": "GetDatabaseBakcupPath",
+    "RelativePath": "api/DataBaseBackUp/GetDatabaseBakcupPath",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.DataBaseBackUpController",
+    "Method": "OpenFolder",
+    "RelativePath": "api/DataBaseBackUp/OpenFolder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.DWMDashboardController",
+    "Method": "GetDashboardDetail",
+    "RelativePath": "api/DWMDashboard/GetDashboardDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.DWMDashboardDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.DWMReportController",
+    "Method": "GetPendingLogReport",
+    "RelativePath": "api/DWMReport/GetPendingLogReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "monthIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.DWMPendingLogReportDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.DWMReportController",
+    "Method": "GetReadingAccuracyReport",
+    "RelativePath": "api/DWMReport/GetReadingAccuracyReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "monthIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.DWMReadingAccuracyReportDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.DWMReportController",
+    "Method": "GetReadingConsumptionReport",
+    "RelativePath": "api/DWMReport/GetReadingConsumptionReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "monthIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.DWMReadingEfficencyReportDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.DWMReportController",
+    "Method": "GetReadingEfficencyReport",
+    "RelativePath": "api/DWMReport/GetReadingEfficencyReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "monthIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.DWMReadingEfficencyReportDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.DWMReportController",
+    "Method": "GetReadingLogReport",
+    "RelativePath": "api/DWMReport/GetReadingLogReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "monthIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.DWMReadingLogReportDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "AddEmployee",
+    "RelativePath": "api/Employee/AddEmployee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImagePath",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Gender",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BirthDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmploymentDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "TerminatedDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmploymentStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmploymentPosition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedById",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "changeEmployeeImage",
+    "RelativePath": "api/Employee/changeEmployeeImage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImagePath",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "GetEmployee",
+    "RelativePath": "api/Employee/GetEmployee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.HRM.EmployeeGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "GetEmployeeNoUser",
+    "RelativePath": "api/Employee/GetEmployeeNoUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.HRM.EmployeeGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "GetEmployees",
+    "RelativePath": "api/Employee/GetEmployees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.HRM.EmployeeGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "GetEmployeesSelectList",
+    "RelativePath": "api/Employee/GetEmployeesSelectList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.Configuration.SelectListDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.HRM.EmployeeController",
+    "Method": "UpdateEmployee",
+    "RelativePath": "api/Employee/UpdateEmployee",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmployeeCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmployeeName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImagePath",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Gender",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BirthDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmploymentDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "TerminatedDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmploymentStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmploymentPosition",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.FiscalMonthController",
+    "Method": "DeleteFiscalMonth",
+    "RelativePath": "api/FiscalMonth/DeleteFiscalMonth",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FiscalMonthId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.FiscalMonthController",
+    "Method": "GetFiscalMonth",
+    "RelativePath": "api/FiscalMonth/GetFiscalMonth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.FiscalMonthDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.FiscalMonthController",
+    "Method": "UpdateFiscalMonth",
+    "RelativePath": "api/FiscalMonth/UpdateFiscalMonth",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateFiscalMonth",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.FiscalMonthDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralInterfaceController",
+    "Method": "AddGeneralInterface",
+    "RelativePath": "api/GeneralInterface/AddGeneralInterface",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addGeneralInterface",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.GeneralInterfaceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralInterfaceController",
+    "Method": "DeleteGeneralInterface",
+    "RelativePath": "api/GeneralInterface/DeleteGeneralInterface",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GeneralInterfaceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralInterfaceController",
+    "Method": "GetGeneralInterface",
+    "RelativePath": "api/GeneralInterface/GetGeneralInterface",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ObjectCategory",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.GeneralInterfaceDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralInterfaceController",
+    "Method": "UpdateGeneralInterface",
+    "RelativePath": "api/GeneralInterface/UpdateGeneralInterface",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateGeneralInterface",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.GeneralInterfaceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralOptionsController",
+    "Method": "GetGeneralOptions",
+    "RelativePath": "api/GeneralOptions/GetGeneralOptions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.GeneralOptions",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralSettingController",
+    "Method": "AddGeneralSetting",
+    "RelativePath": "api/GeneralSetting/AddGeneralSetting",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addGeneralSetting",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.GeneralSettingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralSettingController",
+    "Method": "DeleteGeneralSetting",
+    "RelativePath": "api/GeneralSetting/DeleteGeneralSetting",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GeneralSettingId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralSettingController",
+    "Method": "GetGeneralSetting",
+    "RelativePath": "api/GeneralSetting/GetGeneralSetting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "settingCategory",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.GeneralSettingDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.GeneralSettingController",
+    "Method": "UpdateGeneralSetting",
+    "RelativePath": "api/GeneralSetting/UpdateGeneralSetting",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateGeneralSetting",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.GeneralSettingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KebelesController",
+    "Method": "AddKebeles",
+    "RelativePath": "api/Kebeles/AddKebeles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addKebeles",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.KebelesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KebelesController",
+    "Method": "DeleteKebeles",
+    "RelativePath": "api/Kebeles/DeleteKebeles",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "KebelesId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KebelesController",
+    "Method": "GetKebeles",
+    "RelativePath": "api/Kebeles/GetKebeles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.Kebeles",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KebelesController",
+    "Method": "GetKetenasKebeles",
+    "RelativePath": "api/Kebeles/GetKetenasKebeles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ketenaCode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.Kebeles",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KebelesController",
+    "Method": "UpdateKebeles",
+    "RelativePath": "api/Kebeles/UpdateKebeles",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateKebeles",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.KebelesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KetenaController",
+    "Method": "AddKetena",
+    "RelativePath": "api/Ketena/AddKetena",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addKetena",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.KetenaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KetenaController",
+    "Method": "DeleteKetena",
+    "RelativePath": "api/Ketena/DeleteKetena",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "KetenaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KetenaController",
+    "Method": "GetKetena",
+    "RelativePath": "api/Ketena/GetKetena",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.KetenaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.KetenaController",
+    "Method": "UpdateKetena",
+    "RelativePath": "api/Ketena/UpdateKetena",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateKetena",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.KetenaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterOriginController",
+    "Method": "AddMeterOrigin",
+    "RelativePath": "api/MeterOrigin/AddMeterOrigin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addMeterOrigin",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterOriginPostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterOriginController",
+    "Method": "DeleteMeterOrigin",
+    "RelativePath": "api/MeterOrigin/DeleteMeterOrigin",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MeterOriginId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterOriginController",
+    "Method": "GetMeterOrigin",
+    "RelativePath": "api/MeterOrigin/GetMeterOrigin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterOriginGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterOriginController",
+    "Method": "UpdateMeterOrigin",
+    "RelativePath": "api/MeterOrigin/UpdateMeterOrigin",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMeterOrigin",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterOriginGetDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeController",
+    "Method": "AddMeterSize",
+    "RelativePath": "api/MeterSize/AddMeterSize",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addMeterSize",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterSizeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeController",
+    "Method": "DeleteMeterSize",
+    "RelativePath": "api/MeterSize/DeleteMeterSize",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meterSizeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeController",
+    "Method": "GetMeterSize",
+    "RelativePath": "api/MeterSize/GetMeterSize",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterSizeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeController",
+    "Method": "UpdateMeterSize",
+    "RelativePath": "api/MeterSize/UpdateMeterSize",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMeterSize",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterSizeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeRentController",
+    "Method": "AddMeterSizeRent",
+    "RelativePath": "api/MeterSizeRent/AddMeterSizeRent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addMeterSize",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterSizeRentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeRentController",
+    "Method": "DeleteMeterSizeRent",
+    "RelativePath": "api/MeterSizeRent/DeleteMeterSizeRent",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MeterSizeRentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeRentController",
+    "Method": "GetMeterSizeRentForUpdate",
+    "RelativePath": "api/MeterSizeRent/GetMeterSizeRentForUpdate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recordNo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.MeterSizeRent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeRentController",
+    "Method": "GetMeterSizeRents",
+    "RelativePath": "api/MeterSizeRent/GetMeterSizeRents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.MeterSizeRent",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.MeterSizeRentController",
+    "Method": "UpdateMeterSizeRent",
+    "RelativePath": "api/MeterSizeRent/UpdateMeterSizeRent",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMeterSizeRent",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.MeterSizeRentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileAppReadingController",
+    "Method": "ClearScript",
+    "RelativePath": "api/MobileAppReading/ClearScript",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileAppReadingController",
+    "Method": "GetMobileReadings",
+    "RelativePath": "api/MobileAppReading/GetMobileReadings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.MobileAppReadingDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileAppReadingController",
+    "Method": "GetMobileReadingsLength",
+    "RelativePath": "api/MobileAppReading/GetMobileReadingsLength",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileAppReadingController",
+    "Method": "InsertMobileAppReading",
+    "RelativePath": "api/MobileAppReading/InsertMobileAppReading",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "month",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "kebele",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileUsersController",
+    "Method": "AddMobileUsers",
+    "RelativePath": "api/MobileUsers/AddMobileUsers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "passWord",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Kebele",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ketena",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imei1",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imei2",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "imagePath",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsSuccess",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Reason",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fiscalYear",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "monthIndex",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isRemoved",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileUsersController",
+    "Method": "DeleteMobileUsers",
+    "RelativePath": "api/MobileUsers/DeleteMobileUsers",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MobileUsersId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileUsersController",
+    "Method": "GetMobileUsers",
+    "RelativePath": "api/MobileUsers/GetMobileUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.DWM.MobileUsersDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.MobileUsersController",
+    "Method": "UpdateMobileUsers",
+    "RelativePath": "api/MobileUsers/UpdateMobileUsers",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "passWord",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Kebele",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ketena",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imei1",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imei2",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "imagePath",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsSuccess",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Reason",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fiscalYear",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "monthIndex",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isRemoved",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.PenalityRateController",
+    "Method": "AddPenalityRate",
+    "RelativePath": "api/PenalityRate/AddPenalityRate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PenalityRate",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.PenalityRateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.PenalityRateController",
+    "Method": "DeletePenalityRate",
+    "RelativePath": "api/PenalityRate/DeletePenalityRate",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PenalityRateId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.PenalityRateController",
+    "Method": "GetPenalityRateForUpdate",
+    "RelativePath": "api/PenalityRate/GetPenalityRateForUpdate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recordNo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.PenalityRate",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.PenalityRateController",
+    "Method": "GetPenalityRates",
+    "RelativePath": "api/PenalityRate/GetPenalityRates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedInfrustructure.Model.SCS.PenalityRate",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SytemControl.PenalityRateController",
+    "Method": "UpdatePenalityRate",
+    "RelativePath": "api/PenalityRate/UpdatePenalityRate",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatePenalityRate",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.PenalityRateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.DWM.QRCodeGenerateController",
+    "Method": "GetQRCodeGenerate",
+    "RelativePath": "api/QRCodeGenerate/GetQRCodeGenerate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "qRCodes",
+        "Type": "IntegratedImplementation.DTOS.DWM.QRCodeDto[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "CreateSystemUser",
+    "RelativePath": "api/UserSetting/CreateSystemUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userPost",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.UserServicePostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "DeleteSystemUser",
+    "RelativePath": "api/UserSetting/DeleteSystemUser",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "GetAllUserSettings",
+    "RelativePath": "api/UserSetting/GetAllUserSettings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.UserServiceDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "GetAppModules",
+    "RelativePath": "api/UserSetting/GetAppModules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.Configuration.SelectListDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "GetAppTabsByModule",
+    "RelativePath": "api/UserSetting/GetAppTabsByModule",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "appModule",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.Configuration.SelectListDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "GetEmployeeForUserSetting",
+    "RelativePath": "api/UserSetting/GetEmployeeForUserSetting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.UserServiceDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "GetEmployeesforUserSettingUpdate",
+    "RelativePath": "api/UserSetting/GetEmployeesforUserSettingUpdate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.SystemControl.UserServiceDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "GetUserPermissions",
+    "RelativePath": "api/UserSetting/GetUserPermissions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IntegratedImplementation.DTOS.Configuration.SelectListDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "UpdateSystemUser",
+    "RelativePath": "api/UserSetting/UpdateSystemUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userUpdate",
+        "Type": "IntegratedImplementation.DTOS.SystemControl.UserServicePostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IntegratedDigitalAPI.Controllers.SystemControl.UserSettingController",
+    "Method": "UpdateUserPermission",
+    "RelativePath": "api/UserSetting/UpdateUserPermission",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userPermissions",
+        "Type": "System.Collections.Generic.List\u00601[[IntegratedInfrustructure.Model.SCS.UserPermission, IntegratedInfrustructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Implementation.Helper.ResponseMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
