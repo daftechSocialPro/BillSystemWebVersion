@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IntegratedDigitalAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dda8c2bbfe692188bebedd05d3d3e504a343773")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8c219377a4897f333fa8cc6f6b93333c273f819")]
 [assembly: System.Reflection.AssemblyProductAttribute("IntegratedDigitalAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IntegratedDigitalAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
