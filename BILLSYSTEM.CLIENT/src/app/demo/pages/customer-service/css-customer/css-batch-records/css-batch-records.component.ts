@@ -50,16 +50,6 @@ export class CssBatchRecordsComponent implements OnInit {
 
   // property:any[]=[]
 
-  paginationCustomerValues: {
-    bankAccount: string;
-    bookNo: string;
-    meterClass: string;
-    readerName: string;
-    meterDigit: number;
-    paymentMod: string;
-    village: string;
-    watersource: string;
-  }[] = [];
 
   constructor(
     private confirmationService: ConfirmationService,
@@ -143,19 +133,8 @@ export class CssBatchRecordsComponent implements OnInit {
     this.customerService.getCustomer().subscribe({
       next: (res) => {
         this.Customer = res;
-        this.paginationCustomerValues = this.Customer.map((item: ICustomerDto) => ({
-          bankAccount: item.bankAccount,
-          bookNo: item.bookNo,
-          meterClass: item.meterClass,
-          readerName: item.readerName,
-          meterDigit: item.meterDigit,
-          paymentMod: item.paymentMode,
-          village: item.village,
-          watersource: item.waterSource
-        }));
-        this.selectedProperty = this.paginationCustomerValues;
+
         this.paginatedCustomer(res);
-        console.log(this.paginationCustomerValues);
       },
       error: (error) => {
         console.error('Error fetching customer data:', error);
@@ -240,9 +219,12 @@ export class CssBatchRecordsComponent implements OnInit {
       }
     });
   }
-  getBillCycle() {
-    this.controlService.getGeneralSetting('BOOK NUMBER').subscribe({
-      next: (res) => {
+  // getBillCycle() {
+  //   this.controlService.getGeneralSetting('BOOK NUMBER').subscribe({
+  //     next: (res) => {}
+  getMeterDigit(){
+    this.controlService.getGeneralSetting('meterDigit').subscribe({
+      next:(res)=>{
         this.batchValues = res.map((item) => {
           return {
             id: item.recordno,
@@ -281,6 +263,43 @@ export class CssBatchRecordsComponent implements OnInit {
       this.totlRecords = this.paginationCustomer.length;
     } else {
       this.paginatedCustomer(this.Customer);
+      }
+    
+  }
+  getPaymentDuration(){
+    this.customerService.getCustomer().subscribe({
+      next:(res)=>{
+        this.batchValues=res.map((item)=>{
+          return{
+            id:item.paymentDuration,
+            name:''
+          }
+        })
+      }
+    })
+  }
+
+  filter(value: string) {
+    if (value == 'Bank Code') {
+      this.getBanks();
+    }
+    if (value == 'BillSales Group') {
+      this.getBillOficers();
+    }
+    if (value == 'Meter Class') {
+      this.getMeterClasses();
+    } else if (value == '') {
+      this.batchValues = [];
+    }
+    if (value == 'Meter Digit') {
+      this.getMeterDigit();
+    } else if (value == '') {
+      this.batchValues = [];
+    }
+    if (value == 'Payment Duration') {
+      this.getPaymentDuration();
+    } else if (value == '') {
+      this.batchValues = [];
     }
   }
 
