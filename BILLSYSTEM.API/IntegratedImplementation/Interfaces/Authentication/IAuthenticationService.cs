@@ -7,6 +7,8 @@ namespace Implementation.Interfaces.Authentication
     {
         Task<ResponseMessage> Login(LoginDto login);
         Task<List<UserListDto>> GetUserList();
+
+        ResponseMessage encrypt(string plaintext, string secretkey);
         //Task<List<RoleDropDown>> GetRoleCategory();
         //Task<List<RoleDropDown>> GetNotAssignedRole(string userId);
         //Task<List<RoleDropDown>> GetAssignedRoles(string userId);

@@ -86,7 +86,6 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
 
 
 
-
       updateUserService(updateUsers: IuserSettingPostDto) {
 
         return this.http.put<ResponseMessage>(this.baseUrl + "/UserSetting/UpdateSystemUser", updateUsers)
@@ -95,7 +94,6 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
       deleteSystemUsers (userId : number ){
 
         return this.http.delete<ResponseMessage>(this.baseUrl + `/UserSetting/DeleteSystemUser?userId=${userId}`)
-
       }
 
 
@@ -119,6 +117,17 @@ import { IUserPermissionDto, IUserSettingsDto, IuserSettingPostDto } from "src/m
       }
 
 
+      getBanks(){
+        return this.http.get<SelectList[]> (this.baseUrl+"/Bank/GetBanks")
+      }
+
+
+      getBillOffciersForTransfer(){
+        return this.http.get<SelectList[]> (this.baseUrl+"/BillSection/GetBillOfficersForTransfer")
+      }
+      getBillOffciers(){
+        return this.http.get<SelectList[]> (this.baseUrl+"/BillSection/GetBillOfficers")
+      }
 
 
 

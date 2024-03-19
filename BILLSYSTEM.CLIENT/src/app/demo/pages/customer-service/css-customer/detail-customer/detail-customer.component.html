@@ -1,8 +1,6 @@
 <div class="modal-content bg-white">
   <div class="modal-header">
-    <h4 class="modal-title text-center"
-      >Customer <span style="font-size: larger; color: #673ab7">{{ customer && customer.customerName }}</span> Detail
-    </h4>
+    <h4 class="modal-title text-center">{{ contractNo ? 'Update' : 'Add' }}Customer </h4>
     <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
 
@@ -22,14 +20,14 @@
               </div>
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="" formControlName="phoneNumber" />
+                  <input type="text" class="form-control" formControlName="phoneNumber" />
                   <label for="floatingInput">Phone Number</label>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="ketena" (change)="onKetenachange()">
+                  <select class="form-control" formControlName="ketena" #ketena (change)="onKetenachange($event)">
                     <option value="">Select Ketena</option>
                     <option *ngFor="let item of ketenas" [value]="item.ketenaCode"> {{ item.ketenaName }}</option>
                   </select>
@@ -39,11 +37,11 @@
 
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="kebele">
+                  <select class="form-control" #kebele formControlName="kebele" (change)="onKebeleChange(ketena.value, kebele.value)">
                     <option value="">Select kebele</option>
-                    <option *ngFor="let item of getFilteredKebeles()"> {{ item.kebeleName }}</option>
+                    <option *ngFor="let item of kebeles" [value]="item.kebeleCode"> {{ item.kebeleName }}</option>
                   </select>
-                  <label for="floatingInput">kebele</label>
+                  <label for="floatingInput">Kebele</label>
                 </div>
               </div>
 
@@ -87,21 +85,11 @@
 
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="readerName">
-                    <option value="">Select Readers</option>
-                    <option *ngFor="let item of readers" [value]="item.userName"> {{ item.userName }} | {{ item.fullName }}</option>
-                  </select>
-                  <label for="floatingInput">Reader Name</label>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-floating mb-3">
                   <select class="form-control" formControlName="billOfficerId">
-                    <option value="">Select Bill Officer</option>
+                    <option value="">Select Reader Name</option>
                     <option *ngFor="let item of billOfficer" [value]="item.empID"> {{ item.empID }} | {{ item.name }}</option>
                   </select>
-                  <label for="floatingInput">BIll Officer</label>
+                  <label for="floatingInput">Reader Name</label>
                 </div>
               </div>
 
@@ -111,13 +99,13 @@
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                   </select>
-                  <label for="floatingInput">Swerage Paid </label>
+                  <label for="floatingInput">Swerage Paid</label>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-floating mb-3">
                   <select class="form-control" formControlName="paymentMode">
-                    <option value="">Select Paayment mode</option>
+                    <option value="">Select Payment mode</option>
                     <option>Bank</option>
                     <option>Check</option>
                     <option>Cash</option>
@@ -129,18 +117,18 @@
               </div>
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="monhtIndex">
+                  <select class="form-control" formControlName="monhtIndex" readonly >
                     <option value="">Select Month</option>
                     <option *ngFor="let item of months" [value]="item.monthIndex"> {{ item.monthnamelocal }}</option>
                   </select>
-                  <label for="floatingInput"> Register Month</label>
+                  <label for="floatingInput">Register Month</label>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" formControlName="fiscalYear" />
-                  <label for="floatingInput">Fical Year</label>
+                  <input type="number" class="form-control" id="floatingInput" formControlName="fiscalYear" readonly />
+                  <label for="floatingInput">Fisical Year</label>
                 </div>
               </div>
               <!-- loction and others -->
@@ -162,7 +150,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="customerCategories">
+                  <select class="form-control" formControlName="customerCategory">
                     <option value="">Select Category</option>
                     <option *ngFor="let item of customerCategories" [value]="item.custCategoryCode"> {{ item.custCategoryName }}</option>
                   </select>
@@ -178,26 +166,39 @@
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" formControlName="contractNo" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    readonly
+                    [value]="customer && customer.contractNo"
+                    formControlName="contractNo"
+                  />
                   <label for="floatingInput">Contract No.</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" formControlName="ordinaryNo" />
+                  <input type="text" class="form-control" id="floatingInput" formControlName="ordinaryNo" [value]="customer && customer.ordinaryNo" />
                   <label for="floatingInput">Ordinary No.</label>
                 </div>
               </div>
 
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" formControlName="meterNo" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    [value]="customer && customer.meterno"
+                    formControlName="meterNo"
+                  />
                   <label for="floatingInput">Water Meter No.</label>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3" *ngIf="contractNo">
                 <div class="form-floating mb-3">
-                  <select class="form-control" formControlName="Reason">
+                  <select class="form-control">
                     <option value="">Select Reason</option>
                     <option *ngFor="let item of reasons" [value]="item.inputValues"> {{ item.inputValues }}</option>
                   </select>
@@ -219,7 +220,7 @@
                 <div class="form-floating mb-3">
                   <select class="form-control" formControlName="meterDigit">
                     <option value="">Select Meter Digit</option>
-                    <option *ngFor="let item of meterDigit" [value]="item.inputCategory"> {{ item.inputValues }}</option>
+                    <option *ngFor="let item of meterDigits" [value]="item.inputValues"> {{ item.inputValues }}</option>
                   </select>
                   <label for="floatingInput">Meter Digit</label>
                 </div>
@@ -265,9 +266,9 @@
         </div>
       </div>
     </div>
-
-    <div class="modal-footer bg-white">
-      <button type="submit" [disabled]="!customerForm.valid" class="btn btn-outline-success">Save | Update Detail</button>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Close</button>
+      <button type="button" type="submit" class="btn btn-outline-success">{{ contractNo ? 'Update' : 'Create' }}</button>
     </div>
   </form>
 </div>

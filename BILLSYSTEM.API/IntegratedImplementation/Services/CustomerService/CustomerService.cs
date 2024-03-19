@@ -51,6 +51,8 @@ namespace IntegratedImplementation.Services.CustomerService
                 await _dbCustomerContext.Customers.AsNoTracking()
                                     .ProjectTo<CustomerGetDto>(_mapper.ConfigurationProvider)
                                     .ToListAsync();
+
+            //var c = customers.Where(x => x.customerName == "kirubel").ToList();
             var customerResults =
                      (from cus in customers
                       join CustomerCategory in _dbGeneralContext.CustomerCategories on cus.custCategoryCode equals CustomerCategory.custCategoryCode
@@ -65,7 +67,20 @@ namespace IntegratedImplementation.Services.CustomerService
                           custId = cus.custId,
                           custCategoryCode = CustomerCategory.custCategoryName,
                           MeterSizeCode = meterSizeCode.meterSizeName,
-                          meterno = cus.meterno       
+                          meterno = cus.meterno,
+                          MeterStartReading= cus.MeterStartReading,
+                          Kebele = cus.Kebele,
+                          BillOfficerId = cus.BillOfficerId,
+                          OrdinaryNo = cus.OrdinaryNo,
+                          //InstallationDate = cus.InstallationDate,
+
+
+
+                         
+
+
+
+
 
                       }).ToList();
 
@@ -81,46 +96,57 @@ namespace IntegratedImplementation.Services.CustomerService
        
 
 
-        public async Task<ResponseMessage> AddCustomer(CustomerPostDto customerPost)
+        public async Task<ResponseMessage> AddCustomer(CustomerDto customerPost)
         {
             try
             {
                 var customerLast = await _dbCustomerContext.Customers.
-           Select(x => x.custID).ToListAsync();
-                List<long> contactNumbers = new List<long>();
+                                    Select(x => x.custID).ToListAsync();
+                List<long> custIds = new List<long>();
                 foreach (var c in customerLast)
                 {
                     if (c != null)
-                        contactNumbers.Add(long.Parse(c));
+                        custIds.Add(long.Parse(c));
                 }
-                var contactNumber = contactNumbers.Max() + 1;
+                var custId = custIds.Max() + 1;
 
                 var InstallationDate = customerPost.InstallationDate;
-                InstallationDate = InstallationDate.AddTicks(-InstallationDate.Ticks % TimeSpan.TicksPerSecond);
+                //InstallationDate = InstallationDate.AddTicks(-InstallationDate.Ticks % TimeSpan.TicksPerSecond);
                 Customer customers = new Customer()
                 {
-                    custID = contactNumber.ToString(),
-                    customerName = customerPost.FullName,
-                    Telephone = customerPost.PhoneNumber,
+                    custID = custId.ToString(),
+                    customerName = customerPost.customerName,
+                    Telephone = customerPost.Telephone,
                     Ketena = customerPost.Ketena,
                     Kebele = customerPost.Kebele,
                     Village = customerPost.Village,
-                    MeterStartReading = customerPost.StartReading,
+                    MeterStartReading = customerPost.MeterStartReading,
                     // map number 
                     // bill officer
-                    HouseNo = customerPost.HouseNumber,
-                    ReaderName = customerPost.ReaderName,
-                    sdPaid = customerPost.SweragePaid,
-                    custCategoryCode = customerPost.CustomerCategory,
+                    HouseNo = customerPost.HouseNo,
+                    ReaderName = customerPost.readerName,
+                    sdPaid = customerPost.sdPaid,
+                    custCategoryCode = customerPost.custCategoryCode,
                     ContractNo = customerPost.ContractNo,
                     OrdinaryNo = customerPost.OrdinaryNo,
-                    meterno = customerPost.MeterNo,
-                    MeterSizeCode = customerPost.MeterSize,
+                    meterno = customerPost.meterno,
+                    MeterSizeCode = customerPost.MeterSizeCode,
                     InstallationDate = InstallationDate,
-                    regMonthIndex = customerPost.MonthIndex,
-                    regFiscalYear = customerPost.FiscalYear,
-                    enterDate = InstallationDate,
-                   
+                    regMonthIndex = customerPost.regMonthIndex,
+                    regFiscalYear = customerPost.regFiscalYear,
+                    enterDate = DateTime.Now,
+
+                    PaymentMode = customerPost.PaymentMode,
+                    //MapNumber = customerPost.MapNumber,
+                    //BillCycle= customerPost.BillCycle,
+                    AccountNo= customerPost.AccountNo,
+                    MeterDigit= customerPost.MeterDigit,
+                    MeterType= customerPost.MeterType,
+                    MeterCountryOrigin= customerPost.MeterCountryOrigin,
+                    MeterModel= customerPost.MeterModel,
+                   RegDate= DateTime.Now.ToString(),
+                    
+                    //Reason = customerPost.Reason
 
                 };
 
@@ -128,7 +154,7 @@ namespace IntegratedImplementation.Services.CustomerService
             
 
 
-                await _dbCustomerContext.Customers.AddAsync(customers);
+                    await _dbCustomerContext.Customers.AddAsync(customers);
                 await _dbCustomerContext.SaveChangesAsync();
 
                 return new ResponseMessage
@@ -181,6 +207,7 @@ namespace IntegratedImplementation.Services.CustomerService
                 await _dbCustomerContext.Customers.Where(x=>x.ContractNo==contractNo).AsNoTracking()
                                     .ProjectTo<CustomerGetDto>(_mapper.ConfigurationProvider)
                                     .ToListAsync();
+
             var customerResults =
                      (from cus in customers
                       join CustomerCategory in _dbGeneralContext.CustomerCategories on cus.custCategoryCode equals CustomerCategory.custCategoryCode
@@ -193,9 +220,28 @@ namespace IntegratedImplementation.Services.CustomerService
                           ContractNo = cus.ContractNo,
                           customerName = cus.customerName,
                           custId = cus.custId,
-                          custCategoryCode = CustomerCategory.custCategoryName,
-                          MeterSizeCode = meterSizeCode.meterSizeName,
-                          meterno = cus.meterno
+                          custCategoryCode = CustomerCategory.custCategoryCode,
+                          MeterSizeCode = meterSizeCode.meterSizeCode,
+                          meterno = cus.meterno,
+                          Kebele = cus.Kebele,
+                          Ketena = cus.Ketena,
+                          ReaderName = cus.ReaderName,
+                          sdPaid = cus.sdPaid,
+                          Telephone = cus.Telephone,
+                          Village = cus.Village,
+                          MeterStartReading = cus.MeterStartReading,
+                          HouseNo = cus.HouseNo,
+                          OrdinaryNo = cus.OrdinaryNo,
+                          InstallationDate = cus.InstallationDate,
+                          PaymentMode = cus.PaymentMode,
+                          //MapNumber = customerPost.MapNumber,
+                          //BillCycle= customerPost.BillCycle,
+                          AccountNo = cus.AccountNo,
+                          MeterDigit = cus.MeterDigit,
+                          MeterType = cus.MeterType,
+                          MeterCountryOrigin = cus.MeterCountryOrigin,
+                          MeterModel = cus.MeterModel,
+
 
                       }).FirstOrDefault();
 
@@ -217,7 +263,7 @@ namespace IntegratedImplementation.Services.CustomerService
                 {
 
 
-                    currentcustomer.custID = updateCustomer.custID;
+                    //currentcustomer.custID = updateCustomer.custID;
                     currentcustomer.regFiscalYear = updateCustomer.regFiscalYear;
                     currentcustomer.regMonthIndex = updateCustomer.regMonthIndex;
                     currentcustomer.customerName = updateCustomer.customerName;
@@ -226,13 +272,13 @@ namespace IntegratedImplementation.Services.CustomerService
                     currentcustomer.HouseNo = updateCustomer.HouseNo;
                     currentcustomer.Village = updateCustomer.Village;
                     currentcustomer.Telephone = updateCustomer.Telephone;
-                    currentcustomer.Mobile = updateCustomer.Mobile;
-                    currentcustomer.BookNo = updateCustomer.BookNo;
+                    //currentcustomer.Mobile = updateCustomer.Mobile;
+                    //currentcustomer.BookNo = updateCustomer.BookNo;
                     currentcustomer.AccountNo = updateCustomer.AccountNo;
                     currentcustomer.ContractNo = updateCustomer.ContractNo;
                     currentcustomer.ReaderName = updateCustomer.readerName;
                     currentcustomer.OrdinaryNo = updateCustomer.OrdinaryNo;
-                   // currentcustomer.BillCycle = updateCustomer.BillCycle;
+                    // currentcustomer.BillCycle = updateCustomer.BillCycle;
                     currentcustomer.custCategoryCode = updateCustomer.custCategoryCode;
                     currentcustomer.meterno = updateCustomer.meterno;
                     currentcustomer.MeterSizeCode = updateCustomer.MeterSizeCode;
@@ -244,18 +290,18 @@ namespace IntegratedImplementation.Services.CustomerService
                     currentcustomer.MeterStartReading = updateCustomer.MeterStartReading;
                     currentcustomer.sdPaid = updateCustomer.sdPaid;
                     currentcustomer.MeterClass = updateCustomer.MeterClass;
-                    currentcustomer.WaterSource = updateCustomer.WaterSource;
-                    currentcustomer.MeterStatus = updateCustomer.MeterStatus;
-                    currentcustomer.RegDate = updateCustomer.RegDate;
+                    //currentcustomer.WaterSource = updateCustomer.WaterSource;
+                    //currentcustomer.MeterStatus = updateCustomer.MeterStatus;
+                    //currentcustomer.RegDate = updateCustomer.RegDate;
                     currentcustomer.PaymentMode = updateCustomer.PaymentMode;
-                    currentcustomer.BankAccount = updateCustomer.BankAccount;
-                    currentcustomer.BillOfficerId = updateCustomer.BillOfficerId;
-                   
+                    //currentcustomer.BankAccount = updateCustomer.BankAccount;
+                    //currentcustomer.BillOfficerId = updateCustomer.BillOfficerId;
+
 
                     //currentcustomer.custCategoryName = updatecustomer.custCategoryName;
 
 
-        await _dbCustomerContext.SaveChangesAsync();
+                    await _dbCustomerContext.SaveChangesAsync();
                     return new ResponseMessage { Message = "Successfully Updated", Success = true };
                 }
                 return new ResponseMessage { Success = false, Message = "Unable To Find Customer " };
@@ -277,7 +323,13 @@ namespace IntegratedImplementation.Services.CustomerService
             
             var customerLast = await _dbCustomerContext.Customers
                 .Where(x => x.Kebele == kebele && x.Ketena == ketena).Select(x => x.ContractNo).ToListAsync();
+
+            if(customerLast.Count() == 0)
+            {
+                return 00000000;
+            }
             List<int> contactNumbers = new List<int>();
+
             foreach(var c in customerLast)
             {
                 contactNumbers.Add(Int32.Parse(c));
@@ -285,6 +337,73 @@ namespace IntegratedImplementation.Services.CustomerService
             var contactNumber = contactNumbers.Max() + 1;
 
             return contactNumber;
+        }
+
+        public async Task<List<CustomerHomeDto>> GetCustomerHomeData()
+        {
+
+            var cusomers = await _dbCustomerContext.Customers.ToListAsync();
+
+            var customerCategories = await _dbGeneralContext.CustomerCategories.ToListAsync();
+
+            List<CustomerHomeDto> customerHomeDatas = new List<CustomerHomeDto>();
+
+            foreach (var cc in customerCategories)
+            {
+
+                if (cc.custCategoryCode == "0") continue;
+                var customerHomeData = new CustomerHomeDto
+                {
+                    CustomerCategory  = cc.custCategoryName,
+                    ActiveCustomers = cusomers.Count(x=>x.MeterStatus == "ACTIVE" && x.custCategoryCode == cc.custCategoryCode ),
+                    DisconnectedCustomers = cusomers.Count(x=>x.MeterStatus == "DISCONNECT" && x.custCategoryCode == cc.custCategoryCode  ),
+                    TerminatedCustomers = cusomers.Count(x=>x.MeterStatus == "TERMINATED" && x.custCategoryCode == cc.custCategoryCode  )
+                };
+
+                customerHomeDatas.Add(customerHomeData);    
+
+            }
+
+
+            return customerHomeDatas;
+        }
+
+        public async Task<ResponseMessage> AssignBillOfficerToCustomer(CustomerToBillOfficerDto customerData)
+        {
+            
+            try
+            {
+                var count = 0;
+                foreach(var contractNo in customerData.CustomerContractNos)
+                {
+
+                    var customer = await _dbCustomerContext.Customers.Where(x => x.ContractNo == contractNo).FirstOrDefaultAsync();
+                    if (customer!= null)
+                    {
+                        customer.BillOfficerId = customerData.BillOfficerId;
+                        
+                        await _dbCustomerContext.SaveChangesAsync();
+                        count++;
+                    }
+                }
+
+                return new ResponseMessage
+                {
+                    Success = true, 
+                    Message  = $"{count} Customers tranferd to BillOfficerId {customerData.BillOfficerId} !!!"
+                };
+
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseMessage
+                {
+                    Success = false,
+                    Message = ex.Message
+                };
+
+            }
         }
 
         //    public  async  Task<int> GetContractNumber(string kebele, string ketena)
@@ -297,5 +416,5 @@ namespace IntegratedImplementation.Services.CustomerService
         //        return contractNo;
         //    }
         //
-        }
+    }
     }

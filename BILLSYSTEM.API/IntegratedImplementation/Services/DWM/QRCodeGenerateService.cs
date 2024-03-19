@@ -29,7 +29,7 @@ namespace IntegratedImplementation.Services.DWM
                 int rows = (int)Math.Ceiling((double)numberOfQRCodes / columns);
 
                 // Calculate the size of each QR code
-                float qrCodeSize = 100f; // Adjust as needed
+                float qrCodeSize = 80f; // Adjust as needed
 
                 // Create the table to hold the QR codes
                 PdfPTable table = new PdfPTable(columns);

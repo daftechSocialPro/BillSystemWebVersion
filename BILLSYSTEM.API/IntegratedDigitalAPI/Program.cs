@@ -124,6 +124,7 @@ app.UseCors(cors =>
            cors.WithOrigins("*")
            .AllowAnyHeader()
            .AllowAnyMethod()
+           .AllowAnyHeader()
            );
 app.UseStaticFiles();
 app.UseRouting();
@@ -134,8 +135,9 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = new PathString("/wwwroot")
 });
 
+app.MapControllers();
 app.UseAuthentication();
 
-app.MapControllers();
+
 
 app.Run();

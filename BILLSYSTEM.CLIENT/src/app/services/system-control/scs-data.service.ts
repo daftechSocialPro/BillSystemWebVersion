@@ -28,7 +28,7 @@ export class ScsDataService {
 
 
 
-  //customer category 
+  //customer category
   getCustomerCategory() {
     return this.http.get<ICustomerCategoryDto[]>(this.baseUrl + "/CustomerCategory/GetCustomerCategory")
   }
@@ -43,7 +43,7 @@ export class ScsDataService {
   deleteCustomerCategory(CustomerCategoryId: number) {
     return this.http.delete<ResponseMessage>(this.baseUrl + `/CustomerCategory/DeleteCustomerCategory?CustomerCategoryId=${CustomerCategoryId}`)
   }
-  //customer category 
+  //customer category
   getConsumptionLevel() {
     return this.http.get<IConsumptionLevelDto[]>(this.baseUrl + "/ConsumptionLevel/GetConsumptionLevel")
   }
@@ -75,7 +75,7 @@ export class ScsDataService {
     return this.http.delete<ResponseMessage>(this.baseUrl + `/MeterSize/DeleteMeterSize?meterSizeId=${meterSizeId}`)
 
   }
-  //general setting 
+  //general setting
 
   getGeneralSetting(settingCategory: string) {
 
@@ -93,7 +93,7 @@ export class ScsDataService {
     return this.http.delete<ResponseMessage>(this.baseUrl + `/GeneralSetting/DeleteGeneralSetting?GeneralSettingId=${GeneralSettingId}`)
 
   }
-  //meter rent 
+  //meter rent
   getMeterSizeRents() {
     return this.http.get<IMeterSizeRentDto[]>(this.baseUrl + `/MeterSizeRent/GetMeterSizeRents`)
   }
@@ -161,12 +161,16 @@ export class ScsDataService {
   deleteKetena(KetenaId: number) {
     return this.http.delete<ResponseMessage>(this.baseUrl + `/Ketena/DeleteKetena?KetenaId=${KetenaId}`)
 
-  
+
   }
   //Kebeles
-  
+
   getKebeles() {
     return this.http.get<IKebelesDto[]>(this.baseUrl + "/Kebeles/GetKebeles")
+  }
+
+  getKetenaKebeles(ketenaCode: string){
+    return this.http.get<IKebelesDto[]>(this.baseUrl + "/Kebeles/GetKetenasKebeles?ketenaCode="+ketenaCode)
   }
   addKebeles(addKebeles: IKebelesDto) {
 
@@ -187,7 +191,7 @@ export class ScsDataService {
     // /api/FiscalMonth/GetFiscalMonth
   }
 
-  
+
   updateFiscalMonth(updateFiscalMonth: IFiscalMonthDto) {
     return this.http.put<ResponseMessage>(this.baseUrl + "/FiscalMonth/UpdateFiscalMonth", updateFiscalMonth)
   }

@@ -2,6 +2,7 @@
 
 using Implementation.Helper;
 using Implementation.Interfaces.Authentication;
+using IntegratedImplementation.Interfaces.Configuration;
 using IntegratedInfrustructure.Data;
 using IntegratedInfrustructure.Model.Authentication;
 using Microsoft.AspNetCore.Identity;
@@ -27,19 +28,24 @@ namespace Implementation.Services.Authentication
 
         private RoleManager<IdentityRole> _roleManager;
         private readonly DBGeneralContext _dbContext;
+        private readonly IGeneralConfigService _generalConfigService;
 
         private readonly IConfiguration _configuration;
 
         public AuthenticationService(
 
             DBGeneralContext dbContext,
-            IConfiguration configuration
+            IConfiguration configuration,
+            IGeneralConfigService generalConfigService
+
+            
 
              )
         {
 
             _configuration = configuration;
             _dbContext = dbContext;
+            _generalConfigService = generalConfigService;
 
         }
 
@@ -51,6 +57,20 @@ namespace Implementation.Services.Authentication
             {
 
 
+                var generalOption = await _dbContext.GeneralOptions.FirstOrDefaultAsync();
+                var key = _configuration.GetSection("ApplicationSetting")["licence-key"];
+
+                if (generalOption != null ) {
+
+                    var option2 = $"DAF_{generalOption.Option02}_COMPUTER";
+
+                    var encrypted =  _generalConfigService.Encrypt(option2, "2B7E151628DAF2A6ABF7158809CF4F3C");
+
+
+                    if ( encrypted==key)
+                    {
+                        
+                
 
 
                 var user = await _dbContext.Users.Where(x => x.userName.ToLower() == login.UserName.ToLower()).FirstOrDefaultAsync();
@@ -111,6 +131,25 @@ namespace Implementation.Services.Authentication
                         Success = false,
                         Message = "Invalid User Name or Password"
                     };
+
+                    }
+                    else
+                    {
+                        return new ResponseMessage()
+                        {
+                            Success = false,
+                            Message = "Licence Key Is Not valid !!! Please Contact your admin"
+                        };
+                    }
+                }
+                else
+                {
+                    return new ResponseMessage()
+                    {
+                        Success = false,
+                        Message = "General option not set !!! "
+                    };
+                }
             }
             catch (Exception ex)
             {
@@ -123,6 +162,16 @@ namespace Implementation.Services.Authentication
             }
 
 
+        }
+
+
+        public  ResponseMessage encrypt (string plaintext , string secretkey)
+        {
+
+            return new ResponseMessage
+            {
+                Message= _generalConfigService.Encrypt(plaintext, secretkey)
+            };
         }
 
         public async Task<List<UserListDto>> GetUserList()

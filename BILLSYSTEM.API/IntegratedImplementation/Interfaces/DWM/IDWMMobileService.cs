@@ -10,6 +10,12 @@ namespace IntegratedImplementation.Interfaces.DWM
 {
     public interface IDWMMobileService
     {
-        Task<List<ProfileResponseDto>> Login(IEnumerable<MobileUsers> readerCridential);
+        List<ProfileResponseDto> Login(List<MobileUsers> readerCridential);
+        List<ProfileResponseDto> LoginAdmin(List<MobileUsers> readerCridential);
+        List<ImportExportDto> ImportData(MobileUsers readerCridential);
+        List<TEST_DISCONNECT> ImportDisconnected(MobileUsers readerCredential);
+        List<ImportResponse> ExportCustomers(bill_mobileImport bill);
+        List<ImportExportDto> ImportGPS(List<bill_mobileImport> bills);
+
     }
 }

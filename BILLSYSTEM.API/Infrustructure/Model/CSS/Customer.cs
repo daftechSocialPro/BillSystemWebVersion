@@ -26,8 +26,8 @@ namespace IntegratedInfrustructure.Model.CSS
         public string? AccountNo { get; set; }
         public string? ContractNo { get; set; }
         public int? OrdinaryNo { get; set; }
-       // public string BillCycle { get; set; }
-       //public string MapNumber { get; set; }
+        //public string BillCycle { get; set; }
+        //public string MapNumber { get; set; }
         public string? custCategoryCode { get; set; }
         public string? meterno { get; set; }
         public string? MeterSizeCode { get; set; }
@@ -60,7 +60,7 @@ namespace IntegratedInfrustructure.Model.CSS
         public string? TransferDT { get; set; }
         public string? Field01 { get; set; }
         public string? Field02 { get; set; }
-        public double? Field03 { get; set; }
+        public double ? Field03 { get; set; }
         public double? Field04 { get; set; }
         public string? enterBy { get; set; }
         public DateTime? enterDate { get; set; }
@@ -69,7 +69,7 @@ namespace IntegratedInfrustructure.Model.CSS
         public string? Remarks { get; set; }
         //public string? Reason { get; set; }
 
-        //public string DataSynched { get; set; }
+        //public string? DataSynched { get; set; }
     }
 
 }

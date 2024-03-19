@@ -100,7 +100,7 @@ namespace IntegratedImplementation.Services.DWM
         {
             try
             {
-                var currentMobileUsers = await _dbContext.MobileUsers.FindAsync(updateMobileUsers.Id);
+                var currentMobileUsers = await _dbContext.MobileUsers.FindAsync( Int32.Parse(updateMobileUsers.Id));
 
                 var path = "";
 

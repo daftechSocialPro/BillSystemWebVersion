@@ -6,58 +6,72 @@ import { ICustomerDto, ICustomerPostDto } from 'src/models/customer-service/ICus
 import { ResponseMessage } from 'src/models/ResponseMessage.Model';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { ICustomerMeterStatusGetDto, ICustomerMeterStatusPostDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
+import { ICustomerMeterChangeGetDto, ICustomerMeterChangePostDto } from 'src/models/customer-service/ICustomerChangeMeterDto';
+import { CustomerBillOfficerDto, ICustomerHomeData } from 'src/models/customer-service/ICustomerHomeDataDto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CssCustomerService {
-
-  constructor(private http: HttpClient, private userService: UserService) { }
+  constructor(
+    private http: HttpClient,
+    private userService: UserService
+  ) {}
   readonly baseUrl = environment.baseUrl;
-
 
   //customer
   getCustomer() {
-    return this.http.get<ICustomerDto[]>(this.baseUrl + "/Customer/GetCustomeres")
+    return this.http.get<ICustomerDto[]>(this.baseUrl + '/Customer/GetCustomeres');
   }
   getCustomerForUpdate(contractNo: string) {
-    return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`)
+    return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetCustomerForUpdate?ContractNo=${contractNo}`);
   }
-updateCustomer(updateCustomer:ICustomerDto){
-  return this.http.put<ResponseMessage>(this.baseUrl+'/Customer/UpdateCustomer', updateCustomer)
-
-}
+  updateCustomer(updateCustomer: ICustomerDto) {
+    return this.http.put<ResponseMessage>(this.baseUrl + '/Customer/UpdateCustomer', updateCustomer);
+  }
 
   addCustomer(addcustomer: ICustomerDto) {
-
-    return this.http.post<ResponseMessage>(this.baseUrl + "/Customer/AddCustomer", addcustomer)
+    return this.http.post<ResponseMessage>(this.baseUrl + '/Customer/AddCustomer', addcustomer);
     // /api/Customer/AddCustomer
   }
-  getSingleCustomer(contractNo:string) {
-    return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetSingleCustomer?contractNo=${contractNo}`)
+  getSingleCustomer(contractNo: string) {
+    return this.http.get<ICustomerDto>(this.baseUrl + `/Customer/GetSingleCustomer?contractNo=${contractNo}`);
   }
 
-  deleteCustomer(contractNo:string){
-    return this.http.delete<ResponseMessage>(this.baseUrl + `/Customer/DeleteCustomer?contractNo=${contractNo}`)
-
+  deleteCustomer(contractNo: string) {
+    return this.http.delete<ResponseMessage>(this.baseUrl + `/Customer/DeleteCustomer?contractNo=${contractNo}`);
   }
 
-  createCustomer (customerPost :ICustomerPostDto){
-    return this.http.post<ResponseMessage>(this.baseUrl+"/Customer/CreateBasicData",customerPost)
+  createCustomer(customerData: ICustomerDto) {
+    return this.http.post<ResponseMessage>(this.baseUrl + '/Customer/CreateBasicData', customerData);
   }
 
-  getContractNumber (kebele:string,ketena:string){
+  getContractNumber(kebele: string, ketena: string) {
+    return this.http.get<number>(this.baseUrl + `/Customer/GetContractNumber?kebele=${kebele}&ketena=${ketena}`);
+  }
+  getCustomerMeterStatus(custId: string) {
+    return this.http.get<ICustomerMeterStatusGetDto[]>(`${this.baseUrl}/CustomerMeterStatus/GetCustomerMeterStatus?custId=${custId}`);
+  }
+  updateCustomerMeterStatus(meterStatus: ICustomerMeterStatusPostDto) {
+    return this.http.post<ResponseMessage>(`${this.baseUrl}/CustomerMeterStatus/ChangeCustomerStatus`, meterStatus);
+  }
 
-    return this.http.get<number>(this.baseUrl+`/Customer/GetContractNumber?kebele=${kebele}&ketena=${ketena}`)
+  getCustomerMeterChange(custId: string) {
+    return this.http.get<ICustomerMeterChangeGetDto[]>(`${this.baseUrl}/CustomerMeterChange/GetCustomerMeterChange?custId=${custId}`);
+  }
+  updateCustomerMeterChange(meterChange: ICustomerMeterChangePostDto) {
+    return this.http.post<ResponseMessage>(`${this.baseUrl}/CustomerMeterChange/ChangeMeter`, meterChange);
+  }
+
+
+  getCustomerHomeData (){
+    return this.http.get <ICustomerHomeData[]> (this.baseUrl+"/Customer/GetCusotmerHomeData");
+  }
+
+
+  updateCustomerBillOfficerId( csutomerBillOfficerDto :CustomerBillOfficerDto){
+
+    return this.http.put<ResponseMessage>(this.baseUrl+"/Customer/UpdateCustomerBillOfficerId",csutomerBillOfficerDto)
 
   }
-  getCustomerMeterStatus (custId:string){
-
-    return this.http.get<ICustomerMeterStatusGetDto[]>(`${this.baseUrl}/CustomerMeterStatus/GetCustomerMeterStatus?custId=${custId}`)
-
-  }
-updateCustomerMeterStatus(meterStatus:ICustomerMeterStatusPostDto){
-
-  return this.http.post<ResponseMessage>(`${this.baseUrl}/CustomerMeterStatus/ChangeCustomerStatus`,meterStatus)
-}
 }

@@ -75,7 +75,7 @@ namespace IntegratedInfrustructure.Data
 
         public DbSet<UserPermission> UserPermissions { get; set; }  
 
-     
+        public DbSet<Banks> Banks { get; set; }
 
 
         #endregion

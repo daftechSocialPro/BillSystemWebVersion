@@ -35,7 +35,18 @@ namespace IntegratedImplementation.Services.SystemControl
             return results;
         }
 
-        
+
+        public async Task<List<KebelesDto>> GetKetenaKebeles(string ketenaCode)
+        {
+
+            var results = await _dbContext.Kebeless.Where(x => x.ketenaCode == ketenaCode).AsNoTracking().ProjectTo<KebelesDto>(_mapper.ConfigurationProvider)
+                                     .ToListAsync();
+
+            return results;
+        }
+
+
+
 
         public async Task<ResponseMessage> AddKebeles(KebelesDto addKebeles)
         {

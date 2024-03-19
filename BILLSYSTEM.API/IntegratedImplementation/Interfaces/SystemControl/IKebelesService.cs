@@ -13,7 +13,7 @@ namespace IntegratedImplementation.Interfaces.SystemControl
 
         Task<List<KebelesDto>> GetKebeles();
 
-
+        Task<List<KebelesDto>> GetKetenaKebeles(string ketenaCode);
         Task<ResponseMessage> AddKebeles(KebelesDto addKebeles);
         Task<ResponseMessage> UpdateKebeles(KebelesDto updateKebeles);
         Task<ResponseMessage> DeleteKebeles(int KebelesId);

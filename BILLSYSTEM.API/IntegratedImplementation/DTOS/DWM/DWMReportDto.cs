@@ -13,8 +13,8 @@ namespace IntegratedImplementation.DTOS.DWM
         public string CustomerName { get; set; }
         public string MeterNo { get; set; }
 
-        public int? Previous { get; set; }
-        public int? Current { get; set; }
+        public double? Previous { get; set; }
+        public double? Current { get; set; }
         public double? Consumption { get; set; }
         public double? Average { get; set; }
         public string Status { get; set; }
@@ -59,7 +59,7 @@ namespace IntegratedImplementation.DTOS.DWM
     {
         public string ReaderName { get; set; }
         public string UserName { get; set; }
-        public int? Consumption { get; set; }
+        public double? Consumption { get; set; }
        
     }
 }

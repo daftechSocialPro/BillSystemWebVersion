@@ -12,19 +12,25 @@ import { CssImportComponent } from './css-customer/css-import/css-import.compone
 import { PaginatorModule } from 'primeng/paginator';
 import { DetailCustomerComponent } from './css-customer/detail-customer/detail-customer.component';
 import { CssChangeActionComponent } from './css-customer/css-change-action/css-change-action.component';
+import { CssBatchRecordsComponent } from './css-customer/css-batch-records/css-batch-records.component';
+import { CssTransferCustomerComponent } from './css-customer/transfer-customer/transfer-customer.component';
+import { CssChangeMeterComponent } from './css-customer/css-change-meter/css-change-meter.component';
 
 @NgModule({
   declarations: [
-    CssHomeComponent, CssSetupComponent, CssCustomerComponent, CssReportComponent, CssBillReportComponent, AddCssCustomerComponent, CssImportComponent,DetailCustomerComponent, CssChangeActionComponent,
+    CssHomeComponent,
+    CssSetupComponent,
+    CssCustomerComponent,
+    CssReportComponent,
+    CssBillReportComponent,
+    AddCssCustomerComponent,
+    CssBatchRecordsComponent,
+    CssImportComponent,
+    DetailCustomerComponent,
+    CssChangeActionComponent,
+    CssTransferCustomerComponent,
+    CssChangeMeterComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CustomerServiceRoutingModule,
-    PaginatorModule,
-    ReactiveFormsModule,
-
-  ]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, CustomerServiceRoutingModule, PaginatorModule, ReactiveFormsModule]
 })
-export class CustomerServiceModule { }
+export class CustomerServiceModule {}

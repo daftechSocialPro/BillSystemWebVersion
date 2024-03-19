@@ -1,0 +1,121 @@
+<div class="modal-content bg-white">
+  <div class="modal-header">
+    <h4 class="modal-title text-center">Transfer Customer</h4>
+    <button type="button" class="btn-close" id="ModalClose" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div style="background-color: #eceff1">
+    <div class="row mx-auto p-2" style="margin-bottom: -25px">
+      <div class="col-md-4 p-1">
+        <div class="form-floating mb-3">
+          <select class="form-control"  #ketena (change)="onKetenachange($event)">
+            <option value="">Select Ketena</option>
+            <option *ngFor="let item of ketenas" [value]="item.ketenaCode"> {{ item.ketenaName }}</option>
+          </select>
+          <label for="floatingInput">Ketena</label>
+        </div>
+      </div>
+      <div class="col-md-4 p-1">
+        <div class="form-floating mb-3">
+          <select class="form-control" id="floatingInput" #search (change)="filterCustomer(search.value)">
+            <option value="">Select kebele</option>
+            <option *ngFor="let item of kebeles" [value]="item.kebeleCode">
+              {{ item.kebeleName }}
+            </option>
+          </select>
+          <label for="floatingInput">Select Kebele</label>
+        </div>
+      </div>
+      <div class="col-md-4 p-1">
+        <div class="form-floating mb-1">
+          <select class="form-control" id="floatingInput" #biloff [(ngModel)]="selectedBillOfficer" (change)="filterCustomerByBillOfficer()">
+            <option value="">Select billOfficer</option>
+            <option *ngFor="let item of billOfficer" [value]="item.empId"> {{ item.name }}</option>
+          </select>
+          <label for="floatingInput">Transfer To</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="row mx-auto pt-2">
+        <div class="col-6">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control focus-green"
+              #search
+              [(ngModel)]="searchText"
+              (input)="filterCustomer(search.value)"              
+              placeholder="Search by Name ..."
+            />
+            <span class="input-group-text bg-light">
+              <i class="pi pi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="mail-content mx-3 table-responsive tab-content">
+        <table class="custom-table mt-3 mx-auto">
+          <thead>
+            <tr>
+              <th
+                ><input type="checkbox" (ngModel)="selected" (change)="toggleSelectAll()" /> <label for="selectAll">Select All</label></th
+              >
+              <th>Contract Number </th>
+              <th>Customer Name</th>
+              <th>Kebele</th>
+              <th>Cust Category</th>
+              <th>Initial Reading</th>
+              <th>Transfer to</th>
+              <th>Transfer DT</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="paginationCustomer.length > 0; else noResults">
+            <tr *ngFor="let item of paginationCustomer; let i = index">
+              <td>
+                <input type="checkbox"
+                [id]="item.contractNo"
+                
+                [checked]="item.selected"
+                (change)="toggleContractNo(item.contractNo,$event.target)"
+
+                />
+                <!-- <input
+                type="checkbox"
+                [id]=""
+                [checked]="isTransferSelected()"
+                (change)="toggleTransfer(transferId.custId, transferId.custId, $event.target)"
+              /> -->
+              </td>
+              <td>{{ item.contractNo }} </td>
+              <td>{{ item.customerName }} </td>
+              <td>{{ item.kebele }} </td>
+              <td>{{ item.custCategoryCode }}</td>
+              <td>{{ item.meterStartReading }}</td>
+              <td>{{ selectedBillOfficer }}</td>
+              <td>{{ item.transferDT }}</td>
+            </tr>
+          </tbody>
+          <ng-template #noResults>
+            <tr>
+              <td colspan="4" class="text-center text-danger font-weight-bold bg-light p-3">No results found</td>
+            </tr>
+          </ng-template>
+        </table>
+        <div class="card flex justify-content-center">
+          <p-paginator
+            (onPageChange)="onPageChange($event)"
+            [first]="first"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [rowsPerPageOptions]="[5, 10, 15]"
+          ></p-paginator>
+        </div>
+      </div>
+      <div class="col-lg-15 p-2 modal-footer">
+        <button  class="btn btn-outline-success" (click)="transferCustomer()">Transfer Customer</button>
+      </div>
+    </div>
+  </div>
+</div>

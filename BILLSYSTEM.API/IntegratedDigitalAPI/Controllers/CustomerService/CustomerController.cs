@@ -35,7 +35,7 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
 
         [HttpPost]
         [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> CreateBasicData(CustomerPostDto customerPost)
+        public async Task<IActionResult> CreateBasicData(CustomerDto customerPost)
         {
             return Ok(await _customerService.AddCustomer(customerPost));
         }
@@ -75,7 +75,27 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             return Ok(await _customerService.GetContractNumber(kebele,ketena));
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(CustomerHomeDto), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetCusotmerHomeData()
+        {
+            return Ok(await _customerService.GetCustomerHomeData());
+        }
 
+
+        [HttpPut]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateCustomerBillOfficerId(CustomerToBillOfficerDto updateCustomer)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _customerService.AssignBillOfficerToCustomer(updateCustomer));
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
 
     }
 }

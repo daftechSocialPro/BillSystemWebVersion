@@ -19,7 +19,8 @@ namespace IntegratedInfrustructure.Data
         }
 
         public DbSet<Customer> Customers { get; set; } 
-        public DbSet<CustomerMeterStatus> CustomerMeterStatus { get; set; }        
+        public DbSet<CustomerMeterStatus> CustomerMeterStatus { get; set; }    
+        public DbSet<CustomerMeterChange> CustomerMeterChange { get; set; }
 
 
         public DbSet<MobileUsers> MobileUsers { get; set; }
@@ -27,9 +28,15 @@ namespace IntegratedInfrustructure.Data
         public DbSet<BillToMobileView> BillToMobile { get; set; }
         public DbSet<BillMobileData> BillMobileData { get; set; }
 
+        public DbSet<TEST_DISCONNECT> TEST_DISCONNECTS { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            modelBuilder.Entity<TEST_DISCONNECT>().ToView("TEST_DISCONNECT");
 
-        
+           
+        }
 
 
 

@@ -72,6 +72,8 @@ namespace IntegratedImplementation.Datas
             .ForMember(a => a.OrdinaryNo, e => e.MapFrom(mfg => mfg.OrdinaryNo.ToString()))
             ;
 
+            CreateMap<MobileAppReading, ImportExportDto>();
+            
             #endregion
 
 

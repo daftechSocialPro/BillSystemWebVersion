@@ -14,7 +14,7 @@ namespace IntegratedImplementation.Interfaces.CustomerService
 
         public Task <CustomerGetDto> GetSingleCustomer(string contractNo);
 
-        public Task<ResponseMessage> AddCustomer(CustomerPostDto customerPost);
+        public Task<ResponseMessage> AddCustomer(CustomerDto customerPost);
         public Task<ResponseMessage> UpdateCustomer(CustomerDto updateCustomer);
 
 
@@ -22,6 +22,11 @@ namespace IntegratedImplementation.Interfaces.CustomerService
 
 
         public Task<int> GetContractNumber(string kebele, string ketena);
+
+
+        public Task<List<CustomerHomeDto>> GetCustomerHomeData ();
+
+        public Task<ResponseMessage> AssignBillOfficerToCustomer(CustomerToBillOfficerDto customerData);
 
     }
 }

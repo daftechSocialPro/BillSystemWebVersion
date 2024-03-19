@@ -22,7 +22,7 @@ namespace IntegratedInfrustructure.Model.DWM
             public int? readingPrev { get; set; }
             public int? readingCurrent { get; set; }
             public int? readingCons { get; set; }
-            public double? readingAvg { get; set; }
+            public int? readingAvg { get; set; }
             public string readingReasonCode { get; set; }
             public string readingBY { get; set; }
             public string readingDT { get; set; }
