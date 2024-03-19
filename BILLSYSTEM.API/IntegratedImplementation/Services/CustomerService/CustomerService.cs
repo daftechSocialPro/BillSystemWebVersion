@@ -70,6 +70,7 @@ namespace IntegratedImplementation.Services.CustomerService
                           meterno = cus.meterno,
                           MeterStartReading= cus.MeterStartReading,
                           Kebele = cus.Kebele,
+                          Ketena = cus.Ketena,
                           BillOfficerId = cus.BillOfficerId,
                           OrdinaryNo = cus.OrdinaryNo,
                           //InstallationDate = cus.InstallationDate,
@@ -332,6 +333,35 @@ namespace IntegratedImplementation.Services.CustomerService
             return contactNumber;
         }
 
+        public async Task<List<CustomerHomeDto>> GetCustomerHomeData()
+        {
+
+            var cusomers = await _dbCustomerContext.Customers.ToListAsync();
+
+            var customerCategories = await _dbGeneralContext.CustomerCategories.ToListAsync();
+
+            List<CustomerHomeDto> customerHomeDatas = new List<CustomerHomeDto>();
+
+            foreach (var cc in customerCategories)
+            {
+
+                if (cc.custCategoryCode == "0") continue;
+                var customerHomeData = new CustomerHomeDto
+                {
+                    CustomerCategory  = cc.custCategoryName,
+                    ActiveCustomers = cusomers.Count(x=>x.MeterStatus == "ACTIVE" && x.custCategoryCode == cc.custCategoryCode ),
+                    DisconnectedCustomers = cusomers.Count(x=>x.MeterStatus == "DISCONNECT" && x.custCategoryCode == cc.custCategoryCode  ),
+                    TerminatedCustomers = cusomers.Count(x=>x.MeterStatus == "TERMINATED" && x.custCategoryCode == cc.custCategoryCode  )
+                };
+
+                customerHomeDatas.Add(customerHomeData);    
+
+            }
+
+
+            return customerHomeDatas;
+        }
+
         //    public  async  Task<int> GetContractNumber(string kebele, string ketena)
         //    {
         //        var customerLast = _dbCustomerContext.Customers
@@ -342,5 +372,5 @@ namespace IntegratedImplementation.Services.CustomerService
         //        return contractNo;
         //    }
         //
-        }
+    }
     }

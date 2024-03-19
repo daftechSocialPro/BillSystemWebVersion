@@ -23,7 +23,7 @@ export class MeterRateComponent implements OnInit {
   rows: number = 5;
   totlRecords: number = 0;
   paginationMeterRate:IMeterSizeRentDto[];
-  filterdMeterRate:IMeterSizeRentDto[]=[];
+   filterdMeterRate:IMeterSizeRentDto[]=[];
   distinctRentGroupCodes: string[]=[];
 
   ngOnInit(): void {
