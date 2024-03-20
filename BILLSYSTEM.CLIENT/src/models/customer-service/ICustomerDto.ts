@@ -7,7 +7,7 @@ export interface ICustomerDto {
   customerName: string;
   ketena: string;
   kebele: string;
-  houseNo: string;
+  houseNo?: string;
   village: string;
   telephone?: string;
   reason?: string;
@@ -36,7 +36,7 @@ export interface ICustomerDto {
   regDate?: Date;
   readerName?: string;
   paymentPlace?: string;
-  // paymentDuration: string
+  paymentDuration?: string,
   paymentMode?: string;
   // billSalesGroup: string
   // onlineGroup: string

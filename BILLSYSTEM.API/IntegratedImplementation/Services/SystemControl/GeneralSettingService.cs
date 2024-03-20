@@ -29,7 +29,7 @@ namespace IntegratedImplementation.Services.SystemControl
 
         public async Task<List<GeneralSettingDto>> GetGeneralSetting(string settingCategory)
         {
-            var employeeHistories = await _dbContext.GeneralSettings.Where(x=>x.InputCategory.ToLower()== settingCategory).AsNoTracking()
+            var employeeHistories = await _dbContext.GeneralSettings.Where(x=>x.InputCategory.ToLower()== settingCategory.ToLower()).AsNoTracking()
                                 .ProjectTo<GeneralSettingDto>(_mapper.ConfigurationProvider)
                                 .ToListAsync();
             return employeeHistories;

@@ -8,6 +8,7 @@ import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
 import { ICustomerMeterStatusGetDto, ICustomerMeterStatusPostDto } from 'src/models/customer-service/ICustomerMeterStatusDto';
 import { ICustomerMeterChangeGetDto, ICustomerMeterChangePostDto } from 'src/models/customer-service/ICustomerChangeMeterDto';
 import { CustomerBillOfficerDto, ICustomerHomeData } from 'src/models/customer-service/ICustomerHomeDataDto';
+import { ICustomerBatchDto } from 'src/models/customer-service/ICustomerBatchDto';
 
 @Injectable({
   providedIn: 'root'
@@ -73,5 +74,10 @@ export class CssCustomerService {
 
     return this.http.put<ResponseMessage>(this.baseUrl+"/Customer/UpdateCustomerBillOfficerId",csutomerBillOfficerDto)
 
+  }
+
+
+  changeValueByBatch(customerBatchDto:ICustomerBatchDto){
+    return this.http.post<ResponseMessage>(this.baseUrl+`/Customer/ChangeValueByBatch`,customerBatchDto)
   }
 }

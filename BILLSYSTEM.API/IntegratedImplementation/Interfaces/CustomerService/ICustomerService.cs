@@ -22,11 +22,12 @@ namespace IntegratedImplementation.Interfaces.CustomerService
 
 
         public Task<int> GetContractNumber(string kebele, string ketena);
-
-
         public Task<List<CustomerHomeDto>> GetCustomerHomeData ();
 
         public Task<ResponseMessage> AssignBillOfficerToCustomer(CustomerToBillOfficerDto customerData);
+
+
+        public Task<ResponseMessage> ChangeValueByBatch(CustomerBatchDto customerBatchDto);
 
     }
 }

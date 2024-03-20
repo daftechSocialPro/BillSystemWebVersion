@@ -70,6 +70,7 @@ namespace IntegratedImplementation.Services.CustomerService
                           meterno = cus.meterno,
                           MeterStartReading= cus.MeterStartReading,
                           Kebele = cus.Kebele,
+                          Ketena = cus.Ketena,
                           BillOfficerId = cus.BillOfficerId,
                           OrdinaryNo = cus.OrdinaryNo,
                           //InstallationDate = cus.InstallationDate,
@@ -403,6 +404,44 @@ namespace IntegratedImplementation.Services.CustomerService
                     Message = ex.Message
                 };
 
+            }
+        }
+
+        public async Task<ResponseMessage> ChangeValueByBatch(CustomerBatchDto customerBatchDto)
+        {
+            try
+            {
+                foreach (var custId in customerBatchDto.SelectedCustomerIds)
+                {
+                    var customer = await _dbCustomerContext.Customers.FindAsync(custId);
+
+                    if (customerBatchDto.ChangeByName.ToLower() == "bankcode" && customer!=null)
+                    {
+                        customer.BankCode = customerBatchDto.ChangedValue;
+                        await _dbCustomerContext.SaveChangesAsync();
+                    }
+                    if (customerBatchDto.ChangeByName.ToLower() == "billsalesgroup" && customer != null)
+                    {
+                        customer.BillOfficerId = customerBatchDto.ChangedValue;
+                        await _dbCustomerContext.SaveChangesAsync();
+                    }
+
+                    
+                }
+                return new ResponseMessage
+                {
+                    Success = true,
+                    Message = $"Customers {customerBatchDto.ChangeByName} Value changed Successfully !!!"
+                };
+
+            }
+            catch(Exception ex)
+            {
+                return new ResponseMessage
+                {
+                    Success = false,
+                    Message = ex.Message
+                };
             }
         }
 
