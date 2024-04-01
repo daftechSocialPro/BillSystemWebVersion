@@ -1,0 +1,86 @@
+<div class="mail-wrapper">
+  <div id="mail-menulist" class="show collapse collapse-horizontal me-2">
+    <div class="mail-menulist">
+      <div class="card">
+        <div class="card-body"> </div>
+        <div class="scroll-block" style="max-height: 350px; overflow-y: scroll">
+          <div class="card-body pt-0">
+            <div class="list-group list-group-flush nav nav-tabs" id="list-tab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="list-group-item list-group-item-action nav-link active"
+                  id="list-mailtab-16"
+                  data-bs-toggle="tab"
+                  href="#list-mail-16"
+                  role="tab"
+                >
+                  <span> Change Meter </span>
+                  <span class="avtar avtar-xs"><i class="ti ti-dashboard"></i></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="list-group-item list-group-item-action nav-link mt-2"
+                  id="list-mailtab-15"
+                  data-bs-toggle="tab"
+                  href="#list-mail-15"
+                  role="tab"
+                >
+                  <span> Disconnect Cust </span>
+                  <span class="avtar avtar-xs"><i class="ti ti-dashboard"></i></span>
+                </a>
+              </li>
+              <a
+                class="list-group-item list-group-item-action mt-2"
+                id="list-mailtab-17"
+                data-bs-toggle="list"
+                href="#list-mail-17"
+                role="tab"
+              >
+                <span> Reconnect Cust </span>
+                <span class="avtar avtar-xs"><i class="ti ti-dashboard"></i></span>
+              </a>
+              <a
+                class="list-group-item list-group-item-action mt-2"
+                id="list-mailtab-18"
+                data-bs-toggle="list"
+                href="#list-mail-18"
+                role="tab"
+              >
+                <span> Terminate Cust </span>
+                <span class="avtar avtar-xs"><i class="ti ti-dashboard"></i></span>
+              </a>
+              <hr class="my-3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mail-content tab-content">
+    <div class="tab-pane fade show active" id="list-mail-16" role="tabpanel" aria-labelledby="list-mailtab-16">
+      <div class="card table-card">
+        <app-change-meter />
+      </div>
+    </div>
+    <div class="tab-pane fade" id="list-mail-15" role="tabpanel" aria-labelledby="list-mailtab-15">
+      <div class="card table-card">
+        <app-disconnect-cust></app-disconnect-cust>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="list-mail-17" role="tabpanel" aria-labelledby="list-mailtab-17">
+      <div class="card table-card">
+        <app-reconnect-cust></app-reconnect-cust>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="list-mail-18" role="tabpanel" aria-labelledby="list-mailtab-18">
+      <div class="card table-card">
+        <app-terminate-cust></app-terminate-cust>
+      </div>
+    </div>
+
+    <!-- Add more tab panes here -->
+  </div>
+</div>
+
