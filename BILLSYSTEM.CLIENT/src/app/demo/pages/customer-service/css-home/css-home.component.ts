@@ -4,6 +4,7 @@ import { ScsDataService } from 'src/app/services/system-control/scs-data.service
 import { ScsSetupService } from 'src/app/services/system-control/scs-setup.service';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
+import { ICustomerHomeData } from 'src/models/customer-service/ICustomerHomeDataDto';
 import { IAccountPeriodDto } from 'src/models/system-control/IAccountPeriod';
 import { ICustomerCategoryDto } from 'src/models/system-control/ICustomerCategoryDto';
 import { IFiscalMonthDto } from 'src/models/system-control/IFiscalMonthDto';
@@ -18,6 +19,7 @@ export class CssHomeComponent  {
   accountPeriod:IAccountPeriodDto
   months:IFiscalMonthDto[]
   monthName:string=""
+  homeDatas : ICustomerHomeData[]
 
   customers: ICustomerDto[]=[]
   customerCategoriess:ICustomerCategoryDto[];
@@ -39,6 +41,7 @@ export class CssHomeComponent  {
     this.getMonths()
     this.getCustomerCategoriess();
     this.fetchCustomerData();
+    this.fetchCustomerHomeData()
 
   }
 
@@ -49,6 +52,15 @@ export class CssHomeComponent  {
       },
     }
     );
+  }
+
+  fetchCustomerHomeData(){
+    this.customerService.getCustomerHomeData().subscribe({
+      next:(res)=>{
+
+        this.homeDatas = res 
+      }
+    })
   }
 
 

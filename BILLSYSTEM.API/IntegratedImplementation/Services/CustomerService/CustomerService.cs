@@ -35,7 +35,7 @@ namespace IntegratedImplementation.Services.CustomerService
         private readonly DBGeneralContext _dbGeneralContext;
 
         private readonly IMapper _mapper;
-        private object _dbContext;
+       
 
         public CustomerService(DBCustomerContext dbCustomerContext, DBGeneralContext dbGeneralContext
            , IMapper mapper)
@@ -70,6 +70,7 @@ namespace IntegratedImplementation.Services.CustomerService
                           meterno = cus.meterno,
                           MeterStartReading= cus.MeterStartReading,
                           Kebele = cus.Kebele,
+                          Ketena = cus.Ketena,
                           BillOfficerId = cus.BillOfficerId,
                           OrdinaryNo = cus.OrdinaryNo,
                           //InstallationDate = cus.InstallationDate,
@@ -111,7 +112,7 @@ namespace IntegratedImplementation.Services.CustomerService
                 var custId = custIds.Max() + 1;
 
                 var InstallationDate = customerPost.InstallationDate;
-                InstallationDate = InstallationDate.AddTicks(-InstallationDate.Ticks % TimeSpan.TicksPerSecond);
+                //InstallationDate = InstallationDate.AddTicks(-InstallationDate.Ticks % TimeSpan.TicksPerSecond);
                 Customer customers = new Customer()
                 {
                     custID = custId.ToString(),
@@ -179,16 +180,23 @@ namespace IntegratedImplementation.Services.CustomerService
 
         public async Task<ResponseMessage> DeleteCustomer(string contractNo)
         {
-            var currentCustomer =  await _dbCustomerContext.Customers.FirstAsync(x=>x.ContractNo==contractNo);
-
-            if (currentCustomer != null)
+            try
             {
+               
+                var currentCustomer = await _dbCustomerContext.Customers.AsNoTracking().Where(x=>x.ContractNo==contractNo).FirstOrDefaultAsync();
 
-                _dbCustomerContext.Remove(currentCustomer);
-                await _dbCustomerContext.SaveChangesAsync();
-                return new ResponseMessage { Message = "Successfully Deleted", Success = true };
+                if (currentCustomer != null)
+                {
+
+                    _dbCustomerContext.Remove(currentCustomer);
+                    await _dbCustomerContext.SaveChangesAsync();
+                    return new ResponseMessage { Message = "Successfully Deleted", Success = true };
+                }
+                return new ResponseMessage { Success = false, Message = "Unable To Find Customer" };
+            }catch(Exception ex)
+            {
+                return new ResponseMessage { Success = false, Message = "Unable To Find Customer" };
             }
-            return new ResponseMessage { Success = false, Message = "Unable To Find Customer" };
 
 
         }
@@ -359,6 +367,82 @@ namespace IntegratedImplementation.Services.CustomerService
 
 
             return customerHomeDatas;
+        }
+
+        public async Task<ResponseMessage> AssignBillOfficerToCustomer(CustomerToBillOfficerDto customerData)
+        {
+            
+            try
+            {
+                var count = 0;
+                foreach(var contractNo in customerData.CustomerContractNos)
+                {
+
+                    var customer = await _dbCustomerContext.Customers.Where(x => x.ContractNo == contractNo).FirstOrDefaultAsync();
+                    if (customer!= null)
+                    {
+                        customer.BillOfficerId = customerData.BillOfficerId;
+                        
+                        await _dbCustomerContext.SaveChangesAsync();
+                        count++;
+                    }
+                }
+
+                return new ResponseMessage
+                {
+                    Success = true, 
+                    Message  = $"{count} Customers tranferd to BillOfficerId {customerData.BillOfficerId} !!!"
+                };
+
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseMessage
+                {
+                    Success = false,
+                    Message = ex.Message
+                };
+
+            }
+        }
+
+        public async Task<ResponseMessage> ChangeValueByBatch(CustomerBatchDto customerBatchDto)
+        {
+            try
+            {
+                foreach (var custId in customerBatchDto.SelectedCustomerIds)
+                {
+                    var customer = await _dbCustomerContext.Customers.FindAsync(custId);
+
+                    if (customerBatchDto.ChangeByName.ToLower() == "bankcode" && customer!=null)
+                    {
+                        customer.BankCode = customerBatchDto.ChangedValue;
+                        await _dbCustomerContext.SaveChangesAsync();
+                    }
+                    if (customerBatchDto.ChangeByName.ToLower() == "billsalesgroup" && customer != null)
+                    {
+                        customer.BillOfficerId = customerBatchDto.ChangedValue;
+                        await _dbCustomerContext.SaveChangesAsync();
+                    }
+
+                    
+                }
+                return new ResponseMessage
+                {
+                    Success = true,
+                    Message = $"Customers {customerBatchDto.ChangeByName} Value changed Successfully !!!"
+                };
+
+            }
+            catch(Exception ex)
+            {
+                return new ResponseMessage
+                {
+                    Success = false,
+                    Message = ex.Message
+                };
+            }
         }
 
         //    public  async  Task<int> GetContractNumber(string kebele, string ketena)

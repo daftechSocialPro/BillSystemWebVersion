@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eyTbZg8AL9rYSfJjfewMoBmGLJ82MxdsLSz6T3evuFhhTofOXGVe5SaaWFm7ftKWX5MAmXAttAtHP1h5tULFmg==",
+  "dgSpecHash": "+Zs+x+89g9ooDn8tJrZPYm8u7O8LNtxsdLJ6s485hP5MUvKDW7f3YBLhlz5Ni5jRbGv72s/Hszj9D2b7sik3vA==",
   "success": true,
   "projectFilePath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danuh\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\danuh\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
+    "C:\\Users\\danuh\\.nuget\\packages\\castle.windsor\\6.0.0\\castle.windsor.6.0.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.9\\microsoft.aspnetcore.cryptography.internal.7.0.9.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.9\\microsoft.aspnetcore.cryptography.keyderivation.7.0.9.nupkg.sha512",
@@ -51,6 +53,7 @@
     "C:\\Users\\danuh\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
+    "C:\\Users\\danuh\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\danuh\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",

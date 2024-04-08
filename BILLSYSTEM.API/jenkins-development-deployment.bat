@@ -3,7 +3,7 @@
 echo "Start deploying app to production server"
 
 set source=%cd%\src
-set destination=C:\inetpub\wwwroot\TeamManagment.API
+set destination=C:\inetpub\wwwroot\BILLSYSTEM.API
 
 IF not exist %destination% (
 mkdir %destination%

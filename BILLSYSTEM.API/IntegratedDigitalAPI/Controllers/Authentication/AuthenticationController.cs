@@ -16,6 +16,8 @@ namespace ERPSystems.Controllers.Authentication
     {
         IAuthenticationService _authenticationService;
 
+        
+
 
 
         public AuthenticationController(IAuthenticationService authenticationService)
@@ -50,6 +52,13 @@ namespace ERPSystems.Controllers.Authentication
            return Ok(await _authenticationService.GetUserList());
         }
 
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public IActionResult Encrypt(string plaintext, string secretKey)
+        {
+            return Ok( _authenticationService.encrypt(plaintext,secretKey));
+        }
         //[HttpGet]
         //[ProducesResponseType(typeof(RoleDropDown), (int)HttpStatusCode.OK)]
         //public async Task<IActionResult> GetRoleCategory()

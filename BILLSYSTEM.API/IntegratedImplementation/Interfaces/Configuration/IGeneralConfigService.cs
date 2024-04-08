@@ -16,6 +16,9 @@ namespace IntegratedImplementation.Interfaces.Configuration
 
         string Encrypt(string plainText);
 
+        string Encrypt(string text, string encryptionKey);
+        string Decrypt(string encryptedText, string encryptionKey);
+
 
     }
 }

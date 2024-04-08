@@ -13,17 +13,17 @@ namespace IntegratedInfrustructure.Model.CSS
     {
         [Key]
         public Guid recordno { get; set; }
-        public int FiscalYear { get; set; }
-        public int monthIndex { get; set; }
+        public int? FiscalYear { get; set; }
+        public int? monthIndex { get; set; }
         public string? custID { get; set; }
         public string? disDate { get; set; }
         public string? typeOfAction { get; set; }
         public string? actionBy { get; set; }
         public string? reason { get; set; }
         public string? enterBy { get; set; }
-        public DateTime enterDate { get; set; }
+        public DateTime? enterDate { get; set; }
         public string? modifyBy { get; set; }
-        public DateTime modifyDate { get; set; }
+        public DateTime? modifyDate { get; set; }
         public string? remark { get; set; }
 
     }

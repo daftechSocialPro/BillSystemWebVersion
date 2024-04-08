@@ -9,6 +9,7 @@ using IntegratedInfrustructure.Model.SCS;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,7 @@ namespace IntegratedImplementation.Services.CustomerService
         {
             try
             {
+         
                 var meterStatus = new CustomerMeterStatus()
                 {
                     custID = customerStatus.CustId,
@@ -45,13 +47,14 @@ namespace IntegratedImplementation.Services.CustomerService
                     reason = customerStatus.Reason,
                     monthIndex = customerStatus.MonthIndex,
                     FiscalYear = customerStatus.FiscalYear,
-                    typeOfAction = customerStatus.TypeOfAction
+                    typeOfAction = customerStatus.TypeOfAction,
+                    enterBy =customerStatus.enterBy
 
 
                 };
 
-                await _dbCustomerContext.AddAsync(meterStatus);
-                await _dbGeneralContext.SaveChangesAsync();
+                await _dbCustomerContext.CustomerMeterStatus.AddAsync(meterStatus);
+                await _dbCustomerContext.SaveChangesAsync();
 
                 return new ResponseMessage()
                 {

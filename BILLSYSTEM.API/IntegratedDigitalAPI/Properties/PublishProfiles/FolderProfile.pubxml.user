@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\BILL_SYSTEM_API</_PublishTargetUrl>
+    <History>True|2024-03-14T12:17:47.3513799Z;True|2024-03-14T15:04:27.8818080+03:00;True|2024-03-14T11:20:36.7571666+03:00;True|2024-03-14T11:15:23.6124615+03:00;True|2024-03-12T17:19:16.9666383+03:00;True|2024-03-11T17:04:01.8120075+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

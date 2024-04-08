@@ -57,8 +57,9 @@ export class CssChangeActionComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.customer);
 
-    this.userview = this.userService.getCurrentUser();
-    this.getCurrentFicalMonth();
+    this.userview= this.userService.getCurrentUser()
+    console.log(this.userview)
+    this.getCurrentFicalMonth()
     if (this.customer) {
       this.getCustMeterHis();
       this.meterStatusForm = this.formBuilder.group({
@@ -103,9 +104,7 @@ export class CssChangeActionComponent implements OnInit {
     });
   }
 
-  onReasonchange() {
-    throw new Error('Method not implemented.');
-  }
+
 
   paginatedCustomer(ginterfces: ICustomerGetDto[]) {
     this.totalRecords = ginterfces.length;
@@ -115,30 +114,65 @@ export class CssChangeActionComponent implements OnInit {
   closeModal() {
     this.activeModal.close();
   }
-  getReasons(value: string) {
-    this.controlService.getGeneralSetting(value).subscribe({
-      next: (res) => {
-        this.SCReasons = res;
-      }
-    });
-  }
-  UpdateMeterStatus() {
-    if (this.meterStatusForm.valid) {
-      var meterStatusPostDto: ICustomerMeterStatusPostDto = {
-        fiscalYear: this.currentMonthYear.fiscalYear,
-        monthIndex: this.currentMonthYear.monthIndex,
-        custId: this.customer.custId,
-        disDate: this.meterStatusForm.value.entryDate,
-        reason: this.meterStatusForm.value.reason,
-        typeOfAction: this.meterStatusForm.value.meterStatus
-      };
+  getReasons(value:string){
 
-      this.customerService.updateCustomerMeterStatus(meterStatusPostDto).subscribe({
-        next: (res) => {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Meter Status Updated Successfully' });
-          this.closeModal();
+
+
+      this.controlService.getGeneralSetting(value).subscribe({
+        next:(res)=>{
+          this.SCReasons = res
         }
-      });
-    }
+      })
+
   }
+  UpdateMeterStatus(){
+    if (this.meterStatusForm.valid) {
+
+      var typeOfAction = ''
+      if(this.meterStatusForm.value.meterStatus==='DISCONNETREASON'){
+        typeOfAction= 'DISCONNECT'
+      }
+      if(this.meterStatusForm.value.meterStatus==='METERTERMINATEREASON'){
+        typeOfAction= 'TERMINATE'
+      }
+      if(this.meterStatusForm.value.meterStatus==='RECONNECTREASON'){
+        typeOfAction= 'RECONNECT'
+      }
+
+      var meterStatusPostDto:ICustomerMeterStatusPostDto ={
+
+        fiscalYear : this.currentMonthYear.fiscalYear,
+        monthIndex : this.currentMonthYear.monthIndex,
+        custId : this.customer.custId,
+        disDate:this.meterStatusForm.value.entryDate,
+        reason: this.meterStatusForm.value.reason,
+        typeOfAction : typeOfAction,
+        enterBy:this.userview.userId
+      }
+    };
+  }
+  // UpdateMeterStatus() {
+  //   if (this.meterStatusForm.valid) {
+  //     var meterStatusPostDto: ICustomerMeterStatusPostDto = {
+  //       fiscalYear: this.currentMonthYear.fiscalYear,
+  //       monthIndex: this.currentMonthYear.monthIndex,
+  //       custId: this.customer.custId,
+  //       disDate: this.meterStatusForm.value.entryDate,
+  //       reason: this.meterStatusForm.value.reason,
+  //       typeOfAction: this.meterStatusForm.value.meterStatus
+  //     };
+
+  //     this.customerService.updateCustomerMeterStatus(meterStatusPostDto).subscribe({
+  //       next:((res)=>{
+  //         this.messageService.add({ severity:'success', summary: 'Success', detail: 'Meter Status Updated Successfully' });
+  //         this.getCustMeterHis();
+  //       })
+  //     })
+
+
+
+
+
+  // }}
+
 }

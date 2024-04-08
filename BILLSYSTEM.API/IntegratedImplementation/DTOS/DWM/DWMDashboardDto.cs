@@ -37,7 +37,7 @@ namespace IntegratedImplementation.DTOS.DWM
 
     public class AnnuallyConsumptionDto
     {
-        public int? Consumption { get; set; }
+        public double? Consumption { get; set; }
         public string Month_Name { get; set; }
         public int? FiscalYear { get; set; }
 

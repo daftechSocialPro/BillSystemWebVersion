@@ -94,8 +94,8 @@ export class ScsDetailPermissionComponent implements OnInit {
   }
 
   toggleSelectAll() {
-    // this.selected = !this.selected;
-    // this.filterdPermissions.forEach(permission => (permission.selected = this.selected));
+    this.selected = !this.selected;
+    this.filterdPermissions.forEach(permission => (permission.selected = this.selected));
   }
 
   togglePermission(recId: string, permissionId: string, value: any): void {

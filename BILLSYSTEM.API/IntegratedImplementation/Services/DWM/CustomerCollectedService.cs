@@ -49,25 +49,26 @@ namespace IntegratedImplementation.Services.DWM
             var query = from b in _dbCustomerContext.BillMobileData
                         join u in _dbCustomerContext.MobileUsers on b.readingBY equals u.userName
                         join c in _dbCustomerContext.Customers on b.custId equals c.custID
-                        where c.ReaderName == userName
+                        where c.ReaderName == userName 
                         
                         select new CustomerCollectedDto
                         {
                             CustomerName = b.customerName,
                             MeterNo = b.meterno,
                             CustId = b.custId,
-                            ReadingPrev = b.readingPrev,
-                            ReadingCurrent = b.readingCurrent,
-                            ReadingAvg = b.readingAvg,
-                            ReadingImage = b.Reading_Image,
-                            Consumption = b.readingCurrent - b.readingPrev,
+                            ReadingPrev = (double)b.readingPrev,
+                            ReadingCurrent = (double)b.readingCurrent,
+                            ReadingAvg = (double)b.readingAvg,
+                            Consumption =(double)(b.readingCurrent - b.readingPrev),
+                            ReadingImage =b.Reading_Image,
+                            //Consumption = (double)(b.readingCurrent - b.readingPrev),
                             ReadingReasonCode = b.readingReasonCode,
                             FullName = u.fullName,
                             UserName = u.userName,
                             EntryDT = b.EntryDT,
                             ReadingDT = DateTime.Parse(b.readingDT),
-                            Latitude = b.xCoord / 1000000.0,
-                            Longitude = b.yCoord / 1000000.0,
+                            Latitude = b.xCoord!=null? b.xCoord / 1000000.0:0.0,
+                            Longitude = b.yCoord!=null? b.yCoord / 1000000.0:0.0,
                             ContractNo = c.ContractNo
                         };
 

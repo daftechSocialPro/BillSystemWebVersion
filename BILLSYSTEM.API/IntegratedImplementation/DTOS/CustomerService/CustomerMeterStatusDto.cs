@@ -10,13 +10,14 @@ namespace IntegratedImplementation.DTOS.CustomerService
     {
 
 
-        public int FiscalYear { get; set; }
-        public int monthIndex { get; set; }
+        public int? FiscalYear { get; set; }
+        public int? monthIndex { get; set; }
 
         public string? typeOfAction { get;set; }
         public string? reason { get; set; }
 
         public DateTime? enterDate { get; set; }
+        public string disDate { get; set; }
     
 
     }
@@ -27,6 +28,8 @@ public class CustomerMeterStatusPostDto
             public string TypeOfAction { get; set; }
             public string Reason { get; set; }
             public DateTime DisDate { get; set; }
+
+        public string enterBy { get; set; }
             public string CustId { get; set; }
         }
     

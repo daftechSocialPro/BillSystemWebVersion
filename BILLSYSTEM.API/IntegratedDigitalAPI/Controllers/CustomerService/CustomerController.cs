@@ -40,6 +40,14 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             return Ok(await _customerService.AddCustomer(customerPost));
         }
 
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> ChangeValueByBatch(CustomerBatchDto customerBatchDto)
+        {
+            return Ok(await _customerService.ChangeValueByBatch(customerBatchDto));
+        }
+
+
 
         [HttpGet]
         [ProducesResponseType(typeof(CustomerGetDto), (int)HttpStatusCode.OK)]
@@ -82,6 +90,20 @@ namespace IntegratedDigitalAPI.Controllers.CustomerService
             return Ok(await _customerService.GetCustomerHomeData());
         }
 
+
+        [HttpPut]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateCustomerBillOfficerId(CustomerToBillOfficerDto updateCustomer)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(await _customerService.AssignBillOfficerToCustomer(updateCustomer));
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
 
     }
 }

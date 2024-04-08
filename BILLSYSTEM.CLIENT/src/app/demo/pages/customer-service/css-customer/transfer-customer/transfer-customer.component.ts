@@ -7,6 +7,7 @@ import { ScsMaintainService } from 'src/app/services/system-control/scs-maintain
 import { SelectList } from 'src/models/ResponseMessage.Model';
 import { ICustomerDto } from 'src/models/customer-service/ICustomerDto';
 import { ICustomerGetDto } from 'src/models/customer-service/ICustomerGetDto';
+import { CustomerBillOfficerDto } from 'src/models/customer-service/ICustomerHomeDataDto';
 import { IBillSectionDto } from 'src/models/system-control/IBillSectionDto';
 import { IKebelesDto } from 'src/models/system-control/IKebelesDto';
 import { IKetenaDto } from 'src/models/system-control/IKetenaDto';
@@ -19,7 +20,7 @@ import { IKetenaDto } from 'src/models/system-control/IKetenaDto';
 export class CssTransferCustomerComponent implements OnInit {
   @Input() Customer: ICustomerDto[];
   paginationCustomer: ICustomerDto[] = [];
-  filter: ICustomerGetDto[] = [];
+  filteredCustomer: ICustomerDto[] = [];
   ketenas: IKetenaDto[];
   kebeles: IKebelesDto[];
   billOfficer: SelectList[];
@@ -28,6 +29,10 @@ export class CssTransferCustomerComponent implements OnInit {
   first: number = 0;
   rows: number = 5;
   selected: boolean = false;
+  selectedBillOfficer: string = ''
+
+
+  selectedCustomers :string[]=[]
 
 
   constructor(
@@ -37,7 +42,7 @@ export class CssTransferCustomerComponent implements OnInit {
     private controlService: ScsDataService,
     private customerService: CssCustomerService,
     private maintainService: ScsMaintainService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // this.getCustomerForTransfer();
@@ -50,6 +55,7 @@ export class CssTransferCustomerComponent implements OnInit {
     this.customerService.getCustomer().subscribe({
       next: (res) => {
         this.Customer = res;
+
         this.paginatedCustomer(this.Customer);
       }
     });
@@ -129,22 +135,107 @@ export class CssTransferCustomerComponent implements OnInit {
   }
 
   toggleSelectAll() {
-    // this.selected = !this.selected;
+    this.selected = !this.selected;
+    this.paginationCustomer.forEach((record) => {
+      record.selected = this.selected;
+      var inp= {checked:this.selected}
+      this.toggleContractNo(record.contractNo ,inp)
+    });
     // this.filteredPermissions.forEach(permission => (permission.selected = this.selected));
   }
 
-  filterCustomer() {
-    // if (this.searchText.trim() === '') {
-    //   this.filter = this.Customer;
-    // } else {
-    //   this.filter = this.Customer.filter(
-    //     (item) =>
-    //       item.customerName.toLowerCase().includes(this.searchText.toLowerCase()) ||
-    //       item.kebele.toLowerCase().includes(this.searchText.toLowerCase())
-    //   );
-    // }
-    // this.first = 0;
-    // this.onPageChange({ first: this.first, rows: this.rows }, this.filter);
+
+  
+  toggleContractNo(contractNo: string ,value: any): void {
+    if (value.checked) {
+ 
+
+      // Add the permission to userPermissions
+      this.selectedCustomers.push(contractNo);
+      console.log(this.selectedCustomers)
+
+    
+    } else {
+      // Remove the permission from userPermissions
+      this.selectedCustomers = this.selectedCustomers.filter((item) => item !== contractNo);
+
+      console.log(this.selectedCustomers)
+
+      
+    }
+  }
+
+  isContractNoSelected(contractNo: string): boolean {
+   
+    return this.selectedCustomers.some((item) => item === contractNo);
+  }
+
+  transferCustomer (){
+
+    if (this.selectedCustomers.length==0){
+      this.messageService.add({severity:'error',summary:'Verfication Failed !!!', detail:'No Customer Where Selected !!!'})
+     return
+    }
+
+
+    var billOfficerCustomerDto : CustomerBillOfficerDto ={
+      billOfficerId : this.selectedBillOfficer,
+      customerContractNos :this.selectedCustomers
+    }
+
+    
+    this.customerService.updateCustomerBillOfficerId(billOfficerCustomerDto).subscribe({
+      next:(res)=>{
+        if (res.success){
+          this.messageService.add({severity:'success',summary:'Customer Transferd!!!', detail:res.message})
+          this.getCustomers()
+    
+        }
+        else {
+          this.messageService.add({severity:'error',summary:'Something Went Wrong !!!', detail:res.message})
+    
+        }
+      },error:(err)=>{
+        this.messageService.add({severity:'error',summary:'Something Went Wrong !!!', detail:err.message})
+      }
+    })
+    
+
+
+  }
+
+
+
+
+
+  filterCustomerByBillOfficer(){
+    this.filteredCustomer = this.Customer.filter((item) => {
+      return (item.billOfficerId != this.selectedBillOfficer)
+    })
+    this.paginatedCustomer(this.filteredCustomer)
+  }
+
+
+
+
+
+  filterCustomer(value: string) {
+
+    this.filteredCustomer = this.Customer.filter((item) => {
+      return (item.kebele == value)
+    })
+
+    if (this.searchText != '') {
+      this.filteredCustomer = this.filteredCustomer.filter((item) => {
+        return (item.customerName.toLowerCase().includes(this.searchText.toLowerCase()))
+      })
+    }
+
+
+    this.paginatedCustomer(this.filteredCustomer)
+
+
+
   }
 
   onPageChange(event: any, gInterfaces?: ICustomerDto[]) {

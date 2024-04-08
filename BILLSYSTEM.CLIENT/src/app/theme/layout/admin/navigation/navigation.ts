@@ -17,23 +17,23 @@ export interface Navigation extends NavigationItem {
   children?: NavigationItem[];
 }
 const NavigationItems = [
-  {
-    id: 'dashboard',
-    title: 'Dashboard',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'default',
-        title: 'Default',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/default',
-        icon: 'ti ti-dashboard',
-        breadcrumbs: false
-      }
-    ]
-  },
+  // {
+  //   id: 'dashboard',
+  //   title: 'Dashboard',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'default',
+  //       title: 'Default',
+  //       type: 'item',
+  //       classes: 'nav-item',
+  //       url: '/default',
+  //       icon: 'ti ti-dashboard',
+  //       breadcrumbs: false
+  //     }
+  //   ]
+  // },
   {
     id: 'page2',
     title: 'Bill System',
@@ -198,37 +198,37 @@ const NavigationItems = [
     ]
   },
   
-  {
-    id: 'page',
-    title: 'Configuration',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'Authentication',
-        title: 'System Users',
-        type: 'collapse',
-        icon: 'ti ti-user',
-        children: [
-          {
-            id: 'employee',
-            title: 'Employees',
-            type: 'item',
-            url: '/employees',        
-            breadcrumbs: false
-          },
-          {
-            id: 'user',
-            title: 'Users',
-            type: 'item',
-            url: '/users',
+  // {
+  //   id: 'page',
+  //   title: 'Configuration',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'Authentication',
+  //       title: 'System Users',
+  //       type: 'collapse',
+  //       icon: 'ti ti-user',
+  //       children: [
+  //         {
+  //           id: 'employee',
+  //           title: 'Employees',
+  //           type: 'item',
+  //           url: '/employees',        
+  //           breadcrumbs: false
+  //         },
+  //         {
+  //           id: 'user',
+  //           title: 'Users',
+  //           type: 'item',
+  //           url: '/users',
           
-            breadcrumbs: false
-          }
-        ]
-      }
-    ]
-  },
+  //           breadcrumbs: false
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // },
  
  
 ];

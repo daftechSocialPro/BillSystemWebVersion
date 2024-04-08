@@ -28,9 +28,15 @@ namespace IntegratedInfrustructure.Data
         public DbSet<BillToMobileView> BillToMobile { get; set; }
         public DbSet<BillMobileData> BillMobileData { get; set; }
 
+        public DbSet<TEST_DISCONNECT> TEST_DISCONNECTS { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            modelBuilder.Entity<TEST_DISCONNECT>().ToView("TEST_DISCONNECT");
 
-        
+           
+        }
 
 
 

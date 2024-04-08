@@ -34,7 +34,7 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public int? MeterDigit { get; set; }
         public string? MeterCountryOrigin { get; set; }
         public string? MeterModel { get; set; }
-        public DateTime     InstallationDate { get; set; }
+        public DateTime?     InstallationDate { get; set; }
         public int ?      MeterStartReading { get; set; }
         public float? MeterAltitude { get; set; }
         public float? MeterLongitude { get; set; }
@@ -156,14 +156,14 @@ namespace IntegratedImplementation.DTOS.CustomerService
         public string MeterSize { get; set; }      
         public DateTime InstallationDate { get; set; }       
         public bool? UpdateInitial { get; set; }      
-        public int StartReading { get; set; }
+        public int? StartReading { get; set; }
 
-        public string SweragePaid { get; set; }
+        public string? SweragePaid { get; set; }
 
-        public int MonthIndex { get; set; }
-        public int FiscalYear { get; set; }
+        public int? MonthIndex { get; set; }
+        public int? FiscalYear { get; set; }
 
-        public string Reason { get; set; }
+     
     }
 
     //public record CustomerGetForBatchReccordDto

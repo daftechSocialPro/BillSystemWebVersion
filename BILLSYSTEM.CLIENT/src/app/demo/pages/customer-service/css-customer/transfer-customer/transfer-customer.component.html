@@ -16,9 +16,9 @@
       </div>
       <div class="col-md-4 p-1">
         <div class="form-floating mb-3">
-          <select class="form-control" id="floatingInput" #search (change)="filterCustomer()">
+          <select class="form-control" id="floatingInput" #search (change)="filterCustomer(search.value)">
             <option value="">Select kebele</option>
-            <option *ngFor="let item of kebeles" value="item.kebeleCode">
+            <option *ngFor="let item of kebeles" [value]="item.kebeleCode">
               {{ item.kebeleName }}
             </option>
           </select>
@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4 p-1">
         <div class="form-floating mb-1">
-          <select class="form-control" id="floatingInput" #biloff>
+          <select class="form-control" id="floatingInput" #biloff [(ngModel)]="selectedBillOfficer" (change)="filterCustomerByBillOfficer()">
             <option value="">Select billOfficer</option>
             <option *ngFor="let item of billOfficer" [value]="item.empId"> {{ item.name }}</option>
           </select>
@@ -45,8 +45,8 @@
               type="text"
               class="form-control focus-green"
               #search
-              (ngModel)="(searchText)"
-              (input)="filterCustomer()"
+              [(ngModel)]="searchText"
+              (input)="filterCustomer(search.value)"              
               placeholder="Search by Name ..."
             />
             <span class="input-group-text bg-light">
@@ -60,7 +60,7 @@
           <thead>
             <tr>
               <th
-                ><input type="checkbox" (ngModel)="(selected)" (change)="toggleSelectAll()" /> <label for="selectAll">Select All</label></th
+                ><input type="checkbox" (ngModel)="selected" (change)="toggleSelectAll()" /> <label for="selectAll">Select All</label></th
               >
               <th>Contract Number </th>
               <th>Customer Name</th>
@@ -74,7 +74,13 @@
           <tbody *ngIf="paginationCustomer.length > 0; else noResults">
             <tr *ngFor="let item of paginationCustomer; let i = index">
               <td>
-                <input type="checkbox" />
+                <input type="checkbox"
+                [id]="item.contractNo"
+                
+                [checked]="item.selected"
+                (change)="toggleContractNo(item.contractNo,$event.target)"
+
+                />
                 <!-- <input
                 type="checkbox"
                 [id]=""
@@ -87,7 +93,7 @@
               <td>{{ item.kebele }} </td>
               <td>{{ item.custCategoryCode }}</td>
               <td>{{ item.meterStartReading }}</td>
-              <td>{{ biloff.value }}</td>
+              <td>{{ selectedBillOfficer }}</td>
               <td>{{ item.transferDT }}</td>
             </tr>
           </tbody>
@@ -108,7 +114,7 @@
         </div>
       </div>
       <div class="col-lg-15 p-2 modal-footer">
-        <button type="submit" class="btn btn-outline-success">Transfer Customer</button>
+        <button  class="btn btn-outline-success" (click)="transferCustomer()">Transfer Customer</button>
       </div>
     </div>
   </div>

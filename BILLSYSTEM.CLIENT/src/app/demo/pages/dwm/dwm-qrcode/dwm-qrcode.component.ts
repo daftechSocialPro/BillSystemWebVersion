@@ -32,6 +32,8 @@ export class DwmQrcodeComponent implements OnInit {
 
   selectAll: boolean = false;
 
+  filterBy:string = ''
+
 // Method to select or deselect all items
 
   constructor(private modalService : NgbModal,
@@ -56,7 +58,8 @@ export class DwmQrcodeComponent implements OnInit {
       this.filterdInterface = this.Customer;
     } else {
       this.filterdInterface = this.Customer.filter((item) =>
-        item.customerName.toLowerCase().includes(this.searchText.toLowerCase())
+        item.customerName.toLowerCase().includes(this.searchText.toLowerCase())||
+        item.contractNo.toLowerCase().includes(this.searchText.toLowerCase())
       );
     }
     this.first=0;
@@ -171,4 +174,7 @@ export class DwmQrcodeComponent implements OnInit {
     return 
 
   }
+
+
+ 
 }

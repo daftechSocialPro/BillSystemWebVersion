@@ -14,5 +14,6 @@ export interface ICustomerMeterStatusPostDto {
   typeOfAction: string;
   reason: string;
   disDate: Date;
+  enterBy:string 
   custId : string
 }
