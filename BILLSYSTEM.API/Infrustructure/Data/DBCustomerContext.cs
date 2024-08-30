@@ -30,6 +30,8 @@ namespace IntegratedInfrustructure.Data
 
         public DbSet<TEST_DISCONNECT> TEST_DISCONNECTS { get; set; }
 
+        public DbSet<BillGenerate> billGenerate { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             

@@ -36,9 +36,9 @@ namespace IntegratedDigitalAPI.Controllers.DWM
         }
         [HttpPost]
         [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> InsertMobileAppReading(string year , string month , string ? kebele)
+        public async Task<IActionResult> InsertMobileAppReading(string year , string month , string ? kebele, string? village)
         {
-            return Ok(await _mobileAppReadingService.InsertMobileAppReading(month,year,kebele));
+            return Ok(await _mobileAppReadingService.InsertMobileAppReading(month,year,kebele, village));
         }
 
         [HttpDelete]
@@ -46,6 +46,16 @@ namespace IntegratedDigitalAPI.Controllers.DWM
         public async Task<IActionResult> ClearScript()
         {
             return Ok(await _mobileAppReadingService.ClearScript());
+        }
+
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseMessage), (int)HttpStatusCode.OK)]
+
+        public async Task<IActionResult> CalculateAverage()
+        {
+
+            return Ok(await _mobileAppReadingService.CalculateAverage());
         }
     }
 }

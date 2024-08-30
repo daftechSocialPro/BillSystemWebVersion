@@ -11,6 +11,7 @@ using Microsoft.Azure.Management.Graph.RBAC.Fluent.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -47,17 +48,17 @@ namespace IntegratedImplementation.Services.DWM
                 if (readerCridential.Count() > 0)
                 {
                     MobileUsers incomingUser = readerCridential.FirstOrDefault();
-                    List<MobileUsers> usersFromDb = _dbContext.MobileUsers.Where(e => e.userName == incomingUser.userName && e.passWord == incomingUser.passWord && e.role == "Reader" && (e.imei1 == incomingUser.imei1 || e.imei2 == incomingUser.imei2)).ToList();
-                    if (usersFromDb.Count() > 0)
+                    MobileUsers usersFromDb = _dbContext.MobileUsers.Where(e => e.userName == incomingUser.userName && e.passWord == incomingUser.passWord && e.role == "Reader").FirstOrDefault();
+                    if (usersFromDb != null)
                     {
-                        response.userName = usersFromDb.FirstOrDefault().userName;
-                        response.passWord = usersFromDb.FirstOrDefault().passWord;
-                        response.fullName = usersFromDb.FirstOrDefault().fullName;
-                        response.role = usersFromDb.FirstOrDefault().role;
-                        response.image = imageTobasse64("~/UI_Assets/img/" + usersFromDb.FirstOrDefault().imagePath);
-                        response.phone = usersFromDb.FirstOrDefault().phone;
-                        response.Kebele = usersFromDb.FirstOrDefault().Kebele;
-                        response.Ketena = usersFromDb.FirstOrDefault().Ketena;
+                        response.userName = usersFromDb.userName;
+                        response.passWord = usersFromDb.passWord;
+                        response.fullName = usersFromDb.fullName;
+                        response.role = usersFromDb.role;
+                        response.image = imageTobasse64("~/UI_Assets/img/" + usersFromDb.imagePath);
+                        response.phone = usersFromDb.phone;
+                        response.Kebele = usersFromDb.Kebele;
+                        response.Ketena = usersFromDb.Ketena;
                         response.IsSuccess = "1";
                         response.Reason = "Update Successfull";
                         responses.Add(response);
@@ -132,17 +133,19 @@ namespace IntegratedImplementation.Services.DWM
                 if (readerCridential.Count() > 0)
                 {
                     MobileUsers incomingUser = readerCridential.FirstOrDefault();
-                    List<MobileUsers> usersFromDb = _dbContext.MobileUsers.Where(e => e.userName == incomingUser.userName && e.passWord == incomingUser.passWord && e.role != "Reader" && (e.imei1 == incomingUser.imei1 || e.imei2 == incomingUser.imei2)).ToList();
-                    if (usersFromDb.Count() > 0)
+                    MobileUsers usersFromDb = _dbContext.MobileUsers.Where(e => e.userName == incomingUser.userName && e.passWord == incomingUser.passWord && e.role != "Reader"
+
+                    ).FirstOrDefault();
+                    if (usersFromDb != null)
                     {
-                        response.userName = usersFromDb.FirstOrDefault().userName;
-                        response.passWord = usersFromDb.FirstOrDefault().passWord;
-                        response.fullName = usersFromDb.FirstOrDefault().fullName;
-                        response.role = usersFromDb.FirstOrDefault().role;
+                        response.userName = usersFromDb.userName;
+                        response.passWord = usersFromDb.passWord;
+                        response.fullName = usersFromDb.fullName;
+                        response.role = usersFromDb.role;
                         response.image = "";
-                        response.phone = usersFromDb.FirstOrDefault().phone;
-                        response.Kebele = usersFromDb.FirstOrDefault().Kebele;
-                        response.Ketena = usersFromDb.FirstOrDefault().Ketena;
+                        response.phone = usersFromDb.phone;
+                        response.Kebele = usersFromDb.Kebele;
+                        response.Ketena = usersFromDb.Ketena;
                         response.IsSuccess = "1";
                         response.Reason = "Update Successfull";
                         responses.Add(response);
@@ -228,49 +231,53 @@ namespace IntegratedImplementation.Services.DWM
             try
             {
                 MobileUsers incomingUser = readerCredentials;
-                List<MobileUsers> usersFromDb = _dbContext.MobileUsers.Where(e => e.userName == incomingUser.userName && e.passWord == incomingUser.passWord && (e.imei1 == incomingUser.imei1 || e.imei2 == incomingUser.imei2)).ToList();
+                List<MobileUsers> usersFromDb = _dbContext.MobileUsers.Where(e => e.userName == incomingUser.userName && e.passWord == incomingUser.passWord
+                //(e.imei1 == incomingUser.imei1 || e.imei2 == incomingUser.imei2)
+                ).ToList();
 
                 if (usersFromDb.Count() > 0)
                 {
-                    results = _dbContext.MobileAppReadings
-                        .Where(x => x.fiscalYear.ToString() == incomingUser.fiscalYear && x.monthindex.ToString() == incomingUser.monthIndex && x.ReaderName == incomingUser.userName)
-                        .Select(x => new ImportExportDto
-                        {
-                            custID = x.custId,
-                            custCategoryCode = x.custCategoryCode,
-                            MeterSizeCode = x.MeterSizeCode,
-                            Ketena = x.Ketena,
-                            Village = x.Village,
-                            BookNo = x.BookNo,
-                            sdPaid = x.sdPaid,
-                            MeterStatus = x.MeterStatus,
-                            ReaderName = x.ReaderName,
-                            Mobile = x.Mobile,
-                            ContractNo = x.ContractNo,
-                            customerName = x.customerName,
-                            Kebele = x.Kebele,
-                            HouseNo = x.HouseNo,
-                            OrdinaryNo = x.OrdinaryNo,
-                            regFiscalYear = x.regFiscalYear,
-                            regMonthIndex = x.regMonthIndex,
-                            CustomerCategory = x.CustomerCategory,
-                            meterno = x.meterno,
-                            MeterSize = x.MeterSize,
-                            MeterAltitude = x.MeterAltitude,
-                            MeterLongitude = x.MeterLongitude,
-                            BillOfficerId = x.BillOfficerId,
-                            PrevReading = x.PrevReading,
-                            CurrentReading = x.CurrentReading,
-                            fiscalYear = x.fiscalYear,
-                            monthIndex = x.monthindex,
-                            prevTotalCost = x.PrevTotalCost,
-                            Month = x.month,
-                            monthnamelocal = x.monthnamelocal,
-                            avgReading = GetAverageConsumption(x.custId, x.fiscalYear, x.monthindex, _configuration),
-                            IsSuccess = "1",
-                            Reason = "Success",
-                            prevNoMth = x.prevNoMth
-                        }).ToList();
+
+
+                    return results = _dbContext.MobileAppReadings
+                          .Where(x => x.fiscalYear.ToString() == incomingUser.fiscalYear && x.monthindex.ToString() == incomingUser.monthIndex && x.ReaderName == incomingUser.userName)
+                          .Select(x => new ImportExportDto
+                          {
+                              custID = x.custId,
+                              custCategoryCode = x.custCategoryCode,
+                              MeterSizeCode = x.MeterSizeCode,
+                              Ketena = x.Ketena,
+                              Village = x.Village,
+                              BookNo = x.BookNo,
+                              sdPaid = x.sdPaid,
+                              MeterStatus = x.MeterStatus,
+                              ReaderName = x.ReaderName,
+                              Mobile = x.Mobile!=null?x.Mobile:"",
+                              ContractNo = x.ContractNo,
+                              customerName = x.customerName,
+                              Kebele = x.Kebele,
+                              HouseNo = x.HouseNo,
+                              OrdinaryNo = x.OrdinaryNo,
+                              regFiscalYear = x.regFiscalYear,
+                              regMonthIndex = x.regMonthIndex,
+                              CustomerCategory = x.CustomerCategory,
+                              meterno = x.meterno,
+                              MeterSize = x.MeterSize,
+                              MeterAltitude = x.MeterAltitude,
+                              MeterLongitude = x.MeterLongitude,
+                              BillOfficerId = x.BillOfficerId,
+                              PrevReading = x.PrevReading,
+                              CurrentReading = x.CurrentReading,
+                              fiscalYear = x.fiscalYear,
+                              monthIndex = x.monthindex,
+                              prevTotalCost = x.PrevTotalCost!=null?x.PrevTotalCost:0.0,
+                              Month = x.month,
+                              monthnamelocal = x.monthnamelocal,
+                              avgReading = x.AvgReading,
+                              IsSuccess = "1",
+                              Reason = "Success",
+                              prevNoMth = x.prevNoMth
+                          }).AsNoTracking().ToList();
                 }
                 else
                 {
@@ -292,41 +299,7 @@ namespace IntegratedImplementation.Services.DWM
 
             return results;
         }
-
-        public static float GetAverageConsumption(string custId, int? fiscalYear, int? monthIndex, IConfiguration configuration)
-        {
-            float avgCons = 0;
-
-            try
-            {
-                var connectionString = configuration.GetConnectionString("SqlConnectionCustomer");
-
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    using (var command = new SqlCommand("SELECT AVG(readingCons) FROM [dbo].billGenerate WHERE custID = @custid AND fiscalYear <= @fiscalyear AND monthIndex <= @monthindex AND billStatus != 'VOID' AND readingCons > 0", connection))
-                    {
-                        command.Parameters.AddWithValue("@custid", custId);
-                        command.Parameters.AddWithValue("@fiscalyear", fiscalYear);
-                        command.Parameters.AddWithValue("@monthindex", monthIndex);
-
-                        object result = command.ExecuteScalar();
-                        if (result != DBNull.Value)
-                        {
-                            avgCons = Convert.ToSingle(result);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log or handle the exception
-                throw;
-            }
-
-            return avgCons;
-        }
+             
 
         public List<TEST_DISCONNECT> ImportDisconnected(MobileUsers readerCredential)
         {
@@ -373,34 +346,38 @@ namespace IntegratedImplementation.Services.DWM
                     BillMobileData singleBill = new BillMobileData();
                     ImportResponse singleResponse = new ImportResponse();
                     singleBill.recordno = Guid.NewGuid();
-                    singleBill.custId = bill.custID;
-                    singleBill.fiscalYear = bill.fiscalYear!=null? Int32.Parse( bill.fiscalYear):0;
-                    singleBill.monthIndex = bill.monthIndex != null ? Int32.Parse(bill.monthIndex) : 0;
-                    singleBill.meterno = bill.meterno;
-                    singleBill.readingPrev = bill.readingPrev != null ? Int32.Parse(bill.readingPrev) : 0;
-                    singleBill.readingCurrent = bill.readingCurrent != null ? Int32.Parse(bill.readingCurrent) : 0;
-                    singleBill.readingCons = bill.readingCons != null ? Int32.Parse(bill.readingCons) : 0;
-                    singleBill.readingReasonCode = bill.readingReasonCode;
-                    singleBill.readingBY = bill.readingBY;
-                    singleBill.readingDT = bill.readingDT;
-                    singleBill.xCoord = bill.xCoord != null ? double.Parse(bill.xCoord) : 0;
-                    singleBill.yCoord = bill.yCoord != null ? double.Parse(bill.yCoord) : 0;
-                    singleBill.customerName = bill.customerName ;
-                    singleBill.readingAvg = bill.readingAvg != null ? Int32.Parse(bill.readingAvg) : 0;
+                    singleBill.custId = bill.custID != null ? bill.custID : "";
+                    singleBill.fiscalYear = int.Parse(bill.fiscalYear ?? "0");
+                    singleBill.monthIndex = int.Parse(bill.monthIndex ?? "0");
+                    singleBill.meterno = bill.meterno ?? "";
+                    singleBill.readingPrev = (int)Math.Round(decimal.Parse(bill.readingPrev ?? "0"));
+                    singleBill.readingCurrent = (int)Math.Round(decimal.Parse(bill.readingCurrent ?? "0"));
+                    singleBill.readingCons = (int)Math.Round(decimal.Parse(bill.readingCons ?? "0"));
+                    singleBill.readingReasonCode = bill.readingReasonCode ?? "";
+                    singleBill.readingBY = bill.readingBY ?? "";
+                    singleBill.readingDT = bill.readingDT ?? "";
+                    singleBill.xCoord = double.Parse(bill.xCoord ?? "0");
+                    singleBill.yCoord = double.Parse(bill.yCoord ?? "0");
+                    singleBill.customerName = bill.customerName ?? "";
+                    singleBill.readingAvg = (int)Math.Round(decimal.Parse(bill.readingAvg ?? "0"));
+
                     singleBill.EntryDT = DateTime.Now;
-                    singleBill.Reading_Image = bill.ReadingImage;
+                    singleBill.Reading_Image = bill.ReadingImage != null ? bill.ReadingImage : "";
                     _dbContext.BillMobileData.Add(singleBill);
 
                     Customer eachCust = new Customer();
                     eachCust = _dbContext.Customers.Where(e => e.custID == bill.custID).FirstOrDefault();
-                    eachCust.MeterAltitude = bill.xCoord != null ? double.Parse(bill.xCoord) : 0;
-                    eachCust.MeterLongitude = bill.yCoord !=null ? double.Parse(bill.yCoord) :0;
-                    _dbContext.Entry(eachCust).State = EntityState.Modified;
-                    _dbContext.SaveChanges();
+                    if (eachCust != null)
+                    {
+                        eachCust.MeterAltitude = bill.xCoord != null ? double.Parse(bill.xCoord) : 0;
+                        eachCust.MeterLongitude = bill.yCoord != null ? double.Parse(bill.yCoord) : 0;
+                        _dbContext.Entry(eachCust).State = EntityState.Modified;
+                        _dbContext.SaveChanges();
+                    }
 
-                    singleResponse.ContractNo = bill.ContractNo;
-                    singleResponse.meterno = bill.meterno;
-                    singleResponse.custID = bill.custID;
+                    singleResponse.ContractNo = bill.ContractNo ?? "";
+                    singleResponse.meterno = bill.meterno ?? "";
+                    singleResponse.custID = bill.custID ?? "";
                     singleResponse.IsSuccess = "1";
                     singleResponse.Reason = "Success";
                     importResponses.Add(singleResponse);
@@ -435,8 +412,8 @@ namespace IntegratedImplementation.Services.DWM
                     ImportExportDto singleResponse = new ImportExportDto();
                     Customer eachCust = new Customer();
                     eachCust = _dbContext.Customers.Where(e => e.custID == bill.custID).FirstOrDefault();
-                    eachCust.MeterAltitude = bill.xCoord!=null ? double.Parse(bill.xCoord):0;
-                    eachCust.MeterLongitude = bill.yCoord!=null ? double.Parse(bill.yCoord):0;
+                    eachCust.MeterAltitude = bill.xCoord != null ? double.Parse(bill.xCoord) : 0;
+                    eachCust.MeterLongitude = bill.yCoord != null ? double.Parse(bill.yCoord) : 0;
                     _dbContext.Entry(eachCust).State = EntityState.Modified;
                     singleResponse.ContractNo = bill.ContractNo;
                     singleResponse.meterno = bill.meterno;

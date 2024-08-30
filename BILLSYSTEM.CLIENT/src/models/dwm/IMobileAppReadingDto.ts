@@ -11,3 +11,9 @@ export interface IMobileAppReadingDto {
     month: string;
     monthnamelocal: string;
   }
+
+  export interface IReadingCounts {
+
+    averageNotCalculatedCount: number
+    readingCount :number
+  }

@@ -4,7 +4,7 @@ import { environment } from "src/environments/environment";
 import { IMobileUsersDto } from "src/models/dwm/IMobileUsersDto";
 import { UserService } from "../user.service";
 import { ResponseMessage } from "src/models/ResponseMessage.Model";
-import { IMobileAppReadingDto } from "src/models/dwm/IMobileAppReadingDto";
+import { IMobileAppReadingDto, IReadingCounts } from "src/models/dwm/IMobileAppReadingDto";
 import { IQRCodeDto } from "src/models/dwm/IQRCodeDto";
 import { IDWMDashboardDto } from "src/models/dwm/IDWMDashboardDto";
 import { ICustomerCollectedDto } from "src/models/dwm/ICustomerCollectedDto";
@@ -37,15 +37,19 @@ export class DWMService {
 
     // get mobile app readings
     getMobilReaderLength() {
-        return this.http.get<number>(this.baseUrl + "/MobileAppReading/GetMobileReadingsLength")
+        return this.http.get<IReadingCounts>(this.baseUrl + "/MobileAppReading/GetMobileReadingsLength")
+    }
+
+    calculateAverage() {
+        return this.http.post<ResponseMessage>(this.baseUrl + "/MobileAppReading/CalculateAverage",{})
     }
 
     GetMobileReadings(pageNumber: number, pageSize: number) {
         return this.http.get<IMobileAppReadingDto[]>(this.baseUrl + `/MobileAppReading/GetMobileReadings?pageNumber=${pageNumber}&pageSize=${pageSize}`)
     }
 
-    InsertMobileAppReading(year: string, month: string, kebele: string) {
-        return this.http.post<ResponseMessage>(this.baseUrl + `/MobileAppReading/InsertMobileAppReading?year=${year}&month=${month}&kebele=${kebele}`, {})
+    InsertMobileAppReading(year: string, month: string, kebele: string, village:string) {
+        return this.http.post<ResponseMessage>(this.baseUrl + `/MobileAppReading/InsertMobileAppReading?year=${year}&month=${month}&kebele=${kebele}&village=${village}`, {})
     }
     ClearScript() {
         return this.http.delete<ResponseMessage>(this.baseUrl + `/MobileAppReading/ClearScript`)

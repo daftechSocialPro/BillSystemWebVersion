@@ -3,6 +3,7 @@ using IntegratedImplementation.Interfaces.DWM;
 using IntegratedInfrustructure.Model.DWM;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
 
@@ -42,10 +43,20 @@ namespace IntegratedDigitalAPI.Controllers.DWM
         [ProducesResponseType(typeof(MobileUsersDto), (int)HttpStatusCode.OK)]
         public IActionResult ExportCustomers(MobileUsers readerCridential)
         {
-            return Ok(_DWMMobileService.ImportData(readerCridential));
-
-
+           return Ok(_DWMMobileService.ImportData(readerCridential));
         }
+
+
+        //[HttpPost]
+        //[ProducesResponseType(typeof(MobileUsersDto), (int)HttpStatusCode.OK)]
+        //public async Task<IActionResult> ExportCustomers(MobileUsers readerCridential)
+        //{
+        //    var results = _DWMMobileService.ImportData(readerCridential);
+        //    var json = JsonConvert.SerializeObject(results);
+        //    var bytes = System.Text.Encoding.UTF8.GetBytes(json);
+        //    var stream = new System.IO.MemoryStream(bytes);
+        //    return File(stream, "application/json", "exported_data.json");
+        //}
 
 
         [HttpPost]

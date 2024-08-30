@@ -12,9 +12,10 @@ namespace IntegratedImplementation.Interfaces.DWM
     public interface IMobileAppReadingService
     {
 
-        Task<int> GetMobileAppReadingsLength();
+        Task<ReadingAverageCount> GetMobileAppReadingsLength();
         Task<List<MobileAppReadingDto>> GetMobileAppReading(int pageNumber, int pageSize);
-        Task<ResponseMessage> InsertMobileAppReading(string monthIndex, string year, string? Kebele);
+        Task<ResponseMessage> InsertMobileAppReading(string monthIndex, string year, string? Kebele, string Village);
+        Task<ResponseMessage> CalculateAverage();
         Task<ResponseMessage> ClearScript();
     }
 }

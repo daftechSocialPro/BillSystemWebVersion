@@ -138,6 +138,69 @@ const NavigationItems = [
       },
       {
         id: 'Authentication',
+        title: 'Bill Produce',
+        type: 'collapse',
+        icon: 'ti ti-receipt',
+        children: [
+          {
+            id: 'data',
+            title: 'Home',
+            type: 'item',       
+            url: '/bill-produce/home',           
+            breadcrumbs: false
+          },
+          {
+            id: 'data',
+            title: 'Setup',
+            type: 'item',       
+            url: '/bill-produce/setup',           
+            breadcrumbs: false
+          },
+          
+          {
+            id: 'data',
+            title: 'Mobile',
+            type: 'item',
+           
+            url: '/bill-produce/mobile',
+         
+            breadcrumbs: false
+          },
+          
+          {
+            id: 'setup',
+            title: 'Bill',
+            type: 'item',       
+            url: '/bill-produce/bill',        
+            breadcrumbs: false
+          },
+          
+          {
+            id: 'setting',
+            title: 'Delete',
+            type: 'item',         
+            url: '/bill-produce/delete',     
+            breadcrumbs: false
+          },
+          {
+            id: 'setting',
+            title: 'Report',
+            type: 'item',         
+            url: '/bill-produce/report',     
+            breadcrumbs: false
+          },
+          {
+            id: 'setting',
+            title: 'Summary',
+            type: 'item',         
+            url: '/bill-produce/summary',     
+            breadcrumbs: false
+          }
+
+        ]
+      },
+      {
+        id: 'Authentication',
         title: 'DWM',
         type: 'collapse',
         icon: 'ti ti-report',

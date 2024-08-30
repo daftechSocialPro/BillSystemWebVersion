@@ -1,0 +1,251 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\infrustructure\\model\\dwm\\billtomobile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|solutionrelative:infrustructure\\model\\dwm\\billtomobile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\infrustructure\\model\\dwm\\mobileappreading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|solutionrelative:infrustructure\\model\\dwm\\mobileappreading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integratedimplementation\\services\\authentication\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|solutionrelative:integratedimplementation\\services\\authentication\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\infrustructure\\model\\dwm\\billmobiledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|solutionrelative:infrustructure\\model\\dwm\\billmobiledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integratedimplementation\\services\\dwm\\dwmmobileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|solutionrelative:integratedimplementation\\services\\dwm\\dwmmobileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E21D3D63-47D0-469F-AA45-26BDB06CDB87}|IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integrateddigitalapi\\controllers\\dwm\\mobilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E21D3D63-47D0-469F-AA45-26BDB06CDB87}|IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj|solutionrelative:integrateddigitalapi\\controllers\\dwm\\mobilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integratedimplementation\\interfaces\\dwm\\imobileappreadingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|solutionrelative:integratedimplementation\\interfaces\\dwm\\imobileappreadingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E21D3D63-47D0-469F-AA45-26BDB06CDB87}|IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integrateddigitalapi\\controllers\\dwm\\mobileappreadingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E21D3D63-47D0-469F-AA45-26BDB06CDB87}|IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj|solutionrelative:integrateddigitalapi\\controllers\\dwm\\mobileappreadingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integratedimplementation\\integratedimplementation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|solutionrelative:integratedimplementation\\integratedimplementation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integratedimplementation\\services\\dwm\\mobileappreadingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|solutionrelative:integratedimplementation\\services\\dwm\\mobileappreadingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integratedimplementation\\dtos\\dwm\\mobileappreadingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D2876-C618-4EE0-B289-9E9542DC277C}|IntegratedImplementation\\IntegratedImplementation.csproj|solutionrelative:integratedimplementation\\dtos\\dwm\\mobileappreadingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\infrustructure\\data\\dbcustomercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|solutionrelative:infrustructure\\data\\dbcustomercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\infrustructure\\model\\css\\billgenerate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7954FE-C173-4F6B-AC19-E9E35BEF93F9}|Infrustructure\\IntegratedInfrustructure.csproj|solutionrelative:infrustructure\\model\\css\\billgenerate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E21D3D63-47D0-469F-AA45-26BDB06CDB87}|IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj|c:\\users\\danuu\\desktop\\bill system\\billsystemwebversion\\billsystem.api\\integrateddigitalapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E21D3D63-47D0-469F-AA45-26BDB06CDB87}|IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj|solutionrelative:integrateddigitalapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Services\\Authentication\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "IntegratedImplementation\\Services\\Authentication\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Services\\Authentication\\AuthenticationService.cs",
+              "RelativeToolTip": "IntegratedImplementation\\Services\\Authentication\\AuthenticationService.cs",
+              "ViewState": "AQIAACwAAAAAnZmZmdkpwEIAAABtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T07:34:13.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BillToMobile.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\DWM\\BillToMobile.cs",
+              "RelativeDocumentMoniker": "Infrustructure\\Model\\DWM\\BillToMobile.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\DWM\\BillToMobile.cs",
+              "RelativeToolTip": "Infrustructure\\Model\\DWM\\BillToMobile.cs",
+              "ViewState": "AQIAACQAAACYmZmZmTk6wCYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T11:44:07.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BillMobileData.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\DWM\\BillMobileData.cs",
+              "RelativeDocumentMoniker": "Infrustructure\\Model\\DWM\\BillMobileData.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\DWM\\BillMobileData.cs",
+              "RelativeToolTip": "Infrustructure\\Model\\DWM\\BillMobileData.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAA5wCIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T09:32:28.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DWMMobileService.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Services\\DWM\\DWMMobileService.cs",
+              "RelativeDocumentMoniker": "IntegratedImplementation\\Services\\DWM\\DWMMobileService.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Services\\DWM\\DWMMobileService.cs",
+              "RelativeToolTip": "IntegratedImplementation\\Services\\DWM\\DWMMobileService.cs",
+              "ViewState": "AQIAAGMBAAAAAAAAAIAwwGQBAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T09:23:42.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MobileController.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\Controllers\\DWM\\MobileController.cs",
+              "RelativeDocumentMoniker": "IntegratedDigitalAPI\\Controllers\\DWM\\MobileController.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\Controllers\\DWM\\MobileController.cs",
+              "RelativeToolTip": "IntegratedDigitalAPI\\Controllers\\DWM\\MobileController.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAkwEoAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T09:23:35.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MobileAppReading.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\DWM\\MobileAppReading.cs",
+              "RelativeDocumentMoniker": "Infrustructure\\Model\\DWM\\MobileAppReading.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\DWM\\MobileAppReading.cs",
+              "RelativeToolTip": "Infrustructure\\Model\\DWM\\MobileAppReading.cs",
+              "ViewState": "AQIAADoAAADgzMzMzKw5wFAAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T16:39:46.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IntegratedImplementation.csproj",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+              "RelativeDocumentMoniker": "IntegratedImplementation\\IntegratedImplementation.csproj",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj",
+              "RelativeToolTip": "IntegratedImplementation\\IntegratedImplementation.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-31T07:36:59.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MobileAppReadingController.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\Controllers\\DWM\\MobileAppReadingController.cs",
+              "RelativeDocumentMoniker": "IntegratedDigitalAPI\\Controllers\\DWM\\MobileAppReadingController.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\Controllers\\DWM\\MobileAppReadingController.cs",
+              "RelativeToolTip": "IntegratedDigitalAPI\\Controllers\\DWM\\MobileAppReadingController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADYAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T07:24:02.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IMobileAppReadingService.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Interfaces\\DWM\\IMobileAppReadingService.cs",
+              "RelativeDocumentMoniker": "IntegratedImplementation\\Interfaces\\DWM\\IMobileAppReadingService.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Interfaces\\DWM\\IMobileAppReadingService.cs",
+              "RelativeToolTip": "IntegratedImplementation\\Interfaces\\DWM\\IMobileAppReadingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBEAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T06:19:24.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MobileAppReadingService.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Services\\DWM\\MobileAppReadingService.cs",
+              "RelativeDocumentMoniker": "IntegratedImplementation\\Services\\DWM\\MobileAppReadingService.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\Services\\DWM\\MobileAppReadingService.cs",
+              "RelativeToolTip": "IntegratedImplementation\\Services\\DWM\\MobileAppReadingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T11:35:34.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MobileAppReadingDto.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\DTOS\\DWM\\MobileAppReadingDto.cs",
+              "RelativeDocumentMoniker": "IntegratedImplementation\\DTOS\\DWM\\MobileAppReadingDto.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\DTOS\\DWM\\MobileAppReadingDto.cs",
+              "RelativeToolTip": "IntegratedImplementation\\DTOS\\DWM\\MobileAppReadingDto.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAIwCAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T06:24:41.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "IntegratedDigitalAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\appsettings.json",
+              "RelativeToolTip": "IntegratedDigitalAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAACKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-28T11:43:21.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "billGenerate.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\CSS\\billGenerate.cs",
+              "RelativeDocumentMoniker": "Infrustructure\\Model\\CSS\\billGenerate.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Model\\CSS\\billGenerate.cs",
+              "RelativeToolTip": "Infrustructure\\Model\\CSS\\billGenerate.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T17:06:56.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DBCustomerContext.cs",
+              "DocumentMoniker": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Data\\DBCustomerContext.cs",
+              "RelativeDocumentMoniker": "Infrustructure\\Data\\DBCustomerContext.cs",
+              "ToolTip": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\Data\\DBCustomerContext.cs",
+              "RelativeToolTip": "Infrustructure\\Data\\DBCustomerContext.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAkwA8AAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T17:04:30.335Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

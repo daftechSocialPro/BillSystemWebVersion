@@ -1,0 +1,32 @@
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedImplementation.deps.json
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedImplementation.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedImplementation.pdb
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedInfrustructure.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedInfrustructure.pdb
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.AssemblyInfo.cs
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.sourcelink.json
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\Integrat.2E7C9EE9.Up2Date
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\refint\IntegratedImplementation.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.pdb
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\ref\IntegratedImplementation.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedImplementation.deps.json
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedImplementation.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedImplementation.pdb
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedInfrustructure.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\bin\Release\net7.0\IntegratedInfrustructure.pdb
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.csproj.AssemblyReference.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.AssemblyInfoInputs.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.AssemblyInfo.cs
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.csproj.CoreCompileInputs.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.sourcelink.json
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\Integrat.2E7C9EE9.Up2Date
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\refint\IntegratedImplementation.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\IntegratedImplementation.pdb
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\IntegratedImplementation\obj\Release\net7.0\ref\IntegratedImplementation.dll

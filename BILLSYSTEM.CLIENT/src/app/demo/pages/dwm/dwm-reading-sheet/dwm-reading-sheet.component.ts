@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DWMService } from 'src/app/services/dwm/dwm.service';
 import { ScsDataService } from 'src/app/services/system-control/scs-data.service';
-import { IMobileAppReadingDto } from 'src/models/dwm/IMobileAppReadingDto';
+import { IMobileAppReadingDto, IReadingCounts } from 'src/models/dwm/IMobileAppReadingDto';
 import { IFiscalMonthDto } from 'src/models/system-control/IFiscalMonthDto';
 
 @Component({
@@ -12,7 +12,7 @@ import { IFiscalMonthDto } from 'src/models/system-control/IFiscalMonthDto';
 })
 export class DwmReadingSheetComponent implements OnInit {
 
-readingLength : number 
+readingLength : IReadingCounts 
 search:string=""
 
 pageNumber : number = 1 
@@ -24,6 +24,7 @@ first:number=1
 year : string=null
 month : string =null
 kebele : string =''
+village : string =''
 
 months :IFiscalMonthDto[]=[]
 
@@ -82,6 +83,21 @@ mobileReadings : IMobileAppReadingDto[]=[]
     })
   }
 
+
+  calculateAverage(){
+    this.dwmService.calculateAverage().subscribe({
+      next:(res)=>{
+        if(res.success){
+          this.messageService.add({severity:'success',summary:'Successfull!!',detail:res.message})
+
+          this.getReadingLength();
+          this.getGeneratedCustomers()
+        }else{
+          this.messageService.add({severity:'error',summary:'Something Went Wrong !!! ',detail:res.message})
+        }
+      }
+    })
+  }
   getGeneratedCustomers(){
 
     this.dwmService.GetMobileReadings(this.pageNumber,this.pageSize).subscribe({
@@ -97,12 +113,14 @@ mobileReadings : IMobileAppReadingDto[]=[]
 
   generateCustomers(){
 
-    this.dwmService.InsertMobileAppReading(this.year,this.month,this.kebele).subscribe({
+    this.dwmService.InsertMobileAppReading(this.year,this.month,this.kebele, this.village).subscribe({
       next:(res)=>{
         if(res.success){
           this.messageService.add({severity:'success',summary:'Successfully Generated!!!',detail:res.message})
           this.year=''
           this.month=''
+          this.kebele =''
+          this.village=''
           this.getGeneratedCustomers()
           this.getReadingLength()
         }

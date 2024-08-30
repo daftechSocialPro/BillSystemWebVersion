@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,13 @@ namespace IntegratedImplementation.DTOS.DWM
         public string month { get; set; }
 
         public string monthnamelocal { get; set; }
+    }
+
+    public record ReadingAverageCount
+    {
+        public int ReadingCount { get; set; }
+
+        public int AverageNotCalculatedCount { get; set; }
     }
 
 

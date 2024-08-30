@@ -1,0 +1,45 @@
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.deps.json
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.runtimeconfig.json
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.AssemblyReference.cache
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfoInputs.cache
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfo.cs
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.sourcelink.json
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\refint\IntegratedInfrustructure.dll
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.genruntimeconfig.cache
+C:\Users\Hp\Desktop\Kirubel Files\DAFTech Computer\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\ref\IntegratedInfrustructure.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\refint\IntegratedInfrustructure.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.deps.json
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.runtimeconfig.json
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfo.cs
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.sourcelink.json
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.genruntimeconfig.cache
+C:\Users\hp\Desktop\software\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\ref\IntegratedInfrustructure.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.deps.json
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.runtimeconfig.json
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\bin\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.AssemblyReference.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfoInputs.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.AssemblyInfo.cs
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.csproj.CoreCompileInputs.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.sourcelink.json
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\refint\IntegratedInfrustructure.dll
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.pdb
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\IntegratedInfrustructure.genruntimeconfig.cache
+C:\Users\Danuu\Desktop\Bill System\BillSystemWebVersion\BILLSYSTEM.API\Infrustructure\obj\Debug\net7.0\ref\IntegratedInfrustructure.dll

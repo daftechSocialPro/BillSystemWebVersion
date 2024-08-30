@@ -3,7 +3,8 @@
   <!-- [ sample-page ] start -->
   <div class="col-xl-4 col-md-6">
     <div class="card bg-secondary-dark dashnum-card text-white overflow-hidden">
-      <span class="round small"></span>
+      <span class="r
+      twound small"></span>
       <span class="round big"></span>
       <div class="card-body">
         <div class="row">
@@ -138,16 +139,19 @@
             [responsive]="chartOptions4.responsive"></apx-chart>
         </div>
       </div>
-    </div>
+    </div>     
     <div class="card">
       <div class="card-body">
         <div class="row mb-3 align-items-center">
           <div class="col">
-            <small>Consumption </small>
+            <small>
+              
+            </small>
             <h3>Per Month</h3>
           </div>
 
-          <div id="growthChart">
+          <div id="grow
+          thChart" *="chdataLabels">
             <apx-chart
               [series]="chartOptions.series"
               [chart]="chartOptions.chart"

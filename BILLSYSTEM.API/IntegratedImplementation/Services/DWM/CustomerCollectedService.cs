@@ -44,40 +44,42 @@ namespace IntegratedImplementation.Services.DWM
 
             return query;
         }
-        public async Task<IQueryable<CustomerCollectedDto>> GetBillMobileDataByEntryDate(string entryDate , string userName)
+        public async Task<List<CustomerCollectedDto>> GetBillMobileDataByEntryDate(string entryDate , string userName)
         {
-            var query = from b in _dbCustomerContext.BillMobileData
-                        join u in _dbCustomerContext.MobileUsers on b.readingBY equals u.userName
-                        join c in _dbCustomerContext.Customers on b.custId equals c.custID
-                        where c.ReaderName == userName 
-                        
-                        select new CustomerCollectedDto
-                        {
-                            CustomerName = b.customerName,
-                            MeterNo = b.meterno,
-                            CustId = b.custId,
-                            ReadingPrev = (double)b.readingPrev,
-                            ReadingCurrent = (double)b.readingCurrent,
-                            ReadingAvg = (double)b.readingAvg,
-                            Consumption =(double)(b.readingCurrent - b.readingPrev),
-                            ReadingImage =b.Reading_Image,
-                            //Consumption = (double)(b.readingCurrent - b.readingPrev),
-                            ReadingReasonCode = b.readingReasonCode,
-                            FullName = u.fullName,
-                            UserName = u.userName,
-                            EntryDT = b.EntryDT,
-                            ReadingDT = DateTime.Parse(b.readingDT),
-                            Latitude = b.xCoord!=null? b.xCoord / 1000000.0:0.0,
-                            Longitude = b.yCoord!=null? b.yCoord / 1000000.0:0.0,
-                            ContractNo = c.ContractNo
-                        };
+            var query = (from b in _dbCustomerContext.BillMobileData
+                         join u in _dbCustomerContext.MobileUsers on b.readingBY equals u.userName
+                         join c in _dbCustomerContext.Customers on b.custId equals c.custID
+                         where c.ReaderName == userName
+                         select new CustomerCollectedDto
+                         {
+                             CustomerName = b.customerName,
+                             MeterNo = b.meterno,
+                             CustId = b.custId,
+                             ReadingPrev = (double)b.readingPrev,
+                             ReadingCurrent = (double)b.readingCurrent,
+                             ReadingAvg = (double)b.readingAvg,
+                             Consumption = (double)(b.readingCurrent - b.readingPrev),
+                             ReadingImage = b.Reading_Image,
+                             ReadingReasonCode = b.readingReasonCode,
+                             FullName = u.fullName,
+                             UserName = u.userName,
+                             EntryDT = b.EntryDT,
+                             ReadingDT = DateTime.Parse(b.readingDT),
+                             Latitude = b.xCoord != null ? b.xCoord / 1000000.0 : 0.0,
+                             Longitude = b.yCoord != null ? b.yCoord / 1000000.0 : 0.0,
+                             ContractNo = c.ContractNo
+                         });
 
-            if (entryDate != null && entryDate!= "undefined")
+            if (entryDate != null && entryDate != "undefined")
             {
-                query= query.Where(u=>u.EntryDT.Equals(DateTime.Parse(entryDate)));
+                
+                query = query.Where(u => u.EntryDT.Equals(DateTime.Parse(entryDate)));
             }
 
-            return query;
+            // Force immediate execution of the query
+            var result = query.ToList();
+
+            return result;
         }
     }
 }

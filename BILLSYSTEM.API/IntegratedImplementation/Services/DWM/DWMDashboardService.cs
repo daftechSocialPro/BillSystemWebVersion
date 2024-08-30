@@ -27,52 +27,64 @@ namespace IntegratedImplementation.Services.DWM
 
         public async Task<DWMDashboardDto> GetDashbordDetail(int year, int month)
         {
+
             var dashboardDetail = new DWMDashboardDto();
 
 
-            dashboardDetail.TotalCustomers = await _customerContext.Customers.CountAsync(x => x.MeterStatus == "Active");
-            dashboardDetail.GpsEncoded = await _customerContext.Customers.CountAsync(x => x.MeterStatus == "Active" && x.MeterAltitude != 0 && x.MeterLongitude != 0);
-            dashboardDetail.Pending = await _customerContext.Customers
-            .Where(c => !_customerContext.BillMobileData.Any(m => m.custId == c.custID && m.monthIndex == month && m.fiscalYear == year))
-            .Where(c => c.MeterStatus == "Active")
-            .CountAsync();
-
-            dashboardDetail.Readed = await _customerContext.BillMobileData.CountAsync(x => x.fiscalYear == year && x.monthIndex == month);
-
-            dashboardDetail.ReadingTypeRatio = await _customerContext.BillMobileData
-            .GroupBy(m => 1)
-            .Select(g => new ReadingTypeRatioDto
+            try
             {
-                Id = 1,
-                AboveAVG = g.Sum(m => (m.readingCurrent - m.readingPrev) > (m.readingAvg * 1.5) ? 1 : 0),
-                BelowAVG = g.Sum(m => (m.readingCurrent - m.readingPrev) < (m.readingAvg * 0.5) ? 1 : 0),
-                Normal = g.Sum(m => (m.readingCurrent - m.readingPrev) >= (m.readingAvg * 0.5) && (m.readingCurrent - m.readingPrev) <= (m.readingAvg * 1.5) ? 1 : 0),
-                ZeroReading = g.Sum(m => m.readingCurrent == m.readingPrev ? 1 : 0),
-                ReasonOfCode = g.Sum(m => !string.IsNullOrEmpty(m.readingReasonCode) ? 1 : 0),
-                TotalReading = g.Count()
-            })
-            .FirstOrDefaultAsync();
 
-            dashboardDetail.AnnuallyConsumption = new List<AnnuallyConsumptionDto>();
+                dashboardDetail.TotalCustomers = await _customerContext.Customers.CountAsync(x => x.MeterStatus == "Active");
+                dashboardDetail.GpsEncoded = await _customerContext.Customers.CountAsync(x => x.MeterStatus == "Active" && x.MeterAltitude != 0 && x.MeterLongitude != 0);
+                dashboardDetail.Pending = await _customerContext.Customers
+                .Where(c => !_customerContext.BillMobileData.Any(m => m.custId == c.custID && m.monthIndex == month && m.fiscalYear == year))
+                .Where(c => c.MeterStatus == "Active")
+                .CountAsync();
 
+                dashboardDetail.Readed = await _customerContext.BillMobileData.CountAsync(x => x.fiscalYear == year && x.monthIndex == month);
 
-            var billMobiled = _customerContext.BillMobileData.Where(m => m.fiscalYear == year).ToList();
-            var monthIndexes = billMobiled.Select(m => m.monthIndex).Distinct().ToList();
-            var months = _generalContext.FiscalMonths.Where(x => monthIndexes.Contains(x.monthIndex)).ToList();
-
-            dashboardDetail.AnnuallyConsumption = billMobiled
-                .GroupBy(m => new { m.monthIndex, m.fiscalYear })
-                .Select(g => new AnnuallyConsumptionDto
+                dashboardDetail.ReadingTypeRatio = await _customerContext.BillMobileData
+                .GroupBy(m => 1)
+                .Select(g => new ReadingTypeRatioDto
                 {
-                    Consumption = g.Sum(m => m.readingCurrent - m.readingPrev),
-                    Month_Name = months.FirstOrDefault(x => x.monthIndex == g.Key.monthIndex)?.monthnamelocal,
-                    FiscalYear = g.Key.fiscalYear
+                    Id = 1,
+                    AboveAVG = g.Sum(m => (m.readingCurrent - m.readingPrev) > (m.readingAvg * 1.5) ? 1 : 0),
+                    BelowAVG = g.Sum(m => (m.readingCurrent - m.readingPrev) < (m.readingAvg * 0.5) ? 1 : 0),
+                    Normal = g.Sum(m => (m.readingCurrent - m.readingPrev) >= (m.readingAvg * 0.5) && (m.readingCurrent - m.readingPrev) <= (m.readingAvg * 1.5) ? 1 : 0),
+                    ZeroReading = g.Sum(m => m.readingCurrent == m.readingPrev ? 1 : 0),
+                    ReasonOfCode = g.Sum(m => !string.IsNullOrEmpty(m.readingReasonCode) ? 1 : 0),
+                    TotalReading = g.Count()
                 })
-                .OrderBy(g => g.Month_Name)
-                .ToList();
+                .FirstOrDefaultAsync();
+
+                dashboardDetail.AnnuallyConsumption = new List<AnnuallyConsumptionDto>();
 
 
-            return dashboardDetail;
+                var billMobiled = _customerContext.BillMobileData.
+                    Select(x=> new {x.fiscalYear, x.monthIndex,x.readingCurrent,x.readingPrev}).Where(m => m.fiscalYear == year).AsNoTracking().ToList();
+                var monthIndexes = billMobiled.Select(m => m.monthIndex).Distinct().ToList();
+                var months = _generalContext.FiscalMonths.Where(x => monthIndexes.Contains(x.monthIndex)).ToList();
+
+                dashboardDetail.AnnuallyConsumption = billMobiled
+                    .GroupBy(m => new { m.monthIndex, m.fiscalYear })
+                    .Select(g => new AnnuallyConsumptionDto
+                    {
+                        Consumption = g.Sum(m => m.readingCurrent - m.readingPrev),
+                        Month_Name = months.FirstOrDefault(x => x.monthIndex == g.Key.monthIndex)?.monthnamelocal,
+                        FiscalYear = g.Key.fiscalYear
+                    })
+                    .OrderBy(g => g.Month_Name)
+                    .ToList();
+
+
+                return dashboardDetail;
+            }
+            catch (Exception ex)
+            {
+
+                return dashboardDetail;
+                
+            }
 
         }
 

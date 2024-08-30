@@ -10,6 +10,6 @@ namespace IntegratedImplementation.Interfaces.DWM
     public interface ICustomerCollectedService
     {
        Task<IQueryable<CustomerCollectedDto>> GetBillMobileData(string contractNo);
-       Task<IQueryable<CustomerCollectedDto>> GetBillMobileDataByEntryDate(string entryDate, string userName);
+       Task<List<CustomerCollectedDto>> GetBillMobileDataByEntryDate(string entryDate, string userName);
     }
 }
