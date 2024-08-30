@@ -12410,11 +12410,17 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Danuu\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\danuh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> b67e4f184c412b211b6b0486c8f64405d9bf4a37
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
       "projectName": "IntegratedDigitalAPI",
       "projectPath": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
@@ -12423,6 +12429,20 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Danuu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+      "projectName": "IntegratedDigitalAPI",
+      "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\IntegratedDigitalAPI.csproj",
+      "packagesPath": "C:\\Users\\danuh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedDigitalAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\danuh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> b67e4f184c412b211b6b0486c8f64405d9bf4a37
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12437,11 +12457,19 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
               "projectPath": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
             },
             "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
               "projectPath": "C:\\Users\\Danuu\\Desktop\\Bill System\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj"
+=======
+            "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj": {
+              "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\Infrustructure\\IntegratedInfrustructure.csproj"
+            },
+            "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj": {
+              "projectPath": "C:\\Users\\danuh\\OneDrive\\Desktop\\DAF-Computer\\BillSystemWebVersion\\BILLSYSTEM.API\\IntegratedImplementation\\IntegratedImplementation.csproj"
+>>>>>>> b67e4f184c412b211b6b0486c8f64405d9bf4a37
             }
           }
         }
@@ -12450,11 +12478,14 @@
         "warnAsError": [
           "NU1605"
         ]
+<<<<<<< HEAD
       },
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
+=======
+>>>>>>> b67e4f184c412b211b6b0486c8f64405d9bf4a37
       }
     },
     "frameworks": {
@@ -12539,6 +12570,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+<<<<<<< HEAD
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
@@ -12557,6 +12589,8 @@
             "version": "[7.0.19, 7.0.19]"
           }
         ],
+=======
+>>>>>>> b67e4f184c412b211b6b0486c8f64405d9bf4a37
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -12565,7 +12599,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+>>>>>>> b67e4f184c412b211b6b0486c8f64405d9bf4a37
       }
     }
   },
